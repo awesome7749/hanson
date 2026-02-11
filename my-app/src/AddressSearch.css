@@ -152,6 +152,77 @@
   text-align: right;
 }
 
+/* HVAC Section - Highlighted */
+.hvac-section {
+  background: linear-gradient(135deg, rgba(239, 68, 68, 0.2), rgba(249, 115, 22, 0.2));
+  border: 2px solid rgba(249, 115, 22, 0.5);
+  border-radius: 12px;
+  padding: 1.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.hvac-section h3 {
+  color: #fbbf24;
+  margin: 0 0 1rem;
+  font-size: 1.3rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.hvac-details {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.hvac-row {
+  background: rgba(255, 255, 255, 0.1) !important;
+  border-left: 3px solid #f59e0b;
+}
+
+.hvac-row .label {
+  color: #fcd34d;
+  text-transform: capitalize;
+}
+
+.hvac-row .value {
+  color: white;
+  font-weight: 600;
+}
+
+/* Debug Section */
+.debug-section {
+  margin-top: 1.5rem;
+  padding: 1rem;
+  background: rgba(0, 0, 0, 0.2);
+  border-radius: 8px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.debug-section summary {
+  color: rgba(255, 255, 255, 0.6);
+  cursor: pointer;
+  font-size: 0.9rem;
+  user-select: none;
+}
+
+.debug-section summary:hover {
+  color: rgba(255, 255, 255, 0.9);
+}
+
+.debug-data {
+  margin-top: 1rem;
+  padding: 1rem;
+  background: rgba(0, 0, 0, 0.3);
+  border-radius: 6px;
+  color: #a3e635;
+  font-size: 0.75rem;
+  overflow-x: auto;
+  max-height: 400px;
+  overflow-y: auto;
+}
+
 @media (max-width: 600px) {
   .input-group {
     flex-direction: column;

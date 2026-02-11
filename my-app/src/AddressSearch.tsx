@@ -78,6 +78,27 @@ const AddressSearch: React.FC = () => {
     }
   };
 
+  // Extract HVAC-related fields from property data
+  const getHVACInfo = () => {
+    if (!propertyData) return null;
+
+    const hvacFields = [
+      'heating', 'heatingType', 'heatingSource', 'heatingFuel',
+      'cooling', 'coolingType', 'airConditioning', 'ac',
+      'hvac', 'hvacType'
+    ];
+
+    const hvacData: { [key: string]: any } = {};
+    
+    hvacFields.forEach(field => {
+      if (propertyData[field]) {
+        hvacData[field] = propertyData[field];
+      }
+    });
+
+    return Object.keys(hvacData).length > 0 ? hvacData : null;
+  };
+
   return (
     <div className="address-search">
       <div className="search-container">
@@ -112,6 +133,22 @@ const AddressSearch: React.FC = () => {
         {propertyData && (
           <div className="property-card">
             <h2>Property Information</h2>
+            
+            {/* HVAC Information - Highlighted */}
+            {getHVACInfo() && (
+              <div className="hvac-section">
+                <h3>🔥 HVAC & Heating/Cooling Systems</h3>
+                <div className="hvac-details">
+                  {Object.entries(getHVACInfo()!).map(([key, value]) => (
+                    <div key={key} className="detail-row hvac-row">
+                      <span className="label">{key.replace(/([A-Z])/g, ' $1').trim()}:</span>
+                      <span className="value">{String(value)}</span>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            )}
+
             <div className="property-details">
               <div className="detail-row">
                 <span className="label">Address:</span>
@@ -176,6 +213,14 @@ const AddressSearch: React.FC = () => {
                 </div>
               )}
             </div>
+
+            {/* Debug: Show all available fields */}
+            <details className="debug-section">
+              <summary>View all available data fields</summary>
+              <pre className="debug-data">
+                {JSON.stringify(propertyData, null, 2)}
+              </pre>
+            </details>
           </div>
         )}
       </div>
