@@ -3,11 +3,17 @@
   "version": "0.1.0",
   "private": true,
   "description": "Hanson - React frontend + Node.js backend",
+  "main": "server.js",
   "scripts": {
-    "start": "npm start --prefix my-app",
-    "build": "npm run build --prefix my-app",
+    "start": "node server.js",
+    "dev": "npm start --prefix my-app",
+    "gcp-build": "echo 'Skipping build - using pre-built files'",
+    "build:local": "npm run build --prefix my-app",
     "test": "npm test --prefix my-app",
     "install:all": "npm install && npm install --prefix my-app",
-    "deploy": "npm run build && gcloud app deploy"
+    "deploy": "npm run build:local && gcloud app deploy"
+  },
+  "dependencies": {
+    "express": "^4.18.2"
   }
 }

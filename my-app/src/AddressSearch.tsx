@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import './AddressSearch.css';
+import StreetViewImage from './StreetViewImage';
 
 interface PropertyData {
   id: string;
@@ -8,6 +9,8 @@ interface PropertyData {
   city: string;
   state: string;
   zipCode: string;
+  latitude?: number;
+  longitude?: number;
   bedrooms?: number;
   bathrooms?: number;
   squareFootage?: number;
@@ -135,6 +138,16 @@ const AddressSearch: React.FC = () => {
         {propertyData && (
           <div className="property-card">
             <h2>Property Information</h2>
+            
+            {/* Street View Image */}
+            {propertyData.latitude && propertyData.longitude && (
+              <StreetViewImage
+                latitude={propertyData.latitude}
+                longitude={propertyData.longitude}
+                width={600}
+                height={400}
+              />
+            )}
             
             {/* HVAC Information - Highlighted */}
             {getHVACInfo() && (
