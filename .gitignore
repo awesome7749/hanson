@@ -16,6 +16,10 @@ my-app/build
 
 # misc
 .DS_Store
+
+# Environment variables with secrets
+.env
+my-app/.env
 .env.local
 .env.development.local
 .env.test.local

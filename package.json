@@ -7,6 +7,7 @@
     "start": "npm start --prefix my-app",
     "build": "npm run build --prefix my-app",
     "test": "npm test --prefix my-app",
-    "install:all": "npm install && npm install --prefix my-app"
+    "install:all": "npm install && npm install --prefix my-app",
+    "deploy": "npm run build && gcloud app deploy"
   }
 }
