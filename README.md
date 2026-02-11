@@ -1,46 +1,71 @@
-# Getting Started with Create React App
+# Hanson
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+A React + TypeScript project, ready for future deployment to Google Cloud App Engine.
 
-## Available Scripts
+## Project Structure
 
-In the project directory, you can run:
+```
+hanson/
+├── public/          # Static assets
+├── src/             # React frontend (TypeScript)
+├── server/          # Node.js backend (empty - add your API here later)
+└── package.json
+```
 
-### `npm start`
+## Getting Started
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+### Prerequisites
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+- Node.js (v14 or higher)
+- npm
 
-### `npm test`
+### Install & Run
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+```bash
+npm install
+npm start
+```
 
-### `npm run build`
+The app will open at [http://localhost:3000](http://localhost:3000).
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+### Build for Production
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+```bash
+npm run build
+```
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+### Run Tests
 
-### `npm run eject`
+```bash
+npm test
+```
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+## Setting Up GitHub
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+1. **Create a new repository on GitHub**
+   - Go to [github.com/new](https://github.com/new)
+   - Name it `hanson` (or your preferred name)
+   - Don't initialize with README (we already have one)
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+2. **Add the remote and push**
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+   ```bash
+   git remote add origin git@github.com:YOUR_USERNAME/hanson.git
+   git branch -M main
+   git push -u origin main
+   ```
 
-## Learn More
+   Or with HTTPS:
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+   ```bash
+   git remote add origin https://github.com/YOUR_USERNAME/hanson.git
+   git branch -M main
+   git push -u origin main
+   ```
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+3. **Replace `YOUR_USERNAME`** with your GitHub username.
+
+## Tech Stack
+
+- **Frontend:** React 18, TypeScript, Create React App
+- **Backend:** Node.js (server folder - to be implemented)
