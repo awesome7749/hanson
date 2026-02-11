@@ -21,6 +21,10 @@ my-app/src/
 my-app/public/
 my-app/tsconfig.json
 
+# IMPORTANT: Include the build folder (override gitignore)
+!my-app/build/
+!my-app/build/**
+
 # Server folder (not used yet)
 server/
 
