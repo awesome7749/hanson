@@ -82,6 +82,8 @@ const AddressSearch: React.FC = () => {
   const getHVACInfo = () => {
     if (!propertyData) return null;
 
+    const features = propertyData.features || {};
+    
     const hvacFields = [
       'heating', 'heatingType', 'heatingSource', 'heatingFuel',
       'cooling', 'coolingType', 'airConditioning', 'ac',
@@ -91,8 +93,8 @@ const AddressSearch: React.FC = () => {
     const hvacData: { [key: string]: any } = {};
     
     hvacFields.forEach(field => {
-      if (propertyData[field]) {
-        hvacData[field] = propertyData[field];
+      if (features[field] !== undefined && features[field] !== null) {
+        hvacData[field] = features[field];
       }
     });
 
@@ -142,7 +144,9 @@ const AddressSearch: React.FC = () => {
                   {Object.entries(getHVACInfo()!).map(([key, value]) => (
                     <div key={key} className="detail-row hvac-row">
                       <span className="label">{key.replace(/([A-Z])/g, ' $1').trim()}:</span>
-                      <span className="value">{String(value)}</span>
+                      <span className="value">
+                        {typeof value === 'boolean' ? (value ? '✓ Yes' : '✗ No') : String(value)}
+                      </span>
                     </div>
                   ))}
                 </div>
