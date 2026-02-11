@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Test Satellite View</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 800px;
+            margin: 50px auto;
+            padding: 20px;
+        }
+        h1 {
+            color: #2c3e50;
+        }
+        .test-container {
+            margin: 20px 0;
+            padding: 20px;
+            background-color: #f8f9fa;
+            border-radius: 8px;
+            border: 1px solid #dee2e6;
+        }
+        img {
+            width: 100%;
+            max-width: 600px;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+        }
+        .error {
+            color: #d32f2f;
+            padding: 10px;
+            background-color: #ffebee;
+            border-radius: 4px;
+            margin-top: 10px;
+        }
+        .success {
+            color: #388e3c;
+            padding: 10px;
+            background-color: #e8f5e9;
+            border-radius: 4px;
+            margin-top: 10px;
+        }
+        .info {
+            color: #1976d2;
+            padding: 10px;
+            background-color: #e3f2fd;
+            border-radius: 4px;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+    <h1>🛰️ Google Maps Static API Test</h1>
+    
+    <div class="info">
+        <strong>Testing with API Key:</strong> AIzaSyDjqH-6nS8sO0yHmPAwd5VCLvlbZHhiRu4
+    </div>
+
+    <div class="test-container">
+        <h2>Test 1: Google HQ (Mountain View, CA)</h2>
+        <p>Location: 37.4220, -122.0841</p>
+        <img 
+            id="test1" 
+            src="https://maps.googleapis.com/maps/api/staticmap?center=37.4220,-122.0841&zoom=18&size=600x400&maptype=satellite&key=AIzaSyDjqH-6nS8sO0yHmPAwd5VCLvlbZHhiRu4"
+            alt="Google HQ Satellite View"
+            onload="handleImageLoad('test1')"
+            onerror="handleImageError('test1')"
+        />
+        <div id="status1"></div>
+    </div>
+
+    <div class="test-container">
+        <h2>Test 2: San Francisco, CA</h2>
+        <p>Location: 37.7749, -122.4194</p>
+        <img 
+            id="test2" 
+            src="https://maps.googleapis.com/maps/api/staticmap?center=37.7749,-122.4194&zoom=18&size=600x400&maptype=satellite&key=AIzaSyDjqH-6nS8sO0yHmPAwd5VCLvlbZHhiRu4"
+            alt="San Francisco Satellite View"
+            onload="handleImageLoad('test2')"
+            onerror="handleImageError('test2')"
+        />
+        <div id="status2"></div>
+    </div>
+
+    <div class="test-container">
+        <h2>Test 3: Hybrid View (Satellite + Labels)</h2>
+        <p>Location: 37.7749, -122.4194</p>
+        <img 
+            id="test3" 
+            src="https://maps.googleapis.com/maps/api/staticmap?center=37.7749,-122.4194&zoom=18&size=600x400&maptype=hybrid&key=AIzaSyDjqH-6nS8sO0yHmPAwd5VCLvlbZHhiRu4"
+            alt="San Francisco Hybrid View"
+            onload="handleImageLoad('test3')"
+            onerror="handleImageError('test3')"
+        />
+        <div id="status3"></div>
+    </div>
+
+    <script>
+        function handleImageLoad(testId) {
+            const statusDiv = document.getElementById('status' + testId.slice(-1));
+            statusDiv.className = 'success';
+            statusDiv.innerHTML = '✅ <strong>SUCCESS:</strong> Satellite image loaded successfully!';
+        }
+
+        function handleImageError(testId) {
+            const statusDiv = document.getElementById('status' + testId.slice(-1));
+            statusDiv.className = 'error';
+            statusDiv.innerHTML = '❌ <strong>ERROR:</strong> Failed to load satellite image. The Maps Static API may not be enabled yet.';
+        }
+
+        // Check if images loaded after page load
+        window.addEventListener('load', () => {
+            setTimeout(() => {
+                ['test1', 'test2', 'test3'].forEach(id => {
+                    const img = document.getElementById(id);
+                    const statusDiv = document.getElementById('status' + id.slice(-1));
+                    
+                    if (!statusDiv.innerHTML) {
+                        statusDiv.className = 'info';
+                        statusDiv.innerHTML = '⏳ Loading...';
+                    }
+                });
+            }, 100);
+        });
+    </script>
+</body>
+</html>

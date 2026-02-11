@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import './AddressSearch.css';
-import StreetViewImage from './StreetViewImage';
+import SatelliteViewImage from './StreetViewImage';
 
 interface PropertyData {
   id: string;
@@ -139,13 +139,15 @@ const AddressSearch: React.FC = () => {
           <div className="property-card">
             <h2>Property Information</h2>
             
-            {/* Street View Image */}
+            {/* Satellite View Image */}
             {propertyData.latitude && propertyData.longitude && (
-              <StreetViewImage
+              <SatelliteViewImage
                 latitude={propertyData.latitude}
                 longitude={propertyData.longitude}
                 width={600}
                 height={400}
+                zoom={18}
+                mapType="satellite"
               />
             )}
             

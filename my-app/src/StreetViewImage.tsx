@@ -1,24 +1,22 @@
 import React from 'react';
 import './StreetViewImage.css';
 
-interface StreetViewImageProps {
+interface SatelliteViewImageProps {
   latitude: number;
   longitude: number;
   width?: number;
   height?: number;
-  heading?: number; // Direction camera is facing (0-360)
-  pitch?: number; // Camera angle up/down (-90 to 90)
-  fov?: number; // Field of view (10-120)
+  zoom?: number; // Zoom level (1-20, higher = more zoomed in)
+  mapType?: 'satellite' | 'hybrid'; // satellite or hybrid (satellite + labels)
 }
 
-const StreetViewImage: React.FC<StreetViewImageProps> = ({
+const SatelliteViewImage: React.FC<SatelliteViewImageProps> = ({
   latitude,
   longitude,
   width = 600,
   height = 400,
-  heading = 0,
-  pitch = 0,
-  fov = 90,
+  zoom = 18, // 18 is good for seeing property details
+  mapType = 'satellite',
 }) => {
   const apiKey = process.env.REACT_APP_GOOGLE_MAPS_API_KEY;
 
@@ -30,14 +28,14 @@ const StreetViewImage: React.FC<StreetViewImageProps> = ({
     );
   }
 
-  const streetViewUrl = `https://maps.googleapis.com/maps/api/streetview?size=${width}x${height}&location=${latitude},${longitude}&heading=${heading}&pitch=${pitch}&fov=${fov}&key=${apiKey}`;
+  const satelliteUrl = `https://maps.googleapis.com/maps/api/staticmap?center=${latitude},${longitude}&zoom=${zoom}&size=${width}x${height}&maptype=${mapType}&key=${apiKey}`;
 
   return (
     <div className="street-view-container">
-      <h3>📸 Street View</h3>
+      <h3>🛰️ Satellite View</h3>
       <img
-        src={streetViewUrl}
-        alt={`Street view at ${latitude}, ${longitude}`}
+        src={satelliteUrl}
+        alt={`Satellite view at ${latitude}, ${longitude}`}
         className="street-view-image"
         onError={(e) => {
           const target = e.target as HTMLImageElement;
@@ -47,10 +45,10 @@ const StreetViewImage: React.FC<StreetViewImageProps> = ({
         }}
       />
       <div className="street-view-no-image" style={{ display: 'none' }}>
-        No Street View imagery available for this location
+        Unable to load satellite imagery for this location
       </div>
     </div>
   );
 };
 
-export default StreetViewImage;
+export default SatelliteViewImage;
