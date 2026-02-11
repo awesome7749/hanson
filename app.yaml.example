@@ -1,0 +1,18 @@
+runtime: nodejs20
+
+# Use Express server to serve static files
+entrypoint: node server.js
+
+# Environment variables (add your API keys here)
+# Set these in Google Cloud Console -> App Engine -> Settings -> Environment Variables
+env_variables:
+  REACT_APP_HANSON_API_KEY: "your-hanson-api-key-here"
+  REACT_APP_SITE_PASSWORD: "your-password-here"
+  REACT_APP_GOOGLE_MAPS_API_KEY: "your-google-maps-api-key-here"
+  NODE_ENV: "production"
+
+# Automatic scaling configuration
+automatic_scaling:
+  min_instances: 0
+  max_instances: 2
+  target_cpu_utilization: 0.65
