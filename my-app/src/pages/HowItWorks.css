@@ -1,0 +1,218 @@
+/* ===== How It Works Page ===== */
+
+.hiw__section-title {
+  font-size: var(--font-size-h1);
+  font-weight: var(--font-weight-bold);
+  text-align: center;
+  margin-bottom: var(--space-sm);
+}
+
+.hiw__section-subtitle {
+  text-align: center;
+  color: var(--color-gray-700);
+  font-size: var(--font-size-body-lg);
+  margin-bottom: var(--space-3xl);
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* Principles */
+.principles__grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: var(--space-lg);
+}
+
+.principle {
+  text-align: center;
+  padding: var(--space-lg);
+  border: 1px solid var(--color-gray-300);
+  border-radius: var(--border-radius-lg);
+  transition: transform var(--transition-base), box-shadow var(--transition-base);
+}
+
+.principle:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.06);
+}
+
+.principle__title {
+  font-size: var(--font-size-body-lg);
+  font-weight: var(--font-weight-semibold);
+  margin-bottom: var(--space-xs);
+  color: var(--color-black);
+}
+
+.principle__text {
+  font-size: var(--font-size-small);
+  color: var(--color-gray-700);
+  line-height: 1.6;
+}
+
+/* Steps */
+.step__layout {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-3xl);
+  align-items: center;
+}
+
+.step__layout--reverse {
+  direction: rtl;
+}
+
+.step__layout--reverse > * {
+  direction: ltr;
+}
+
+.step__visual {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.step__illustration {
+  width: 100%;
+  max-width: 400px;
+  aspect-ratio: 1;
+  border-radius: var(--border-radius-lg);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  /* Placeholder background - replace with real images */
+  background: linear-gradient(135deg, var(--color-gray-100), var(--color-white));
+  border: 1px solid var(--color-gray-300);
+}
+
+.step__illustration--quote {
+  background: linear-gradient(135deg, #e8f0fe, #f0f4ff);
+}
+
+.step__illustration--walkthrough {
+  background: linear-gradient(135deg, #e6f7ed, #f0faf4);
+}
+
+.step__illustration--install {
+  background: linear-gradient(135deg, #fff3e0, #fef9f0);
+}
+
+.step__icon-large {
+  color: var(--color-gray-700);
+}
+
+.step__label {
+  display: inline-block;
+  font-size: var(--font-size-small);
+  font-weight: var(--font-weight-semibold);
+  color: var(--color-accent);
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  margin-bottom: var(--space-sm);
+}
+
+.step__title {
+  font-size: var(--font-size-h2);
+  font-weight: var(--font-weight-bold);
+  margin-bottom: var(--space-md);
+  color: var(--color-black);
+}
+
+.step__text {
+  font-size: var(--font-size-body-lg);
+  color: var(--color-gray-700);
+  line-height: 1.7;
+  margin-bottom: var(--space-lg);
+}
+
+.step__features {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-sm);
+}
+
+.step__features li {
+  position: relative;
+  padding-left: var(--space-lg);
+  color: var(--color-gray-700);
+  line-height: 1.5;
+}
+
+.step__features li::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 8px;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--color-accent);
+}
+
+.hiw__section-title--light {
+  color: var(--color-white);
+}
+
+.hiw__section-subtitle--light {
+  color: rgba(255, 255, 255, 0.7);
+}
+
+/* Living with Hanson */
+.living__grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--space-xl);
+  margin-top: var(--space-xl);
+}
+
+.living__feature {
+  padding: var(--space-lg);
+}
+
+.hiw__living-cta {
+  margin-top: var(--space-xl);
+}
+
+.living__feature h4 {
+  font-size: var(--font-size-body-lg);
+  color: var(--color-white);
+  margin-bottom: var(--space-xs);
+}
+
+.living__feature p {
+  font-size: var(--font-size-small);
+  color: var(--color-gray-500);
+  line-height: 1.6;
+}
+
+/* Mobile */
+@media (max-width: 768px) {
+  .principles__grid {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .step__layout,
+  .step__layout--reverse {
+    grid-template-columns: 1fr;
+    gap: var(--space-xl);
+    direction: ltr;
+  }
+
+  .step__visual {
+    order: -1;
+  }
+
+  .step__illustration {
+    max-width: 300px;
+  }
+
+  .living__grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 480px) {
+  .principles__grid {
+    grid-template-columns: 1fr;
+  }
+}

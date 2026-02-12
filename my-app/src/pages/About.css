@@ -1,0 +1,130 @@
+/* ===== About Page ===== */
+
+.about__section-title {
+  font-size: var(--font-size-h1);
+  font-weight: var(--font-weight-bold);
+  text-align: center;
+  margin-bottom: var(--space-sm);
+}
+
+.about__section-subtitle {
+  text-align: center;
+  color: var(--color-gray-700);
+  font-size: var(--font-size-body-lg);
+  margin-bottom: var(--space-3xl);
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* Mission */
+.about__mission-text {
+  font-size: var(--font-size-body-lg);
+  color: var(--color-gray-700);
+  line-height: 1.9;
+  max-width: 700px;
+  margin: 0 auto;
+}
+
+/* Why Choose Us */
+.why__grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: var(--space-lg);
+}
+
+.why__card {
+  padding: var(--space-xl);
+  background: var(--color-white);
+  border-radius: var(--border-radius-lg);
+  border: 1px solid var(--color-gray-300);
+  transition: transform var(--transition-base), box-shadow var(--transition-base);
+}
+
+.why__card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.06);
+}
+
+.why__icon {
+  color: var(--color-gray-700);
+  margin-bottom: var(--space-md);
+}
+
+.why__title {
+  font-size: var(--font-size-h3);
+  font-weight: var(--font-weight-semibold);
+  margin-bottom: var(--space-xs);
+  color: var(--color-black);
+}
+
+.why__text {
+  font-size: var(--font-size-body);
+  color: var(--color-gray-700);
+  line-height: 1.7;
+}
+
+.about__section-title--light {
+  color: var(--color-white);
+}
+
+.about__section-subtitle--light {
+  color: rgba(255, 255, 255, 0.6);
+}
+
+/* Impact Stats */
+.impact__grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--space-xl);
+  margin-top: var(--space-xl);
+}
+
+.impact__stat {
+  padding: var(--space-xl);
+}
+
+.impact__number {
+  display: block;
+  font-size: clamp(2.5rem, 5vw, 4rem);
+  font-weight: var(--font-weight-bold);
+  color: var(--color-white);
+  margin-bottom: var(--space-sm);
+}
+
+.impact__label {
+  font-size: var(--font-size-small);
+  color: var(--color-gray-500);
+  line-height: 1.5;
+  max-width: 260px;
+  margin: 0 auto;
+}
+
+/* CTA */
+.about__cta-title {
+  font-size: var(--font-size-h1);
+  font-weight: var(--font-weight-bold);
+  margin-bottom: var(--space-md);
+}
+
+.about__cta-text {
+  font-size: var(--font-size-body-lg);
+  color: var(--color-gray-700);
+  margin-bottom: var(--space-xl);
+}
+
+/* Mobile */
+@media (max-width: 768px) {
+  .why__grid {
+    grid-template-columns: 1fr;
+  }
+
+  .impact__grid {
+    grid-template-columns: 1fr;
+    gap: var(--space-lg);
+  }
+
+  .impact__stat {
+    padding: var(--space-lg);
+  }
+}
