@@ -1,0 +1,2403 @@
+{
+  "totalTests": 32,
+  "exactMatches": 1,
+  "closeMatches": 3,
+  "directionalMatches": 8,
+  "incorrectMatches": 20,
+  "accuracyRate": 12.5,
+  "comparisons": [
+    {
+      "address": "28 Madison Ave, Newton, MA, 02460",
+      "actual": {
+        "location": "28 Madison Ave, Newton, MA, 02460",
+        "numberOfODU": 1,
+        "typeOfODU": "Multi",
+        "oduSize": "42",
+        "numberOfIDU": 4,
+        "typeOfIDU": "Head",
+        "iduSize": "12,9,9,9",
+        "electricalWork": 800,
+        "hvacWork": 4000,
+        "rebate": 250
+      },
+      "predicted": {
+        "numberOfODU": 1,
+        "typeOfODU": "Multi",
+        "oduSize": "36",
+        "numberOfIDU": 4,
+        "typeOfIDU": "Head",
+        "iduSize": "12,9,9,9",
+        "electricalWorkEstimate": 1000,
+        "hvacWorkEstimate": 4500,
+        "confidence": "medium",
+        "reasoning": "For a 1,500 sq ft single-family home in MA, a practical target is ~30 BTU/sq ft for an older/typical home, yielding ~45k BTU peak, but with zoning diversity and inverter capacity a 36k multi-zone is commonly sufficient. A 4-zone layout covers 3 bedrooms (9k each) plus a main living area (12k). Ductless heads are the conservative default absent confirmed existing ductwork. Electrical assumes a moderate-complexity install without a full panel upgrade."
+      },
+      "propertyData": {
+        "id": "28-Madison-Ave,-Newton,-MA-02460",
+        "formattedAddress": "28 Madison Ave, Newton, MA 02460",
+        "addressLine1": "28 Madison Ave",
+        "city": "Newton",
+        "state": "MA",
+        "zipCode": "02460",
+        "latitude": 42.349943,
+        "longitude": -71.202703,
+        "bedrooms": 3,
+        "bathrooms": 2,
+        "squareFootage": 1500,
+        "propertyType": "Single Family",
+        "addressLine2": null,
+        "stateFips": "25",
+        "county": "Middlesex",
+        "countyFips": "017"
+      },
+      "matchType": "close",
+      "details": "ODU Count: 1 vs 1 ✓ | ODU Type: Multi vs Multi ✓ | ODU Size: 36 vs 42 ✗ | IDU Count: 4 vs 4 ✓ | IDU Type: Head vs Head ✓ | IDU Size: 12,9,9,9 vs 12,9,9,9 ✓"
+    },
+    {
+      "address": "8 Porter ln, Lexington, MA, 02420",
+      "actual": {
+        "location": "8 Porter ln, Lexington, MA, 02420",
+        "numberOfODU": 1,
+        "typeOfODU": "Duct",
+        "oduSize": "36",
+        "numberOfIDU": 1,
+        "typeOfIDU": "AHU",
+        "iduSize": "36",
+        "electricalWork": 1500,
+        "hvacWork": 3800,
+        "rebate": 500
+      },
+      "predicted": {
+        "numberOfODU": 2,
+        "typeOfODU": "Duct",
+        "oduSize": "60+60",
+        "numberOfIDU": 2,
+        "typeOfIDU": "AHU",
+        "iduSize": "60,60",
+        "electricalWorkEstimate": 1600,
+        "hvacWorkEstimate": 18000,
+        "confidence": "medium",
+        "reasoning": "Large 6,068 sq ft single-family (built 2000) in MA with existing forced-air heating and commercial-type cooling strongly suggests a ducted, whole-home approach using multiple systems. Using ~20 BTU/sq ft for a newer/insulated home gives ~121k BTU total cooling capacity; splitting into two ducted systems improves zoning (e.g., main/upper or east/west wings) and matches common practice for homes >3,500 sq ft. Two 60k ducted ODUs with two 60k AHUs provides ~120k total capacity with practical redundancy and better distribution through existing ductwork."
+      },
+      "propertyData": {
+        "id": "8-Porter-Ln,-Lexington,-MA-02420",
+        "formattedAddress": "8 Porter Ln, Lexington, MA 02420",
+        "addressLine1": "8 Porter Ln",
+        "city": "Lexington",
+        "state": "MA",
+        "zipCode": "02420",
+        "latitude": 42.458538,
+        "longitude": -71.221663,
+        "bedrooms": 6,
+        "bathrooms": 8,
+        "squareFootage": 6068,
+        "lotSize": 31742,
+        "yearBuilt": 2000,
+        "propertyType": "Single Family",
+        "lastSalePrice": 2335000,
+        "lastSaleDate": "2016-08-15T00:00:00.000Z",
+        "features": {
+          "architectureType": "Mansion",
+          "cooling": true,
+          "coolingType": "Commercial",
+          "exteriorType": "Other",
+          "fireplace": true,
+          "floorCount": 2,
+          "garage": true,
+          "garageType": "Garage",
+          "heating": true,
+          "heatingType": "Forced Air",
+          "roofType": "Asphalt",
+          "roomCount": 17,
+          "unitCount": 1
+        },
+        "addressLine2": null,
+        "stateFips": "25",
+        "county": "Middlesex",
+        "countyFips": "017",
+        "assessorID": "LEXI M:0063 L:00115E",
+        "legalDescription": "LOT:115E DIST:155 CITY/MUNI/TWP:LEXINGTON",
+        "zoning": "RO",
+        "taxAssessments": {
+          "2023": {
+            "year": 2023,
+            "value": 2957000,
+            "land": 1000000,
+            "improvements": 1957000
+          },
+          "2025": {
+            "year": 2025,
+            "value": 3587000,
+            "land": 1154000,
+            "improvements": 2433000
+          }
+        },
+        "propertyTaxes": {
+          "2023": {
+            "year": 2023,
+            "total": 38441
+          },
+          "2025": {
+            "year": 2025,
+            "total": 43869
+          }
+        },
+        "history": {
+          "2016-08-15": {
+            "event": "Sale",
+            "date": "2016-08-15T00:00:00.000Z",
+            "price": 2335000
+          }
+        },
+        "owner": {
+          "names": [
+            "Yanbin Xing",
+            "Aihui Zhu"
+          ],
+          "type": "Individual",
+          "mailingAddress": {
+            "id": "8-Porter-Ln,-Lexington,-MA-02420",
+            "formattedAddress": "8 Porter Ln, Lexington, MA 02420",
+            "addressLine1": "8 Porter Ln",
+            "addressLine2": null,
+            "city": "Lexington",
+            "state": "MA",
+            "stateFips": "25",
+            "zipCode": "02420"
+          }
+        },
+        "ownerOccupied": true
+      },
+      "matchType": "directional",
+      "details": "ODU Count: 2 vs 1 ✗ | ODU Type: Duct vs Duct ✓ | ODU Size: 60+60 vs 36 ✗ | IDU Count: 2 vs 1 ✗ | IDU Type: AHU vs AHU ✓ | IDU Size: 60,60 vs 36 ✗"
+    },
+    {
+      "address": "14 Hillside Ave, Winchester, MA, 01890",
+      "actual": {
+        "location": "14 Hillside Ave, Winchester, MA, 01890",
+        "numberOfODU": 2,
+        "typeOfODU": "Duct",
+        "oduSize": "60+36",
+        "numberOfIDU": 2,
+        "typeOfIDU": "AHU",
+        "iduSize": "60+36",
+        "electricalWork": 1600,
+        "hvacWork": 17565.06,
+        "rebate": 500
+      },
+      "predicted": {
+        "numberOfODU": 2,
+        "typeOfODU": "Multi",
+        "oduSize": "36+27",
+        "numberOfIDU": 6,
+        "typeOfIDU": "Head",
+        "iduSize": "12,12,9,9,9,9",
+        "electricalWorkEstimate": 1600,
+        "hvacWorkEstimate": 7000,
+        "confidence": "medium",
+        "reasoning": "2,605 sq ft in MA with an 1870 build typically needs ~48k-60k BTU total (older envelope, higher load). Existing heat is hydronic (hot water), so a ductless heat-pump system is a practical add-on for cooling plus supplemental/shoulder-season heating without relying on ducts. With 3 bedrooms, a 5-6 zone layout is typical (1 per bedroom plus 2-3 for common areas). Two multi-zone ODUs (36k+27k) provide ~63k nominal capacity with good zoning flexibility; six heads sized 12k for larger common areas and 9k for bedrooms/smaller spaces is a conservative, practical match."
+      },
+      "propertyData": {
+        "id": "14-Hillside-Ave,-Winchester,-MA-01890",
+        "formattedAddress": "14 Hillside Ave, Winchester, MA 01890",
+        "addressLine1": "14 Hillside Ave",
+        "city": "Winchester",
+        "state": "MA",
+        "zipCode": "01890",
+        "latitude": 42.448832,
+        "longitude": -71.131936,
+        "bedrooms": 3,
+        "bathrooms": 2.5,
+        "squareFootage": 2605,
+        "lotSize": 12057,
+        "yearBuilt": 1870,
+        "propertyType": "Single Family",
+        "features": {
+          "architectureType": "Colonial",
+          "cooling": true,
+          "coolingType": "Commercial",
+          "exteriorType": "Other",
+          "fireplace": true,
+          "floorCount": 2,
+          "garage": true,
+          "garageType": "Detached",
+          "heating": true,
+          "heatingType": "Hot Water",
+          "roofType": "Asphalt",
+          "roomCount": 8,
+          "unitCount": 1
+        },
+        "addressLine2": null,
+        "stateFips": "25",
+        "county": "Middlesex",
+        "countyFips": "017",
+        "assessorID": "WINC M:005 B:0269 L:0",
+        "legalDescription": "BLK:269 DIST:344 CITY/MUNI/TWP:WINCHESTER",
+        "zoning": "RDB",
+        "taxAssessments": {
+          "2025": {
+            "year": 2025,
+            "value": 1500400,
+            "land": 964300,
+            "improvements": 536100
+          }
+        },
+        "propertyTaxes": {
+          "2025": {
+            "year": 2025,
+            "total": 16639
+          }
+        },
+        "owner": {
+          "names": [
+            "EMMONS S ELLIS FT",
+            "Elizabeth S Ellis"
+          ],
+          "type": "Organization",
+          "mailingAddress": {
+            "id": "14-Hillside-Ave,-Winchester,-MA-01890",
+            "formattedAddress": "14 Hillside Ave, Winchester, MA 01890",
+            "addressLine1": "14 Hillside Ave",
+            "addressLine2": null,
+            "city": "Winchester",
+            "state": "MA",
+            "stateFips": "25",
+            "zipCode": "01890"
+          }
+        },
+        "ownerOccupied": true
+      },
+      "matchType": "incorrect",
+      "details": "ODU Count: 2 vs 2 ✓ | ODU Type: Multi vs Duct ✗ | ODU Size: 36+27 vs 60+36 ✗ | IDU Count: 6 vs 2 ✗ | IDU Type: Head vs AHU ✗ | IDU Size: 12,12,9,9,9,9 vs 60+36 ✗"
+    },
+    {
+      "address": "284 Duane Ave Unit# 1, Dartmouth, MA, 02747",
+      "actual": {
+        "location": "284 Duane Ave Unit# 1, Dartmouth, MA, 02747",
+        "numberOfODU": 2,
+        "typeOfODU": "Multi",
+        "oduSize": "27+18",
+        "numberOfIDU": 5,
+        "typeOfIDU": "Head",
+        "iduSize": "12,9,9,9,9",
+        "electricalWork": 0,
+        "hvacWork": 5000,
+        "rebate": 500
+      },
+      "predicted": {
+        "numberOfODU": 0,
+        "typeOfODU": "ERROR",
+        "oduSize": "0",
+        "numberOfIDU": 0,
+        "typeOfIDU": "ERROR",
+        "iduSize": "0",
+        "confidence": "low",
+        "reasoning": "Error: Request failed with status code 500"
+      },
+      "matchType": "incorrect",
+      "details": "Error: Request failed with status code 500"
+    },
+    {
+      "address": "284 Duane Ave Unit# 2, Dartmouth, MA, 02747",
+      "actual": {
+        "location": "284 Duane Ave Unit# 2, Dartmouth, MA, 02747",
+        "numberOfODU": 2,
+        "typeOfODU": "Multi",
+        "oduSize": "27+18",
+        "numberOfIDU": 5,
+        "typeOfIDU": "Head",
+        "iduSize": "12,9,9,9,9",
+        "electricalWork": 0,
+        "hvacWork": 5000,
+        "rebate": 500
+      },
+      "predicted": {
+        "numberOfODU": 0,
+        "typeOfODU": "ERROR",
+        "oduSize": "0",
+        "numberOfIDU": 0,
+        "typeOfIDU": "ERROR",
+        "iduSize": "0",
+        "confidence": "low",
+        "reasoning": "Error: Request failed with status code 500"
+      },
+      "matchType": "incorrect",
+      "details": "Error: Request failed with status code 500"
+    },
+    {
+      "address": "288 Duane Ave Unit# 1, Dartmouth, MA, 02747",
+      "actual": {
+        "location": "288 Duane Ave Unit# 1, Dartmouth, MA, 02747",
+        "numberOfODU": 2,
+        "typeOfODU": "Multi",
+        "oduSize": "27+18",
+        "numberOfIDU": 5,
+        "typeOfIDU": "Head",
+        "iduSize": "12,9,9,9,9",
+        "electricalWork": 0,
+        "hvacWork": 5000,
+        "rebate": 500
+      },
+      "predicted": {
+        "numberOfODU": 0,
+        "typeOfODU": "ERROR",
+        "oduSize": "0",
+        "numberOfIDU": 0,
+        "typeOfIDU": "ERROR",
+        "iduSize": "0",
+        "confidence": "low",
+        "reasoning": "Error: Request failed with status code 500"
+      },
+      "matchType": "incorrect",
+      "details": "Error: Request failed with status code 500"
+    },
+    {
+      "address": "288 Duane Ave Unit# 2, Dartmouth, MA, 02747",
+      "actual": {
+        "location": "288 Duane Ave Unit# 2, Dartmouth, MA, 02747",
+        "numberOfODU": 2,
+        "typeOfODU": "Multi",
+        "oduSize": "27+18",
+        "numberOfIDU": 5,
+        "typeOfIDU": "Head",
+        "iduSize": "12,9,9,9,9",
+        "electricalWork": 0,
+        "hvacWork": 5000,
+        "rebate": 500
+      },
+      "predicted": {
+        "numberOfODU": 0,
+        "typeOfODU": "ERROR",
+        "oduSize": "0",
+        "numberOfIDU": 0,
+        "typeOfIDU": "ERROR",
+        "iduSize": "0",
+        "confidence": "low",
+        "reasoning": "Error: Request failed with status code 500"
+      },
+      "matchType": "incorrect",
+      "details": "Error: Request failed with status code 500"
+    },
+    {
+      "address": "26 Lawn St, Boston MA, 02130",
+      "actual": {
+        "location": "26 Lawn St, Boston MA, 02130",
+        "numberOfODU": 1,
+        "typeOfODU": "Duct",
+        "oduSize": "48",
+        "numberOfIDU": 1,
+        "typeOfIDU": "AHU",
+        "iduSize": "48",
+        "electricalWork": 1300,
+        "hvacWork": 3800,
+        "rebate": 500
+      },
+      "predicted": {
+        "numberOfODU": 0,
+        "typeOfODU": "ERROR",
+        "oduSize": "0",
+        "numberOfIDU": 0,
+        "typeOfIDU": "ERROR",
+        "iduSize": "0",
+        "confidence": "low",
+        "reasoning": "Error: Request failed with status code 500"
+      },
+      "matchType": "incorrect",
+      "details": "Error: Request failed with status code 500"
+    },
+    {
+      "address": "14 Newman St, Unit#2, Revere, MA, 02151",
+      "actual": {
+        "location": "14 Newman St, Unit#2, Revere, MA, 02151",
+        "numberOfODU": 2,
+        "typeOfODU": "Multi+Single",
+        "oduSize": "27+12",
+        "numberOfIDU": 4,
+        "typeOfIDU": "Head",
+        "iduSize": "12,9,9,9",
+        "electricalWork": 1800,
+        "hvacWork": 4000,
+        "rebate": 500
+      },
+      "predicted": {
+        "numberOfODU": 1,
+        "typeOfODU": "Multi",
+        "oduSize": "36",
+        "numberOfIDU": 4,
+        "typeOfIDU": "Head",
+        "iduSize": "12,9,9,9",
+        "electricalWorkEstimate": 1200,
+        "hvacWorkEstimate": 4500,
+        "confidence": "medium",
+        "reasoning": "For a 1,200 sq ft Massachusetts apartment, a practical total capacity target is ~30 BTU/sq ft (~36k BTU) to cover cold winters and humid summers, especially if insulation/air-sealing is unknown. With 3 bedrooms, a 4-zone layout is typical (one head per bedroom plus one for the main living/dining area). A single 36k multi-zone ODU paired with 12k for the main area and 9k for each bedroom provides balanced zoning and avoids undersizing."
+      },
+      "propertyData": {
+        "id": "14-Newman-St,-Unit-2,-Revere,-MA-02151",
+        "formattedAddress": "14 Newman St, Unit 2, Revere, MA 02151",
+        "addressLine1": "14 Newman St",
+        "city": "Revere",
+        "state": "MA",
+        "zipCode": "02151",
+        "latitude": 42.420544,
+        "longitude": -71.014053,
+        "bedrooms": 3,
+        "bathrooms": 1,
+        "squareFootage": 1200,
+        "lotSize": 4000,
+        "propertyType": "Apartment",
+        "addressLine2": "Unit 2",
+        "stateFips": "25",
+        "county": "Suffolk",
+        "countyFips": "025"
+      },
+      "matchType": "incorrect",
+      "details": "ODU Count: 1 vs 2 ✗ | ODU Type: Multi vs Multi+Single ✗ | ODU Size: 36 vs 27+12 ✗ | IDU Count: 4 vs 4 ✓ | IDU Type: Head vs Head ✓ | IDU Size: 12,9,9,9 vs 12,9,9,9 ✓"
+    },
+    {
+      "address": "875 Liberty St, Rockland, MA, 02370",
+      "actual": {
+        "location": "875 Liberty St, Rockland, MA, 02370",
+        "numberOfODU": 2,
+        "typeOfODU": "Multi",
+        "oduSize": "36+27",
+        "numberOfIDU": 7,
+        "typeOfIDU": "Head",
+        "iduSize": "12,12,9,9,9,9,9",
+        "electricalWork": 0,
+        "hvacWork": 7000,
+        "rebate": 500
+      },
+      "predicted": {
+        "numberOfODU": 1,
+        "typeOfODU": "Multi",
+        "oduSize": "36",
+        "numberOfIDU": 4,
+        "typeOfIDU": "Head",
+        "iduSize": "12,9,9,9",
+        "electricalWorkEstimate": 1200,
+        "hvacWorkEstimate": 4500,
+        "confidence": "medium",
+        "reasoning": "1,536 sq ft in MA (1956 build) typically pencils to ~36k BTU total for cooling/heat-pump capacity using ~23–28 BTU/sf, with some conservatism for older insulation. Existing hot-water heat suggests no central ductwork, so a ductless multi-zone heat pump is practical for adding AC and supplemental/primary heat. Zoning: 3 bedrooms + main living area = 4 zones; sizes allocate ~12k to the main common area and 9k to each bedroom. Electrical assumes a moderate-complexity install (new circuit/disconnect, possible panel space adjustments)."
+      },
+      "propertyData": {
+        "id": "875-Liberty-St,-Rockland,-MA-02370",
+        "formattedAddress": "875 Liberty St, Rockland, MA 02370",
+        "addressLine1": "875 Liberty St",
+        "city": "Rockland",
+        "state": "MA",
+        "zipCode": "02370",
+        "latitude": 42.143943,
+        "longitude": -70.919323,
+        "bedrooms": 3,
+        "bathrooms": 1.5,
+        "squareFootage": 1536,
+        "lotSize": 14300,
+        "yearBuilt": 1956,
+        "propertyType": "Single Family",
+        "features": {
+          "architectureType": "Colonial",
+          "exteriorType": "Other",
+          "fireplace": true,
+          "floorCount": 2,
+          "heating": true,
+          "heatingType": "Hot Water",
+          "roofType": "Asphalt",
+          "roomCount": 8
+        },
+        "addressLine2": null,
+        "stateFips": "25",
+        "county": "Plymouth",
+        "countyFips": "023",
+        "assessorID": "ROCK M:24 B:0 L:42",
+        "legalDescription": "LOT:42 DIST:251 CITY/MUNI/TWP:ROCKLAND",
+        "zoning": "RESIDE",
+        "taxAssessments": {
+          "2025": {
+            "year": 2025,
+            "value": 436500,
+            "land": 217300,
+            "improvements": 219200
+          }
+        },
+        "propertyTaxes": {
+          "2025": {
+            "year": 2025,
+            "total": 5967
+          }
+        },
+        "owner": {
+          "names": [
+            "Richard E Nicholson",
+            "Helga H Nicholson"
+          ],
+          "type": "Individual",
+          "mailingAddress": {
+            "id": "875-Liberty-St,-Rockland,-MA-02370",
+            "formattedAddress": "875 Liberty St, Rockland, MA 02370",
+            "addressLine1": "875 Liberty St",
+            "addressLine2": null,
+            "city": "Rockland",
+            "state": "MA",
+            "stateFips": "25",
+            "zipCode": "02370"
+          }
+        },
+        "ownerOccupied": true
+      },
+      "matchType": "directional",
+      "details": "ODU Count: 1 vs 2 ✗ | ODU Type: Multi vs Multi ✓ | ODU Size: 36 vs 36+27 ✗ | IDU Count: 4 vs 7 ✗ | IDU Type: Head vs Head ✓ | IDU Size: 12,9,9,9 vs 12,12,9,9,9,9,9 ✗"
+    },
+    {
+      "address": "15 Oakwood Pl, Lynn, MA, 01902",
+      "actual": {
+        "location": "15 Oakwood Pl, Lynn, MA, 01902",
+        "numberOfODU": 1,
+        "typeOfODU": "Multi",
+        "oduSize": "42",
+        "numberOfIDU": 4,
+        "typeOfIDU": "Head",
+        "iduSize": "12,9,9,9",
+        "electricalWork": 800,
+        "hvacWork": 4000,
+        "rebate": 500
+      },
+      "predicted": {
+        "numberOfODU": 1,
+        "typeOfODU": "Multi",
+        "oduSize": "24",
+        "numberOfIDU": 4,
+        "typeOfIDU": "Head",
+        "iduSize": "9,6,6,9",
+        "electricalWorkEstimate": 1400,
+        "hvacWorkEstimate": 4500,
+        "confidence": "medium",
+        "reasoning": "931 sq ft in MA with a 1904 build suggests higher load (older envelope), targeting ~24k BTU total for heating/cooling. With 3 bedrooms, a practical zoning plan is 1 head per bedroom plus 1 for the main living area (4 zones). Existing steam heat implies no ductwork, so ductless heads are the most practical. A 24k multi-zone ODU supports four small-to-medium heads (e.g., 9k living + 9k primary + two smaller bedroom heads). Electrical estimate assumes a new dedicated circuit and possible minor panel work typical for older homes."
+      },
+      "propertyData": {
+        "id": "15-Oakwood-Pl,-Lynn,-MA-01902",
+        "formattedAddress": "15 Oakwood Pl, Lynn, MA 01902",
+        "addressLine1": "15 Oakwood Pl",
+        "city": "Lynn",
+        "state": "MA",
+        "zipCode": "01902",
+        "latitude": 42.477007,
+        "longitude": -70.939313,
+        "bedrooms": 3,
+        "bathrooms": 1,
+        "squareFootage": 931,
+        "lotSize": 1577,
+        "yearBuilt": 1904,
+        "propertyType": "Single Family",
+        "lastSalePrice": 72000,
+        "lastSaleDate": "1997-07-30T00:00:00.000Z",
+        "features": {
+          "exteriorType": "Aluminum / Vinyl Siding",
+          "floorCount": 2,
+          "heating": true,
+          "heatingType": "Steam",
+          "roofType": "Asphalt",
+          "roomCount": 5,
+          "unitCount": 1
+        },
+        "addressLine2": null,
+        "stateFips": "25",
+        "county": "Essex",
+        "countyFips": "009",
+        "assessorID": "LYNN M:096 B:496 L:039",
+        "legalDescription": "LOT:39 BLK:496 DIST:163 CITY/MUNI/TWP:LYNN",
+        "zoning": "R1",
+        "taxAssessments": {
+          "2025": {
+            "year": 2025,
+            "value": 354200,
+            "land": 146900,
+            "improvements": 207300
+          }
+        },
+        "propertyTaxes": {
+          "2025": {
+            "year": 2025,
+            "total": 3670
+          }
+        },
+        "history": {
+          "1997-07-30": {
+            "event": "Sale",
+            "date": "1997-07-30T00:00:00.000Z",
+            "price": 72000
+          }
+        },
+        "owner": {
+          "names": [
+            "Kenton V Benloss"
+          ],
+          "type": "Individual",
+          "mailingAddress": {
+            "id": "15-Oakwood-Pl,-Lynn,-MA-01902",
+            "formattedAddress": "15 Oakwood Pl, Lynn, MA 01902",
+            "addressLine1": "15 Oakwood Pl",
+            "addressLine2": null,
+            "city": "Lynn",
+            "state": "MA",
+            "stateFips": "25",
+            "zipCode": "01902"
+          }
+        },
+        "ownerOccupied": true
+      },
+      "matchType": "close",
+      "details": "ODU Count: 1 vs 1 ✓ | ODU Type: Multi vs Multi ✓ | ODU Size: 24 vs 42 ✗ | IDU Count: 4 vs 4 ✓ | IDU Type: Head vs Head ✓ | IDU Size: 9,6,6,9 vs 12,9,9,9 ✗"
+    },
+    {
+      "address": "11 Parker St, Westwood, MA 02090",
+      "actual": {
+        "location": "11 Parker St, Westwood, MA 02090",
+        "numberOfODU": 2,
+        "typeOfODU": "Multi",
+        "oduSize": "36+27",
+        "numberOfIDU": 7,
+        "typeOfIDU": "Head",
+        "iduSize": "18,9,9,9,9,9,9",
+        "electricalWork": 0,
+        "hvacWork": 7000,
+        "rebate": 0
+      },
+      "predicted": {
+        "numberOfODU": 1,
+        "typeOfODU": "Multi",
+        "oduSize": "42",
+        "numberOfIDU": 5,
+        "typeOfIDU": "Head",
+        "iduSize": "18,9,9,9,9",
+        "electricalWorkEstimate": 1400,
+        "hvacWorkEstimate": 5000,
+        "confidence": "medium",
+        "reasoning": "1,736 sq ft in MA with a 1929 build typically needs ~30 BTU/sf for cooling sizing (~52k), but practical heat-pump installs often land at 36–42k with zoning and good modulation. Existing hot-water heat suggests no central ductwork, so a ductless multi-zone is the most practical. 3 bedrooms implies 4–5 zones (living area + bedrooms + optional office/landing); sizing uses an 18k head for main living space and 9k heads for bedrooms/secondary areas. A 42k multi ODU provides adequate capacity with some conservatism for an older home while keeping to common equipment pairings."
+      },
+      "propertyData": {
+        "id": "11-Parker-St,-Westwood,-MA-02090",
+        "formattedAddress": "11 Parker St, Westwood, MA 02090",
+        "addressLine1": "11 Parker St",
+        "city": "Westwood",
+        "state": "MA",
+        "zipCode": "02090",
+        "latitude": 42.221399,
+        "longitude": -71.18871,
+        "bedrooms": 3,
+        "bathrooms": 1.5,
+        "squareFootage": 1736,
+        "lotSize": 5965,
+        "yearBuilt": 1929,
+        "propertyType": "Single Family",
+        "lastSalePrice": 726000,
+        "lastSaleDate": "2020-12-17T00:00:00.000Z",
+        "features": {
+          "architectureType": "Conventional",
+          "exteriorType": "Aluminum / Vinyl Siding",
+          "fireplace": true,
+          "floorCount": 2,
+          "heating": true,
+          "heatingType": "Hot Water",
+          "roofType": "Asphalt",
+          "roomCount": 8,
+          "unitCount": 1
+        },
+        "addressLine2": null,
+        "stateFips": "25",
+        "county": "Norfolk",
+        "countyFips": "021",
+        "assessorID": "WWOO M:016 B:000 L:350",
+        "legalDescription": "LOT:350 DIST:335 CITY/MUNI/TWP:WESTWOOD",
+        "taxAssessments": {
+          "2023": {
+            "year": 2023,
+            "value": 703500,
+            "land": 324000,
+            "improvements": 379500
+          },
+          "2024": {
+            "year": 2024,
+            "value": 816600,
+            "land": 388700,
+            "improvements": 427900
+          },
+          "2025": {
+            "year": 2025,
+            "value": 816600,
+            "land": 388700,
+            "improvements": 427900
+          }
+        },
+        "propertyTaxes": {
+          "2023": {
+            "year": 2023,
+            "total": 10060
+          },
+          "2024": {
+            "year": 2024,
+            "total": 10461
+          },
+          "2025": {
+            "year": 2025,
+            "total": 10461
+          }
+        },
+        "history": {
+          "2020-12-17": {
+            "event": "Sale",
+            "date": "2020-12-17T00:00:00.000Z",
+            "price": 726000
+          }
+        },
+        "owner": {
+          "names": [
+            "Mengyu Huang"
+          ],
+          "type": "Individual",
+          "mailingAddress": {
+            "id": "11-Parker-St,-Westwood,-MA-02090",
+            "formattedAddress": "11 Parker St, Westwood, MA 02090",
+            "addressLine1": "11 Parker St",
+            "addressLine2": null,
+            "city": "Westwood",
+            "state": "MA",
+            "stateFips": "25",
+            "zipCode": "02090"
+          }
+        },
+        "ownerOccupied": true
+      },
+      "matchType": "directional",
+      "details": "ODU Count: 1 vs 2 ✗ | ODU Type: Multi vs Multi ✓ | ODU Size: 42 vs 36+27 ✗ | IDU Count: 5 vs 7 ✗ | IDU Type: Head vs Head ✓ | IDU Size: 18,9,9,9,9 vs 18,9,9,9,9,9,9 ✗"
+    },
+    {
+      "address": "19 Knox Ave, Framingham, MA, 01702",
+      "actual": {
+        "location": "19 Knox Ave, Framingham, MA, 01702",
+        "numberOfODU": 1,
+        "typeOfODU": "Multi",
+        "oduSize": "42",
+        "numberOfIDU": 5,
+        "typeOfIDU": "Head",
+        "iduSize": "12,9,9,9,9",
+        "electricalWork": 1050,
+        "hvacWork": 5000,
+        "rebate": 250
+      },
+      "predicted": {
+        "numberOfODU": 1,
+        "typeOfODU": "Duct",
+        "oduSize": "36",
+        "numberOfIDU": 1,
+        "typeOfIDU": "AHU",
+        "iduSize": "36",
+        "electricalWorkEstimate": 1500,
+        "hvacWorkEstimate": 3800,
+        "confidence": "medium",
+        "reasoning": "1,296 sq ft in MA with a 1924 build suggests ~30 BTU/sq ft cooling load (~39k BTU) but existing forced-air heat indicates ductwork is likely present, making a ducted heat-pump/central AHU the most practical. A 36k ducted system is a conservative, commonly available size that should cover whole-home cooling and provide strong heating capacity; zoning via ductwork (if any) can be handled with dampers/thermostat strategy rather than multiple heads. Electrical estimate assumes a new 240V circuit and possible minor panel/breaker work typical for adding a heat pump condenser."
+      },
+      "propertyData": {
+        "id": "19-Knox-Ave,-Framingham,-MA-01702",
+        "formattedAddress": "19 Knox Ave, Framingham, MA 01702",
+        "addressLine1": "19 Knox Ave",
+        "city": "Framingham",
+        "state": "MA",
+        "zipCode": "01702",
+        "latitude": 42.273331,
+        "longitude": -71.436108,
+        "bedrooms": 3,
+        "bathrooms": 2,
+        "squareFootage": 1296,
+        "lotSize": 5489,
+        "yearBuilt": 1924,
+        "propertyType": "Single Family",
+        "lastSalePrice": 359000,
+        "lastSaleDate": "2021-02-17T00:00:00.000Z",
+        "features": {
+          "architectureType": "Conventional",
+          "exteriorType": "Aluminum / Vinyl Siding",
+          "floorCount": 2,
+          "garage": true,
+          "garageType": "Carport",
+          "heating": true,
+          "heatingType": "Forced Air",
+          "roofType": "Asphalt",
+          "roomCount": 7,
+          "unitCount": 1
+        },
+        "addressLine2": null,
+        "stateFips": "25",
+        "county": "Middlesex",
+        "countyFips": "017",
+        "assessorID": "FRAM M:133 B:34 L:4653 U:000",
+        "legalDescription": "LOT:4653 BLK:34 DIST:100 CITY/MUNI/TWP:FRAMINGHAM",
+        "zoning": "G",
+        "taxAssessments": {
+          "2024": {
+            "year": 2024,
+            "value": 396000,
+            "land": 177900,
+            "improvements": 218100
+          }
+        },
+        "propertyTaxes": {
+          "2024": {
+            "year": 2024,
+            "total": 4934
+          }
+        },
+        "history": {
+          "2021-02-17": {
+            "event": "Sale",
+            "date": "2021-02-17T00:00:00.000Z",
+            "price": 359000
+          }
+        },
+        "owner": {
+          "names": [
+            "Luis P Nieves"
+          ],
+          "type": "Individual",
+          "mailingAddress": {
+            "id": "19-Knox-Ave,-Framingham,-MA-01702",
+            "formattedAddress": "19 Knox Ave, Framingham, MA 01702",
+            "addressLine1": "19 Knox Ave",
+            "addressLine2": null,
+            "city": "Framingham",
+            "state": "MA",
+            "stateFips": "25",
+            "zipCode": "01702"
+          }
+        },
+        "ownerOccupied": true
+      },
+      "matchType": "incorrect",
+      "details": "ODU Count: 1 vs 1 ✓ | ODU Type: Duct vs Multi ✗ | ODU Size: 36 vs 42 ✗ | IDU Count: 1 vs 5 ✗ | IDU Type: AHU vs Head ✗ | IDU Size: 36 vs 12,9,9,9,9 ✗"
+    },
+    {
+      "address": "101 Union St, Gardner, MA 01440",
+      "actual": {
+        "location": "101 Union St, Gardner, MA 01440",
+        "numberOfODU": 2,
+        "typeOfODU": "Multi",
+        "oduSize": "27+18",
+        "numberOfIDU": 5,
+        "typeOfIDU": "Head",
+        "iduSize": "12,12,9,9,9",
+        "electricalWork": 1600,
+        "hvacWork": 5000,
+        "rebate": 250
+      },
+      "predicted": {
+        "numberOfODU": 2,
+        "typeOfODU": "Multi",
+        "oduSize": "36+24",
+        "numberOfIDU": 5,
+        "typeOfIDU": "Head",
+        "iduSize": "12,9,9,9,18",
+        "electricalWorkEstimate": 1500,
+        "hvacWorkEstimate": 6500,
+        "confidence": "medium",
+        "reasoning": "2,264 sq ft single-family (1900 build) in MA typically needs ~50k-65k BTU total due to older envelope and cold winters. A 3-bedroom layout generally zones well with 5 heads (3 bedrooms + 1-2 common areas). Existing hot-water heat suggests no central ductwork, so ductless heads are the practical choice. Two multi-zone ODUs (36k + 24k) provide ~60k total capacity with better zoning and redundancy than one very large multi, pairing an 18k for main living area, a 12k for a larger common space/primary, and three 9k for remaining bedrooms/office areas."
+      },
+      "propertyData": {
+        "id": "101-Union-St,-Gardner,-MA-01440",
+        "formattedAddress": "101 Union St, Gardner, MA 01440",
+        "addressLine1": "101 Union St",
+        "city": "Gardner",
+        "state": "MA",
+        "zipCode": "01440",
+        "latitude": 42.555967,
+        "longitude": -71.983114,
+        "bedrooms": 3,
+        "bathrooms": 1.5,
+        "squareFootage": 2264,
+        "lotSize": 16463,
+        "yearBuilt": 1900,
+        "propertyType": "Single Family",
+        "lastSalePrice": 470000,
+        "lastSaleDate": "2024-04-04T00:00:00.000Z",
+        "features": {
+          "architectureType": "Conventional",
+          "exteriorType": "Aluminum / Vinyl Siding",
+          "floorCount": 2,
+          "heating": true,
+          "heatingType": "Hot Water",
+          "roofType": "Asphalt",
+          "roomCount": 7,
+          "unitCount": 1
+        },
+        "addressLine2": null,
+        "stateFips": "25",
+        "county": "Worcester",
+        "countyFips": "027",
+        "assessorID": "GARD M:R12 B:3 L:2",
+        "legalDescription": "LOT:2 BLK:3 DIST:103 CITY/MUNI/TWP:GARDNER",
+        "taxAssessments": {
+          "2023": {
+            "year": 2023,
+            "value": 309200,
+            "land": 58500,
+            "improvements": 250700
+          },
+          "2025": {
+            "year": 2025,
+            "value": 349600,
+            "land": 65200,
+            "improvements": 284400
+          }
+        },
+        "propertyTaxes": {
+          "2023": {
+            "year": 2023,
+            "total": 4987
+          },
+          "2025": {
+            "year": 2025,
+            "total": 5020
+          }
+        },
+        "history": {
+          "2024-04-04": {
+            "event": "Sale",
+            "date": "2024-04-04T00:00:00.000Z",
+            "price": 470000
+          }
+        },
+        "owner": {
+          "names": [
+            "Graciano Flauzino"
+          ],
+          "type": "Individual",
+          "mailingAddress": {
+            "id": "101-Union-St,-Gardner,-MA-01440",
+            "formattedAddress": "101 Union St, Gardner, MA 01440",
+            "addressLine1": "101 Union St",
+            "addressLine2": null,
+            "city": "Gardner",
+            "state": "MA",
+            "stateFips": "25",
+            "zipCode": "01440"
+          }
+        },
+        "ownerOccupied": true
+      },
+      "matchType": "close",
+      "details": "ODU Count: 2 vs 2 ✓ | ODU Type: Multi vs Multi ✓ | ODU Size: 36+24 vs 27+18 ✗ | IDU Count: 5 vs 5 ✓ | IDU Type: Head vs Head ✓ | IDU Size: 12,9,9,9,18 vs 12,12,9,9,9 ✗"
+    },
+    {
+      "address": "124 Westford St, Lowell, MA, 01851",
+      "actual": {
+        "location": "124 Westford St, Lowell, MA, 01851",
+        "numberOfODU": 2,
+        "typeOfODU": "Multi+Single",
+        "oduSize": "36+9",
+        "numberOfIDU": 4,
+        "typeOfIDU": "Head",
+        "iduSize": "12,12,9,9",
+        "electricalWork": 0,
+        "hvacWork": 4000,
+        "rebate": 0
+      },
+      "predicted": {
+        "numberOfODU": 2,
+        "typeOfODU": "Multi",
+        "oduSize": "42+36",
+        "numberOfIDU": 7,
+        "typeOfIDU": "Head",
+        "iduSize": "12,12,9,9,9,9,9",
+        "electricalWorkEstimate": 1600,
+        "hvacWorkEstimate": 7000,
+        "confidence": "medium",
+        "reasoning": "3,285 sq ft in MA (1930 construction) suggests ~85k-100k BTU equivalent capacity for cooling/heat-pump coverage using ~26-30 BTU/sf; a practical approach is two multi-zone ODUs totaling 78k to avoid an overly complex single system and to improve redundancy. As a multi-family with 5 bedrooms, zoning typically lands around 6-7 zones (bedrooms plus common areas). Existing hot-water heat likely remains as backup/primary in deep winter, while ductless heads provide efficient heating/cooling by zone; 42k+36k supports 7 heads with common 12k for larger common areas and 9k for bedrooms."
+      },
+      "propertyData": {
+        "id": "124-Westford-St,-Lowell,-MA-01851",
+        "formattedAddress": "124 Westford St, Lowell, MA 01851",
+        "addressLine1": "124 Westford St",
+        "city": "Lowell",
+        "state": "MA",
+        "zipCode": "01851",
+        "latitude": 42.636554,
+        "longitude": -71.320302,
+        "bedrooms": 5,
+        "bathrooms": 2,
+        "squareFootage": 3285,
+        "lotSize": 6534,
+        "yearBuilt": 1930,
+        "propertyType": "Multi-Family",
+        "lastSalePrice": 299000,
+        "lastSaleDate": "2003-08-18T00:00:00.000Z",
+        "features": {
+          "architectureType": "Two Family",
+          "exteriorType": "Aluminum / Vinyl Siding",
+          "floorCount": 3,
+          "heating": true,
+          "heatingType": "Hot Water",
+          "roofType": "Asphalt",
+          "roomCount": 10,
+          "unitCount": 2
+        },
+        "addressLine2": null,
+        "stateFips": "25",
+        "county": "Middlesex",
+        "countyFips": "017",
+        "assessorID": "LOWE M:141 B:6285 L:124",
+        "legalDescription": "LOT:124 BLK:6285 DIST:160 CITY/MUNI/TWP:LOWELL",
+        "zoning": "TMF",
+        "taxAssessments": {
+          "2022": {
+            "year": 2022,
+            "value": 444300,
+            "land": 82800,
+            "improvements": 361500
+          },
+          "2024": {
+            "year": 2024,
+            "value": 565400,
+            "land": 120600,
+            "improvements": 444800
+          }
+        },
+        "propertyTaxes": {
+          "2022": {
+            "year": 2022,
+            "total": 5638
+          },
+          "2024": {
+            "year": 2024,
+            "total": 6734
+          }
+        },
+        "history": {
+          "2003-08-18": {
+            "event": "Sale",
+            "date": "2003-08-18T00:00:00.000Z",
+            "price": 299000
+          }
+        },
+        "owner": {
+          "names": [
+            "NILZA A DECARVALHO"
+          ],
+          "mailingAddress": {
+            "id": "124-Westford-St,-Lowell,-MA-01851",
+            "formattedAddress": "124 Westford St, Lowell, MA 01851",
+            "addressLine1": "124 Westford St",
+            "addressLine2": null,
+            "city": "Lowell",
+            "state": "MA",
+            "stateFips": "25",
+            "zipCode": "01851"
+          }
+        },
+        "ownerOccupied": true
+      },
+      "matchType": "incorrect",
+      "details": "ODU Count: 2 vs 2 ✓ | ODU Type: Multi vs Multi+Single ✗ | ODU Size: 42+36 vs 36+9 ✗ | IDU Count: 7 vs 4 ✗ | IDU Type: Head vs Head ✓ | IDU Size: 12,12,9,9,9,9,9 vs 12,12,9,9 ✗"
+    },
+    {
+      "address": "109 Milk St, Methuen, MA, 01844",
+      "actual": {
+        "location": "109 Milk St, Methuen, MA, 01844",
+        "numberOfODU": 1,
+        "typeOfODU": "Duct",
+        "oduSize": "48",
+        "numberOfIDU": 1,
+        "typeOfIDU": "AHU",
+        "iduSize": "48",
+        "electricalWork": 1000,
+        "hvacWork": 3800,
+        "rebate": 0
+      },
+      "predicted": {
+        "numberOfODU": 2,
+        "typeOfODU": "Duct",
+        "oduSize": "36+24",
+        "numberOfIDU": 2,
+        "typeOfIDU": "AHU",
+        "iduSize": "36,24",
+        "electricalWorkEstimate": 1500,
+        "hvacWorkEstimate": 7000,
+        "confidence": "medium",
+        "reasoning": "2,749 sq ft single-family in Methuen (cold winters/humid summers) suggests ~55k-70k BTU total capacity depending on insulation; year-built 1969 points closer to the higher end. Existing forced-air heating indicates ductwork is likely present, making ducted heat-pump AHUs the practical choice. A two-system split (36k for main living/upper areas + 24k for remaining/finished basement or secondary zone) provides better comfort and redundancy than a single large unit, and aligns with typical 48k-60k total sizing for 2,500-3,500 sq ft homes. Electrical estimate assumes new outdoor disconnects/circuits and moderate panel/load work; HVAC estimate reflects a larger 2-ODU ducted install."
+      },
+      "propertyData": {
+        "id": "109-Milk-St,-Methuen,-MA-01844",
+        "formattedAddress": "109 Milk St, Methuen, MA 01844",
+        "addressLine1": "109 Milk St",
+        "city": "Methuen",
+        "state": "MA",
+        "zipCode": "01844",
+        "latitude": 42.737165,
+        "longitude": -71.155093,
+        "bedrooms": 4,
+        "bathrooms": 1.5,
+        "squareFootage": 2749,
+        "lotSize": 21209,
+        "yearBuilt": 1969,
+        "propertyType": "Single Family",
+        "lastSalePrice": 321900,
+        "lastSaleDate": "2020-03-13T00:00:00.000Z",
+        "features": {
+          "architectureType": "Colonial",
+          "cooling": true,
+          "coolingType": "Commercial",
+          "exteriorType": "Other",
+          "fireplace": true,
+          "floorCount": 2,
+          "garage": true,
+          "garageSpaces": 1,
+          "garageType": "Attached",
+          "heating": true,
+          "heatingType": "Forced Air",
+          "roofType": "Asphalt",
+          "roomCount": 8,
+          "unitCount": 1
+        },
+        "addressLine2": null,
+        "stateFips": "25",
+        "county": "Essex",
+        "countyFips": "009",
+        "assessorID": "METH M:00912 B:00082 L:00024D",
+        "legalDescription": "LOT:24D BLK:82 DIST:181 CITY/MUNI/TWP:METHUEN",
+        "subdivision": "CARRIAGE HILL ESTATES",
+        "zoning": "RC",
+        "taxAssessments": {
+          "2020": {
+            "year": 2020,
+            "value": 349800,
+            "land": 154300,
+            "improvements": 195500
+          },
+          "2023": {
+            "year": 2023,
+            "value": 452200,
+            "land": 194900,
+            "improvements": 257300
+          },
+          "2025": {
+            "year": 2025,
+            "value": 530300,
+            "land": 240400,
+            "improvements": 289900
+          }
+        },
+        "propertyTaxes": {
+          "2020": {
+            "year": 2020,
+            "total": 4701
+          },
+          "2023": {
+            "year": 2023,
+            "total": 5291
+          },
+          "2025": {
+            "year": 2025,
+            "total": 5611
+          }
+        },
+        "history": {
+          "2020-03-13": {
+            "event": "Sale",
+            "date": "2020-03-13T00:00:00.000Z",
+            "price": 321900
+          }
+        },
+        "owner": {
+          "names": [
+            "Alcione S Soares"
+          ],
+          "type": "Individual",
+          "mailingAddress": {
+            "id": "109-Milk-St,-Methuen,-MA-01844",
+            "formattedAddress": "109 Milk St, Methuen, MA 01844",
+            "addressLine1": "109 Milk St",
+            "addressLine2": null,
+            "city": "Methuen",
+            "state": "MA",
+            "stateFips": "25",
+            "zipCode": "01844"
+          }
+        },
+        "ownerOccupied": true
+      },
+      "matchType": "directional",
+      "details": "ODU Count: 2 vs 1 ✗ | ODU Type: Duct vs Duct ✓ | ODU Size: 36+24 vs 48 ✗ | IDU Count: 2 vs 1 ✗ | IDU Type: AHU vs AHU ✓ | IDU Size: 36,24 vs 48 ✗"
+    },
+    {
+      "address": "5 Edson St, Dorchester, MA, 02124",
+      "actual": {
+        "location": "5 Edson St, Dorchester, MA, 02124",
+        "numberOfODU": 2,
+        "typeOfODU": "Multi",
+        "oduSize": "27+18",
+        "numberOfIDU": 5,
+        "typeOfIDU": "Head",
+        "iduSize": "12,9,9,9,9",
+        "electricalWork": 1600,
+        "hvacWork": 5000,
+        "rebate": 500
+      },
+      "predicted": {
+        "numberOfODU": 1,
+        "typeOfODU": "Multi",
+        "oduSize": "36",
+        "numberOfIDU": 4,
+        "typeOfIDU": "Head",
+        "iduSize": "12,9,9,9",
+        "electricalWorkEstimate": 1400,
+        "hvacWorkEstimate": 4800,
+        "confidence": "low",
+        "reasoning": "No square footage/bedroom/year-built data was provided, so this is a conservative Massachusetts default for a typical Dorchester single-family/condo-sized home: a 36k multi-zone heat pump with 4 ductless heads (one larger common-area zone plus three bedroom-sized zones). Electrical estimate assumes a moderate-complexity install (new circuit/disconnect, possible minor panel work)."
+      },
+      "propertyData": {
+        "id": "5-Edson-St,-Dorchester-Center,-MA-02124",
+        "formattedAddress": "5 Edson St, Dorchester Center, MA 02124",
+        "addressLine1": "5 Edson St",
+        "city": "Dorchester Center",
+        "state": "MA",
+        "zipCode": "02124",
+        "latitude": 42.287347,
+        "longitude": -71.078231,
+        "addressLine2": null,
+        "stateFips": "25",
+        "county": "Suffolk",
+        "countyFips": "025"
+      },
+      "matchType": "directional",
+      "details": "ODU Count: 1 vs 2 ✗ | ODU Type: Multi vs Multi ✓ | ODU Size: 36 vs 27+18 ✗ | IDU Count: 4 vs 5 ✗ | IDU Type: Head vs Head ✓ | IDU Size: 12,9,9,9 vs 12,9,9,9,9 ✗"
+    },
+    {
+      "address": "68 Harding Rd, Lexington, MA, 02420",
+      "actual": {
+        "location": "68 Harding Rd, Lexington, MA, 02420",
+        "numberOfODU": 2,
+        "typeOfODU": "Multi",
+        "oduSize": "27+27",
+        "numberOfIDU": 6,
+        "typeOfIDU": "Head",
+        "iduSize": "12,12,9,9,9,9",
+        "electricalWork": 1600,
+        "hvacWork": 6000,
+        "rebate": 0
+      },
+      "predicted": {
+        "numberOfODU": 1,
+        "typeOfODU": "Multi",
+        "oduSize": "42",
+        "numberOfIDU": 4,
+        "typeOfIDU": "Head",
+        "iduSize": "18,9,9,9",
+        "electricalWorkEstimate": 1400,
+        "hvacWorkEstimate": 4800,
+        "confidence": "medium",
+        "reasoning": "1,544 sq ft in MA typically needs ~36k-42k BTU total (older 1951 construction trends higher). With 3 bedrooms, a practical zoning plan is 4 zones (one larger common-area zone plus one per bedroom). Existing hot-water heat suggests no central ductwork for AC, so a ductless multi-split is the most practical add-on for cooling and supplemental heating. A 42k multi-zone ODU provides conservative capacity for winter performance and summer humidity loads, paired with an 18k head for main living area and three 9k heads for bedrooms."
+      },
+      "propertyData": {
+        "id": "68-Harding-Rd,-Lexington,-MA-02420",
+        "formattedAddress": "68 Harding Rd, Lexington, MA 02420",
+        "addressLine1": "68 Harding Rd",
+        "city": "Lexington",
+        "state": "MA",
+        "zipCode": "02420",
+        "latitude": 42.468461,
+        "longitude": -71.242634,
+        "bedrooms": 3,
+        "bathrooms": 3.5,
+        "squareFootage": 1544,
+        "lotSize": 7475,
+        "yearBuilt": 1951,
+        "propertyType": "Single Family",
+        "lastSalePrice": 807400,
+        "lastSaleDate": "2019-12-18T00:00:00.000Z",
+        "features": {
+          "architectureType": "Cape Cod",
+          "exteriorType": "Aluminum / Vinyl Siding",
+          "fireplace": true,
+          "floorCount": 2,
+          "garage": true,
+          "garageType": "Garage",
+          "heating": true,
+          "heatingType": "Hot Water",
+          "roofType": "Asphalt",
+          "roomCount": 8,
+          "unitCount": 1
+        },
+        "addressLine2": null,
+        "stateFips": "25",
+        "county": "Middlesex",
+        "countyFips": "017",
+        "assessorID": "LEXI M:0078 L:000145",
+        "legalDescription": "LOT:145 DIST:155 CITY/MUNI/TWP:LEXINGTON",
+        "zoning": "RS",
+        "taxAssessments": {
+          "2022": {
+            "year": 2022,
+            "value": 852000,
+            "land": 618000,
+            "improvements": 234000
+          },
+          "2024": {
+            "year": 2024,
+            "value": 1042000,
+            "land": 748000,
+            "improvements": 294000
+          },
+          "2025": {
+            "year": 2025,
+            "value": 1079000,
+            "land": 785000,
+            "improvements": 294000
+          }
+        },
+        "propertyTaxes": {
+          "2022": {
+            "year": 2022,
+            "total": 11758
+          },
+          "2024": {
+            "year": 2024,
+            "total": 12765
+          },
+          "2025": {
+            "year": 2025,
+            "total": 13196
+          }
+        },
+        "history": {
+          "2019-12-18": {
+            "event": "Sale",
+            "date": "2019-12-18T00:00:00.000Z",
+            "price": 807400
+          }
+        },
+        "owner": {
+          "names": [
+            "SO FT TRUST"
+          ],
+          "type": "Organization",
+          "mailingAddress": {
+            "id": "68-Harding-Rd,-Lexington,-MA-02420",
+            "formattedAddress": "68 Harding Rd, Lexington, MA 02420",
+            "addressLine1": "68 Harding Rd",
+            "addressLine2": null,
+            "city": "Lexington",
+            "state": "MA",
+            "stateFips": "25",
+            "zipCode": "02420"
+          }
+        },
+        "ownerOccupied": true
+      },
+      "matchType": "directional",
+      "details": "ODU Count: 1 vs 2 ✗ | ODU Type: Multi vs Multi ✓ | ODU Size: 42 vs 27+27 ✗ | IDU Count: 4 vs 6 ✗ | IDU Type: Head vs Head ✓ | IDU Size: 18,9,9,9 vs 12,12,9,9,9,9 ✗"
+    },
+    {
+      "address": "22 9th St #707, Medford, MA",
+      "actual": {
+        "location": "22 9th St #707, Medford, MA",
+        "numberOfODU": 1,
+        "typeOfODU": "Duct",
+        "oduSize": "36",
+        "numberOfIDU": 1,
+        "typeOfIDU": "AHU",
+        "iduSize": "36",
+        "electricalWork": 1000,
+        "hvacWork": 3800,
+        "rebate": 0
+      },
+      "predicted": {
+        "numberOfODU": 1,
+        "typeOfODU": "Multi",
+        "oduSize": "27",
+        "numberOfIDU": 3,
+        "typeOfIDU": "Head",
+        "iduSize": "12,9,9",
+        "electricalWorkEstimate": 1200,
+        "hvacWorkEstimate": 4500,
+        "confidence": "medium",
+        "reasoning": "Condo ~1,180 sq ft in MA typically needs ~24k–36k BTU total; with 1985 construction and baseboard heat (no ducts implied), a ductless multi-zone heat pump is the practical choice. For 2 bedrooms, a 3-zone layout (living area + each bedroom) is standard. A 27k multi-zone ODU paired with 12k for the main living space and 9k heads for each bedroom provides slightly conservative capacity for both heating and cooling without overcomplicating the install. Electrical allowance assumes a moderate condo run/disconnect/breaker work without a full panel upgrade."
+      },
+      "propertyData": {
+        "id": "22-9th-St,-Apt-707,-Medford,-MA-02155",
+        "formattedAddress": "22 9th St, Apt 707, Medford, MA 02155",
+        "addressLine1": "22 9th St",
+        "city": "Medford",
+        "state": "MA",
+        "zipCode": "02155",
+        "latitude": 42.405498,
+        "longitude": -71.079282,
+        "bedrooms": 2,
+        "bathrooms": 2,
+        "squareFootage": 1180,
+        "lotSize": 1,
+        "yearBuilt": 1985,
+        "propertyType": "Condo",
+        "lastSalePrice": 600600,
+        "lastSaleDate": "2019-05-24T00:00:00.000Z",
+        "features": {
+          "architectureType": "High Rise",
+          "exteriorType": "Brick",
+          "floorCount": 1,
+          "heating": true,
+          "heatingType": "Baseboard",
+          "roofType": "Roll Tar & Gravel",
+          "roomCount": 5,
+          "unitCount": 1
+        },
+        "addressLine2": "Apt 707",
+        "stateFips": "25",
+        "county": "Middlesex",
+        "countyFips": "017",
+        "assessorID": "MEDF M:U-17 B:2054",
+        "legalDescription": "BLK:2054 DIST:176 CITY/MUNI/TWP:MEDFORD",
+        "taxAssessments": {
+          "2024": {
+            "year": 2024,
+            "value": 586700,
+            "improvements": 586700
+          },
+          "2025": {
+            "year": 2025,
+            "value": 586700,
+            "improvements": 586700
+          }
+        },
+        "propertyTaxes": {
+          "2024": {
+            "year": 2024,
+            "total": 4999
+          },
+          "2025": {
+            "year": 2025,
+            "total": 4999
+          }
+        },
+        "history": {
+          "2019-05-24": {
+            "event": "Sale",
+            "date": "2019-05-24T00:00:00.000Z",
+            "price": 600600
+          }
+        },
+        "owner": {
+          "names": [
+            "Wei Han"
+          ],
+          "type": "Individual",
+          "mailingAddress": {
+            "id": "22-9th-St,-APT-707,-Medford,-MA-02155",
+            "formattedAddress": "22 9th St, APT 707, Medford, MA 02155",
+            "addressLine1": "22 9th St",
+            "addressLine2": "APT 707",
+            "city": "Medford",
+            "state": "MA",
+            "stateFips": "25",
+            "zipCode": "02155"
+          }
+        },
+        "ownerOccupied": true
+      },
+      "matchType": "incorrect",
+      "details": "ODU Count: 1 vs 1 ✓ | ODU Type: Multi vs Duct ✗ | ODU Size: 27 vs 36 ✗ | IDU Count: 3 vs 1 ✗ | IDU Type: Head vs AHU ✗ | IDU Size: 12,9,9 vs 36 ✗"
+    },
+    {
+      "address": "110 Aberdeen St Floor 3, Lowell",
+      "actual": {
+        "location": "110 Aberdeen St Floor 3, Lowell",
+        "numberOfODU": 2,
+        "typeOfODU": "Single",
+        "oduSize": "18+18",
+        "numberOfIDU": 2,
+        "typeOfIDU": "Head",
+        "iduSize": "18,18",
+        "electricalWork": 1600,
+        "hvacWork": 2000,
+        "rebate": 0
+      },
+      "predicted": {
+        "numberOfODU": 0,
+        "typeOfODU": "ERROR",
+        "oduSize": "0",
+        "numberOfIDU": 0,
+        "typeOfIDU": "ERROR",
+        "iduSize": "0",
+        "confidence": "low",
+        "reasoning": "Error: Request failed with status code 500"
+      },
+      "matchType": "incorrect",
+      "details": "Error: Request failed with status code 500"
+    },
+    {
+      "address": "110 Aberdeen St Floor 2, Lowel",
+      "actual": {
+        "location": "110 Aberdeen St Floor 2, Lowel",
+        "numberOfODU": 1,
+        "typeOfODU": "Multi",
+        "oduSize": "42",
+        "numberOfIDU": 4,
+        "typeOfIDU": "Head",
+        "iduSize": "18,9,9,9",
+        "electricalWork": 800,
+        "hvacWork": 4000,
+        "rebate": 0
+      },
+      "predicted": {
+        "numberOfODU": 0,
+        "typeOfODU": "ERROR",
+        "oduSize": "0",
+        "numberOfIDU": 0,
+        "typeOfIDU": "ERROR",
+        "iduSize": "0",
+        "confidence": "low",
+        "reasoning": "Error: Request failed with status code 500"
+      },
+      "matchType": "incorrect",
+      "details": "Error: Request failed with status code 500"
+    },
+    {
+      "address": "11 Linnaean St, Cambridge, MA, 02138",
+      "actual": {
+        "location": "11 Linnaean St, Cambridge, MA, 02138",
+        "numberOfODU": 2,
+        "typeOfODU": "Multi",
+        "oduSize": "36+27",
+        "numberOfIDU": 4,
+        "typeOfIDU": "Head",
+        "iduSize": "18,18,9,9",
+        "electricalWork": 0,
+        "hvacWork": 4600,
+        "rebate": 0
+      },
+      "predicted": {
+        "numberOfODU": 3,
+        "typeOfODU": "Duct",
+        "oduSize": "60+60+36",
+        "numberOfIDU": 3,
+        "typeOfIDU": "AHU",
+        "iduSize": "60,60,36",
+        "electricalWorkEstimate": 1800,
+        "hvacWorkEstimate": 20000,
+        "confidence": "medium",
+        "reasoning": "4,713 sq ft (1897 build) in Cambridge suggests high heating/cooling load and multiple floors; using ~30 BTU/sf implies ~141k BTU total capacity. Existing hot-water heat indicates hydronic distribution; adding high-velocity/ducted heat-pump AHUs is typically more practical than many wall heads in a historic single-family. A 3-system ducted layout (e.g., basement/1st, 2nd, 3rd/attic) provides better comfort and redundancy; 60+60+36 kBTU totals 156k for conservative sizing. Electrical is assumed complex due to likely service/panel upgrades and multiple outdoor units."
+      },
+      "propertyData": {
+        "id": "11-Linnaean-St,-Cambridge,-MA-02138",
+        "formattedAddress": "11 Linnaean St, Cambridge, MA 02138",
+        "addressLine1": "11 Linnaean St",
+        "city": "Cambridge",
+        "state": "MA",
+        "zipCode": "02138",
+        "latitude": 42.384836,
+        "longitude": -71.120915,
+        "bedrooms": 6,
+        "bathrooms": 6.5,
+        "squareFootage": 4713,
+        "lotSize": 7945,
+        "yearBuilt": 1897,
+        "propertyType": "Single Family",
+        "lastSalePrice": 1748000,
+        "lastSaleDate": "2006-10-27T00:00:00.000Z",
+        "features": {
+          "architectureType": "Victorian",
+          "cooling": true,
+          "coolingType": "Commercial",
+          "exteriorType": "Other",
+          "fireplace": true,
+          "floorCount": 3,
+          "heating": true,
+          "heatingType": "Hot Water",
+          "roofType": "Asphalt",
+          "roomCount": 17,
+          "unitCount": 1
+        },
+        "addressLine2": null,
+        "stateFips": "25",
+        "county": "Middlesex",
+        "countyFips": "017",
+        "assessorID": "CAMB M:00176 L:00072",
+        "legalDescription": "LOT:72 DIST:49 CITY/MUNI/TWP:CAMBRIDGE",
+        "subdivision": "SUMNER J BROOKS",
+        "zoning": "B",
+        "taxAssessments": {
+          "2024": {
+            "year": 2024,
+            "value": 3910200,
+            "land": 1619900,
+            "improvements": 2290300
+          }
+        },
+        "propertyTaxes": {
+          "2024": {
+            "year": 2024,
+            "total": 23148
+          }
+        },
+        "history": {
+          "2006-10-27": {
+            "event": "Sale",
+            "date": "2006-10-27T00:00:00.000Z",
+            "price": 1748000
+          }
+        },
+        "owner": {
+          "names": [
+            "EUGENE WANG"
+          ],
+          "mailingAddress": {
+            "id": "11-Linnaean-St,-Cambridge,-MA-02138",
+            "formattedAddress": "11 Linnaean St, Cambridge, MA 02138",
+            "addressLine1": "11 Linnaean St",
+            "addressLine2": null,
+            "city": "Cambridge",
+            "state": "MA",
+            "stateFips": "25",
+            "zipCode": "02138"
+          }
+        },
+        "ownerOccupied": true
+      },
+      "matchType": "incorrect",
+      "details": "ODU Count: 3 vs 2 ✗ | ODU Type: Duct vs Multi ✗ | ODU Size: 60+60+36 vs 36+27 ✗ | IDU Count: 3 vs 4 ✗ | IDU Type: AHU vs Head ✗ | IDU Size: 60,60,36 vs 18,18,9,9 ✗"
+    },
+    {
+      "address": "19 Independence Dr, Woburn, MA, 01801",
+      "actual": {
+        "location": "19 Independence Dr, Woburn, MA, 01801",
+        "numberOfODU": 1,
+        "typeOfODU": "Multi",
+        "oduSize": "36",
+        "numberOfIDU": 3,
+        "typeOfIDU": "Head",
+        "iduSize": "18,9,9",
+        "electricalWork": 0,
+        "hvacWork": 2700,
+        "rebate": 500
+      },
+      "predicted": {
+        "numberOfODU": 1,
+        "typeOfODU": "Multi",
+        "oduSize": "36",
+        "numberOfIDU": 4,
+        "typeOfIDU": "Head",
+        "iduSize": "12,9,9,9",
+        "electricalWorkEstimate": 1200,
+        "hvacWorkEstimate": 4500,
+        "confidence": "medium",
+        "reasoning": "1,377 sq ft single-family in MA (1974 build) typically needs ~30 BTU/sq ft for cooling/heating coverage via heat pump, landing around ~41k BTU; with existing hot-water heat, a practical approach is a 1-ODU multi-zone ductless system sized at 36k (common for 1,000–1,500 sq ft) to provide efficient cooling and supplemental/shoulder-season heating. Zoning: 3 bedrooms + main living area = 4 zones; allocate 12k to the main/common area and 9k to each bedroom. Electrical assumes a moderate-complexity circuit/addition without a full service upgrade; HVAC cost reflects a typical 1 multi ODU + 4 heads install."
+      },
+      "propertyData": {
+        "id": "19-Independence-Dr,-Woburn,-MA-01801",
+        "formattedAddress": "19 Independence Dr, Woburn, MA 01801",
+        "addressLine1": "19 Independence Dr",
+        "city": "Woburn",
+        "state": "MA",
+        "zipCode": "01801",
+        "latitude": 42.471267,
+        "longitude": -71.185815,
+        "bedrooms": 3,
+        "bathrooms": 2,
+        "squareFootage": 1377,
+        "lotSize": 16117,
+        "yearBuilt": 1974,
+        "propertyType": "Single Family",
+        "lastSalePrice": 190000,
+        "lastSaleDate": "1986-06-13T00:00:00.000Z",
+        "features": {
+          "architectureType": "Raised Ranch",
+          "exteriorType": "Aluminum / Vinyl Siding",
+          "fireplace": true,
+          "floorCount": 1,
+          "garage": true,
+          "garageType": "Basement",
+          "heating": true,
+          "heatingType": "Hot Water",
+          "roofType": "Asphalt",
+          "roomCount": 7,
+          "unitCount": 1,
+          "cooling": true,
+          "coolingType": "Commercial"
+        },
+        "addressLine2": null,
+        "stateFips": "25",
+        "county": "Middlesex",
+        "countyFips": "017",
+        "assessorID": "WOBU M:56 B:07 L:08 U:00",
+        "legalDescription": "LOT:8 BLK:7 DIST:347 CITY/MUNI/TWP:WOBURN",
+        "zoning": "R-1",
+        "taxAssessments": {
+          "2023": {
+            "year": 2023,
+            "value": 686700,
+            "land": 335600,
+            "improvements": 351100
+          },
+          "2024": {
+            "year": 2024,
+            "value": 764000,
+            "land": 369100,
+            "improvements": 394900
+          }
+        },
+        "propertyTaxes": {
+          "2023": {
+            "year": 2023,
+            "total": 5974
+          },
+          "2024": {
+            "year": 2024,
+            "total": 6158
+          }
+        },
+        "history": {
+          "1986-06-13": {
+            "event": "Sale",
+            "date": "1986-06-13T00:00:00.000Z",
+            "price": 190000
+          }
+        },
+        "owner": {
+          "names": [
+            "Harold G Rosenberger",
+            "Carol A Rosenberger"
+          ],
+          "type": "Individual",
+          "mailingAddress": {
+            "id": "19-Independence-Dr,-Woburn,-MA-01801",
+            "formattedAddress": "19 Independence Dr, Woburn, MA 01801",
+            "addressLine1": "19 Independence Dr",
+            "addressLine2": null,
+            "city": "Woburn",
+            "state": "MA",
+            "stateFips": "25",
+            "zipCode": "01801"
+          }
+        },
+        "ownerOccupied": true
+      },
+      "matchType": "directional",
+      "details": "ODU Count: 1 vs 1 ✓ | ODU Type: Multi vs Multi ✓ | ODU Size: 36 vs 36 ✓ | IDU Count: 4 vs 3 ✗ | IDU Type: Head vs Head ✓ | IDU Size: 12,9,9,9 vs 18,9,9 ✗"
+    },
+    {
+      "address": "25 A Olympia Ave, Woburn, MA",
+      "actual": {
+        "location": "25 A Olympia Ave, Woburn, MA",
+        "numberOfODU": 2,
+        "typeOfODU": "Multi+Single",
+        "oduSize": "42+36",
+        "numberOfIDU": 3,
+        "typeOfIDU": "Head",
+        "iduSize": "36,24,24",
+        "electricalWork": 0,
+        "hvacWork": 2400,
+        "rebate": 0
+      },
+      "predicted": {
+        "numberOfODU": 1,
+        "typeOfODU": "Multi",
+        "oduSize": "36",
+        "numberOfIDU": 4,
+        "typeOfIDU": "Head",
+        "iduSize": "12,9,9,9",
+        "electricalWorkEstimate": 1200,
+        "hvacWorkEstimate": 4500,
+        "confidence": "low",
+        "reasoning": "Only an address was provided (no square footage/bedrooms/year/ductwork info), so this is a conservative Massachusetts default for a typical single-family home: a 36k multi-zone heat pump with 4 ductless heads (one larger common-area zone plus three bedroom-sized zones). Electrical is estimated for a moderate-complexity install; HVAC cost reflects a medium multi-zone system."
+      },
+      "propertyData": {
+        "id": "25-Olympia-Ave,-Woburn,-MA-01801",
+        "formattedAddress": "25 Olympia Ave, Woburn, MA 01801",
+        "addressLine1": "25 Olympia Ave",
+        "city": "Woburn",
+        "state": "MA",
+        "zipCode": "01801",
+        "latitude": 42.5004,
+        "longitude": -71.13058,
+        "addressLine2": null,
+        "stateFips": "25",
+        "county": "Middlesex",
+        "countyFips": "017"
+      },
+      "matchType": "incorrect",
+      "details": "ODU Count: 1 vs 2 ✗ | ODU Type: Multi vs Multi+Single ✗ | ODU Size: 36 vs 42+36 ✗ | IDU Count: 4 vs 3 ✗ | IDU Type: Head vs Head ✓ | IDU Size: 12,9,9,9 vs 36,24,24 ✗"
+    },
+    {
+      "address": "37 Westdale Ave, Wilmington, MA",
+      "actual": {
+        "location": "37 Westdale Ave, Wilmington, MA",
+        "numberOfODU": 1,
+        "typeOfODU": "Multi",
+        "oduSize": "27",
+        "numberOfIDU": 3,
+        "typeOfIDU": "Head",
+        "iduSize": "12,9,9",
+        "electricalWork": 800,
+        "hvacWork": 3000,
+        "rebate": 0
+      },
+      "predicted": {
+        "numberOfODU": 1,
+        "typeOfODU": "Multi",
+        "oduSize": "36",
+        "numberOfIDU": 4,
+        "typeOfIDU": "Head",
+        "iduSize": "12,9,9,9",
+        "electricalWorkEstimate": 1200,
+        "hvacWorkEstimate": 4500,
+        "confidence": "medium",
+        "reasoning": "1,196 sq ft in MA with a 1966 build typically pencils to ~30 BTU/sf for cooling/heat-pump sizing (~36k BTU total). With 3 bedrooms, a practical zoning plan is 4 zones (living area + 3 bedrooms). Existing hot-water heat suggests no central ductwork, so a ductless multi-split is the most practical retrofit. A 36k multi-zone ODU paired with 12k for the main living space and three 9k bedroom heads provides balanced coverage with slight oversizing for older insulation and winter heating demand."
+      },
+      "propertyData": {
+        "id": "37-Westdale-Ave,-Wilmington,-MA-01887",
+        "formattedAddress": "37 Westdale Ave, Wilmington, MA 01887",
+        "addressLine1": "37 Westdale Ave",
+        "city": "Wilmington",
+        "state": "MA",
+        "zipCode": "01887",
+        "latitude": 42.540747,
+        "longitude": -71.141517,
+        "bedrooms": 3,
+        "bathrooms": 2,
+        "squareFootage": 1196,
+        "lotSize": 14810,
+        "yearBuilt": 1966,
+        "propertyType": "Single Family",
+        "lastSalePrice": 741000,
+        "lastSaleDate": "2022-06-13T00:00:00.000Z",
+        "features": {
+          "architectureType": "Split Level",
+          "exteriorType": "Other",
+          "fireplace": true,
+          "floorCount": 2,
+          "heating": true,
+          "heatingType": "Hot Water",
+          "roofType": "Asphalt",
+          "roomCount": 6,
+          "unitCount": 1
+        },
+        "addressLine2": null,
+        "stateFips": "25",
+        "county": "Middlesex",
+        "countyFips": "017",
+        "assessorID": "WILM M:0072 L:0000 P:0007",
+        "legalDescription": "DIST:342 CITY/MUNI/TWP:WILMINGTON",
+        "taxAssessments": {
+          "2024": {
+            "year": 2024,
+            "value": 668700,
+            "land": 275300,
+            "improvements": 393400
+          }
+        },
+        "propertyTaxes": {
+          "2024": {
+            "year": 2024,
+            "total": 7643
+          }
+        },
+        "history": {
+          "2022-06-13": {
+            "event": "Sale",
+            "date": "2022-06-13T00:00:00.000Z",
+            "price": 741000
+          }
+        },
+        "owner": {
+          "names": [
+            "Dhaval Doshi",
+            "Karvi Doshi"
+          ],
+          "type": "Individual",
+          "mailingAddress": {
+            "id": "37-Westdale-Ave,-Wilmington,-MA-01887",
+            "formattedAddress": "37 Westdale Ave, Wilmington, MA 01887",
+            "addressLine1": "37 Westdale Ave",
+            "addressLine2": null,
+            "city": "Wilmington",
+            "state": "MA",
+            "stateFips": "25",
+            "zipCode": "01887"
+          }
+        },
+        "ownerOccupied": true
+      },
+      "matchType": "directional",
+      "details": "ODU Count: 1 vs 1 ✓ | ODU Type: Multi vs Multi ✓ | ODU Size: 36 vs 27 ✗ | IDU Count: 4 vs 3 ✗ | IDU Type: Head vs Head ✓ | IDU Size: 12,9,9,9 vs 12,9,9 ✗"
+    },
+    {
+      "address": "21 Allston Pl #1F, Fitchburg, MA, 01420",
+      "actual": {
+        "location": "21 Allston Pl #1F, Fitchburg, MA, 01420",
+        "numberOfODU": 2,
+        "typeOfODU": "Multi+Single",
+        "oduSize": "36+9",
+        "numberOfIDU": 4,
+        "typeOfIDU": "Head",
+        "iduSize": "12,9,9,9",
+        "electricalWork": 1600,
+        "hvacWork": 3150,
+        "rebate": 250
+      },
+      "predicted": {
+        "numberOfODU": 0,
+        "typeOfODU": "ERROR",
+        "oduSize": "0",
+        "numberOfIDU": 0,
+        "typeOfIDU": "ERROR",
+        "iduSize": "0",
+        "confidence": "low",
+        "reasoning": "Error: Request failed with status code 500"
+      },
+      "matchType": "incorrect",
+      "details": "Error: Request failed with status code 500"
+    },
+    {
+      "address": "350 Broadway Unit#2, Lynn, MA, 01904",
+      "actual": {
+        "location": "350 Broadway Unit#2, Lynn, MA, 01904",
+        "numberOfODU": 2,
+        "typeOfODU": "Single",
+        "oduSize": "12+12",
+        "numberOfIDU": 2,
+        "typeOfIDU": "Head",
+        "iduSize": "12,12",
+        "electricalWork": 1600,
+        "hvacWork": 2000,
+        "rebate": 0
+      },
+      "predicted": {
+        "numberOfODU": 0,
+        "typeOfODU": "ERROR",
+        "oduSize": "0",
+        "numberOfIDU": 0,
+        "typeOfIDU": "ERROR",
+        "iduSize": "0",
+        "confidence": "low",
+        "reasoning": "Error: Request failed with status code 500"
+      },
+      "matchType": "incorrect",
+      "details": "Error: Request failed with status code 500"
+    },
+    {
+      "address": "350 Broadway Unit#1, Lynn, MA, 01904",
+      "actual": {
+        "location": "350 Broadway Unit#1, Lynn, MA, 01904",
+        "numberOfODU": 1,
+        "typeOfODU": "Multi",
+        "oduSize": "42",
+        "numberOfIDU": 5,
+        "typeOfIDU": "Head",
+        "iduSize": "12,12,9,9,9",
+        "electricalWork": 800,
+        "hvacWork": 5000,
+        "rebate": 0
+      },
+      "predicted": {
+        "numberOfODU": 0,
+        "typeOfODU": "ERROR",
+        "oduSize": "0",
+        "numberOfIDU": 0,
+        "typeOfIDU": "ERROR",
+        "iduSize": "0",
+        "confidence": "low",
+        "reasoning": "Error: Request failed with status code 500"
+      },
+      "matchType": "incorrect",
+      "details": "Error: Request failed with status code 500"
+    },
+    {
+      "address": "61 Cliffe Ave, Lexington, MA 02420",
+      "actual": {
+        "location": "61 Cliffe Ave, Lexington, MA 02420",
+        "numberOfODU": 1,
+        "typeOfODU": "Multi",
+        "oduSize": "42",
+        "numberOfIDU": 5,
+        "typeOfIDU": "Head",
+        "iduSize": "9,9,9,9,9",
+        "electricalWork": 0,
+        "hvacWork": 5000,
+        "rebate": 0
+      },
+      "predicted": {
+        "numberOfODU": 1,
+        "typeOfODU": "Duct",
+        "oduSize": "36",
+        "numberOfIDU": 1,
+        "typeOfIDU": "AHU",
+        "iduSize": "36",
+        "electricalWorkEstimate": 1200,
+        "hvacWorkEstimate": 3800,
+        "confidence": "medium",
+        "reasoning": "1,471 sq ft in MA typically needs ~30k-40k BTU (older 1960 construction trends closer to the higher end). Existing forced-air heating strongly suggests usable ductwork, making a ducted heat-pump/central AHU the most practical whole-home solution. A 36k ducted system provides conservative capacity for heating and summer humidity control without needing multiple zones/heads."
+      },
+      "propertyData": {
+        "id": "61-Cliffe-Ave,-Lexington,-MA-02420",
+        "formattedAddress": "61 Cliffe Ave, Lexington, MA 02420",
+        "addressLine1": "61 Cliffe Ave",
+        "city": "Lexington",
+        "state": "MA",
+        "zipCode": "02420",
+        "latitude": 42.429537,
+        "longitude": -71.193946,
+        "bedrooms": 3,
+        "bathrooms": 2.5,
+        "squareFootage": 1471,
+        "lotSize": 8026,
+        "yearBuilt": 1960,
+        "propertyType": "Single Family",
+        "lastSalePrice": 825000,
+        "lastSaleDate": "2023-10-24T00:00:00.000Z",
+        "features": {
+          "architectureType": "Cape Cod",
+          "cooling": true,
+          "coolingType": "Commercial",
+          "exteriorType": "Aluminum / Vinyl Siding",
+          "fireplace": true,
+          "floorCount": 1,
+          "garage": true,
+          "garageType": "Basement",
+          "heating": true,
+          "heatingType": "Forced Air",
+          "roofType": "Shingle",
+          "roomCount": 7,
+          "unitCount": 1
+        },
+        "addressLine2": null,
+        "stateFips": "25",
+        "county": "Middlesex",
+        "countyFips": "017",
+        "assessorID": "LEXI M:0020 L:000135",
+        "legalDescription": "LOT:135 DIST:155 CITY/MUNI/TWP:LEXINGTON",
+        "subdivision": "MASSACHUSETTS AVE TERRACE EAST",
+        "zoning": "RS",
+        "taxAssessments": {
+          "2022": {
+            "year": 2022,
+            "value": 680000,
+            "land": 506000,
+            "improvements": 174000
+          },
+          "2024": {
+            "year": 2024,
+            "value": 832000,
+            "land": 612000,
+            "improvements": 220000
+          },
+          "2025": {
+            "year": 2025,
+            "value": 1009000,
+            "land": 642000,
+            "improvements": 367000
+          }
+        },
+        "propertyTaxes": {
+          "2022": {
+            "year": 2022,
+            "total": 9384
+          },
+          "2024": {
+            "year": 2024,
+            "total": 10192
+          },
+          "2025": {
+            "year": 2025,
+            "total": 12340
+          }
+        },
+        "history": {
+          "2023-10-24": {
+            "event": "Sale",
+            "date": "2023-10-24T00:00:00.000Z",
+            "price": 825000
+          }
+        },
+        "owner": {
+          "names": [
+            "Weiqiang Fu",
+            "Li Cui"
+          ],
+          "type": "Individual",
+          "mailingAddress": {
+            "id": "61-Cliffe-Ave,-Lexington,-MA-02420",
+            "formattedAddress": "61 Cliffe Ave, Lexington, MA 02420",
+            "addressLine1": "61 Cliffe Ave",
+            "addressLine2": null,
+            "city": "Lexington",
+            "state": "MA",
+            "stateFips": "25",
+            "zipCode": "02420"
+          }
+        },
+        "ownerOccupied": true
+      },
+      "matchType": "incorrect",
+      "details": "ODU Count: 1 vs 1 ✓ | ODU Type: Duct vs Multi ✗ | ODU Size: 36 vs 42 ✗ | IDU Count: 1 vs 5 ✗ | IDU Type: AHU vs Head ✗ | IDU Size: 36 vs 9,9,9,9,9 ✗"
+    },
+    {
+      "address": "24 Douglas St, Weymouth, MA, 02190",
+      "actual": {
+        "location": "24 Douglas St, Weymouth, MA, 02190",
+        "numberOfODU": 1,
+        "typeOfODU": "Multi",
+        "oduSize": "42",
+        "numberOfIDU": 3,
+        "typeOfIDU": "Head",
+        "iduSize": "18,12,12",
+        "electricalWork": 1500,
+        "hvacWork": 3200,
+        "rebate": 0
+      },
+      "predicted": {
+        "numberOfODU": 2,
+        "typeOfODU": "Duct",
+        "oduSize": "60+24",
+        "numberOfIDU": 2,
+        "typeOfIDU": "AHU",
+        "iduSize": "60,24",
+        "electricalWorkEstimate": 1500,
+        "hvacWorkEstimate": 7000,
+        "confidence": "medium",
+        "reasoning": "3,018 sq ft (new 2020 build) in MA typically needs ~20-25 BTU/sq ft for cooling load equivalent sizing, landing roughly in the 60-75k total capacity range. Existing forced-air heating strongly suggests ductwork is already in place, making ducted AHUs the most practical. A 2-system split (approx. 5-ton + 2-ton) is common for ~3,000 sq ft homes to separate upstairs/downstairs loads and improve comfort; 60k covers the main/larger zone and 24k covers the secondary zone. Electrical estimate assumes moderate complexity (newer home but likely new circuits/disconnects)."
+      },
+      "propertyData": {
+        "id": "24-Douglas-St,-South-Weymouth,-MA-02190",
+        "formattedAddress": "24 Douglas St, South Weymouth, MA 02190",
+        "addressLine1": "24 Douglas St",
+        "city": "South Weymouth",
+        "state": "MA",
+        "zipCode": "02190",
+        "latitude": 42.162445,
+        "longitude": -70.941665,
+        "bedrooms": 3,
+        "bathrooms": 2.5,
+        "squareFootage": 3018,
+        "lotSize": 4860,
+        "yearBuilt": 2020,
+        "propertyType": "Single Family",
+        "lastSalePrice": 998000,
+        "lastSaleDate": "2021-10-14T00:00:00.000Z",
+        "features": {
+          "architectureType": "Colonial",
+          "cooling": true,
+          "coolingType": "Commercial",
+          "exteriorType": "Aluminum / Vinyl Siding",
+          "floorCount": 2,
+          "heating": true,
+          "heatingType": "Forced Air",
+          "roofType": "Asphalt",
+          "roomCount": 6
+        },
+        "addressLine2": null,
+        "stateFips": "25",
+        "county": "Norfolk",
+        "countyFips": "021",
+        "assessorID": "WEYM M:54 B:597 L:305",
+        "legalDescription": "LOT:305 BLK:597 DIST:336 CITY/MUNI/TWP:WEYMOUTH",
+        "taxAssessments": {
+          "2023": {
+            "year": 2023,
+            "value": 911200,
+            "land": 100900,
+            "improvements": 810300
+          },
+          "2024": {
+            "year": 2024,
+            "value": 1021900,
+            "land": 108900,
+            "improvements": 913000
+          }
+        },
+        "propertyTaxes": {
+          "2023": {
+            "year": 2023,
+            "total": 9522
+          },
+          "2024": {
+            "year": 2024,
+            "total": 10495
+          }
+        },
+        "history": {
+          "2021-10-14": {
+            "event": "Sale",
+            "date": "2021-10-14T00:00:00.000Z",
+            "price": 998000
+          }
+        },
+        "owner": {
+          "names": [
+            "Thiago Barros",
+            "Thalita Barros"
+          ],
+          "type": "Individual",
+          "mailingAddress": {
+            "id": "24-Douglas-St,-Weymouth,-MA-02190",
+            "formattedAddress": "24 Douglas St, Weymouth, MA 02190",
+            "addressLine1": "24 Douglas St",
+            "addressLine2": null,
+            "city": "Weymouth",
+            "state": "MA",
+            "stateFips": "25",
+            "zipCode": "02190"
+          }
+        },
+        "ownerOccupied": true
+      },
+      "matchType": "incorrect",
+      "details": "ODU Count: 2 vs 1 ✗ | ODU Type: Duct vs Multi ✗ | ODU Size: 60+24 vs 42 ✗ | IDU Count: 2 vs 3 ✗ | IDU Type: AHU vs Head ✗ | IDU Size: 60,24 vs 18,12,12 ✗"
+    },
+    {
+      "address": "30 Madison Ave, Newton, MA, 02460",
+      "actual": {
+        "location": "30 Madison Ave, Newton, MA, 02460",
+        "numberOfODU": 1,
+        "typeOfODU": "Multi",
+        "oduSize": "42",
+        "numberOfIDU": 4,
+        "typeOfIDU": "Head",
+        "iduSize": "12,9,9,9",
+        "electricalWork": 800,
+        "hvacWork": 4000,
+        "rebate": 250
+      },
+      "predicted": {
+        "numberOfODU": 1,
+        "typeOfODU": "Multi",
+        "oduSize": "42",
+        "numberOfIDU": 4,
+        "typeOfIDU": "Head",
+        "iduSize": "12,9,9,9",
+        "electricalWorkEstimate": 1200,
+        "hvacWorkEstimate": 4500,
+        "confidence": "low",
+        "reasoning": "No square footage/bed/bath/year-built or existing ductwork info was provided, so this is a conservative Newton-area default. A 42k multi-zone ductless setup with 4 heads is a common fit for ~1,500–2,000 sq ft homes and typical 3–4 bedroom layouts, providing zoning for bedrooms plus a main living area. Electrical is assumed moderate complexity; HVAC cost reflects a medium multi-zone install."
+      },
+      "propertyData": {
+        "id": "30-Madison-Ave,-Newtonville,-MA-02460",
+        "formattedAddress": "30 Madison Ave, Newtonville, MA 02460",
+        "addressLine1": "30 Madison Ave",
+        "city": "Newtonville",
+        "state": "MA",
+        "zipCode": "02460",
+        "latitude": 42.350062,
+        "longitude": -71.202755,
+        "addressLine2": null,
+        "stateFips": "25",
+        "county": "Middlesex",
+        "countyFips": "017"
+      },
+      "matchType": "exact",
+      "details": "ODU Count: 1 vs 1 ✓ | ODU Type: Multi vs Multi ✓ | ODU Size: 42 vs 42 ✓ | IDU Count: 4 vs 4 ✓ | IDU Type: Head vs Head ✓ | IDU Size: 12,9,9,9 vs 12,9,9,9 ✓"
+    },
+    {
+      "address": "11 Buxton Ct, Andover, MA, 01810",
+      "actual": {
+        "location": "11 Buxton Ct, Andover, MA, 01810",
+        "numberOfODU": 1,
+        "typeOfODU": "Multi",
+        "oduSize": "42",
+        "numberOfIDU": 5,
+        "typeOfIDU": "Head",
+        "iduSize": "12,12,9,9,9",
+        "electricalWork": 0,
+        "hvacWork": 5000,
+        "rebate": 0
+      },
+      "predicted": {
+        "numberOfODU": 1,
+        "typeOfODU": "Duct",
+        "oduSize": "36",
+        "numberOfIDU": 1,
+        "typeOfIDU": "AHU",
+        "iduSize": "36",
+        "electricalWorkEstimate": 1400,
+        "hvacWorkEstimate": 4200,
+        "confidence": "medium",
+        "reasoning": "1,362 sq ft condo in MA suggests ~30 BTU/sf due to 1880 construction (~41k BTU), but existing forced-air heat indicates ductwork is likely present and can be leveraged with a ducted heat-pump air handler. A 36k ducted system is a practical, slightly conservative choice for a condo this size (typical 24k–36k range) while avoiding the complexity of multi-zone heads. Electrical estimate assumes moderate work (new circuit/disconnect and possible panel adjustments); HVAC estimate reflects a medium-complexity ducted heat-pump/air-handler install using existing ducts."
+      },
+      "propertyData": {
+        "id": "11-Buxton-Ct,-Andover,-MA-01810",
+        "formattedAddress": "11 Buxton Ct, Andover, MA 01810",
+        "addressLine1": "11 Buxton Ct",
+        "city": "Andover",
+        "state": "MA",
+        "zipCode": "01810",
+        "latitude": 42.659066,
+        "longitude": -71.143454,
+        "bathrooms": 2,
+        "squareFootage": 1362,
+        "yearBuilt": 1880,
+        "propertyType": "Condo",
+        "lastSalePrice": 276000,
+        "lastSaleDate": "2003-08-29T00:00:00.000Z",
+        "features": {
+          "architectureType": "Condo / Apartment",
+          "exteriorType": "Aluminum / Vinyl Siding",
+          "floorCount": 1,
+          "garage": true,
+          "garageType": "Detached",
+          "heating": true,
+          "heatingType": "Forced Air",
+          "roofType": "Asphalt"
+        },
+        "addressLine2": null,
+        "stateFips": "25",
+        "county": "Essex",
+        "countyFips": "009",
+        "assessorID": "ANDO M:00038 B:00020 L:00011",
+        "legalDescription": "LOT:11 BLK:20 DIST:9 CITY/MUNI/TWP:ANDOVER",
+        "zoning": "SRA",
+        "taxAssessments": {
+          "2022": {
+            "year": 2022,
+            "value": 335300,
+            "improvements": 335300
+          },
+          "2024": {
+            "year": 2024,
+            "value": 399900,
+            "improvements": 399900
+          }
+        },
+        "propertyTaxes": {
+          "2022": {
+            "year": 2022,
+            "total": 4895
+          },
+          "2024": {
+            "year": 2024,
+            "total": 5151
+          }
+        },
+        "history": {
+          "2003-08-29": {
+            "event": "Sale",
+            "date": "2003-08-29T00:00:00.000Z",
+            "price": 276000
+          }
+        },
+        "owner": {
+          "names": [
+            "LAURA A HASKELL"
+          ],
+          "mailingAddress": {
+            "id": "11-Buxton-Ct,-Andover,-MA-01810",
+            "formattedAddress": "11 Buxton Ct, Andover, MA 01810",
+            "addressLine1": "11 Buxton Ct",
+            "addressLine2": null,
+            "city": "Andover",
+            "state": "MA",
+            "stateFips": "25",
+            "zipCode": "01810"
+          }
+        },
+        "ownerOccupied": true
+      },
+      "matchType": "incorrect",
+      "details": "ODU Count: 1 vs 1 ✓ | ODU Type: Duct vs Multi ✗ | ODU Size: 36 vs 42 ✗ | IDU Count: 1 vs 5 ✗ | IDU Type: AHU vs Head ✗ | IDU Size: 36 vs 12,12,9,9,9 ✗"
+    }
+  ],
+  "timestamp": "2026-02-12T05:02:23.376Z"
+}
