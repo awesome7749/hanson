@@ -20,6 +20,11 @@ export interface PropertyData {
   [key: string]: any;
 }
 
+export interface UserHints {
+  hasExistingDuctwork?: boolean;  // Does the home have existing ductwork?
+  numberOfRooms?: number;         // How many rooms to heat/cool?
+}
+
 export interface HVACPrediction {
   numberOfODU: number;
   typeOfODU: string; // "Multi", "Duct", "Single", "Multi+Single"

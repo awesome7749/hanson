@@ -1,7 +1,7 @@
 import { Router, Request, Response } from 'express';
 import { RentCastService } from '../services/rentcastService';
 import { HVACPredictorService } from '../services/hvacPredictorService';
-import { PropertyData } from '../types';
+import { PropertyData, UserHints } from '../types';
 
 export function createApiRouter(
   rentcastService: RentCastService,
@@ -29,15 +29,16 @@ export function createApiRouter(
   });
 
   // POST /api/predict-hvac - Predict HVAC configuration from property data
+  // Accepts optional userHints: { hasExistingDuctwork?: boolean, numberOfRooms?: number }
   router.post('/predict-hvac', async (req: Request, res: Response) => {
     try {
-      const propertyData: PropertyData = req.body;
+      const { userHints, ...propertyData } = req.body as PropertyData & { userHints?: UserHints };
 
       if (!propertyData || !propertyData.formattedAddress) {
         return res.status(400).json({ error: 'Property data is required' });
       }
 
-      const prediction = await hvacPredictorService.predictHVAC(propertyData);
+      const prediction = await hvacPredictorService.predictHVAC(propertyData, userHints);
       res.json(prediction);
     } catch (error) {
       console.error('HVAC prediction error:', error);

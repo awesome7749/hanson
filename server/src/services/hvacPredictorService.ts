@@ -1,5 +1,5 @@
 import OpenAI from 'openai';
-import { PropertyData, HVACPrediction } from '../types';
+import { PropertyData, HVACPrediction, UserHints } from '../types';
 import { HVAC_SYSTEM_PROMPT } from '../prompts/hvacPrompt';
 
 export class HVACPredictorService {
@@ -16,9 +16,9 @@ export class HVACPredictorService {
     this.model = process.env.OPENAI_MODEL || 'gpt-5.2';
   }
 
-  async predictHVAC(propertyData: PropertyData): Promise<HVACPrediction> {
+  async predictHVAC(propertyData: PropertyData, userHints?: UserHints): Promise<HVACPrediction> {
     try {
-      const userMessage = this.formatPropertyDataForPrompt(propertyData);
+      const userMessage = this.formatPropertyDataForPrompt(propertyData, userHints);
 
       // Use OpenAI Responses API (recommended over legacy Chat Completions).
       // Request JSON output with a schema-like structure for reliability.
@@ -92,7 +92,7 @@ export class HVACPredictorService {
     }
   }
 
-  private formatPropertyDataForPrompt(data: PropertyData): string {
+  private formatPropertyDataForPrompt(data: PropertyData, userHints?: UserHints): string {
     const parts: string[] = [
       '# Property Information',
       `Address: ${data.formattedAddress}`,
@@ -121,6 +121,19 @@ export class HVACPredictorService {
       if (hvacFeatures.length > 0) {
         parts.push('\n## Existing HVAC Features');
         parts.push(...hvacFeatures);
+      }
+    }
+
+    // Include user-provided hints if available
+    if (userHints && (userHints.hasExistingDuctwork !== undefined || userHints.numberOfRooms !== undefined)) {
+      parts.push('\n## Additional Information from Homeowner');
+      if (userHints.hasExistingDuctwork !== undefined) {
+        parts.push(userHints.hasExistingDuctwork
+          ? 'The homeowner has confirmed that the home HAS existing ductwork. This strongly suggests a ducted system (Duct ODU + AHU IDU) is appropriate.'
+          : 'The homeowner has confirmed that the home does NOT have existing ductwork. This strongly suggests a ductless mini-split system (Multi/Single ODU + Head IDU) is appropriate.');
+      }
+      if (userHints.numberOfRooms !== undefined) {
+        parts.push(`The homeowner wants ${userHints.numberOfRooms} rooms/zones to be heated and cooled. Use this as the number of indoor units (IDUs) needed.`);
       }
     }
 
