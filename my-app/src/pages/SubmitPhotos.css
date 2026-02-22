@@ -1,0 +1,110 @@
+/* ─── Submit Photos - Page-specific styles ─── */
+/* Wizard base styles (.wizard-*, .btn) are imported via GetQuote.css */
+
+/* Time estimate badge */
+.sp-time-estimate {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-xs);
+  background: var(--color-gray-100);
+  padding: 6px 16px;
+  border-radius: var(--border-radius-pill);
+  font-size: var(--font-size-small);
+  font-weight: var(--font-weight-medium);
+  color: var(--color-gray-700);
+  margin-bottom: var(--space-xl);
+}
+
+/* Intro checklist */
+.sp-checklist {
+  margin-top: var(--space-lg);
+}
+
+.sp-checklist .wizard-section__title {
+  margin-bottom: var(--space-md);
+}
+
+.sp-checklist-item {
+  display: flex;
+  gap: var(--space-sm);
+  align-items: flex-start;
+  padding: var(--space-sm) 0;
+  border-bottom: 1px solid var(--color-gray-200, var(--color-gray-300));
+}
+
+.sp-checklist-item:last-child {
+  border-bottom: none;
+}
+
+.sp-checklist-icon {
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  background: rgba(18, 165, 97, 0.1);
+  color: var(--color-success);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.7rem;
+  font-weight: bold;
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+
+.sp-checklist-item strong {
+  display: block;
+  font-size: var(--font-size-body);
+  font-weight: var(--font-weight-semibold);
+  color: var(--color-black);
+  margin-bottom: 2px;
+}
+
+.sp-checklist-item p {
+  font-size: var(--font-size-small);
+  color: var(--color-gray-500);
+  line-height: 1.4;
+}
+
+/* Add photo button */
+.sp-add-photo-btn {
+  width: 100%;
+  min-height: 80px;
+  border: 2px dashed var(--color-gray-300);
+  border-radius: var(--border-radius-lg);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: var(--font-size-body);
+  font-weight: var(--font-weight-medium);
+  font-family: var(--font-family);
+  color: var(--color-gray-500);
+  background: transparent;
+  cursor: pointer;
+  transition: border-color var(--transition-fast), color var(--transition-fast);
+}
+
+.sp-add-photo-btn:hover {
+  border-color: var(--color-accent);
+  color: var(--color-accent);
+}
+
+/* Done screen */
+.sp-done-icon {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  background: rgba(18, 165, 97, 0.1);
+  color: var(--color-success);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto var(--space-lg);
+  font-size: 2rem;
+  font-weight: bold;
+}
+
+.sp-done-summary {
+  margin-top: var(--space-md);
+  font-size: var(--font-size-body);
+  color: var(--color-gray-700);
+}

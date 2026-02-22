@@ -1,0 +1,695 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jetson Home - Instant Price Workflow Screenshots</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --dark-green: #1B5E20;
+            --bright-green: #22C55E;
+            --light-green: #E8F5E9;
+            --gray-100: #F3F4F6;
+            --gray-200: #E5E7EB;
+            --gray-400: #9CA3AF;
+            --gray-600: #4B5563;
+            --gray-800: #1F2937;
+            --white: #FFFFFF;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            background: linear-gradient(135deg, var(--light-green) 0%, var(--white) 100%);
+            color: var(--gray-800);
+            line-height: 1.6;
+            padding: 2rem;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        /* Header */
+        .header {
+            text-align: center;
+            margin-bottom: 3rem;
+            padding: 2rem;
+            background: linear-gradient(135deg, var(--dark-green) 0%, var(--bright-green) 100%);
+            color: var(--white);
+            border-radius: 12px;
+            box-shadow: 0 10px 30px rgba(27, 94, 32, 0.15);
+        }
+
+        .header h1 {
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
+            font-weight: 700;
+            letter-spacing: -0.5px;
+        }
+
+        .header p {
+            font-size: 1.1rem;
+            opacity: 0.95;
+            font-weight: 300;
+        }
+
+        /* Steps Grid */
+        .steps-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(600px, 1fr));
+            gap: 2rem;
+            margin-bottom: 3rem;
+        }
+
+        /* Step Card */
+        .step-card {
+            background: var(--white);
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            border-left: 5px solid var(--bright-green);
+        }
+
+        .step-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 8px 25px rgba(27, 94, 32, 0.15);
+        }
+
+        .step-header {
+            background: linear-gradient(135deg, var(--dark-green) 0%, var(--bright-green) 100%);
+            color: var(--white);
+            padding: 1.5rem;
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .step-number {
+            background: rgba(255, 255, 255, 0.3);
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            font-weight: 700;
+            flex-shrink: 0;
+        }
+
+        .step-title {
+            font-size: 1.3rem;
+            font-weight: 600;
+        }
+
+        .step-content {
+            padding: 1.5rem;
+        }
+
+        .screenshot-placeholder {
+            background: linear-gradient(135deg, var(--gray-100) 0%, var(--gray-200) 100%);
+            border: 2px dashed var(--gray-400);
+            border-radius: 8px;
+            aspect-ratio: 16 / 10;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 1.5rem;
+            color: var(--gray-600);
+            font-size: 3rem;
+            gap: 0.5rem;
+            text-align: center;
+            padding: 1rem;
+        }
+
+        .screenshot-label {
+            color: var(--gray-600);
+            font-size: 0.95rem;
+            font-weight: 600;
+            margin-top: 0.5rem;
+        }
+
+        .description {
+            color: var(--gray-800);
+            line-height: 1.8;
+            font-size: 0.95rem;
+            margin-bottom: 1rem;
+        }
+
+        .description ul {
+            margin-left: 1.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .description li {
+            margin-bottom: 0.5rem;
+            color: var(--gray-700);
+        }
+
+        .highlight {
+            background: var(--light-green);
+            color: var(--dark-green);
+            padding: 0.25rem 0.5rem;
+            border-radius: 4px;
+            font-weight: 600;
+        }
+
+        .highlight-primary {
+            color: var(--bright-green);
+            font-weight: 600;
+        }
+
+        /* Mini Features */
+        .features-list {
+            background: var(--light-green);
+            border-radius: 8px;
+            padding: 1rem;
+            margin-top: 1rem;
+            border-left: 4px solid var(--bright-green);
+        }
+
+        .features-list strong {
+            color: var(--dark-green);
+        }
+
+        /* Form Fields Example */
+        .form-field-example {
+            background: var(--gray-100);
+            padding: 0.75rem;
+            border-radius: 6px;
+            margin: 0.5rem 0;
+            font-family: 'Courier New', monospace;
+            font-size: 0.9rem;
+            color: var(--gray-800);
+            border-left: 3px solid var(--bright-green);
+        }
+
+        /* Two Column Layout for specific steps */
+        .sub-steps {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+
+        .sub-step {
+            background: var(--light-green);
+            padding: 1rem;
+            border-radius: 8px;
+            border-left: 3px solid var(--bright-green);
+        }
+
+        .sub-step-title {
+            font-weight: 600;
+            color: var(--dark-green);
+            margin-bottom: 0.5rem;
+        }
+
+        .sub-step-content {
+            font-size: 0.9rem;
+            color: var(--gray-700);
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .steps-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .header h1 {
+                font-size: 1.8rem;
+            }
+
+            .header {
+                padding: 1.5rem;
+            }
+
+            .sub-steps {
+                grid-template-columns: 1fr;
+            }
+
+            .screenshot-placeholder {
+                aspect-ratio: auto;
+                min-height: 200px;
+            }
+        }
+
+        /* Footer */
+        .footer {
+            text-align: center;
+            padding: 2rem;
+            color: var(--gray-600);
+            border-top: 2px solid var(--light-green);
+            margin-top: 3rem;
+        }
+
+        .footer p {
+            margin: 0.5rem 0;
+        }
+
+        .badge {
+            display: inline-block;
+            background: var(--bright-green);
+            color: var(--white);
+            padding: 0.25rem 0.75rem;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            margin-right: 0.5rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .note {
+            background: #FFF3CD;
+            border-left: 4px solid #FFC107;
+            padding: 1rem;
+            border-radius: 6px;
+            margin-top: 1rem;
+            font-size: 0.9rem;
+            color: #856404;
+        }
+
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Header -->
+        <div class="header">
+            <h1>🏡 Jetson Home - Instant Price Workflow</h1>
+            <p>Screenshot Documentation: Complete User Journey</p>
+        </div>
+
+        <!-- Steps Grid -->
+        <div class="steps-grid">
+
+            <!-- Step 0 -->
+            <div class="step-card">
+                <div class="step-header">
+                    <div class="step-number">0</div>
+                    <div class="step-title">Homepage Hero</div>
+                </div>
+                <div class="step-content">
+                    <div class="screenshot-placeholder">
+                        🏠
+                        <div class="screenshot-label">Landing Page with Hero Section</div>
+                    </div>
+                    <div class="description">
+                        <p>The Jetson Home homepage features a prominent hero section showcasing the brand's core value proposition: <span class="highlight-primary">All-Electric Heating and Cooling</span>.</p>
+                        <strong>Key Visual Elements:</strong>
+                        <ul>
+                            <li>Green branded illustration of a modern house with heating/cooling systems</li>
+                            <li>Bold headline emphasizing all-electric solutions</li>
+                            <li>Prominent yellow-green <span class="highlight">"Get an Instant Price"</span> CTA button</li>
+                            <li>Navigation menu: How it Works, Products, Reviews, FAQs, Instant Quote</li>
+                            <li>Clean, professional layout with ample white space</li>
+                            <li>Trust indicators and company messaging below the fold</li>
+                        </ul>
+                    </div>
+                    <div class="features-list">
+                        <strong>Design Focus:</strong> High-conversion CTA placement with clear visual hierarchy
+                    </div>
+                </div>
+            </div>
+
+            <!-- Step 0b -->
+            <div class="step-card">
+                <div class="step-header">
+                    <div class="step-number">0b</div>
+                    <div class="step-title">Address Input Modal</div>
+                </div>
+                <div class="step-content">
+                    <div class="screenshot-placeholder">
+                        🗺️
+                        <div class="screenshot-label">CTA Button Transforms to Address Autocomplete</div>
+                    </div>
+                    <div class="description">
+                        <p>Upon clicking the "Get an Instant Price" button, a <span class="highlight-primary">smooth interaction</span> occurs where the CTA transforms into an address input field with integrated Google Places autocomplete.</p>
+                        <strong>Key Features:</strong>
+                        <ul>
+                            <li>Animated transformation from button to input field</li>
+                            <li>Google Places autocomplete dropdown showing matching addresses</li>
+                            <li>Example shown: "66 Allen Street, Lexington, MA" with full address variations</li>
+                            <li>Real-time validation and suggestions as user types</li>
+                            <li>Selected address highlighted with checkmark</li>
+                            <li>Smooth UX transition to next step</li>
+                        </ul>
+                    </div>
+                    <div class="features-list">
+                        <strong>Interaction Pattern:</strong> Progressive disclosure with contextual autocomplete
+                    </div>
+                </div>
+            </div>
+
+            <!-- Step 1 -->
+            <div class="step-card">
+                <div class="step-header">
+                    <div class="step-number">1</div>
+                    <div class="step-title">Get Started</div>
+                </div>
+                <div class="step-content">
+                    <div class="screenshot-placeholder">
+                        🌿
+                        <div class="screenshot-label">Get Started Screen with Address Confirmation</div>
+                    </div>
+                    <div class="description">
+                        <p>The first step in the quote workflow features a <span class="highlight-primary">nature-inspired dark green background</span> with a white card displaying the user's confirmed address.</p>
+                        <strong>Page Layout:</strong>
+                        <ul>
+                            <li>Dark green nature/leaf background pattern</li>
+                            <li>"Get Started" heading in white</li>
+                            <li>White card with confirmed address: "66 Allen St, Lexington, MA 02421, USA"</li>
+                            <li>Green checkmark (✓) next to address confirming accuracy</li>
+                            <li>Three value propositions with icons/bullets:
+                                <ul>
+                                    <li>"Find your rebates and incentives"</li>
+                                    <li>"See a system tailored for your home"</li>
+                                    <li>"Get your free, upfront price"</li>
+                                </ul>
+                            </li>
+                            <li>Left-side vertical progress indicator (dot-based) showing Step 1 of 7</li>
+                            <li>Next/Continue CTA button</li>
+                        </ul>
+                    </div>
+                    <div class="features-list">
+                        <strong>Design Pattern:</strong> Address validation with value proposition reinforcement
+                    </div>
+                </div>
+            </div>
+
+            <!-- Step 2 -->
+            <div class="step-card">
+                <div class="step-header">
+                    <div class="step-number">2</div>
+                    <div class="step-title">Contact Information</div>
+                </div>
+                <div class="step-content">
+                    <div class="screenshot-placeholder">
+                        📋
+                        <div class="screenshot-label">Contact Form with Validation</div>
+                    </div>
+                    <div class="description">
+                        <p>Step 2 presents a <span class="highlight-primary">contact form</span> collecting essential user information with real-time inline validation and helpful error messaging.</p>
+                        <strong>Form Fields & Behavior:</strong>
+                        <ul>
+                            <li><strong>First Name:</strong> Text input with validation</li>
+                            <li><strong>Last Name:</strong> Text input with validation</li>
+                            <li><strong>Email Address:</strong> Email input with format validation</li>
+                            <li><strong>Phone Number:</strong> Auto-formatting to (XXX) XXX-XXXX format as user types</li>
+                            <li>Inline validation showing red error messages for invalid entries</li>
+                            <li>Real-time feedback (not requiring form submission to validate)</li>
+                            <li>Green-themed submit button</li>
+                            <li>Progress indicator updated to Step 2</li>
+                        </ul>
+                    </div>
+                    <div class="note">
+                        <strong>Note:</strong> Phone number auto-formatting enhances UX by removing friction from manual formatting
+                    </div>
+                </div>
+            </div>
+
+            <!-- Step 3a -->
+            <div class="step-card">
+                <div class="step-header">
+                    <div class="step-number">3a</div>
+                    <div class="step-title">Remote Analysis - Loading</div>
+                </div>
+                <div class="step-content">
+                    <div class="screenshot-placeholder">
+                        ⏳
+                        <div class="screenshot-label">Animated House Illustration Loading State</div>
+                    </div>
+                    <div class="description">
+                        <p>After submission, the application moves to an automated remote home analysis phase with an <span class="highlight-primary">engaging animated visual</span>.</p>
+                        <strong>Loading Screen Features:</strong>
+                        <ul>
+                            <li>Animated house illustration gradually filling with green color (progress visualization)</li>
+                            <li>Loading text: "Analyzing square footage..."</li>
+                            <li>Smooth animation providing reassuring user feedback</li>
+                            <li>Prevents perceived lag and keeps user engaged</li>
+                            <li>Communicates active processing of address/property data</li>
+                            <li>Professional, on-brand visual treatment</li>
+                        </ul>
+                    </div>
+                    <div class="features-list">
+                        <strong>UX Pattern:</strong> Animated loading state builds confidence in automated analysis
+                    </div>
+                </div>
+            </div>
+
+            <!-- Step 3b -->
+            <div class="step-card">
+                <div class="step-header">
+                    <div class="step-number">3b</div>
+                    <div class="step-title">Remote Analysis - Results</div>
+                </div>
+                <div class="step-content">
+                    <div class="screenshot-placeholder">
+                        🛰️
+                        <div class="screenshot-label">Satellite Imagery with Property Data</div>
+                    </div>
+                    <div class="description">
+                        <p>The analysis results display a <span class="highlight-primary">satellite image of the property</span> alongside pre-populated home data extracted from public records and imagery analysis.</p>
+                        <strong>Data Display Components:</strong>
+                        <ul>
+                            <li>Satellite/aerial image of the user's property</li>
+                            <li>"Your Home" card section with pre-populated fields:
+                                <ul>
+                                    <li><span class="highlight">Fully Detached</span> (displayed as selected green button)</li>
+                                    <li>Year: 1970</li>
+                                    <li>Square Footage: 2302</li>
+                                    <li>Number of Floors: 2</li>
+                                    <li>Bedrooms: 4</li>
+                                    <li>Bathrooms: 3</li>
+                                    <li>Attic: Yes</li>
+                                </ul>
+                            </li>
+                            <li>Basement Type selector with options:
+                                <ul>
+                                    <li>None</li>
+                                    <li>Unfinished</li>
+                                    <li>Finished</li>
+                                    <li>Crawlspace</li>
+                                </ul>
+                            </li>
+                            <li>Conditional field for basement square footage (appears if basement selected)</li>
+                            <li>Free-text area for additional property notes</li>
+                        </ul>
+                    </div>
+                    <div class="features-list">
+                        <strong>Intelligence Level:</strong> AI-powered property analysis dramatically reduces user data entry friction
+                    </div>
+                </div>
+            </div>
+
+            <!-- Step 4 -->
+            <div class="step-card">
+                <div class="step-header">
+                    <div class="step-number">4</div>
+                    <div class="step-title">Additional Home Info</div>
+                </div>
+                <div class="step-content">
+                    <div class="screenshot-placeholder">
+                        ❓
+                        <div class="screenshot-label">Ownership and Heating System Selection</div>
+                    </div>
+                    <div class="description">
+                        <p>This step gathers critical information about property ownership status and current heating infrastructure.</p>
+                        <strong>Section 1: Ownership Status</strong>
+                        <ul>
+                            <li>Toggle/Selector: <span class="highlight">Own</span> (displayed as selected, green) vs. Rent</li>
+                            <li>Determines eligibility and messaging downstream</li>
+                        </ul>
+                        <strong>Section 2: Current Heating Source</strong>
+                        <ul>
+                            <li>Gas Furnace (<span class="highlight">selected</span>, green)</li>
+                            <li>Electric Furnace</li>
+                            <li>Heating Oil Furnace</li>
+                            <li>Electric Baseboard</li>
+                            <li>Heat Pump</li>
+                            <li>Radiant In-Floor</li>
+                            <li>Other (free-text option)</li>
+                        </ul>
+                        <strong>Section 3: Installation Timeline</strong>
+                        <ul>
+                            <li>2x2 grid of options:</li>
+                            <li>ASAP/Urgent</li>
+                            <li>This Month</li>
+                            <li><span class="highlight">This Year</span> (selected, green)</li>
+                            <li>Just Curious</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Step 5 -->
+            <div class="step-card">
+                <div class="step-header">
+                    <div class="step-number">5</div>
+                    <div class="step-title">Utility Providers</div>
+                </div>
+                <div class="step-content">
+                    <div class="screenshot-placeholder">
+                        ⚡
+                        <div class="screenshot-label">Electricity and Gas Provider Selection</div>
+                    </div>
+                    <div class="description">
+                        <p>Step 5 identifies the user's utility providers, which determines applicable <span class="highlight-primary">rebates, incentives, and pricing</span>.</p>
+                        <strong>Section 1: Electricity Provider</strong>
+                        <ul>
+                            <li>Cape Light Compact</li>
+                            <li><span class="highlight">Eversource</span> (selected, green)</li>
+                            <li>National Grid</li>
+                            <li>Unitil</li>
+                            <li>Other</li>
+                            <li>I generate my own (solar option)</li>
+                        </ul>
+                        <strong>Section 2: Gas Provider</strong>
+                        <ul>
+                            <li>Berkshire Gas</li>
+                            <li>Eversource</li>
+                            <li>Liberty Utilities</li>
+                            <li><span class="highlight">National Grid</span> (selected, green)</li>
+                            <li>Unitil</li>
+                            <li>Other</li>
+                            <li>I don't have natural gas (informational option)</li>
+                        </ul>
+                    </div>
+                    <div class="features-list">
+                        <strong>Data Purpose:</strong> Utility provider determines rebate eligibility and incentive calculations
+                    </div>
+                </div>
+            </div>
+
+            <!-- Step 6 -->
+            <div class="step-card">
+                <div class="step-header">
+                    <div class="step-number">6</div>
+                    <div class="step-title">Service & Guarantees</div>
+                </div>
+                <div class="step-content">
+                    <div class="screenshot-placeholder">
+                        ✅
+                        <div class="screenshot-label">What's Included & Trust Indicators</div>
+                    </div>
+                    <div class="description">
+                        <p>The final step before quote presentation showcases Jetson's <span class="highlight-primary">comprehensive service offerings</span> and builds trust through third-party validation.</p>
+                        <strong>Main Content Sections:</strong>
+                        <ul>
+                            <li><strong>"What's Included"</strong> green card featuring a comprehensive checklist of services:
+                                <ul>
+                                    <li>Professional installation</li>
+                                    <li>System design consultation</li>
+                                    <li>Rebate application assistance</li>
+                                    <li>Warranty coverage</li>
+                                    <li>Maintenance support</li>
+                                </ul>
+                            </li>
+                            <li><strong>"Worry-Free Performance, Guaranteed"</strong> section highlighting performance guarantees and peace of mind</li>
+                            <li><strong>Trust Badges:</strong>
+                                <ul>
+                                    <li>BBB (Better Business Bureau) accreditation</li>
+                                    <li>Google 5.0 star rating</li>
+                                    <li>Mass Save program participation</li>
+                                </ul>
+                            </li>
+                        </ul>
+                        <strong>CTA:</strong> Green <span class="highlight">"View Your Quote and Rebates"</span> button progresses to final step
+                    </div>
+                </div>
+            </div>
+
+            <!-- Step 7 -->
+            <div class="step-card">
+                <div class="step-header">
+                    <div class="step-number">7</div>
+                    <div class="step-title">Your Quote</div>
+                </div>
+                <div class="step-content">
+                    <div class="screenshot-placeholder">
+                        💰
+                        <div class="screenshot-label">Complete Quote Summary with Expert & Next Steps</div>
+                    </div>
+                    <div class="description">
+                        <p>The final step presents a <span class="highlight-primary">comprehensive quote breakdown</span> along with personalized expert assignment and clear next steps.</p>
+                        <strong>Section 1: Your Profile Card</strong>
+                        <ul>
+                            <li>Consolidated user information (name, email, phone)</li>
+                            <li>Property satellite map with address</li>
+                            <li>Quick reference for confirmation</li>
+                        </ul>
+                        <strong>Section 2: Your Jetson Expert Card</strong>
+                        <ul>
+                            <li>Expert name: Richard</li>
+                            <li>Title: Electrification Consultant</li>
+                            <li>Professional photo</li>
+                            <li>Contact email</li>
+                            <li><span class="highlight">"Schedule Virtual Meeting"</span> green CTA button</li>
+                        </ul>
+                        <strong>Section 3: "What Happens Next?" Process</strong>
+                        <ul>
+                            <li>5-step visual timeline with icons showing:
+                                <li>Review quote details</li>
+                                <li>Discuss financing options</li>
+                                <li>Finalize design</li>
+                                <li>Schedule installation</li>
+                                <li>Enjoy your system</li>
+                        </ul>
+                        <strong>Section 4: Pricing Summary</strong>
+                        <ul>
+                            <li><strong>Total System Price: $8,495.00</strong> (prominently displayed)</li>
+                            <li>Detailed pricing breakdown table showing:
+                                <ul>
+                                    <li>Equipment costs</li>
+                                    <li>Labor/installation</li>
+                                    <li>Permits and inspections</li>
+                                    <li>Less rebates/incentives</li>
+                                    <li>Final price</li>
+                                </ul>
+                            </li>
+                        </ul>
+                        <strong>Section 5: Service Plan Comparison</strong>
+                        <ul>
+                            <li><strong>Jetson Care:</strong> Standard maintenance plan with features
+                                <ul>
+                                    <li>Annual system check</li>
+                                    <li>Filter replacement</li>
+                                    <li>Priority support</li>
+                                </ul>
+                            </li>
+                            <li><strong>Jetson Care Plus:</strong> Premium plan with additional benefits
+                                <ul>
+                                    <li>Bi-annual service visits</li>
+                                    <li>Parts replacement covered</li>
+                                    <li>24/7 emergency support</li>
+                                </ul>
+                            </li>
+                            <li>Side-by-side comparison with pricing</li>
+                        </ul>
+                    </div>
+                    <div class="features-list">
+                        <strong>Final Touch:</strong> Personalized expert assignment and clear ROI/value communication closes the sale
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <!-- Footer -->
+        <div class="footer">
+            <p><strong>Jetson Home - Instant Price Workflow Documentation</strong></p>
+            <p>This gallery documents the complete user journey for obtaining an instant price quote for all-electric heating and cooling systems.</p>
+            <p style="margin-top: 1.5rem; font-size: 0.9rem; color: var(--gray-500);">Generated as a companion to DOCX workflow report | All steps reflect actual feature implementation</p>
+        </div>
+
+    </div>
+</body>
+</html>

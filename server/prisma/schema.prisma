@@ -1,0 +1,82 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model Lead {
+  id        String   @id @default(uuid())
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+  status    String   @default("new") // new, property_loaded, survey_done, quoted, photos_submitted, contacted, followed_up, scheduled, completed, lost
+
+  // Contact (Step 2)
+  firstName String?
+  lastName  String?
+  email     String?
+  phone     String?
+
+  // Address
+  addressRaw       String
+  formattedAddress String?
+
+  // Property data from RentCast (stored as JSON blob)
+  propertyData Json?
+
+  // Survey (Step 3)
+  hasAttic     String? // "yes" | "no"
+  basementType String? // "none" | "unfinished" | "finished" | "crawlspace"
+  hasDuctwork    String? // "yes" | "no" | "not-sure"
+  numberOfFloors String? // "1" | "2" | "3+"
+  corrections    String?
+
+  // Details (Step 4)
+  ownershipStatus      String? // "own" | "rent"
+  currentHeating       String?
+  installationTimeline String?
+
+  // Utilities (Step 5)
+  electricityProvider String?
+  gasProvider         String?
+
+  // Admin
+  adminNotes String?
+
+  predictions Prediction[]
+  photos      Photo[]
+}
+
+model Prediction {
+  id        String   @id @default(uuid())
+  createdAt DateTime @default(now())
+  leadId    String
+  lead      Lead     @relation(fields: [leadId], references: [id])
+
+  variant              String // "ducted" | "ductless"
+  numberOfODU          Int
+  typeOfODU            String
+  oduSize              String
+  numberOfIDU          Int
+  typeOfIDU            String
+  iduSize              String
+  electricalWorkEstimate Float?
+  hvacWorkEstimate       Float?
+  confidence           String?
+  reasoning            String?
+}
+
+model Photo {
+  id        String   @id @default(uuid())
+  createdAt DateTime @default(now())
+  leadId    String
+  lead      Lead     @relation(fields: [leadId], references: [id])
+
+  photoKey String
+  gcsUrl   String
+  gcsPath  String
+  fileSize Int
+  mimeType String
+}

@@ -1,13 +1,9 @@
-# This file specifies files that are *not* uploaded to Google Cloud
-# using gcloud. It follows the same syntax as .gitignore, with the addition of
-# "#!include" directives (which insert the entries of the given .gitignore-style
-# file at that point).
-
+# Files not uploaded to Google Cloud Build
 .gcloudignore
 .git
 .gitignore
 
-# Node modules
+# Node modules (installed during docker build)
 **/node_modules/
 
 # Build artifacts
@@ -16,29 +12,37 @@
 **/yarn-debug.log*
 **/yarn-error.log*
 
-# Source files (we only deploy the build)
-my-app/src/
-my-app/public/
-my-app/tsconfig.json
+# Compiled output (rebuilt during docker build)
+server/dist/
+my-app/build/
 
-# IMPORTANT: Include the build folder (override gitignore)
-!my-app/build/
-!my-app/build/**
-
-# Server folder (not used yet)
-server/
-
-# Local env files
+# Local env files (secrets set via Cloud Run env vars)
+.env
+server/.env
+my-app/.env
 .env.local
 .env.development.local
 .env.test.local
 .env.production.local
 
-# IDE files
+# IDE and misc
 .vscode/
 .idea/
+.claude/
 *.swp
 *.swo
 
-# README
-README.md
+# Old App Engine config
+app.yaml
+app.yaml.example
+server.js
+
+# Docs
+*.md
+
+# Test/dev files
+test-satellite-view.html
+docker-compose.yml
+server/uploads/
+server/results/
+server/jetson/

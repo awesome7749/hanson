@@ -27,7 +27,7 @@ export class RentCastService {
       }
 
       const data = response.data[0];
-      
+
       return {
         id: data.id,
         formattedAddress: data.formattedAddress || data.addressLine1,
