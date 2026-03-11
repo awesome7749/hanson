@@ -1,5 +1,5 @@
 import { PrismaClient } from '@prisma/client';
-import { HVACPrediction } from '../types';
+import { QuoteResult } from './quoteCalculatorService';
 
 const prisma = new PrismaClient();
 
@@ -43,27 +43,24 @@ export class DatabaseService {
    */
   async savePredictions(
     leadId: string,
-    predictions: Array<{ variant: string; prediction: HVACPrediction }>
+    predictions: Array<{ variant: string; quote: QuoteResult }>
   ) {
     // Clear old predictions for this lead
     await prisma.prediction.deleteMany({ where: { leadId } });
 
     const created = await Promise.all(
-      predictions.map(({ variant, prediction }) =>
+      predictions.map(({ variant, quote }) =>
         prisma.prediction.create({
           data: {
             leadId,
             variant,
-            numberOfODU: prediction.numberOfODU,
-            typeOfODU: prediction.typeOfODU,
-            oduSize: prediction.oduSize,
-            numberOfIDU: prediction.numberOfIDU,
-            typeOfIDU: prediction.typeOfIDU,
-            iduSize: prediction.iduSize,
-            electricalWorkEstimate: prediction.electricalWorkEstimate,
-            hvacWorkEstimate: prediction.hvacWorkEstimate,
-            confidence: prediction.confidence,
-            reasoning: prediction.reasoning,
+            systemType: quote.systemType,
+            equipmentCost: quote.equipmentCost,
+            laborCost: quote.laborCost,
+            totalCost: quote.totalCost,
+            rebate: quote.rebate,
+            netCost: quote.netCostAfterRebate,
+            quoteData: quote as any,
           },
         })
       )

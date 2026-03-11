@@ -37,3 +37,6 @@ server/uploads/*
 
 # Prisma
 server/prisma/*.db
+server/2025 ToC Summary.numbers
+server/2026 Product MassSave Rebate.xlsx
+server/2026-4 Ventrix TCL Pricing.pdf

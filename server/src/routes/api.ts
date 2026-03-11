@@ -6,6 +6,7 @@ import { HVACPredictorService } from '../services/hvacPredictorService';
 import { DatabaseService } from '../services/databaseService';
 import { StorageService } from '../services/storageService';
 import { PropertyData, UserHints } from '../types';
+import { calculateQuote } from '../services/quoteCalculatorService';
 
 // ─── Multer config: memory storage for GCS upload ───
 const upload = multer({
@@ -146,33 +147,22 @@ export function createApiRouter(
         return res.status(400).json({ error: 'Lead has no property data' });
       }
 
-      const numberOfRooms = (propertyData.bedrooms || 3) + 2;
-      const hasDuctwork = lead.hasDuctwork;
-      const noDucts = hasDuctwork === 'no';
+      const squareFootage = propertyData.squareFootage || 1500;
+      const bedrooms = propertyData.bedrooms || 3;
+      const hasDuctwork = (lead.hasDuctwork || 'not sure') as 'yes' | 'no' | 'not sure';
 
-      const predictions: Array<{ variant: string; prediction: any }> = [];
+      const predictions: Array<{ variant: string; quote: any }> = [];
 
-      if (noDucts) {
-        // Single prediction: ductless only
-        const prediction = await hvacPredictorService.predictHVAC(propertyData, {
-          hasExistingDuctwork: false,
-          numberOfRooms,
-        });
-        predictions.push({ variant: 'ductless', prediction });
+      if (hasDuctwork === 'yes') {
+        // Two options: ducted (primary) + ductless alternative
+        const ducted = calculateQuote(squareFootage, bedrooms, 'yes');
+        const ductless = calculateQuote(squareFootage, bedrooms, 'no');
+        predictions.push({ variant: 'ducted', quote: ducted });
+        predictions.push({ variant: 'ductless', quote: ductless });
       } else {
-        // Two predictions in parallel: ducted + ductless
-        const [ducted, ductless] = await Promise.all([
-          hvacPredictorService.predictHVAC(propertyData, {
-            hasExistingDuctwork: true,
-            numberOfRooms,
-          }),
-          hvacPredictorService.predictHVAC(propertyData, {
-            hasExistingDuctwork: false,
-            numberOfRooms,
-          }),
-        ]);
-        predictions.push({ variant: 'ducted', prediction: ducted });
-        predictions.push({ variant: 'ductless', prediction: ductless });
+        // Ductless only
+        const ductless = calculateQuote(squareFootage, bedrooms, hasDuctwork);
+        predictions.push({ variant: 'ductless', quote: ductless });
       }
 
       // Save predictions to DB
