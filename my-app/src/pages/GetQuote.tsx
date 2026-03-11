@@ -24,17 +24,31 @@ interface PropertyData {
   [key: string]: any;
 }
 
-interface HVACPrediction {
-  numberOfODU: number;
-  typeOfODU: string;
-  oduSize: string;
-  numberOfIDU: number;
-  typeOfIDU: string;
-  iduSize: string;
-  electricalWorkEstimate?: number;
-  hvacWorkEstimate?: number;
-  confidence?: string;
-  reasoning?: string;
+interface OduAssignment {
+  odu: { model: string; btu: number; tonnage: number; price: number; seer2?: number; hspf2?: number };
+  idus: { model: string; btu: number; tonnage: number; price: number }[];
+  iduCombo: number[];
+  ahri: number;
+  rebate: number;
+}
+
+interface QuoteResult {
+  systemType: 'ducted' | 'mini-split';
+  oduAssignments: OduAssignment[];
+  accessories: { model: string; description: string; price: number }[];
+  equipmentCost: number;
+  laborCost: number;
+  totalCost: number;
+  rebate: number;
+  netCostAfterRebate: number;
+  details: {
+    totalTonnage: number;
+    maxTonnage: number;
+    bedroomTonnage?: number;
+    remainingTonnage?: number;
+    totalZones?: number;
+    numberOfODUs?: number;
+  };
 }
 
 interface FormData {
@@ -102,8 +116,8 @@ const GetQuote: React.FC = () => {
   });
   const [leadId, setLeadId] = useState<string | null>(null);
   const [propertyData, setPropertyData] = useState<PropertyData | null>(null);
-  const [prediction, setPrediction] = useState<HVACPrediction | null>(null);
-  const [ductlessPrediction, setDuctlessPrediction] = useState<HVACPrediction | null>(null);
+  const [ductedQuote, setDuctedQuote] = useState<QuoteResult | null>(null);
+  const [ductlessQuote, setDuctlessQuote] = useState<QuoteResult | null>(null);
   const [loading, setLoading] = useState(false);
   const [loadingMessage, setLoadingMessage] = useState('');
   const [errors, setErrors] = useState<Record<string, string>>({});
@@ -214,37 +228,28 @@ const GetQuote: React.FC = () => {
     }
   };
 
-  // ─── Fetch HVAC prediction via lead endpoint ───
-  const fetchPrediction = async () => {
+  // ─── Fetch HVAC quote via lead endpoint ───
+  const fetchQuote = async () => {
     if (!leadId) return;
 
     setLoading(true);
-    setDuctlessPrediction(null);
-    setLoadingMessage('Designing your system...');
+    setDuctedQuote(null);
+    setDuctlessQuote(null);
+    setLoadingMessage('Calculating your system...');
 
-    const noDucts = formData.hasDuctwork === 'no';
-
-    const messages = !noDucts
-      ? [
-          'Designing your system...',
-          'Evaluating ducted option...',
-          'Evaluating ductless option...',
-          'Comparing configurations...',
-          'Preparing your quote...',
-        ]
-      : [
-          'Designing your system...',
-          'Calculating equipment needs...',
-          'Estimating costs and rebates...',
-          'Preparing your quote...',
-        ];
+    const messages = [
+      'Calculating your system...',
+      'Selecting equipment...',
+      'Looking up rebates...',
+      'Preparing your quote...',
+    ];
     let i = 0;
     const interval = setInterval(() => {
       i++;
       if (i < messages.length) {
         setLoadingMessage(messages[i]);
       }
-    }, 2000);
+    }, 800);
 
     try {
       const res = await fetch(`/api/leads/${leadId}/predict`, {
@@ -257,12 +262,10 @@ const GetQuote: React.FC = () => {
         const ducted = data.predictions.find((p: any) => p.variant === 'ducted');
         const ductless = data.predictions.find((p: any) => p.variant === 'ductless');
 
-        if (ducted) setPrediction(ducted);
-        else if (ductless) setPrediction(ductless);
-
-        if (ducted && ductless) setDuctlessPrediction(ductless);
+        if (ducted) setDuctedQuote(ducted.quote);
+        if (ductless) setDuctlessQuote(ductless.quote);
       } else {
-        console.error('Prediction error:', data);
+        console.error('Quote error:', data);
       }
     } catch (err) {
       console.error('Network error:', err);
@@ -309,9 +312,9 @@ const GetQuote: React.FC = () => {
       });
       setCurrentStep(6);
     } else if (currentStep === 6) {
-      // Fetch prediction via lead endpoint
+      // Fetch quote via lead endpoint
       setCurrentStep(7);
-      await fetchPrediction();
+      await fetchQuote();
     } else {
       setCurrentStep((prev) => Math.min(prev + 1, TOTAL_STEPS));
     }
@@ -321,17 +324,8 @@ const GetQuote: React.FC = () => {
     setCurrentStep((prev) => Math.max(prev - 1, 1));
   };
 
-  // ─── Generate pricing from prediction ───
-  const getPricing = (pred?: HVACPrediction | null) => {
-    const p = pred ?? prediction;
-    const electrical = p?.electricalWorkEstimate || 1200;
-    const hvacWork = p?.hvacWorkEstimate || 4500;
-    const permits = 450;
-    const subtotal = electrical + hvacWork + permits;
-    const rebate = subtotal > 6000 ? 3500 : 2500;
-    const total = subtotal - rebate;
-    return { electrical, hvacWork, permits, subtotal, rebate, total };
-  };
+  // ─── Format currency ───
+  const fmt = (n: number) => n.toLocaleString('en-US', { minimumFractionDigits: 0, maximumFractionDigits: 0 });
 
   // ─── Render Steps ─────────────────────────────────────
 
@@ -789,65 +783,90 @@ const GetQuote: React.FC = () => {
     </div>
   );
 
-  const renderSystemCard = (pred: HVACPrediction, label: string, isDucted: boolean) => {
-    const pricing = getPricing(pred);
+  const renderQuoteCard = (quote: QuoteResult, label: string) => {
+    const isDucted = quote.systemType === 'ducted';
     return (
       <div className={`quote-option-card ${isDucted ? 'quote-option-card--ducted' : 'quote-option-card--ductless'}`}>
         <div className="quote-option-header">
           <h3>{label}</h3>
-          <span className="quote-option-type">{isDucted ? 'Central Air Handler' : 'Mini-Split Heads'}</span>
+          <span className="quote-option-type">
+            {isDucted ? 'Advantage Series - Ducted Inverter Heat Pump' : 'BreezeIN Series - Ductless Mini-Split'}
+          </span>
         </div>
-        <div className="quote-system-grid">
-          <div className="quote-system-field">
-            <span className="quote-system-label">Outdoor Units</span>
-            <span className="quote-system-value">
-              {pred.numberOfODU}x {pred.typeOfODU} ({pred.oduSize}k BTU)
-            </span>
-          </div>
-          <div className="quote-system-field">
-            <span className="quote-system-label">Indoor Units</span>
-            <span className="quote-system-value">
-              {pred.numberOfIDU}x {pred.typeOfIDU} ({pred.iduSize}k BTU)
-            </span>
-          </div>
-          {pred.confidence && (
-            <div className="quote-system-field">
-              <span className="quote-system-label">Confidence</span>
-              <span className={`quote-confidence quote-confidence--${pred.confidence}`}>
-                {pred.confidence}
-              </span>
+
+        {/* Equipment details per ODU */}
+        {quote.oduAssignments.map((assignment, idx) => (
+          <div key={idx} className="quote-equipment-group">
+            {quote.oduAssignments.length > 1 && (
+              <h4 className="quote-equipment-group__title">System {idx + 1}</h4>
+            )}
+            <div className="quote-system-grid">
+              <div className="quote-system-field">
+                <span className="quote-system-label">Outdoor Unit</span>
+                <span className="quote-system-value">{assignment.odu.model}</span>
+                <span className="quote-system-detail">
+                  {(assignment.odu.btu / 1000).toFixed(0)}K BTU
+                  {assignment.odu.seer2 && ` | ${assignment.odu.seer2} SEER2`}
+                  {assignment.odu.hspf2 && ` | ${assignment.odu.hspf2} HSPF2`}
+                </span>
+              </div>
+              <div className="quote-system-field">
+                <span className="quote-system-label">
+                  {isDucted ? 'Air Handler' : `Indoor Unit${assignment.idus.length > 1 ? 's' : ''}`}
+                </span>
+                {isDucted ? (
+                  <>
+                    <span className="quote-system-value">{assignment.idus[0].model}</span>
+                    <span className="quote-system-detail">{(assignment.idus[0].btu / 1000).toFixed(0)}K BTU</span>
+                  </>
+                ) : (
+                  <>
+                    <span className="quote-system-value">{assignment.idus.length} zone{assignment.idus.length > 1 ? 's' : ''}</span>
+                    <span className="quote-system-detail">
+                      [{assignment.iduCombo.join('K + ')}K] Wall Mount
+                    </span>
+                  </>
+                )}
+              </div>
+              <div className="quote-system-field">
+                <span className="quote-system-label">AHRI Certified</span>
+                <span className="quote-system-value">#{assignment.ahri}</span>
+              </div>
             </div>
-          )}
-        </div>
-        {pred.reasoning && (
-          <div className="quote-reasoning">
-            <strong>Design Notes:</strong> {pred.reasoning}
+          </div>
+        ))}
+
+        {/* Accessories */}
+        {quote.accessories.length > 0 && (
+          <div className="quote-accessories">
+            <span className="quote-system-label">Included Accessories</span>
+            {quote.accessories.map((acc, i) => (
+              <span key={i} className="quote-system-detail">{acc.description}</span>
+            ))}
           </div>
         )}
+
+        {/* Pricing breakdown */}
         <div className="quote-pricing-rows">
           <div className="quote-pricing-row">
-            <span>HVAC Equipment & Installation</span>
-            <span>${pricing.hvacWork.toLocaleString()}</span>
+            <span>Equipment</span>
+            <span>${fmt(quote.equipmentCost)}</span>
           </div>
           <div className="quote-pricing-row">
-            <span>Electrical Work</span>
-            <span>${pricing.electrical.toLocaleString()}</span>
-          </div>
-          <div className="quote-pricing-row">
-            <span>Permits & Inspections</span>
-            <span>${pricing.permits.toLocaleString()}</span>
+            <span>Labor & Installation</span>
+            <span>${fmt(quote.laborCost)}</span>
           </div>
           <div className="quote-pricing-row quote-pricing-row--subtotal">
             <span>Subtotal</span>
-            <span>${pricing.subtotal.toLocaleString()}</span>
+            <span>${fmt(quote.totalCost)}</span>
           </div>
           <div className="quote-pricing-row quote-pricing-row--rebate">
-            <span>Estimated Rebates</span>
-            <span>-${pricing.rebate.toLocaleString()}</span>
+            <span>Mass Save Rebate</span>
+            <span>-${fmt(quote.rebate)}</span>
           </div>
           <div className="quote-pricing-row quote-pricing-row--total">
             <span>Estimated Total</span>
-            <span>${pricing.total.toLocaleString()}</span>
+            <span>${fmt(quote.netCostAfterRebate)}</span>
           </div>
         </div>
       </div>
@@ -875,15 +894,16 @@ const GetQuote: React.FC = () => {
       );
     }
 
-    const hasDualOptions = ductlessPrediction !== null && prediction !== null;
-
-    const pricing = getPricing();
+    // Determine which quote to display as primary
+    const primaryQuote = ductedQuote || ductlessQuote;
+    const hasDualOptions = ductedQuote !== null && ductlessQuote !== null;
+    const displayTotal = primaryQuote?.netCostAfterRebate ?? 0;
 
     return (
       <div className="wizard-step wizard-step--quote">
         <h2 className="wizard-step__title">Your Hanson Quote</h2>
         <p className="wizard-step__subtitle quote-subtitle">
-          This is your personalized price that includes available rebates for even greater savings.
+          Personalized pricing with real equipment specs, AHRI-certified efficiency ratings, and Mass Save rebates.
         </p>
 
         {/* Profile + Expert Card */}
@@ -906,6 +926,18 @@ const GetQuote: React.FC = () => {
               <span className="quote-profile-label">Address</span>
               <span>{formData.address}</span>
             </div>
+            {propertyData && (
+              <>
+                <div className="quote-profile-detail">
+                  <span className="quote-profile-label">Home Size</span>
+                  <span>{propertyData.squareFootage?.toLocaleString()} sq ft</span>
+                </div>
+                <div className="quote-profile-detail">
+                  <span className="quote-profile-label">Bedrooms</span>
+                  <span>{propertyData.bedrooms}</span>
+                </div>
+              </>
+            )}
           </div>
 
           <div className="quote-expert-card">
@@ -933,82 +965,21 @@ const GetQuote: React.FC = () => {
               Since your home has existing ductwork, we've prepared two options for you to compare:
             </p>
             <div className="quote-options-grid">
-              {renderSystemCard(prediction, 'Option A: Ducted System', true)}
-              {renderSystemCard(ductlessPrediction, 'Option B: Ductless Mini-Split', false)}
+              {renderQuoteCard(ductedQuote!, 'Option A: Ducted System')}
+              {renderQuoteCard(ductlessQuote!, 'Option B: Ductless Mini-Split')}
             </div>
             <p className="quote-pricing-note quote-pricing-note--centered">
               Final pricing may vary based on site assessment. Rebate amounts depend on utility provider and eligibility.
             </p>
           </>
-        ) : (
+        ) : primaryQuote ? (
           <>
-            {prediction && (
-              <div className="quote-system-card">
-                <h3>Your Recommended System</h3>
-                <div className="quote-system-grid">
-                  <div className="quote-system-field">
-                    <span className="quote-system-label">Outdoor Units</span>
-                    <span className="quote-system-value">
-                      {prediction.numberOfODU}x {prediction.typeOfODU} ({prediction.oduSize}k BTU)
-                    </span>
-                  </div>
-                  <div className="quote-system-field">
-                    <span className="quote-system-label">Indoor Units</span>
-                    <span className="quote-system-value">
-                      {prediction.numberOfIDU}x {prediction.typeOfIDU} ({prediction.iduSize}k BTU)
-                    </span>
-                  </div>
-                  {prediction.confidence && (
-                    <div className="quote-system-field">
-                      <span className="quote-system-label">Confidence</span>
-                      <span className={`quote-confidence quote-confidence--${prediction.confidence}`}>
-                        {prediction.confidence}
-                      </span>
-                    </div>
-                  )}
-                </div>
-                {prediction.reasoning && (
-                  <div className="quote-reasoning">
-                    <strong>Design Notes:</strong> {prediction.reasoning}
-                  </div>
-                )}
-              </div>
-            )}
-
-            <div className="quote-pricing-card">
-              <h3>Pricing Breakdown</h3>
-              <div className="quote-pricing-rows">
-                <div className="quote-pricing-row">
-                  <span>HVAC Equipment & Installation</span>
-                  <span>${pricing.hvacWork.toLocaleString()}</span>
-                </div>
-                <div className="quote-pricing-row">
-                  <span>Electrical Work</span>
-                  <span>${pricing.electrical.toLocaleString()}</span>
-                </div>
-                <div className="quote-pricing-row">
-                  <span>Permits & Inspections</span>
-                  <span>${pricing.permits.toLocaleString()}</span>
-                </div>
-                <div className="quote-pricing-row quote-pricing-row--subtotal">
-                  <span>Subtotal</span>
-                  <span>${pricing.subtotal.toLocaleString()}</span>
-                </div>
-                <div className="quote-pricing-row quote-pricing-row--rebate">
-                  <span>Estimated Rebates & Incentives</span>
-                  <span>-${pricing.rebate.toLocaleString()}</span>
-                </div>
-                <div className="quote-pricing-row quote-pricing-row--total">
-                  <span>Estimated Total</span>
-                  <span>${pricing.total.toLocaleString()}</span>
-                </div>
-              </div>
-              <p className="quote-pricing-note">
-                Final pricing may vary based on site assessment. Rebate amounts depend on utility provider and eligibility.
-              </p>
-            </div>
+            {renderQuoteCard(primaryQuote, 'Your Recommended System')}
+            <p className="quote-pricing-note">
+              Final pricing may vary based on site assessment. Rebate amounts depend on utility provider and eligibility.
+            </p>
           </>
-        )}
+        ) : null}
 
         {/* What Happens Next - Timeline */}
         <div className="quote-timeline">
@@ -1036,36 +1007,40 @@ const GetQuote: React.FC = () => {
         </div>
 
         {/* Total Price Highlight */}
-        <div className="quote-total-highlight">
-          <span className="quote-total-highlight__label">Your Estimated Total</span>
-          <span className="quote-total-highlight__price">${pricing.total.toLocaleString()}</span>
-          <span className="quote-total-highlight__note">After rebates & incentives</span>
-        </div>
+        {primaryQuote && (
+          <div className="quote-total-highlight">
+            <span className="quote-total-highlight__label">Your Estimated Total</span>
+            <span className="quote-total-highlight__price">${fmt(displayTotal)}</span>
+            <span className="quote-total-highlight__note">After Mass Save rebates</span>
+          </div>
+        )}
 
         {/* Payment Schedule */}
-        <div className="quote-payment-schedule">
-          <h3>Payment Schedule</h3>
-          <div className="quote-payment-steps">
-            <div className="quote-payment-step">
-              <div className="quote-payment-step__header">
-                <span className="quote-payment-step__label">Step 1 &mdash; Reserve</span>
-                <span className="quote-payment-step__amount">$500</span>
+        {primaryQuote && (
+          <div className="quote-payment-schedule">
+            <h3>Payment Schedule</h3>
+            <div className="quote-payment-steps">
+              <div className="quote-payment-step">
+                <div className="quote-payment-step__header">
+                  <span className="quote-payment-step__label">Step 1 &mdash; Reserve</span>
+                  <span className="quote-payment-step__amount">$500</span>
+                </div>
+                <p className="quote-payment-step__desc">
+                  A refundable deposit locks in your pricing and installation date. Fully refundable within 7 days.
+                </p>
               </div>
-              <p className="quote-payment-step__desc">
-                A refundable deposit locks in your pricing and installation date. Fully refundable within 7 days.
-              </p>
-            </div>
-            <div className="quote-payment-step">
-              <div className="quote-payment-step__header">
-                <span className="quote-payment-step__label">Step 2 &mdash; Installation Day</span>
-                <span className="quote-payment-step__amount">${(pricing.total - 500).toLocaleString()}</span>
+              <div className="quote-payment-step">
+                <div className="quote-payment-step__header">
+                  <span className="quote-payment-step__label">Step 2 &mdash; Installation Day</span>
+                  <span className="quote-payment-step__amount">${fmt(displayTotal - 500)}</span>
+                </div>
+                <p className="quote-payment-step__desc">
+                  Final payment due on installation day. We'll confirm the exact amount after reviewing your photos.
+                </p>
               </div>
-              <p className="quote-payment-step__desc">
-                Final payment due on installation day. We'll confirm the exact amount after reviewing your photos.
-              </p>
             </div>
           </div>
-        </div>
+        )}
 
         {/* Submit Photos CTA */}
         <div className="quote-cta-section">

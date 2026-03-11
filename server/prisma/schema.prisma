@@ -55,17 +55,14 @@ model Prediction {
   leadId    String
   lead      Lead     @relation(fields: [leadId], references: [id])
 
-  variant              String // "ducted" | "ductless"
-  numberOfODU          Int
-  typeOfODU            String
-  oduSize              String
-  numberOfIDU          Int
-  typeOfIDU            String
-  iduSize              String
-  electricalWorkEstimate Float?
-  hvacWorkEstimate       Float?
-  confidence           String?
-  reasoning            String?
+  variant        String  // "ducted" | "ductless"
+  systemType     String  // "ducted" | "mini-split"
+  equipmentCost  Float
+  laborCost      Float
+  totalCost      Float
+  rebate         Float
+  netCost        Float
+  quoteData      Json    // Full QuoteResult object
 }
 
 model Photo {
