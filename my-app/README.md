@@ -1,4 +1,4 @@
-# Hanson Home website preview
+# Hanson Home website
 
 The redesigned React website lives in this `my-app` directory of the `hanson` website repository. The separate `hansonhome` sales/project-tracking application is not a dependency.
 
@@ -8,7 +8,7 @@ Use Node.js 20 or newer, then `npm ci` and `npm start`. Run `CI=true npm test --
 
 React Router 7 uses package exports that the existing CRA/Jest 27 resolver does not understand. The Jest module mappings in package.json point tests to the installed CommonJS entries; browser imports are unchanged.
 
-## Explore the prototype
+## Explore the private preview
 
 - `/`: New Massachusetts-focused homepage using the supplied Hanson mascot.
 - `/heat-pumps`: Heating and cooling explainer, cold-climate design, cost factors and FAQs.
@@ -23,17 +23,17 @@ React Router 7 uses package exports that the existing CRA/Jest 27 resolver does 
 
 The intake captures structured address, property, existing comfort systems, utility and assessment context, timeline, contact preferences and separate service/marketing consent. Technical questions have a “Not sure” option. Review/edit precedes saving. Existing draft progress survives a refresh within the same browser session. Photos are local object-URL previews, not uploads, and must be reattached after refresh.
 
-All functionality uses a replaceable React context store in `src/revamp/Store.tsx`. Demo requests and drafts are stored in sessionStorage; staff and customer screens show the same local records. There is no staff authentication, API submission, real appointment booking, pricing calculation or notification sending. Use sample details only. An assessment date is explicitly an unconfirmed preference.
+In the default preview build, functionality uses a React context store in `src/revamp/Store.tsx`. Demo requests and drafts are stored in sessionStorage; staff and customer screens show the same local records. The preview has no staff authentication, API submission, appointment booking, pricing calculation or notification sending. Use sample details only. An assessment date is explicitly an unconfirmed preference.
 
 ## Design
 
-Warm Stone palette: chalk (#FAF8F5), putty (#E6DFD5), stone (#D1C8B9), dark taupe (#65594B), and charcoal (#302D29); Manrope headings, DM Sans text and a restrained serif accent. The supplied penguin mascot is preserved in `public/images/hanson-mascot.png`. The family, home-conversation and everyday-comfort scenes are original AI-generated lifestyle images. The footer identifies them as generated scenes; they are not customer testimonials or staff portraits. Their exact prompts and final asset paths are recorded in docs/lifestyle-image-prompts.json. The home illustration remains on the service-area page as generated concept artwork, not a completed Hanson installation. Layouts adapt for desktop and small screens; forms use labelled inputs, keyboard controls and inline errors.
+Warm Stone palette: chalk (#FAF8F5), putty (#E6DFD5), stone (#D1C8B9), dark taupe (#65594B), and charcoal (#302D29); Manrope headings, DM Sans text and a restrained serif accent. The supplied penguin mascot is preserved in `public/images/hanson-mascot.png`. The family, home-conversation and everyday-comfort scenes are original AI-generated lifestyle images. They are illustrative scenes, not customer testimonials or staff portraits. Their exact prompts and final asset paths are recorded in docs/lifestyle-image-prompts.json. The home illustration remains on the service-area page as generated concept artwork, not a completed Hanson installation. Layouts adapt for desktop and small screens; forms use labelled inputs, keyboard controls and inline errors.
 
-## Integration later
+## Production and remaining integration
 
 The homeowner guides link to Mass Save, ENERGY STAR and Department of Energy-hosted installation guidance checked on September 13, 2026. Ventrix Supply is confirmed by the owner as Hanson’s sister business. The website now links its TCL equipment brochures and explains conditional extended equipment coverage up to 10 years. Hanson installation labor terms, maintenance plans and public contact details still need confirmation. See docs/ventrix-content-sources.md for product-specific evidence and conflicting supplier warranty language.
 
-`src/revamp/model.ts` defines the draft, lead and display statuses. Replace the demo store behind these screens when the backend is ready. See `docs/integration-notes.md` for the proposed server boundary and partner mapping. Existing backend files in the parent repository have not been connected or replaced.
+`src/revamp/model.ts` defines the draft, lead and display statuses. The live build uses `REACT_APP_DEPLOYMENT_MODE=live` to submit to the existing backend at `/api/requests`, show a saved-request receipt, and provide password-protected staff access at `/admin`. Partner APIs, real appointment booking, customer accounts, photo uploads and notifications remain deferred. See `docs/integration-notes.md` for storage and partner mapping, and `../docs/production-deployment.md` for deployment and rollback instructions. The root Dockerfile builds the frontend and backend together for hansonhome.us.
 
 ## Private preview hosting
 
