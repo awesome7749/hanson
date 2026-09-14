@@ -9,6 +9,11 @@ export function createRequestsRouter(database: Pick<DatabaseService, 'createWebs
     res.set('Cache-Control', 'no-store');
     try {
       const draft = parseWebsiteRequest(req.body?.draft);
+      // A tab opened before partner sharing was added can still run the old form.
+      // Do not acknowledge a new live request while silently skipping delivery.
+      if (ventrix && !draft.partnerConsent) {
+        throw new RequestValidationError('This form has been updated. Refresh this page, then review the contact and sharing permission before sending. Your answers will be kept.');
+      }
       const receipt = await database.createWebsiteRequest(draft, Boolean(ventrix));
       if (ventrix && draft.partnerConsent) {
         try { await ventrix.deliver(receipt.id); }

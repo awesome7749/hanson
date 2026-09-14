@@ -82,8 +82,9 @@ test('definite rejection is visible and staff can retry after fixing the connect
 });
 test('partner failure never loses either local request; sharing needs permission', async () => {
   let queued;
+  let saved = 0;
   let forwarded = 0;
-  const database = { createWebsiteRequest: async (d, enabled) => { queued = enabled && d.partnerConsent; return { id: 'web-test', createdAt: new Date(), status: d.intent === 'assessment' ? 'assessment_requested' : 'new' }; } };
+  const database = { createWebsiteRequest: async (d, enabled) => { saved++; queued = enabled && d.partnerConsent; return { id: 'web-test', createdAt: new Date(), status: d.intent === 'assessment' ? 'assessment_requested' : 'new' }; } };
   const partner = { deliver: async () => { forwarded++; throw new Error('private connection details'); } };
   const app = express().use(express.json()).use('/api/requests', createRequestsRouter(database, partner));
   const server = app.listen(0, '127.0.0.1');
@@ -93,13 +94,19 @@ test('partner failure never loses either local request; sharing needs permission
     const response = await send(draft);
     assert.equal(response.status, 201); assert.equal((await response.json()).receipt.id, 'web-test');
     assert.equal(queued, true); assert.equal(forwarded, 1);
-    assert.equal((await send({ ...draft, partnerConsent: false })).status, 201);
-    assert.equal(queued, false); assert.equal(forwarded, 1);
+    const stale = await send({ ...draft, partnerConsent: false });
+    assert.equal(stale.status, 400);
+    assert.match((await stale.json()).error, /Refresh this page/);
+    assert.equal(saved, 1); assert.equal(forwarded, 1);
     const heatPump = { ...draft, intent: 'heat-pump', heating: 'Not sure', cooling: 'Not sure', vents: 'Not sure', condition: 'Not sure' };
     const responseHP = await send(heatPump);
     assert.equal(responseHP.status, 201); assert.equal((await responseHP.json()).receipt.status, 'new');
     assert.equal(queued, true); assert.equal(forwarded, 2);
-    assert.equal((await send({ ...heatPump, partnerConsent: false })).status, 201);
-    assert.equal(queued, false); assert.equal(forwarded, 2);
+    for (const value of [false, undefined]) {
+      const oldForm = await send({ ...heatPump, partnerConsent: value });
+      assert.equal(oldForm.status, 400);
+      assert.match((await oldForm.json()).error, /Your answers will be kept/);
+    }
+    assert.equal(saved, 2); assert.equal(forwarded, 2);
   } finally { server.closeAllConnections(); await new Promise(resolve => server.close(resolve)); }
 });

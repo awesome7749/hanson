@@ -31,7 +31,8 @@ test('basic requests validate, save once, preserve answers and stay private', as
   const db = new DatabaseService();
   let failed = false;
   const service = { createWebsiteRequest: (d, enabled) => failed ? Promise.reject(new Error('private database connection details')) : db.createWebsiteRequest(d, enabled) };
-  const api = createApiRouter({}, {}, service, {}, 'test-password', { deliver: async () => {} });
+  // Basic intake remains usable when the optional partner service is disabled.
+  const api = createApiRouter({}, {}, service, {}, 'test-password');
   const app = express().use(express.json()).use('/api', api);
   const server = app.listen(0, '127.0.0.1');
   await new Promise(resolve => server.once('listening', resolve));
@@ -60,13 +61,11 @@ test('basic requests validate, save once, preserve answers and stay private', as
     assert.equal(deliveries.size, 0, 'Historical clients without sharing permission stay local');
     for (const [index, intent] of ['heat-pump', 'assessment'].entries()) {
       const consented = { ...draft(intent), id: `33333333-3333-4333-8333-33333333333${index}`, partnerConsent: true };
-      const accepted = await post('/requests', { draft: consented });
-      assert.equal(accepted.status, 201);
-      const receipt = (await accepted.json()).receipt;
+      const receipt = await db.createWebsiteRequest(parseWebsiteRequest(consented), true);
       assert.ok(deliveries.has(receipt.id), `${intent} must have a delivery record`);
       assert.match(deliveries.get(receipt.id).payload.notes, /^Request type:/);
       assert.equal(JSON.parse(rows.get(receipt.id).corrections).draft.partnerConsent, true);
-      assert.equal((await post('/requests', { draft: consented })).status, 201);
+      assert.deepEqual(await db.createWebsiteRequest(parseWebsiteRequest(consented), true), receipt);
       assert.equal(deliveries.size, index + 1, 'A retry must reuse the delivery');
     }
     failed = true;
