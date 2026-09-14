@@ -92,7 +92,7 @@ export default function Info() {
       <h3>How we use your details</h3>
       <p>We use this information to review your request, contact you in your preferred way, discuss service coverage and plan the next step. Your contact permission and optional marketing choice are recorded with your request.</p>
       <h3>Where your information goes</h3>
-      <p>Submitted requests are stored in Hanson Home’s lead system using cloud hosting and database services. Staff access requires sign-in. Submitting this form does not automatically send your details to an energy assessment partner, utility or quoting service.</p>
+      <p>Submitted requests are stored in Hanson Home’s lead system using cloud hosting and database services. Staff access requires sign-in. For energy assessment requests, with your permission we share your contact details, address, assessment preferences and relevant home information with our sister business Ventrix through its assessment system so the team can coordinate your request. Heat-pump-only inquiries stay with Hanson Home.</p>
       <h3>Your browser draft</h3>
       <p>This tab keeps a draft and your confirmation in browser session storage so you can continue during your visit. You can clear that browser copy below. Clearing it does not delete information already sent to Hanson Home.</p>
       <button className="button ghost" onClick={() => { clearPreview(); setCleared(true); }}>Clear my browser details</button>

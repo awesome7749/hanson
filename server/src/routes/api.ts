@@ -1,5 +1,6 @@
 import { Router, Request, Response, NextFunction } from 'express';
 import { issueAdminToken, verifyAdminToken, validPassword } from '../services/adminAuth';
+import type { VentrixService } from '../services/ventrixService';
 import { createRequestsRouter } from './requests';
 import multer from 'multer';
 import { RentCastService } from '../services/rentcastService';
@@ -29,7 +30,8 @@ export function createApiRouter(
   hvacPredictorService: HVACPredictorService,
   databaseService: DatabaseService,
   storageService: StorageService,
-  adminPassword: string
+  adminPassword: string,
+  ventrix?: VentrixService
 ): Router {
   const router = Router();
 
@@ -52,7 +54,7 @@ export function createApiRouter(
     next();
   };
 
-  router.use("/requests", createRequestsRouter(databaseService));
+  router.use("/requests", createRequestsRouter(databaseService, ventrix));
 
   // ────────────────────────────────────────────────
   // POST /api/leads — Create a new lead + fetch property data
@@ -236,6 +238,18 @@ export function createApiRouter(
     const token = issueAdminToken(adminPassword);
     res.set("Cache-Control", "no-store");
     res.json({ token });
+  });
+
+  router.post('/admin/leads/:id/ventrix/retry', requireAdmin, async (req, res) => {
+    if (!ventrix) return res.status(503).json({ error: 'Ventrix connection is not enabled.' });
+    try {
+      await ventrix.deliver(req.params.id, { retry: true, confirmDuplicateCheck: req.body?.confirmDuplicateCheck === true });
+      const lead = await databaseService.getLeadById(req.params.id);
+      if (!lead?.partnerDelivery) return res.status(404).json({ error: 'No assessment delivery is queued for this request.' });
+      res.json({ lead });
+    } catch {
+      res.status(503).json({ error: 'The delivery status could not be updated. Refresh before retrying.' });
+    }
   });
 
   // ────────────────────────────────────────────────

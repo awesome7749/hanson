@@ -14,6 +14,8 @@ function draft(intent = 'heat-pump') {
 test('basic requests validate, save once, preserve answers and stay private', async () => {
   const rows = new Map();
   const original = prisma.lead.upsert;
+  const originalTransaction = prisma.$transaction;
+  prisma.$transaction = callback => callback(prisma);
   prisma.lead.upsert = async ({ where, create, update }) => {
     assert.deepEqual(update, {});
     if (!rows.has(where.id)) rows.set(where.id, { ...create, createdAt: new Date() });
@@ -57,6 +59,7 @@ test('basic requests validate, save once, preserve answers and stay private', as
     for (const path of ['/leads', '/rentcast', '/predict-hvac', '/leads/x/predict', '/leads/x/photos']) assert.equal((await post(path, {})).status, 401);
   } finally {
     prisma.lead.upsert = original;
+    prisma.$transaction = originalTransaction;
     server.closeAllConnections();
     await new Promise(resolve => server.close(resolve));
     await prisma.$disconnect();

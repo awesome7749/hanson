@@ -1,7 +1,7 @@
 import { createHash } from 'crypto';
 
 const stringFields = ['id', 'intent', 'street', 'unit', 'city', 'state', 'zip', 'ownership', 'homeType', 'size', 'year', 'heating', 'fuel', 'cooling', 'vents', 'condition', 'timeline', 'concerns', 'electric', 'gas', 'assessment', 'assessmentYear', 'discount', 'preferredDate', 'firstName', 'lastName', 'email', 'phone', 'contactMethod', 'language', 'additionalName', 'additionalContact', 'referral'] as const;
-const booleanFields = ['additional', 'consent', 'marketing'] as const;
+const booleanFields = ['additional', 'consent', 'marketing', 'partnerConsent'] as const;
 type WebsiteDraft = Record<typeof stringFields[number], string> & Record<typeof booleanFields[number], boolean>;
 export class RequestValidationError extends Error {}
 export class RequestConflictError extends Error {}
@@ -15,6 +15,7 @@ export function parseWebsiteRequest(input: unknown): WebsiteDraft {
     draft[key] = (raw[key] as string).trim();
   }
   for (const key of booleanFields) {
+    if (key === 'partnerConsent' && raw[key] === undefined) { draft[key] = false; continue; }
     if (typeof raw[key] !== 'boolean') throw new RequestValidationError('Please review your contact permissions.');
     draft[key] = raw[key] as boolean;
   }
@@ -42,7 +43,7 @@ export function parseWebsiteRequest(input: unknown): WebsiteDraft {
   if (draft.fuel !== 'Natural gas') draft.gas = '';
   if (draft.assessment !== 'Completed') draft.assessmentYear = '';
   if (!draft.additional) { draft.additionalName = ''; draft.additionalContact = ''; }
-  if (draft.intent === 'heat-pump') draft.preferredDate = '';
+  if (draft.intent === 'heat-pump') { draft.preferredDate = ''; draft.partnerConsent = false; }
   return draft;
 }
 
@@ -50,7 +51,7 @@ export function websiteLeadData(draft: WebsiteDraft) {
   // An isolated ID namespace makes retries atomic without changing existing records.
   const id = 'web-' + createHash('sha256').update(draft.id).digest('hex').slice(0, 32);
   // Preserve the full intake in the existing text field; no schema change is needed.
-  const corrections = JSON.stringify({ source: 'hansonhome.us', schemaVersion: 1, contactConsentVersion: '2026-09-13', draft }, null, 2);
+  const corrections = JSON.stringify({ source: 'hansonhome.us', schemaVersion: 1, contactConsentVersion: '2026-09-13', ...(draft.partnerConsent ? { assessmentPartnerConsentVersion: '2026-09-14-ventrix' } : {}), draft }, null, 2);
   return {
     id, corrections,
     addressRaw: [draft.street, draft.unit && `Unit ${draft.unit}`, `${draft.city}, MA ${draft.zip}`].filter(Boolean).join(', '),

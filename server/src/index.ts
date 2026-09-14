@@ -3,6 +3,7 @@ import path from 'path';
 import cors from 'cors';
 import multer from 'multer';
 import dotenv from 'dotenv';
+import { VentrixService, PrismaDeliveryStore } from './services/ventrixService';
 import { createApiRouter } from './routes/api';
 import { RentCastService } from './services/rentcastService';
 import { HVACPredictorService } from './services/hvacPredictorService';
@@ -53,8 +54,12 @@ const hvacPredictorService = new HVACPredictorService(openaiApiKey);
 const databaseService = new DatabaseService();
 const storageService = new StorageService(gcsProjectId, gcsBucket);
 
+const ventrix = process.env.VENTRIX_SUBMISSIONS_ENABLED === 'true'
+  ? new VentrixService(new PrismaDeliveryStore(prisma), process.env.VENTRIX_API_KEY || '')
+  : undefined;
+
 // Mount API routes
-app.use('/api', createApiRouter(rentcastService, hvacPredictorService, databaseService, storageService, adminPassword));
+app.use('/api', createApiRouter(rentcastService, hvacPredictorService, databaseService, storageService, adminPassword, ventrix));
 
 app.use('/api', (_req, res) => { res.status(404).json({ error: 'Endpoint not found' }); });
 

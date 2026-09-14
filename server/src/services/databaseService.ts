@@ -1,4 +1,6 @@
 import { parseWebsiteRequest, websiteLeadData, RequestConflictError } from './websiteRequest';
+import { ventrixPayload } from './ventrixPayload';
+import { deliverySummary } from './ventrixService';
 import { PrismaClient } from '@prisma/client';
 import { QuoteResult } from './quoteCalculatorService';
 
@@ -7,14 +9,25 @@ const prisma = new PrismaClient();
 export { prisma };
 
 export class DatabaseService {
-  async createWebsiteRequest(draft: ReturnType<typeof parseWebsiteRequest>) {
+  async createWebsiteRequest(draft: ReturnType<typeof parseWebsiteRequest>, enqueueAssessment = false) {
     const data = websiteLeadData(draft);
-    const lead = await prisma.lead.upsert({
-      where: { id: data.id }, create: data, update: {},
-      select: { id: true, createdAt: true, status: true, corrections: true },
+    return prisma.$transaction(async (tx) => {
+      const lead = await tx.lead.upsert({
+        where: { id: data.id }, create: data, update: {},
+        select: { id: true, createdAt: true, status: true, corrections: true },
+      });
+      const saved = JSON.parse(lead.corrections || '{}').draft;
+      if (!saved || Object.entries(draft).some(([key, value]) => (saved[key] ?? (key === 'partnerConsent' ? false : undefined)) !== value)) {
+        throw new RequestConflictError('This request was already received. Start a new request to send different details.');
+      }
+      if (enqueueAssessment && draft.intent === 'assessment' && draft.partnerConsent) {
+        await tx.partnerDelivery.upsert({
+          where: { leadId: lead.id }, update: {},
+          create: { leadId: lead.id, payload: ventrixPayload(lead.id, draft) },
+        });
+      }
+      return { id: lead.id, createdAt: lead.createdAt, status: lead.status };
     });
-    if (lead.corrections !== data.corrections) throw new RequestConflictError('This request was already received. Start a new request to send different details.');
-    return { id: lead.id, createdAt: lead.createdAt, status: lead.status };
   }
 
   /**
@@ -98,27 +111,33 @@ export class DatabaseService {
    * Get all leads with prediction and photo counts. Most recent first.
    */
   async getLeads() {
-    return prisma.lead.findMany({
+    const leads = await prisma.lead.findMany({
       orderBy: { createdAt: 'desc' },
       include: {
+        partnerDelivery: true,
         _count: {
           select: { predictions: true, photos: true },
         },
       },
     });
+    return leads.map(({ partnerDelivery, ...lead }) => ({ ...lead, partnerDelivery: deliverySummary(partnerDelivery) }));
   }
 
   /**
    * Get a single lead with full predictions and photos.
    */
   async getLeadById(id: string) {
-    return prisma.lead.findUnique({
+    const lead = await prisma.lead.findUnique({
       where: { id },
       include: {
+        partnerDelivery: true,
         predictions: { orderBy: { createdAt: 'asc' } },
         photos: { orderBy: { createdAt: 'asc' } },
       },
     });
+    if (!lead) return null;
+    const { partnerDelivery, ...record } = lead;
+    return { ...record, partnerDelivery: deliverySummary(partnerDelivery) };
   }
 
   /**

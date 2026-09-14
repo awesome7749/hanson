@@ -1,6 +1,16 @@
 import React, { useState, useEffect } from 'react';
 import './Admin.css';
 
+interface PartnerDelivery {
+  status: string;
+  remoteId: string | null;
+  attempts: number;
+  sentAt: string | null;
+  lastAttemptAt: string | null;
+  lastError: string | null;
+}
+const DELIVERY_LABELS: Record<string, string> = { pending: 'Waiting to send', sending: 'Sending', sent: 'Received by Ventrix', failed: 'Needs attention', unknown: 'Check Ventrix before retrying' };
+
 interface LeadSummary {
   id: string;
   createdAt: string;
@@ -11,6 +21,7 @@ interface LeadSummary {
   phone?: string;
   addressRaw: string;
   formattedAddress?: string;
+  partnerDelivery?: PartnerDelivery | null;
   _count: { predictions: number; photos: number };
 }
 
@@ -48,6 +59,7 @@ interface LeadDetail {
   phone?: string;
   addressRaw: string;
   formattedAddress?: string;
+  partnerDelivery?: PartnerDelivery | null;
   propertyData?: any;
   hasAttic?: string;
   basementType?: string;
@@ -116,6 +128,9 @@ const Admin: React.FC = () => {
   const [savingStatus, setSavingStatus] = useState<Record<string, boolean>>({});
   const [notesEdits, setNotesEdits] = useState<Record<string, string>>({});
   const [savingNotes, setSavingNotes] = useState<Record<string, boolean>>({});
+  const [retrying, setRetrying] = useState<Record<string, boolean>>({});
+  const [duplicateChecked, setDuplicateChecked] = useState<Record<string, boolean>>({});
+  const [actionError, setActionError] = useState("");
 
   const authHeaders = (): HeadersInit => ({
     Authorization: `Bearer ${token}`,
@@ -211,9 +226,11 @@ const Admin: React.FC = () => {
     try {
       const res = await fetch(`/api/leads/${leadId}`, {
         method: 'PATCH',
-        headers: { 'Content-Type': 'application/json' },
+        headers: { ...authHeaders(), 'Content-Type': 'application/json' },
         body: JSON.stringify({ status: newStatus }),
       });
+      if (!res.ok) { setActionError("The change could not be saved. Please sign in again and retry."); return; }
+      setActionError("");
       if (res.ok) {
         setLeads((prev) =>
           prev.map((l) => (l.id === leadId ? { ...l, status: newStatus } : l))
@@ -235,9 +252,11 @@ const Admin: React.FC = () => {
     try {
       const res = await fetch(`/api/leads/${leadId}`, {
         method: 'PATCH',
-        headers: { 'Content-Type': 'application/json' },
+        headers: { ...authHeaders(), 'Content-Type': 'application/json' },
         body: JSON.stringify({ adminNotes: notes }),
       });
+      if (!res.ok) { setActionError("The note could not be saved. Please sign in again and retry."); return; }
+      setActionError("");
       if (res.ok) {
         setDetailCache((prev) =>
           prev[leadId] ? { ...prev, [leadId]: { ...prev[leadId], adminNotes: notes } } : prev
@@ -250,9 +269,38 @@ const Admin: React.FC = () => {
     }
   };
 
+  const retryDelivery = async (id: string) => {
+    setRetrying(old => ({ ...old, [id]: true }));
+    setActionError("");
+    try {
+      const res = await fetch(`/api/admin/leads/${id}/ventrix/retry`, {
+        method: 'POST', headers: { ...authHeaders(), 'Content-Type': 'application/json' },
+        body: JSON.stringify({ confirmDuplicateCheck: duplicateChecked[id] === true }),
+      });
+      const body = await res.json();
+      if (!res.ok) { setActionError(body.error || 'Could not check delivery. Please refresh.'); return; }
+      setDetailCache(old => ({ ...old, [id]: body.lead }));
+      setLeads(old => old.map(lead => lead.id === id ? { ...lead, partnerDelivery: body.lead.partnerDelivery } : lead));
+      setDuplicateChecked(old => ({ ...old, [id]: false }));
+    } catch { setActionError('Connection interrupted. Refresh the lead before retrying.'); }
+    finally { setRetrying(old => ({ ...old, [id]: false })); }
+  };
+
   const renderDetail = (detail: LeadDetail) => (
     <tr key={`${detail.id}-detail`}>
-      <td colSpan={7} className="admin__detail">
+      <td colSpan={8} className="admin__detail">
+        {detail.partnerDelivery && <div className="admin__detail-section">
+          <h4>Ventrix assessment delivery</h4>
+          <p>{DELIVERY_LABELS[detail.partnerDelivery.status] || detail.partnerDelivery.status}</p>
+          {detail.partnerDelivery.remoteId && <p>Ventrix reference: {detail.partnerDelivery.remoteId}</p>}
+          {detail.partnerDelivery.sentAt && <p>Received: {formatDate(detail.partnerDelivery.sentAt)}</p>}
+          {detail.partnerDelivery.lastError && <p>{detail.partnerDelivery.lastError}</p>}
+          <p>This shows delivery of the request. It does not confirm an assessment appointment.</p>
+          {detail.partnerDelivery.status === 'unknown' && <label><input type="checkbox" checked={!!duplicateChecked[detail.id]} onChange={e => setDuplicateChecked(old => ({ ...old, [detail.id]: e.target.checked }))} /> I checked Ventrix and confirmed this request was not received.</label>}
+          {detail.partnerDelivery.status !== 'sent' && <button className="admin__notes-save-btn" disabled={retrying[detail.id] || (detail.partnerDelivery.status === 'unknown' && !duplicateChecked[detail.id])} onClick={() => retryDelivery(detail.id)}>
+            {retrying[detail.id] ? 'Checking…' : detail.partnerDelivery.status === 'sending' ? 'Refresh delivery status' : 'Retry delivery'}
+          </button>}
+        </div>}
         {/* Status */}
         <div className="admin__detail-section admin__detail-actions">
           <h4>Status</h4>
@@ -417,6 +465,7 @@ const Admin: React.FC = () => {
           <form className="admin__login-form" onSubmit={handleLogin}>
             <input
               type="password"
+              aria-label="Admin password"
               className="admin__login-input"
               placeholder="Enter admin password"
               value={password}
@@ -448,6 +497,7 @@ const Admin: React.FC = () => {
         </button>
       </div>
 
+      {actionError && <p role="alert" className="admin__login-error">{actionError}</p>}
       {loading ? (
         <div className="admin__loading">Loading leads...</div>
       ) : leads.length === 0 ? (
@@ -462,6 +512,7 @@ const Admin: React.FC = () => {
                 <th>Email</th>
                 <th>Address</th>
                 <th>Status</th>
+                <th>Ventrix</th>
                 <th>Quotes</th>
                 <th>Photos</th>
               </tr>
@@ -483,6 +534,7 @@ const Admin: React.FC = () => {
                         {STATUS_LABELS[lead.status] || lead.status}
                       </span>
                     </td>
+                    <td>{lead.partnerDelivery ? DELIVERY_LABELS[lead.partnerDelivery.status] || lead.partnerDelivery.status : '—'}</td>
                     <td>{lead._count.predictions}</td>
                     <td>{lead._count.photos}</td>
                   </tr>

@@ -1,14 +1,19 @@
+import type { VentrixService } from '../services/ventrixService';
 import { Router } from 'express';
 import { parseWebsiteRequest, RequestConflictError, RequestValidationError } from '../services/websiteRequest';
 import type { DatabaseService } from '../services/databaseService';
 
-export function createRequestsRouter(database: Pick<DatabaseService, 'createWebsiteRequest'>) {
+export function createRequestsRouter(database: Pick<DatabaseService, 'createWebsiteRequest'>, ventrix?: VentrixService) {
   const router = Router();
   router.post('/', async (req, res) => {
     res.set('Cache-Control', 'no-store');
     try {
       const draft = parseWebsiteRequest(req.body?.draft);
-      const receipt = await database.createWebsiteRequest(draft);
+      const receipt = await database.createWebsiteRequest(draft, Boolean(ventrix));
+      if (ventrix && draft.intent === 'assessment' && draft.partnerConsent) {
+        try { await ventrix.deliver(receipt.id); }
+        catch { console.error('Assessment saved; partner delivery needs staff review.'); }
+      }
       res.status(201).json({ receipt });
     } catch (error) {
       if (error instanceof RequestValidationError) return res.status(400).json({ error: error.message });

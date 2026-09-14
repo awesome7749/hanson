@@ -34,6 +34,7 @@ export interface Draft {
   additionalName: string;
   additionalContact: string;
   consent: boolean;
+  partnerConsent: boolean;
   marketing: boolean;
   referral: string;
 }
@@ -102,6 +103,7 @@ export function makeDraft(): Draft {
     additionalName: "",
     additionalContact: "",
     consent: false,
+    partnerConsent: false,
     marketing: false,
     referral: "",
   };
@@ -112,6 +114,8 @@ export function changeDraft<K extends keyof Draft>(
   value: Draft[K],
 ): Draft {
   const next = { ...d, [key]: value };
+  if (key === "consent") next.partnerConsent = d.intent === "assessment" && value === true;
+  if (key === "intent" && value !== d.intent) { next.consent = false; next.partnerConsent = false; }
   if (key === "fuel" && value !== "Natural gas") next.gas = "";
   if (key === "assessment" && value !== "Completed") next.assessmentYear = "";
   if (key === "additional" && !value) {
