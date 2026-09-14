@@ -2,8 +2,9 @@ import type { parseWebsiteRequest } from './websiteRequest';
 
 type Draft = ReturnType<typeof parseWebsiteRequest>;
 export function ventrixPayload(leadId: string, draft: Draft) {
-  if (draft.intent !== 'assessment' || !draft.consent || !draft.partnerConsent) throw new Error('Only consented assessment requests can be sent.');
+  if (!['assessment', 'heat-pump'].includes(draft.intent) || !draft.consent || !draft.partnerConsent) throw new Error('Only consented service requests can be sent.');
   const context: [string, string][] = [
+    ['Request type', draft.intent === 'assessment' ? 'Home Energy Assessment (HEA)' : 'Heat-pump installation / quote'],
     ['Relationship to home', draft.ownership], ['Home type', draft.homeType],
     ['Home size (sq ft)', draft.size], ['Year built', draft.year],
     ['Heating system', draft.heating], ['Heating fuel', draft.fuel],
@@ -22,7 +23,7 @@ export function ventrixPayload(leadId: string, draft: Draft) {
     city: draft.city, state: draft.state, zip: draft.zip,
     ...(draft.email ? { email: draft.email } : {}),
     ...(digits ? { phone: '+' + (digits.length === 10 ? '1' + digits : digits) } : {}),
-    ...(draft.preferredDate ? { preferred_hea_date: draft.preferredDate } : {}),
+    ...(draft.intent === 'assessment' && draft.preferredDate ? { preferred_hea_date: draft.preferredDate } : {}),
     submitted_by_name: 'Hanson Home website',
     // The handover does not define property enum values. Keep these answers in
     // the documented notes field instead of guessing the partner's enum values.

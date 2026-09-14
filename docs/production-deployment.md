@@ -11,7 +11,7 @@ Public website: https://hansonhome.us
 
 ## Validation
 
-Run `npm run build --prefix server`, then `node --test server/tests/websiteRequests.test.cjs`.
+Run `npm run build --prefix server`, then `node --test server/tests/*.test.cjs`.
 Run `CI=true npm test --prefix my-app -- --watchAll=false --runInBand` with no deployment mode override.
 Build the public frontend with REACT_APP_DEPLOYMENT_MODE=live and GENERATE_SOURCEMAP=false, then run my-app/scripts/prepare-live.cjs with the same deployment mode.
 
@@ -21,7 +21,7 @@ Create the container in Cloud Build, deploy a tagged revision using --no-traffic
 
 Staff sign-in: https://hansonhome.us/admin using the existing staff password. New requests are saved in the existing Lead table. Assessment requests have their own status and appear in the same inbox. Staff can review the homeowner's full answers and contact preferences and update status/internal notes.
 
-New consented assessment requests are forwarded to Ventrix. Hanson does not directly send automatic email/SMS. Staff follow-up is manual. Photo uploads, a customer project account, live scheduling and automated quotes remain deferred. A preferred date is not a confirmed appointment.
+New consented heat-pump and assessment requests are forwarded to Ventrix. Hanson does not directly send automatic email/SMS. Staff follow-up is manual. Photo uploads, a customer project account, live scheduling and automated quotes remain deferred. A preferred date is not a confirmed appointment.
 
 ## Rollback
 
@@ -38,3 +38,5 @@ Do not delete older revisions or change the database when rolling back. The firs
 Apply `server/prisma/sql/20260914-partner-delivery.sql` once through an authenticated database connection before deploying the partner-enabled backend. It only adds a table; it does not modify existing leads. This repository’s original database was not created with Prisma migration history, so use this reviewed additive SQL rather than a schema reset or automatic migration baseline.
 
 Cloud Run configuration: `--update-secrets=VENTRIX_API_KEY=ventrix-partner-api-key:1 --update-env-vars=VENTRIX_SUBMISSIONS_ENABLED=true`. Preserve every existing runtime setting. Roll back this integration to `hanson-app-revamp-20260913` if needed; retain the delivery table and records. Failed/uncertain sends need staff attention in `/admin`; no background resend job runs.
+
+The heat-pump routing expansion retains the same secret, database schema and API endpoint. Its immediate rollback revision is `hanson-app-ventrix-20260914`; that revision only forwards assessments.

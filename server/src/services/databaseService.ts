@@ -9,7 +9,7 @@ const prisma = new PrismaClient();
 export { prisma };
 
 export class DatabaseService {
-  async createWebsiteRequest(draft: ReturnType<typeof parseWebsiteRequest>, enqueueAssessment = false) {
+  async createWebsiteRequest(draft: ReturnType<typeof parseWebsiteRequest>, enqueuePartner = false) {
     const data = websiteLeadData(draft);
     return prisma.$transaction(async (tx) => {
       const lead = await tx.lead.upsert({
@@ -20,7 +20,7 @@ export class DatabaseService {
       if (!saved || Object.entries(draft).some(([key, value]) => (saved[key] ?? (key === 'partnerConsent' ? false : undefined)) !== value)) {
         throw new RequestConflictError('This request was already received. Start a new request to send different details.');
       }
-      if (enqueueAssessment && draft.intent === 'assessment' && draft.partnerConsent) {
+      if (enqueuePartner && draft.consent && draft.partnerConsent) {
         await tx.partnerDelivery.upsert({
           where: { leadId: lead.id }, update: {},
           create: { leadId: lead.id, payload: ventrixPayload(lead.id, draft) },

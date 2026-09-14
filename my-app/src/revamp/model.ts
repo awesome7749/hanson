@@ -114,7 +114,7 @@ export function changeDraft<K extends keyof Draft>(
   value: Draft[K],
 ): Draft {
   const next = { ...d, [key]: value };
-  if (key === "consent") next.partnerConsent = d.intent === "assessment" && value === true;
+  if (key === "consent") next.partnerConsent = value === true;
   if (key === "intent" && value !== d.intent) { next.consent = false; next.partnerConsent = false; }
   if (key === "fuel" && value !== "Natural gas") next.gas = "";
   if (key === "assessment" && value !== "Completed") next.assessmentYear = "";

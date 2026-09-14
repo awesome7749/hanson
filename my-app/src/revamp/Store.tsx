@@ -23,7 +23,7 @@ function initial(): Data {
       typeof s.draft?.street === "string"
     )
       return {
-        draft: { ...makeDraft(), ...s.draft, ...(LIVE && s.draft.intent === "assessment" && !s.draft.partnerConsent ? { consent: false, partnerConsent: false } : {}) },
+        draft: { ...makeDraft(), ...s.draft, ...(LIVE && !s.draft.partnerConsent ? { consent: false, partnerConsent: false } : {}) },
         step: Math.min(4, Math.max(0, Number(s.step) || 0)),
         leads: s.leads.filter((l: Lead) => l?.draft && l.id),
       };

@@ -245,7 +245,7 @@ export function createApiRouter(
     try {
       await ventrix.deliver(req.params.id, { retry: true, confirmDuplicateCheck: req.body?.confirmDuplicateCheck === true });
       const lead = await databaseService.getLeadById(req.params.id);
-      if (!lead?.partnerDelivery) return res.status(404).json({ error: 'No assessment delivery is queued for this request.' });
+      if (!lead?.partnerDelivery) return res.status(404).json({ error: 'No Ventrix delivery is queued for this request.' });
       res.json({ lead });
     } catch {
       res.status(503).json({ error: 'The delivery status could not be updated. Refresh before retrying.' });

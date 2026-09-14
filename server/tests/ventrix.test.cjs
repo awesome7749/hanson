@@ -23,16 +23,24 @@ function memoryStore() {
     },
   };
 }
-test('maps only documented fields, keeps ZIP and contact preference, rejects heat-pump-only requests', () => {
+test('maps both request types into documented fields and requires sharing permission', () => {
   const p = ventrixPayload('web-test', draft);
   assert.equal(p.address, '12 Example Lane, Unit 2');
   assert.equal(p.zip, '01801');
   assert.equal(p.phone, '+12025550110');
   assert.match(p.notes, /Preferred contact method: Email/);
   assert.equal(p.preferred_hea_date, '2099-01-01');
+  assert.match(p.notes, /^Request type: Home Energy Assessment \(HEA\)/);
   assert.ok(!('marketing' in p));
-  assert.throws(() => ventrixPayload('web-test', { ...draft, intent: 'heat-pump' }));
-  assert.throws(() => ventrixPayload('web-test', { ...draft, partnerConsent: false }));
+  const heatPump = ventrixPayload('web-heat-pump', { ...draft, intent: 'heat-pump', heating: 'Furnace', fuel: 'Oil', vents: 'Yes' });
+  assert.equal(heatPump.external_lead_id, 'web-heat-pump');
+  assert.match(heatPump.notes, /^Request type: Heat-pump installation \/ quote/);
+  assert.match(heatPump.notes, /Heating system: Furnace/);
+  assert.ok(!('preferred_hea_date' in heatPump));
+  for (const intent of ['assessment', 'heat-pump']) {
+    assert.throws(() => ventrixPayload('web-test', { ...draft, intent, partnerConsent: false }));
+    assert.throws(() => ventrixPayload('web-test', { ...draft, intent, consent: false }));
+  }
 });
 test('concurrent delivery and repeated submissions send once and retain the Ventrix ID', async () => {
   let calls = 0;
@@ -72,10 +80,10 @@ test('definite rejection is visible and staff can retry after fixing the connect
   await new VentrixService(store, 'new-key', async () => ({ ok: true, json: async () => ({ success: true, id: 'recovered' }) })).deliver('web-test', { retry: true });
   assert.equal((await store.get()).status, 'sent');
 });
-test('partner failure never loses the local receipt; sharing needs assessment consent', async () => {
+test('partner failure never loses either local request; sharing needs permission', async () => {
   let queued;
   let forwarded = 0;
-  const database = { createWebsiteRequest: async (d, enabled) => { queued = enabled && d.intent === 'assessment' && d.partnerConsent; return { id: 'web-test', createdAt: new Date(), status: 'assessment_requested' }; } };
+  const database = { createWebsiteRequest: async (d, enabled) => { queued = enabled && d.partnerConsent; return { id: 'web-test', createdAt: new Date(), status: d.intent === 'assessment' ? 'assessment_requested' : 'new' }; } };
   const partner = { deliver: async () => { forwarded++; throw new Error('private connection details'); } };
   const app = express().use(express.json()).use('/api/requests', createRequestsRouter(database, partner));
   const server = app.listen(0, '127.0.0.1');
@@ -87,5 +95,11 @@ test('partner failure never loses the local receipt; sharing needs assessment co
     assert.equal(queued, true); assert.equal(forwarded, 1);
     assert.equal((await send({ ...draft, partnerConsent: false })).status, 201);
     assert.equal(queued, false); assert.equal(forwarded, 1);
+    const heatPump = { ...draft, intent: 'heat-pump', heating: 'Not sure', cooling: 'Not sure', vents: 'Not sure', condition: 'Not sure' };
+    const responseHP = await send(heatPump);
+    assert.equal(responseHP.status, 201); assert.equal((await responseHP.json()).receipt.status, 'new');
+    assert.equal(queued, true); assert.equal(forwarded, 2);
+    assert.equal((await send({ ...heatPump, partnerConsent: false })).status, 201);
+    assert.equal(queued, false); assert.equal(forwarded, 2);
   } finally { server.closeAllConnections(); await new Promise(resolve => server.close(resolve)); }
 });

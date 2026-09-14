@@ -10,9 +10,9 @@ export function createRequestsRouter(database: Pick<DatabaseService, 'createWebs
     try {
       const draft = parseWebsiteRequest(req.body?.draft);
       const receipt = await database.createWebsiteRequest(draft, Boolean(ventrix));
-      if (ventrix && draft.intent === 'assessment' && draft.partnerConsent) {
+      if (ventrix && draft.partnerConsent) {
         try { await ventrix.deliver(receipt.id); }
-        catch { console.error('Assessment saved; partner delivery needs staff review.'); }
+        catch { console.error('Request saved; partner delivery needs staff review.'); }
       }
       res.status(201).json({ receipt });
     } catch (error) {

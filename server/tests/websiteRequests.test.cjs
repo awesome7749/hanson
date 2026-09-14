@@ -13,7 +13,9 @@ function draft(intent = 'heat-pump') {
 
 test('basic requests validate, save once, preserve answers and stay private', async () => {
   const rows = new Map();
+  const deliveries = new Map();
   const original = prisma.lead.upsert;
+  const originalDelivery = prisma.partnerDelivery.upsert;
   const originalTransaction = prisma.$transaction;
   prisma.$transaction = callback => callback(prisma);
   prisma.lead.upsert = async ({ where, create, update }) => {
@@ -21,10 +23,15 @@ test('basic requests validate, save once, preserve answers and stay private', as
     if (!rows.has(where.id)) rows.set(where.id, { ...create, createdAt: new Date() });
     return rows.get(where.id);
   };
+  prisma.partnerDelivery.upsert = async ({ where, create, update }) => {
+    assert.deepEqual(update, {});
+    if (!deliveries.has(where.leadId)) deliveries.set(where.leadId, create);
+    return deliveries.get(where.leadId);
+  };
   const db = new DatabaseService();
   let failed = false;
-  const service = { createWebsiteRequest: d => failed ? Promise.reject(new Error('private database connection details')) : db.createWebsiteRequest(d) };
-  const api = createApiRouter({}, {}, service, {}, 'test-password');
+  const service = { createWebsiteRequest: (d, enabled) => failed ? Promise.reject(new Error('private database connection details')) : db.createWebsiteRequest(d, enabled) };
+  const api = createApiRouter({}, {}, service, {}, 'test-password', { deliver: async () => {} });
   const app = express().use(express.json()).use('/api', api);
   const server = app.listen(0, '127.0.0.1');
   await new Promise(resolve => server.once('listening', resolve));
@@ -50,6 +57,18 @@ test('basic requests validate, save once, preserve answers and stay private', as
     assert.equal(saved.status, 201);
     assert.equal((await saved.json()).receipt.status, 'assessment_requested');
     assert.equal(rows.size, 2);
+    assert.equal(deliveries.size, 0, 'Historical clients without sharing permission stay local');
+    for (const [index, intent] of ['heat-pump', 'assessment'].entries()) {
+      const consented = { ...draft(intent), id: `33333333-3333-4333-8333-33333333333${index}`, partnerConsent: true };
+      const accepted = await post('/requests', { draft: consented });
+      assert.equal(accepted.status, 201);
+      const receipt = (await accepted.json()).receipt;
+      assert.ok(deliveries.has(receipt.id), `${intent} must have a delivery record`);
+      assert.match(deliveries.get(receipt.id).payload.notes, /^Request type:/);
+      assert.equal(JSON.parse(rows.get(receipt.id).corrections).draft.partnerConsent, true);
+      assert.equal((await post('/requests', { draft: consented })).status, 201);
+      assert.equal(deliveries.size, index + 1, 'A retry must reuse the delivery');
+    }
     failed = true;
     const failure = await post('/requests', { draft: d });
     assert.equal(failure.status, 503);
@@ -59,6 +78,7 @@ test('basic requests validate, save once, preserve answers and stay private', as
     for (const path of ['/leads', '/rentcast', '/predict-hvac', '/leads/x/predict', '/leads/x/photos']) assert.equal((await post(path, {})).status, 401);
   } finally {
     prisma.lead.upsert = original;
+    prisma.partnerDelivery.upsert = originalDelivery;
     prisma.$transaction = originalTransaction;
     server.closeAllConnections();
     await new Promise(resolve => server.close(resolve));

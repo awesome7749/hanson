@@ -290,7 +290,7 @@ const Admin: React.FC = () => {
     <tr key={`${detail.id}-detail`}>
       <td colSpan={8} className="admin__detail">
         {detail.partnerDelivery && <div className="admin__detail-section">
-          <h4>Ventrix assessment delivery</h4>
+          <h4>Ventrix delivery</h4>
           <p>{DELIVERY_LABELS[detail.partnerDelivery.status] || detail.partnerDelivery.status}</p>
           {detail.partnerDelivery.remoteId && <p>Ventrix reference: {detail.partnerDelivery.remoteId}</p>}
           {detail.partnerDelivery.sentAt && <p>Received: {formatDate(detail.partnerDelivery.sentAt)}</p>}

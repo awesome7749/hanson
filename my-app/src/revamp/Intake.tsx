@@ -814,7 +814,7 @@ export default function Intake() {
                     <span>
                       I agree to be contacted about this request using my
                       preferred method.{" "}
-                      {LIVE && d.intent === "assessment" && <>I also agree that Hanson Home may share my assessment request and contact details with Ventrix to coordinate my assessment.{" "}</>}
+                      {LIVE && <>I also agree that Hanson Home may share my request and contact details with our sister business Ventrix to coordinate my {d.intent === "assessment" ? "assessment" : "heat-pump project"}.{" "}</>}
                       <Link to="/privacy">Privacy information</Link>
                     </span>
                   </label>
