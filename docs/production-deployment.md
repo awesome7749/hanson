@@ -1,0 +1,34 @@
+# Hanson Home production deployment
+
+Public website: https://hansonhome.us
+
+- Source repository: awesome7749/hanson; frontend: my-app; backend: server.
+- Google Cloud project: hanson-hvac; region: us-east1; Cloud Run service: hanson-app.
+- Deployment account: gaohan1990@gmail.com. Pass this account and project explicitly; do not change the machine's default Google Cloud account.
+- The existing domain mapping, database, service account, Cloud SQL attachment and runtime environment are retained. Do not copy credentials from environment files into source or browser builds.
+- Root Dockerfile builds the live frontend and backend together. It sets REACT_APP_DEPLOYMENT_MODE=live, disables source maps and prepares public robots/sitemap files. Default local and Sites builds remain previews.
+- The build archive excludes environment files, app.yaml, node_modules, old build output, upload/results directories and Sites configuration.
+
+## Validation
+
+Run `npm run build --prefix server`, then `node --test server/tests/websiteRequests.test.cjs`.
+Run `CI=true npm test --prefix my-app -- --watchAll=false --runInBand` with no deployment mode override.
+Build the public frontend with REACT_APP_DEPLOYMENT_MODE=live and GENERATE_SOURCEMAP=false, then run my-app/scripts/prepare-live.cjs with the same deployment mode.
+
+Create the container in Cloud Build, deploy a tagged revision using --no-traffic, then verify HTTP routes, image assets, basic submissions, retry behavior and authenticated staff readback before assigning traffic.
+
+## Intake operations
+
+Staff sign-in: https://hansonhome.us/admin using the existing staff password. New requests are saved in the existing Lead table. Assessment requests have their own status and appear in the same inbox. Staff can review the homeowner's full answers and contact preferences and update status/internal notes.
+
+Basic intake does not call partner APIs or send automatic email/SMS. Staff follow-up is manual. Photo uploads, a customer project account, live scheduling and automated quotes remain deferred. A preferred date is not a confirmed appointment.
+
+## Rollback
+
+The previous production revision before this launch is `hanson-app-00005-qrn`.
+
+To restore it without touching customer records:
+
+    gcloud run services update-traffic hanson-app --to-revisions=hanson-app-00005-qrn=100 --region=us-east1 --project=hanson-hvac --account=gaohan1990@gmail.com
+
+Do not delete older revisions or change the database when rolling back. The intake integration requires no schema migration.

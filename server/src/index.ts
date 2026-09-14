@@ -16,7 +16,9 @@ const app = express();
 const PORT = process.env.PORT || 3001;
 
 // Middleware
+app.disable('x-powered-by');
 app.use(cors());
+app.use('/api', (_req, res, next) => { res.set('Cache-Control', 'no-store'); next(); });
 app.use(express.json());
 
 // Initialize services
@@ -54,12 +56,15 @@ const storageService = new StorageService(gcsProjectId, gcsBucket);
 // Mount API routes
 app.use('/api', createApiRouter(rentcastService, hvacPredictorService, databaseService, storageService, adminPassword));
 
+app.use('/api', (_req, res) => { res.status(404).json({ error: 'Endpoint not found' }); });
+
 // In production, serve the React build as static files
 if (process.env.NODE_ENV === 'production') {
   const publicDir = path.join(__dirname, '../public');
   app.use(express.static(publicDir));
   // SPA fallback: any non-API route serves index.html (React Router handles it)
   app.get('*', (_req, res) => {
+    res.set('Cache-Control', 'no-cache');
     res.sendFile(path.join(publicDir, 'index.html'));
   });
 }

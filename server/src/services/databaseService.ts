@@ -1,3 +1,4 @@
+import { parseWebsiteRequest, websiteLeadData, RequestConflictError } from './websiteRequest';
 import { PrismaClient } from '@prisma/client';
 import { QuoteResult } from './quoteCalculatorService';
 
@@ -6,6 +7,16 @@ const prisma = new PrismaClient();
 export { prisma };
 
 export class DatabaseService {
+  async createWebsiteRequest(draft: ReturnType<typeof parseWebsiteRequest>) {
+    const data = websiteLeadData(draft);
+    const lead = await prisma.lead.upsert({
+      where: { id: data.id }, create: data, update: {},
+      select: { id: true, createdAt: true, status: true, corrections: true },
+    });
+    if (lead.corrections !== data.corrections) throw new RequestConflictError('This request was already received. Start a new request to send different details.');
+    return { id: lead.id, createdAt: lead.createdAt, status: lead.status };
+  }
+
   /**
    * Create a new lead with contact info and raw address.
    */

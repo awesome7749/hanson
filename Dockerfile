@@ -4,11 +4,9 @@ WORKDIR /app/my-app
 COPY my-app/package*.json ./
 RUN npm ci
 COPY my-app/ ./
-ARG REACT_APP_SITE_PASSWORD
-ARG REACT_APP_GOOGLE_MAPS_API_KEY
-ENV REACT_APP_SITE_PASSWORD=$REACT_APP_SITE_PASSWORD
-ENV REACT_APP_GOOGLE_MAPS_API_KEY=$REACT_APP_GOOGLE_MAPS_API_KEY
-RUN npm run build
+ENV REACT_APP_DEPLOYMENT_MODE=live
+ENV GENERATE_SOURCEMAP=false
+RUN npm run build && node scripts/prepare-live.cjs
 
 # ── Stage 2: Build Express backend (Debian for Prisma compatibility) ──
 FROM node:20-slim AS backend

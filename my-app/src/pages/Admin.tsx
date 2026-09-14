@@ -66,6 +66,7 @@ interface LeadDetail {
 
 const STATUS_LABELS: Record<string, string> = {
   new: 'New',
+  assessment_requested: 'Assessment Requested',
   property_loaded: 'Property Loaded',
   survey_done: 'Survey Done',
   quoted: 'Quoted',
@@ -78,10 +79,27 @@ const STATUS_LABELS: Record<string, string> = {
 };
 
 const STATUS_OPTIONS = [
-  'new', 'property_loaded', 'survey_done', 'quoted',
+  'new', 'assessment_requested', 'property_loaded', 'survey_done', 'quoted',
   'photos_submitted', 'contacted', 'followed_up',
   'scheduled', 'completed', 'lost',
 ];
+
+function RequestDetails({ value }: { value: string }) {
+  try {
+    const intake = JSON.parse(value);
+    if (intake.source === "hansonhome.us" && intake.draft) {
+      const labels: Record<string, string> = {
+        intent: "Request type", homeType: "Home type", size: "Home size (sq ft)", year: "Year built", fuel: "Heating fuel", cooling: "Current cooling", vents: "Existing ductwork", condition: "System condition", concerns: "Notes and comfort concerns", assessment: "Energy assessment", assessmentYear: "Assessment year", discount: "Utility discount", preferredDate: "Preferred date (unconfirmed)", contactMethod: "Preferred contact", language: "Language", additionalName: "Additional contact", additionalContact: "Additional contact details", consent: "Contact permission", marketing: "Marketing permission", referral: "How they found us",
+      };
+      return <dl className="admin__detail-grid">{Object.entries(labels).map(([key, label]) => {
+        const answer = intake.draft[key];
+        if (answer === "" || answer === undefined) return null;
+        return <div className="admin__detail-field" key={key}><dt className="admin__detail-label">{label}</dt><dd className="admin__detail-value" style={{ margin: 0, whiteSpace: "pre-wrap", overflowWrap: "anywhere" }}>{typeof answer === "boolean" ? (answer ? "Yes" : "No") : String(answer)}</dd></div>;
+      })}</dl>;
+    }
+  } catch {}
+  return <p className="admin__detail-value" style={{ whiteSpace: "pre-wrap", overflowWrap: "anywhere" }}>{value}</p>;
+}
 
 const Admin: React.FC = () => {
   const [token, setToken] = useState<string | null>(
@@ -325,8 +343,8 @@ const Admin: React.FC = () => {
           </div>
           {detail.corrections && (
             <div className="admin__detail-corrections">
-              <span className="admin__detail-label">Corrections</span>
-              <p className="admin__detail-value">{detail.corrections}</p>
+              <span className="admin__detail-label">Request details</span>
+              <RequestDetails value={detail.corrections} />
             </div>
           )}
         </div>

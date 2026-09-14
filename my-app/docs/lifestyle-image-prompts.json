@@ -1,0 +1,69 @@
+{
+  "generated_with": "Built-in image_gen",
+  "generated_on": "2026-09-13",
+  "purpose": "Photorealistic lifestyle and equipment concepts for Hanson Home; fictional people, homes, and illustrative installations.",
+  "assets": [
+    {
+      "file": "public/images/family-at-home.jpg",
+      "dimensions": [
+        1536,
+        1024
+      ],
+      "prompt": "Use case: photorealistic-natural. Asset type: editorial lifestyle photograph for a Massachusetts home comfort website. Create one landscape 3:2 photo, documentary DSLR realism and subtle grain. A centered family of two adults and a child about seven sits close together on an oatmeal linen sofa, casually reading a picture book together with affectionate small smiles. A modest lived-in New England living room with an oak coffee table and mug, soft curtains, soft late afternoon daylight. Warm cream, oat, taupe, charcoal and natural oak palette. Tight composition with all faces well inside the central area and generous safe margins for a tall homepage card crop. Believable natural hands, real skin texture, candid relaxed posture. No legible text, logos, watermark, HVAC hardware, named real people, cartoons, 3D rendering, oversmoothed skin, oversaturated HDR or staged handshake."
+    },
+    {
+      "file": "public/images/home-conversation.jpg",
+      "dimensions": [
+        1536,
+        1024
+      ],
+      "prompt": "Use case: photorealistic-natural. Asset type: editorial lifestyle photograph for a Massachusetts home comfort website. Create one landscape 3:2 photo, documentary DSLR realism and subtle grain. A homeowner woman about forty and approachable adult male home comfort advisor in a plain dark taupe overshirt are seated across the corner of an oak kitchen table. They listen and explain a simple paper home floor plan with no legible text, natural hands, calm relaxed expressions and everyday posture. A real modest New England kitchen with offwhite cabinetry, soft daylight. Warm cream, oat, taupe, charcoal and natural oak palette. Strong centered crop-safe composition with faces away from the edges. No forced sales pose, handshake, HVAC hardware, logos, watermark, legible text, named real people, cartoon, 3D rendering, oversmoothed skin or oversaturated HDR."
+    },
+    {
+      "file": "public/images/everyday-comfort.jpg",
+      "dimensions": [
+        1536,
+        1024
+      ],
+      "prompt": "Use case: photorealistic-natural. Asset type: editorial lifestyle photograph for a Massachusetts home comfort website. Create one landscape 3:2 photo, candid documentary DSLR realism and subtle grain. An older woman about sixty in a casual cream knit relaxes in a comfortable living room armchair reading a book, with a small dog resting nearby. A real comfortable modest Massachusetts home: natural oak furniture, woven throw, houseplants, a soft sunny window suggesting trees outdoors. Generous scene context, natural posture, believable hands and skin texture, quietly content expression. Soft daylight and a restrained warm cream, oat, taupe, charcoal and natural oak palette. No HVAC hardware, product logos, text, watermarks, named real people, cartoon, 3D rendering, oversmoothed skin, oversaturated HDR or staged handshake."
+    },
+    {
+      "file": "public/images/indoor-mini-split.jpg",
+      "dimensions": [
+        1536,
+        1024
+      ],
+      "mode": "built-in image_gen",
+      "prompt": "Use case: photorealistic-natural\nAsset type: photographic hero asset for a Massachusetts heat-pump installer homepage; photo only.\nPrimary request: A welcoming, realistically lived-in New England living room, without people, with a prominent and clearly recognizable generic wall-mounted indoor mini-split heat pump above the sofa.\nScene and materials: Cream/chalk painted walls, warm oak furniture and floor, an oatmeal textile sofa, subtle taupe accents, believable everyday fabric creases and natural wood grain, restrained cozy home details.\nSubject: An unbranded white indoor ductless mini-split unit, physically plausible proportions and vent geometry, correctly mounted on the wall with believable professionally finished piping/installation.\nStyle and lighting: Photorealistic warm editorial DSLR photography, natural daylight, approachable family-home feeling, realistic surfaces and shadows, not overly polished staging.\nComposition: Landscape 1536x1024 if supported. Eye-level interior photograph; the mini-split is the clear equipment focal point, large and centered horizontally on the wall above the sofa. Keep the unit entirely in the middle width for a roughly square center crop. Place the entire unit below the top 15 percent of the frame, around the upper-middle area; allow calm wall space near the top for a later website badge. Keep sofa and room context visible below. Natural architectural perspective.\nConstraints: No people. No brand, model names, lettering, logos, text, watermark, diagram, website, UI, badge, graphic overlay, or collaged elements. This is generic illustrative equipment, not any exact branded model."
+    },
+    {
+      "file": "public/images/outdoor-heat-pump.jpg",
+      "dimensions": [
+        1536,
+        1024
+      ],
+      "mode": "built-in image_gen",
+      "prompt": "Use case: photorealistic-natural\nAsset type: photographic installation image for a Massachusetts heat-pump installer homepage; photo only.\nPrimary request: A modest attractive clapboard New England home exterior, without people, with a prominent realistically installed generic outdoor single-fan side-discharge heat-pump condenser on a raised stand beside the home.\nScene and materials: Taupe/cream clapboard house exterior, modest tidy garden, gravel base below the installation, natural siding texture and believable residential details.\nSubject: One unbranded outdoor heat-pump condenser with a single large circular fan on its broad front face, realistic compact rectangular proportions, a sturdy raised metal stand above the gravel, tidy line-set conduit running to the house and physically plausible installation clearances. The front fan faces the viewer with a slight three-quarter view; clear space in front of the fan and between the rear of the unit and siding. Generic illustrative equipment only, not any exact branded model.\nStyle and lighting: Photorealistic warm editorial DSLR photography in warm natural daylight, real surface texture and soft shadows, approachable family-friendly feeling.\nComposition: Landscape 1536x1024 if supported. The equipment is the clear focal point, near the center and prominent enough to identify instantly. Keep the whole unit and raised stand within the middle central crop-safe area, with upper and bottom frame edges reserved as uncluttered scene context. Show enough clapboard home and garden to establish the New England residential setting. Natural perspective.\nConstraints: No people, no brand, model names, lettering, logos, text, watermark, diagram, website, UI, badge, graphic overlay, or collaged elements."
+    },
+    {
+      "file": "public/images/heat-pump-installation.jpg",
+      "dimensions": [
+        1536,
+        1024
+      ],
+      "mode": "built-in image_gen",
+      "prompt": "Use case: photorealistic-natural\nAsset type: Hanson Home website installation section, fictional illustrative photograph.\nPrimary request: Two adult HVAC technicians in plain dark taupe workwear and appropriate clear eye protection and work gloves, at a modest cream-clapboard Massachusetts home, carefully checking an unbranded outdoor single-fan side-discharge heat-pump condenser on a raised stand. The equipment is off while they work. Physically plausible installation with adequate clear space in front of the single fan, sensible insulated lines and conduit, and proper tools in reasonable positions. Both technicians' faces, hands, the unit and their work area should be clearly visible.\nStyle/medium: Medium-wide candid documentary photograph with real skin texture and warm natural daylight, matching the existing site's welcoming natural home photography: warm off-white/chalk walls, oak tones, dark taupe neutrals, restrained greens, soft realistic contrast, clean detailed textures without excessive polish.\nComposition/framing: 1536 x 1024 landscape, 3:2 composition. Center the two technicians and condenser together with generous breathing room so the central square crop retains faces, hands, unit, and useful work area. Neat, approachable, relaxed focused expressions, ordinary safe body positions. The condenser is fully assembled; no exposed wiring or dramatic electrical work.\nConstraints: These are fictional illustrative people and a fictional installation, not actual company staff or customer evidence. No text, no visible branding or logos, no watermark, no website UI. Natural anatomy and plausible hands. No forced handshake. No motion blur in fan.",
+      "illustrative": true
+    },
+    {
+      "file": "public/images/heat-pump-handover.jpg",
+      "dimensions": [
+        1536,
+        1024
+      ],
+      "mode": "built-in image_gen",
+      "prompt": "Use case: photorealistic-natural\nAsset type: Hanson Home website installation handover section, fictional illustrative photograph.\nPrimary request: An adult HVAC technician in a plain dark taupe work shirt and an adult homeowner stand in a warm off-white and oak living room beside a prominent white wall-mounted mini-split. The technician explains a small handheld controller at final handover, and the homeowner listens. The controller is clearly held naturally at comfortable chest height between them. Natural relaxed posture, realistic faces, and believable hands.\nStyle/medium: Candid documentary home photograph in the same warm natural style as the site's existing interior photography: chalk/off-white walls, oak furnishings, linen-like neutral textures, restrained green plants, soft window daylight, real skin texture and gentle contrast.\nComposition/framing: 1536 x 1024 landscape, 3:2 composition. Center people, controller, and visible mini-split with room for a square crop. Medium-wide view showing both faces and hands and the prominent unit mounted high on the wall, sufficiently below the ceiling. Both people stand securely on the floor. A quiet, neat, approachable final handover in a modest Massachusetts home.\nConstraints: These are fictional illustrative people and a fictional installation, not actual company staff or customer evidence. No text, visible branding/logos, watermark, or website UI. No elevated people or ladders. No forced handshake. Do not obscure the wall-mounted unit with a person. Natural anatomy.",
+      "illustrative": true
+    }
+  ]
+}

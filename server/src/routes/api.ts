@@ -1,5 +1,6 @@
 import { Router, Request, Response, NextFunction } from 'express';
-import crypto from 'crypto';
+import { issueAdminToken, verifyAdminToken, validPassword } from '../services/adminAuth';
+import { createRequestsRouter } from './requests';
 import multer from 'multer';
 import { RentCastService } from '../services/rentcastService';
 import { HVACPredictorService } from '../services/hvacPredictorService';
@@ -22,8 +23,6 @@ const upload = multer({
   },
 });
 
-// ─── Admin session tokens (in-memory, cleared on restart) ───
-const adminTokens = new Set<string>();
 
 export function createApiRouter(
   rentcastService: RentCastService,
@@ -46,16 +45,19 @@ export function createApiRouter(
       token = req.query.token;
     }
 
-    if (!token || !adminTokens.has(token)) {
+    if (!token || !verifyAdminToken(token, adminPassword)) {
       return res.status(401).json({ error: 'Authentication required' });
     }
+    res.set("Cache-Control", "no-store");
     next();
   };
+
+  router.use("/requests", createRequestsRouter(databaseService));
 
   // ────────────────────────────────────────────────
   // POST /api/leads — Create a new lead + fetch property data
   // ────────────────────────────────────────────────
-  router.post('/leads', async (req: Request, res: Response) => {
+  router.post('/leads', requireAdmin, async (req: Request, res: Response) => {
     try {
       const { address, firstName, lastName, email, phone } = req.body;
 
@@ -100,7 +102,7 @@ export function createApiRouter(
   // ────────────────────────────────────────────────
   // PATCH /api/leads/:id — Update lead fields (survey, details, utilities)
   // ────────────────────────────────────────────────
-  router.patch('/leads/:id', async (req: Request, res: Response) => {
+  router.patch('/leads/:id', requireAdmin, async (req: Request, res: Response) => {
     try {
       const { id } = req.params;
       const allowedFields = [
@@ -132,7 +134,7 @@ export function createApiRouter(
   // ────────────────────────────────────────────────
   // POST /api/leads/:id/predict — Run HVAC prediction and save results
   // ────────────────────────────────────────────────
-  router.post('/leads/:id/predict', async (req: Request, res: Response) => {
+  router.post('/leads/:id/predict', requireAdmin, async (req: Request, res: Response) => {
     try {
       const { id } = req.params;
 
@@ -183,7 +185,7 @@ export function createApiRouter(
   // ────────────────────────────────────────────────
   // POST /api/leads/:id/photos — Upload a photo to GCS
   // ────────────────────────────────────────────────
-  router.post('/leads/:id/photos', upload.single('photo'), async (req: Request, res: Response) => {
+  router.post('/leads/:id/photos', requireAdmin, upload.single('photo'), async (req: Request, res: Response) => {
     try {
       if (!req.file) {
         return res.status(400).json({ error: 'No file uploaded' });
@@ -228,11 +230,11 @@ export function createApiRouter(
   // ────────────────────────────────────────────────
   router.post('/admin/login', (req: Request, res: Response) => {
     const { password } = req.body;
-    if (!password || password !== adminPassword) {
+    if (!validPassword(password, adminPassword)) {
       return res.status(401).json({ error: 'Invalid password' });
     }
-    const token = crypto.randomBytes(32).toString('hex');
-    adminTokens.add(token);
+    const token = issueAdminToken(adminPassword);
+    res.set("Cache-Control", "no-store");
     res.json({ token });
   });
 
@@ -302,7 +304,7 @@ export function createApiRouter(
   // ────────────────────────────────────────────────
 
   // POST /api/rentcast - Direct property lookup (used by tests)
-  router.post('/rentcast', async (req: Request, res: Response) => {
+  router.post('/rentcast', requireAdmin, async (req: Request, res: Response) => {
     try {
       const { address } = req.body;
       if (!address) {
@@ -319,7 +321,7 @@ export function createApiRouter(
   });
 
   // POST /api/predict-hvac - Direct HVAC prediction (used by tests)
-  router.post('/predict-hvac', async (req: Request, res: Response) => {
+  router.post('/predict-hvac', requireAdmin, async (req: Request, res: Response) => {
     try {
       const { userHints, ...propertyData } = req.body as PropertyData & { userHints?: UserHints };
       if (!propertyData || !propertyData.formattedAddress) {
