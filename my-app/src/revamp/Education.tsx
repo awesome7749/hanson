@@ -4,12 +4,6 @@ import { FAQ, Icon } from "./Shared";
 import { InstallationPhoto } from "./InstallationPhoto";
 
 export const resources = {
-  ventrix: "https://ventrixsupply.com/",
-  ventrixWarranty: "https://ventrixsupply.com/warranty",
-  tclApex:
-    "https://ventrixsupply.com/TCL%20Products/Apex%20Multi-Zone%20Spec%20Sheet%202026.pdf",
-  tclUltimate:
-    "https://ventrixsupply.com/TCL%20Products/Ultimate%2025%20Series%20TCL_ULT_050525_1.pdf",
   assessment: "https://www.masssave.com/get-started/homeowners",
   assessmentDetails:
     "https://www.masssave.com/blog/residential/decarbonization-consultations-vs-home-energy-assessments",
@@ -22,47 +16,6 @@ export const resources = {
   living:
     "https://www.masssave.com/en/-/media/3A485B840F1C472F8DF1378F73ED6FC0.ashx",
 };
-export function VentrixConnection() {
-  return (
-    <section
-      className="ventrix-connection wrap"
-      aria-labelledby="ventrix-heading"
-    >
-      <div>
-        <span className="eyebrow">
-          OUR SISTER STORE · WOBURN, MASSACHUSETTS
-        </span>
-        <h2 id="ventrix-heading">Local equipment expertise.<br />Through our sister store.</h2>
-        <p>
-          Hanson Home and Ventrix Supply are sister businesses. Hanson focuses
-          on your home and installation; Ventrix is an authorized TCL HVAC
-          distributor in Woburn, with equipment information, technical resources
-          and a warranty center.
-        </p>
-        <Link className="text-link" to="/heat-pumps#equipment-options">
-          See equipment options <Icon name="arrow" size={17} />
-        </Link>
-      </div>
-      <aside className="ventrix-identity">
-        <span className="eyebrow">VENTRIX SUPPLY</span>
-        <h3>
-          Local roots.
-          <br />
-          Equipment expertise.
-        </h3>
-        <p>TCL equipment, product specifications and warranty resources in Woburn.</p>
-        <a
-          className="text-link"
-          href={resources.ventrix}
-          target="_blank"
-          rel="noreferrer"
-        >
-          Meet Ventrix Supply <span aria-hidden="true">↗</span>
-        </a>
-      </aside>
-    </section>
-  );
-}
 function Source({
   href,
   children,
@@ -282,7 +235,7 @@ function HeatPumpGuide() {
         links={[
           ["how-heat-pumps-work", "How it works"],
           ["your-home", "Your home"],
-          ["equipment-options", "TCL equipment"],
+          ["equipment-options", "Equipment options"],
           ["cost-and-incentives", "Cost & incentives"],
           ["heat-pump-questions", "Common questions"],
         ]}
@@ -385,23 +338,23 @@ function HeatPumpGuide() {
       <section className="guide-band" id="equipment-options">
         <div className="wrap">
           <SectionTitle
-            label="TCL EQUIPMENT · OUR VENTRIX CONNECTION"
+            label="COLD-CLIMATE EQUIPMENT"
             title="Real equipment. Explained for your home."
           >
-            Our sister store Ventrix Supply carries TCL heat pumps. These
-            examples show the features we can discuss as part of your home
-            review. You can begin with a comfort concern and leave model
-            selection to the planning stage.
+            We install cold-climate heat pumps selected for Massachusetts
+            winters. These examples show the features we can discuss as part of
+            your home review. You can begin with a comfort concern and leave
+            model selection to the planning stage.
           </SectionTitle>
           <div className="equipment-stories">
             <article className="guide-paper">
               <span className="eyebrow">WINTER PERFORMANCE</span>
-              <h3>TCL Apex</h3>
+              <h3>Built for cold climates</h3>
               <p>
-                The Apex brochure lists heating operation down to −22°F and an
-                inverter compressor that adjusts its output. Compatible
-                indoor-unit combinations offer flexibility for different room
-                layouts.
+                Cold-climate models we install list heating operation down to
+                −22°F and use an inverter compressor that adjusts its output.
+                Compatible indoor-unit combinations offer flexibility for
+                different room layouts.
               </p>
               <p className="equipment-question">
                 <strong>What this means for your plan</strong>We look at heating
@@ -409,17 +362,14 @@ function HeatPumpGuide() {
                 operating-temperature limit alone does not show how much heat
                 your home will receive.
               </p>
-              <Source href={resources.tclApex}>
-                TCL Apex specifications via Ventrix (PDF)
-              </Source>
             </article>
             <article className="guide-paper">
               <span className="eyebrow">EVERYDAY COMFORT</span>
-              <h3>TCL Ultimate 25</h3>
+              <h3>Efficiency and controls</h3>
               <p>
-                The Ultimate 25 brochure lists cooling efficiency up to 25
-                SEER2, plus Wi-Fi and compatible voice controls. Ratings and
-                sound levels vary by model and operating setting.
+                High-efficiency models list cooling efficiency up to 25 SEER2,
+                plus Wi-Fi and compatible voice controls. Ratings and sound
+                levels vary by model and operating setting.
               </p>
               <p className="equipment-question">
                 <strong>What this means for your plan</strong>Discuss the
@@ -427,9 +377,6 @@ function HeatPumpGuide() {
                 for the actual model. SEER2 describes seasonal cooling
                 efficiency; heating performance needs its own review.
               </p>
-              <Source href={resources.tclUltimate}>
-                TCL Ultimate 25 specifications via Ventrix (PDF)
-              </Source>
             </article>
           </div>
           <div className="guide-inline-callout">
@@ -945,57 +892,51 @@ function WarrantyGuide() {
       />
       <JumpLinks
         links={[
-          ["tcl-warranty", "TCL coverage"],
+          ["manufacturer-warranty", "Manufacturer coverage"],
           ["warranty-coverage", "Coverage explained"],
           ["system-care", "Caring for your system"],
           ["warranty-questions", "Common questions"],
         ]}
       />
-      <section className="guide-section wrap guide-split" id="tcl-warranty">
+      <section
+        className="guide-section wrap guide-split"
+        id="manufacturer-warranty"
+      >
         <div>
           <SectionTitle
-            label="EQUIPMENT THROUGH OUR SISTER STORE"
-            title="A clearer picture of TCL protection."
+            label="EQUIPMENT PROTECTION"
+            title="A clearer picture of manufacturer coverage."
           />
           <p>
-            Selected TCL systems offer extended limited coverage up to 10 years
-            with qualifying registration. The Apex brochure describes base
-            coverage of 5 years for parts and 7 years for the compressor, with
-            an extension available when registration requirements are met.
+            Selected cold-climate systems we install offer extended limited
+            coverage up to 12 years with qualifying registration. Base coverage
+            typically includes several years for parts and a longer period for
+            the compressor, with an extension available when registration
+            requirements are met.
           </p>
           <p>
-            Confirm the certificate, applicable deadline and registration
-            responsibility for your exact equipment before installation. Your
-            proposal should explain Hanson’s installation labor coverage
-            separately.
+            Hanson’s installation labor is covered separately for up to 2
+            years. Confirm the certificate, applicable deadline and
+            registration responsibility for your exact equipment before
+            installation; your proposal states both coverages in writing.
           </p>
-          <Source href={resources.tclApex}>
-            TCL Apex brochure and limited-warranty summary (PDF)
-          </Source>
         </div>
         <aside className="guide-paper warranty-example">
-          <span className="eyebrow">ELIGIBLE TCL EQUIPMENT</span>
+          <span className="eyebrow">ELIGIBLE EQUIPMENT</span>
           <h3>
-            Up to <strong>10 years</strong>
+            Up to <strong>12 years</strong>
           </h3>
           <p>
             Extended limited equipment coverage, subject to the model’s terms
-            and required registration.
+            and required registration. Installation labor is covered for up to
+            2 years.
           </p>
           <div className="equipment-question">
             <strong>Keep the confirmation.</strong>Retain your warranty
             certificate, model and serial numbers, invoice and installation
-            date. Ventrix has a registration and claims center for equipment
-            purchased through its store; account access is required.
+            date. The Hanson Home team confirms the registration steps for your
+            equipment with your proposal.
           </div>
-          <a
-            className="text-link"
-            href={resources.ventrixWarranty}
-            target="_blank"
-            rel="noreferrer"
-          >
-            Ventrix warranty center <span aria-hidden="true">↗</span>
-          </a>
         </aside>
       </section>
       <section className="guide-section wrap" id="warranty-coverage">
@@ -1105,7 +1046,7 @@ function WarrantyGuide() {
           items={[
             [
               "How many years of warranty will I receive?",
-              "Eligible TCL equipment can have extended limited coverage up to 10 years with qualifying registration. The exact manufacturer terms and installation labor coverage must be stated for your proposal; the two are separate.",
+              "Eligible equipment can have extended limited coverage up to 12 years with qualifying registration, and Hanson's installation labor is covered for up to 2 years. The exact manufacturer terms and labor coverage must be stated in your proposal; the two are separate.",
             ],
             [
               "Is maintenance included in a warranty?",

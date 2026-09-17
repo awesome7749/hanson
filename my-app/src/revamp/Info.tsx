@@ -2,7 +2,6 @@ import React from "react";
 import { Link, useLocation } from "react-router-dom";
 import { FAQ, Icon } from "./Shared";
 import { usePreview } from "./Store";
-import { VentrixConnection } from "./Education";
 import { lifestyleImages } from "./LifestylePhoto";
 import { LIVE } from "./deployment";
 const pages: Record<
@@ -92,7 +91,7 @@ export default function Info() {
       <h3>How we use your details</h3>
       <p>We use this information to review your request, contact you in your preferred way, discuss service coverage and plan the next step. Your contact permission and optional marketing choice are recorded with your request.</p>
       <h3>Where your information goes</h3>
-      <p>Submitted requests are stored in Hanson Home’s lead system using cloud hosting and database services. Staff access requires sign-in. For heat-pump and energy assessment requests, with your permission we share your contact details, address, service preferences and relevant home information with our sister business Ventrix so the team can coordinate your request.</p>
+      <p>Submitted requests are stored in Hanson Home’s lead system using cloud hosting and database services. Staff access requires sign-in. For heat-pump and energy assessment requests, with your permission we share your contact details, address, service preferences and relevant home information with our licensed local service partners so the team can coordinate your request.</p>
       <h3>Your browser draft</h3>
       <p>This tab keeps a draft and your confirmation in browser session storage so you can continue during your visit. You can clear that browser copy below. Clearing it does not delete information already sent to Hanson Home.</p>
       <button className="button ghost" onClick={() => { clearPreview(); setCleared(true); }}>Clear my browser details</button>
@@ -108,8 +107,8 @@ export default function Info() {
         <h1>Your details, in this demo.</h1>
         <p>
           This design preview stores the details you enter in this browser’s
-          session storage. It does not send requests to Hanson Home, Ventrix, a
-          quoting service or an appointment service.
+          session storage. It does not send requests to Hanson Home, a quoting
+          service or an appointment service.
         </p>
         <h3>Use sample information</h3>
         <p>
@@ -211,7 +210,6 @@ export default function Info() {
           </article>
         ))}
       </section>
-      {pathname === "/about" && <VentrixConnection />}
       <section className="section wrap faq-section">
         <div>
           <span className="eyebrow">LET’S TALK IT THROUGH</span>

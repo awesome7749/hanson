@@ -19,7 +19,7 @@ test("a resumed heat-pump request accepts the updated sharing notice before subm
   render(<App />);
   const permission = screen.getByRole("checkbox", { name: /I agree to be contacted/ });
   expect(permission).not.toBeChecked();
-  expect(screen.getByText(/Ventrix to coordinate my heat-pump project/)).toBeInTheDocument();
+  expect(screen.getByText(/licensed local service partners to coordinate my heat-pump project/)).toBeInTheDocument();
   fireEvent.click(screen.getByRole("button", { name: "Review my details" }));
   expect(request).not.toHaveBeenCalled();
   expect(screen.getByText(/Please allow contact/)).toBeInTheDocument();
@@ -29,7 +29,7 @@ test("a resumed heat-pump request accepts the updated sharing notice before subm
   await screen.findByRole("heading", { name: "Thank you, Heat Pump." });
   const sent = JSON.parse(request.mock.calls[0][1].body).draft;
   expect(sent).toMatchObject({ intent: "heat-pump", consent: true, partnerConsent: true });
-  expect(screen.getByText(/Your request is coordinated with our sister business Ventrix/)).toBeInTheDocument();
+  expect(screen.getByText(/Your request is coordinated with our licensed local service/)).toBeInTheDocument();
 });
 
 test("live intake retains answers after failure and confirms only a saved request", async () => {

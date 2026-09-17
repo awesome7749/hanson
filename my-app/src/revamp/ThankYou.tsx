@@ -46,8 +46,9 @@ export default function ThankYou() {
         <h2>What happens next?</h2>
         {state.partnerConsent && (
           <p>
-            Your request is coordinated with our sister business Ventrix. The
-            team will confirm the next step and any appointment separately.
+            Your request is coordinated with our licensed local service
+            partners. The team will confirm the next step and any appointment
+            separately.
           </p>
         )}
         <p>

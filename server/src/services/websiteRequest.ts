@@ -98,7 +98,7 @@ export function websiteLeadData(draft: WebsiteDraft, utm: UtmParams = {}) {
   // An isolated ID namespace makes retries atomic without changing existing records.
   const id = 'web-' + createHash('sha256').update(draft.id).digest('hex').slice(0, 32);
   // Preserve the full intake in the existing text field; no schema change is needed.
-  const corrections = JSON.stringify({ source: 'hansonhome.us', schemaVersion: 1, contactConsentVersion: '2026-09-13', ...(draft.partnerConsent ? { partnerConsentVersion: '2026-09-14-ventrix-service-requests' } : {}), utm, draft }, null, 2);
+  const corrections = JSON.stringify({ source: 'hansonhome.us', schemaVersion: 1, contactConsentVersion: '2026-09-13', ...(draft.partnerConsent ? { partnerConsentVersion: '2026-09-17-licensed-local-partners' } : {}), utm, draft }, null, 2);
   return {
     id, corrections,
     addressRaw: [draft.street, draft.unit && `Unit ${draft.unit}`, `${draft.city}, MA ${draft.zip}`].filter(Boolean).join(', '),

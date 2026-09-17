@@ -3080,34 +3080,6 @@ footer {
   color: var(--muted);
 }
 
-.ventrix-connection {
-  display: grid;
-  grid-template-columns: 1.25fr 1fr;
-  gap: clamp(30px, 6vw, 90px);
-  align-items: center;
-  padding-top: 36px;
-  padding-bottom: 100px;
-}
-.ventrix-connection h2 {
-  font-size: clamp(30px, 3vw, 46px);
-  margin: 20px 0;
-}
-.ventrix-connection p {
-  color: var(--muted);
-  line-height: 1.8;
-  margin: 18px 0 24px;
-}
-.ventrix-identity {
-  border-left: 4px solid var(--taupe);
-  background: var(--putty);
-  padding: clamp(25px, 4vw, 48px);
-  border-radius: 0 20px 20px 0;
-}
-.ventrix-identity h3 {
-  font-size: clamp(27px, 2.4vw, 36px);
-  margin: 25px 0 15px;
-  line-height: 1.15;
-}
 .equipment-stories {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -3324,12 +3296,8 @@ footer {
   }
 }
 @media (max-width: 850px) {
-  .ventrix-connection,
   .equipment-stories {
     grid-template-columns: 1fr;
-  }
-  .ventrix-connection {
-    padding-bottom: 65px;
   }
 }
 
