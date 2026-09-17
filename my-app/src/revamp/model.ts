@@ -196,11 +196,9 @@ export function validateStep(d: Draft, step: number) {
     const email = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(d.email);
     const phone = /^(1)?\d{10}$/.test(d.phone.replace(/\D/g, ""));
     if (d.email && !email) e.email = "Enter a valid email address.";
-    if (d.phone && !phone) e.phone = "Enter a valid US phone number.";
+    if (!phone) e.phone = "Enter a valid US phone number so we can follow up.";
     if (d.contactMethod === "Email" && !email)
       e.email = "Add an email for your preferred contact method.";
-    if (d.contactMethod !== "Email" && !phone)
-      e.phone = "Add a phone number for your preferred contact method.";
     if (!d.consent)
       e.consent = "Please allow contact about this request to continue.";
     if (d.additional) {

@@ -764,13 +764,7 @@ export default function Intake() {
                       : "Email address (optional)",
                     "email",
                   )}
-                  {field(
-                    "phone",
-                    d.contactMethod === "Email"
-                      ? "Phone number (optional)"
-                      : "Phone number",
-                    "tel",
-                  )}
+                  {field("phone", "Phone number", "tel")}
                   {select("language", "Preferred language", [
                     "English",
                     "Portuguese",

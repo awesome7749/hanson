@@ -12,7 +12,7 @@ beforeEach(() => {
 afterEach(() => jest.restoreAllMocks());
 
 test("a resumed heat-pump request accepts the updated sharing notice before submission", async () => {
-  const draft = { ...makeDraft(), street: "12 Example Lane", city: "Lexington", zip: "02420", ownership: "I own my home", homeType: "Single-family", heating: "Not sure", cooling: "Not sure", vents: "Not sure", condition: "Not sure", fuel: "Oil", timeline: "Just exploring", electric: "Not sure", assessment: "Not yet", firstName: "Heat Pump", lastName: "Test", email: "launch@example.com", consent: true, partnerConsent: false };
+  const draft = { ...makeDraft(), street: "12 Example Lane", city: "Lexington", zip: "02420", ownership: "I own my home", homeType: "Single-family", heating: "Not sure", cooling: "Not sure", vents: "Not sure", condition: "Not sure", fuel: "Oil", timeline: "Just exploring", electric: "Not sure", assessment: "Not yet", firstName: "Heat Pump", lastName: "Test", email: "launch@example.com", phone: "202-555-0100", consent: true, partnerConsent: false };
   sessionStorage.setItem("hanson-website-live-v1", JSON.stringify({ draft, step: 4, leads: [] }));
   const request = jest.fn().mockResolvedValue({ ok: true, json: async () => ({ receipt: { id: "web-heat-pump", createdAt: "2026-09-14T03:00:00Z", status: "new" } }) });
   global.fetch = request;
@@ -33,7 +33,7 @@ test("a resumed heat-pump request accepts the updated sharing notice before subm
 });
 
 test("live intake retains answers after failure and confirms only a saved request", async () => {
-  const draft = { ...makeDraft(), intent: "assessment", street: "12 Example Lane", city: "Lexington", zip: "02420", ownership: "I own my home", homeType: "Single-family", fuel: "Oil", timeline: "Just exploring", electric: "Not sure", assessment: "Not yet", firstName: "Launch", lastName: "Test", email: "launch@example.com", consent: true, partnerConsent: true };
+  const draft = { ...makeDraft(), intent: "assessment", street: "12 Example Lane", city: "Lexington", zip: "02420", ownership: "I own my home", homeType: "Single-family", fuel: "Oil", timeline: "Just exploring", electric: "Not sure", assessment: "Not yet", firstName: "Launch", lastName: "Test", email: "launch@example.com", phone: "202-555-0101", consent: true, partnerConsent: true };
   sessionStorage.setItem("hanson-website-live-v1", JSON.stringify({ draft, step: 4, leads: [] }));
   let resolveRequest: (value: any) => void = () => {};
   const request = jest.fn().mockImplementationOnce(() => new Promise(resolve => { resolveRequest = resolve; })).mockResolvedValueOnce({ ok: true, json: async () => ({ receipt: { id: "web-saved-reference", createdAt: "2026-09-13T12:00:00Z", status: "assessment_requested" } }) });

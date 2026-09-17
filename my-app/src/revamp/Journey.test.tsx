@@ -49,6 +49,7 @@ test("assessment request can be reviewed, edited, saved and found in the staff v
   fill("First name", "Alex");
   fill("Last name", "Example");
   fill("Email address", "alex@example.com");
+  fill("Phone number", "202-555-0130");
   fireEvent.click(
     screen.getByRole("checkbox", { name: /I agree to be contacted/ }),
   );
@@ -161,7 +162,7 @@ test("heat-pump flow handles technical unknowns and requires a matching phone co
   fireEvent.click(screen.getByRole("button", { name: "Review my details" }));
   expect(
     await screen.findByText(
-      "Add a phone number for your preferred contact method.",
+      "Enter a valid US phone number so we can follow up.",
     ),
   ).toBeInTheDocument();
   fill("Phone number", "202-555-0140");

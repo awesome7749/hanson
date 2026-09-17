@@ -36,18 +36,20 @@ test("assessment skips equipment-detail requirements but keeps shared context", 
     "heating",
   );
 });
-test("contact method requires the corresponding contact information", () => {
+test("contact step always requires a phone number for follow-up", () => {
   const d = {
     ...makeDraft(),
     firstName: "Alex",
     lastName: "Example",
     email: "alex@example.com",
+    phone: "202-555-0130",
     consent: true,
   };
   expect(validateStep(d, 4)).toEqual({});
-  expect(validateStep({ ...d, contactMethod: "Phone call" }, 4)).toHaveProperty(
-    "phone",
-  );
+  expect(validateStep({ ...d, phone: "" }, 4)).toHaveProperty("phone");
+  expect(
+    validateStep({ ...d, contactMethod: "Phone call", phone: "" }, 4),
+  ).toHaveProperty("phone");
   expect(validateStep({ ...d, consent: false }, 4)).toHaveProperty("consent");
 });
 test("blank intake cannot be submitted and past assessment dates are rejected", () => {

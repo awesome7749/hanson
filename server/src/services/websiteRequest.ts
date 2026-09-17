@@ -31,7 +31,7 @@ export function parseWebsiteRequest(input: unknown): WebsiteDraft {
   if (!['Email', 'Phone call', 'Text message'].includes(draft.contactMethod)) throw new RequestValidationError('Choose a contact method.');
   const emailOK = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(draft.email);
   const phoneOK = /^1?\d{10}$/.test(draft.phone.replace(/\D/g, ''));
-  if ((draft.email && !emailOK) || (draft.phone && !phoneOK) || (draft.contactMethod === 'Email' ? !emailOK : !phoneOK)) throw new RequestValidationError('Please check your email address and phone number.');
+  if ((draft.email && !emailOK) || !phoneOK || (draft.contactMethod === 'Email' && !emailOK)) throw new RequestValidationError('Please check your email address and phone number.');
   if (!draft.consent) throw new RequestValidationError('Please allow contact about this request to continue.');
   if (draft.size && (!Number.isFinite(Number(draft.size)) || Number(draft.size) < 100 || Number(draft.size) > 100000)) throw new RequestValidationError('Please check your home size.');
   if (draft.year && (!Number.isInteger(Number(draft.year)) || Number(draft.year) < 1600 || Number(draft.year) > new Date().getFullYear() + 1)) throw new RequestValidationError('Please check the year your home was built.');
