@@ -3451,3 +3451,40 @@ footer {
   color: var(--muted);
   margin: -6px 0 18px;
 }
+
+/* Heat-flow diagram in the seasonal explainer */
+.heat-diagram {
+  display: block;
+  width: 100%;
+  height: auto;
+  max-width: 560px;
+  margin-top: 26px;
+}
+.heat-diagram text {
+  font-family: inherit;
+  font-size: 12.5px;
+  fill: var(--muted);
+  letter-spacing: 0.02em;
+}
+.heat-diagram .diagram-strong {
+  fill: var(--ink);
+  font-weight: 600;
+}
+.heat-chevron {
+  opacity: 0.3;
+  animation: heat-chevron-pulse 1.5s ease-in-out infinite;
+}
+@keyframes heat-chevron-pulse {
+  35% {
+    opacity: 1;
+  }
+  70% {
+    opacity: 0.3;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .heat-chevron {
+    animation: none;
+    opacity: 0.85;
+  }
+}

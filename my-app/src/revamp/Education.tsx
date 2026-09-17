@@ -158,6 +158,89 @@ function SectionTitle({
     </div>
   );
 }
+// Cross-section of the outdoor unit, refrigerant line and indoor unit.
+// The chevrons along the line show which way heat travels in each season.
+function HeatFlowDiagram({ mode }: { mode: "winter" | "summer" }) {
+  const winter = mode === "winter";
+  const warm = "#a05a33";
+  const cool = "#64788a";
+  const airColor = winter ? cool : warm;
+  const roomColor = winter ? warm : cool;
+  const chevrons = [176, 212, 248, 284];
+  return (
+    <svg
+      className="heat-diagram"
+      viewBox="0 0 560 236"
+      role="img"
+      aria-label={
+        winter
+          ? "Diagram: the outdoor unit collects heat from outdoor air and the refrigerant line carries it to the indoor unit, which warms your home."
+          : "Diagram: the indoor unit collects heat from your rooms and the refrigerant line carries it to the outdoor unit, which releases it outside."
+      }
+    >
+      <defs>
+        <marker id="hd-air" viewBox="0 0 8 8" refX="6" refY="4" markerWidth="7" markerHeight="7" orient="auto">
+          <path d="M0 0 L8 4 L0 8 Z" fill={airColor} />
+        </marker>
+        <marker id="hd-room" viewBox="0 0 8 8" refX="6" refY="4" markerWidth="7" markerHeight="7" orient="auto">
+          <path d="M0 0 L8 4 L0 8 Z" fill={roomColor} />
+        </marker>
+      </defs>
+      {/* ground */}
+      <line x1="16" y1="206" x2="544" y2="206" stroke="var(--line)" strokeWidth="2" />
+      {/* house: roof and walls */}
+      <path d="M298 96 L420 34 L542 96" fill="none" stroke="var(--ink)" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round" />
+      <path d="M310 96 V204 M530 96 V204" fill="none" stroke="var(--ink)" strokeWidth="3" strokeLinecap="round" />
+      {/* outdoor unit */}
+      <rect x="44" y="132" width="96" height="72" rx="9" fill="var(--paper)" stroke="var(--ink)" strokeWidth="2.5" />
+      <circle cx="92" cy="168" r="21" fill="none" stroke="var(--ink)" strokeWidth="2.2" />
+      <circle cx="92" cy="168" r="3.4" fill="var(--ink)" />
+      <path d="M92 150 A18 18 0 0 1 108 178 M92 186 A18 18 0 0 1 76 158" fill="none" stroke="var(--ink)" strokeWidth="2" strokeLinecap="round" />
+      {/* outdoor air arrows */}
+      <g stroke={airColor} strokeWidth="2.4" strokeLinecap="round">
+        {winter ? (
+          <>
+            <line x1="12" y1="156" x2="34" y2="156" markerEnd="url(#hd-air)" />
+            <line x1="12" y1="182" x2="34" y2="182" markerEnd="url(#hd-air)" />
+          </>
+        ) : (
+          <>
+            <line x1="34" y1="156" x2="12" y2="156" markerEnd="url(#hd-air)" />
+            <line x1="34" y1="182" x2="12" y2="182" markerEnd="url(#hd-air)" />
+          </>
+        )}
+      </g>
+      {/* indoor unit */}
+      <rect x="328" y="108" width="92" height="28" rx="9" fill="var(--paper)" stroke="var(--ink)" strokeWidth="2.5" />
+      <line x1="338" y1="128" x2="410" y2="128" stroke="var(--muted)" strokeWidth="2" strokeLinecap="round" />
+      {/* indoor air arrows into the room */}
+      <g stroke={roomColor} strokeWidth="2.4" strokeLinecap="round">
+        <line x1="342" y1="146" x2="354" y2="162" markerEnd="url(#hd-room)" />
+        <line x1="366" y1="146" x2="378" y2="162" markerEnd="url(#hd-room)" />
+        <line x1="390" y1="146" x2="402" y2="162" markerEnd="url(#hd-room)" />
+      </g>
+      {/* refrigerant line through the wall up to the indoor unit */}
+      <path d="M140 168 H334 V136" fill="none" stroke="var(--taupe)" strokeWidth="5" strokeLinecap="round" opacity="0.5" />
+      {/* heat chevrons along the line */}
+      <g fill="none" stroke={warm} strokeWidth="3" strokeLinecap="round" strokeLinejoin="round">
+        {chevrons.map((x, i) => (
+          <path
+            key={x}
+            className="heat-chevron"
+            d={winter ? `M${x - 5} 160 L${x + 5} 168 L${x - 5} 176` : `M${x + 5} 160 L${x - 5} 168 L${x + 5} 176`}
+            style={{ animationDelay: `${(winter ? i : chevrons.length - 1 - i) * 0.18}s` }}
+          />
+        ))}
+      </g>
+      {/* labels */}
+      <text x="16" y="122">Outdoor air</text>
+      <text x="92" y="226" textAnchor="middle">Outdoor unit</text>
+      <text x="430" y="126">Indoor unit</text>
+      <text x="430" y="190" className="diagram-strong">Your home</text>
+      <text x="237" y="158" textAnchor="middle">Heat moves {winter ? "in" : "out"}</text>
+    </svg>
+  );
+}
 export function HeatPumpExplainer({ compact = false }: { compact?: boolean }) {
   const [mode, setMode] = useState<"winter" | "summer">("winter");
   return (
@@ -192,22 +275,7 @@ export function HeatPumpExplainer({ compact = false }: { compact?: boolean }) {
             ? "Even cold outdoor air contains heat. A heat pump uses electricity and a refrigerant circuit to move that heat into your home."
             : "The process reverses: heat moves from inside your home to the outdoors, leaving your rooms cooler."}
         </p>
-        <div
-          className="heat-flow"
-          aria-label={
-            mode === "winter"
-              ? "Heat moves from outdoor air into your home"
-              : "Heat moves from your home to outdoor air"
-          }
-        >
-          <span>{mode === "winter" ? "Outdoor air" : "Your home"}</span>
-          <span className="heat-flow-middle">
-            <Icon name="arrow" />
-            <b>Heat moves</b>
-            <Icon name="arrow" />
-          </span>
-          <span>{mode === "winter" ? "Your home" : "Outdoor air"}</span>
-        </div>
+        <HeatFlowDiagram mode={mode} />
       </div>
     </div>
   );
