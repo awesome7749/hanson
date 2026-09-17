@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { Icon, FAQ } from "./Shared";
 import { HeatPumpExplainer, resources } from "./Education";
+import GoogleReviews from "./Reviews";
 import { LifestylePhoto } from "./LifestylePhoto";
 import { HeroSlideshow } from "./HeroSlideshow";
 import { QuoteBreakdown, RebateHighlight } from "./Pricing";
@@ -141,6 +142,8 @@ export default function Home() {
           <p className="source-note">Eligibility and offers vary. <a href={resources.assessment} target="_blank" rel="noreferrer">Explore the Mass Save program ↗</a></p>
         </div>
       </section>
+
+      <GoogleReviews />
 
       <section className="section wrap faq-section home-purchase-faq">
         <div>

@@ -1,6 +1,8 @@
 import type { VentrixService } from '../services/ventrixService';
 import type { LeadNotifier } from '../services/leadNotifier';
 import type { MetaCapi } from '../services/metaCapi';
+import type { GoogleReviews } from '../services/googleReviews';
+import type { ChatProvider } from '../services/chatService';
 import { Router, Request } from 'express';
 import { parseWebsiteRequest, parsePartialRequest, parseUtm, RequestConflictError, RequestValidationError } from '../services/websiteRequest';
 import type { DatabaseService } from '../services/databaseService';
@@ -8,6 +10,8 @@ import type { DatabaseService } from '../services/databaseService';
 export interface LeadHooks {
   notifier?: LeadNotifier | null;
   capi?: MetaCapi | null;
+  reviews?: GoogleReviews | null;
+  chat?: ChatProvider | null;
 }
 
 function capiRequestContext(req: Request) {

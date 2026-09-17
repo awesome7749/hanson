@@ -15,6 +15,7 @@ export function Icon({ name, size = 22 }: { name: string; size?: number }) {
     shield: "m12 3 8 3v6c0 5-8 9-8 9s-8-4-8-9V6l8-3m-4 9 3 3 5-6",
     camera: "M3 7h4l2-3h6l2 3h4v13H3V7m13 6a4 4 0 1 0-8 0 4 4 0 0 0 8 0",
     mail: "M3 5h18v14H3V5m0 1 9 7 9-7",
+    chat: "M4 5h16v11H10l-6 4V5m4 4h8m-8 3h5",
     phone: "M7 3H3c0 10 8 18 18 18v-4l-5-2-2 2a14 14 0 0 1-7-7l2-2-2-5",
     menu: "M4 6h16M4 12h16M4 18h16",
     close: "m6 6 12 12M6 18 18 6",

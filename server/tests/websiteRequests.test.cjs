@@ -156,6 +156,37 @@ test('partial leads save on step one, notify once and upgrade to full requests',
   }
 });
 
+test('reviews and chat endpoints degrade gracefully and hand off phone numbers', async () => {
+  const { createChatProvider } = require('../dist/services/chatService');
+  const handoffs = [];
+  const notifier = { partialLead: async () => {}, chatLead: async notice => { handoffs.push(notice); } };
+  const api = createApiRouter({}, {}, {}, {}, 'test-password', undefined, { chat: createChatProvider(notifier) });
+  const app = express().use(express.json()).use('/api', api);
+  const server = app.listen(0, '127.0.0.1');
+  await new Promise(resolve => server.once('listening', resolve));
+  const url = `http://127.0.0.1:${server.address().port}/api`;
+  const post = (path, body) => fetch(url + path, { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(body) });
+  try {
+    // Reviews are optional: unconfigured deployments must not break the page.
+    assert.deepEqual(await (await fetch(url + '/reviews')).json(), { configured: false });
+    assert.equal((await post('/chat', {})).status, 400);
+    const priced = await post('/chat', { sessionId: 'chat-1', messages: [{ role: 'visitor', text: 'How much does it cost?' }] });
+    assert.equal(priced.status, 200);
+    assert.match((await priced.json()).reply.text, /quote/i);
+    const handoff = await post('/chat', { sessionId: 'chat-1', messages: [{ role: 'visitor', text: 'Sure, call me at 401-555-0123' }] });
+    const reply = (await handoff.json()).reply;
+    assert.equal(reply.handoff, true);
+    assert.equal(handoffs.length, 1);
+    assert.match(handoffs[0].phone, /401/);
+    // A second phone message in the same session must not re-email the team.
+    await post('/chat', { sessionId: 'chat-1', messages: [{ role: 'visitor', text: '401-555-0123 again' }] });
+    assert.equal(handoffs.length, 1);
+  } finally {
+    server.closeAllConnections();
+    await new Promise(resolve => server.close(resolve));
+  }
+});
+
 test('staff tokens survive instance changes and reject tampering or expiry', () => {
   const now = Date.now();
   const token = issueAdminToken('test-password', now);

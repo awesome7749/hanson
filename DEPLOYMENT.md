@@ -52,6 +52,17 @@ The Meta Pixel base code lives in `my-app/public/index.html` and only
 initializes on `hansonhome.us`, so localhost and preview traffic never
 pollutes the dataset.
 
+- **Google reviews on the homepage** (server-side Places API with caching;
+  the section hides itself until configured):
+  `GOOGLE_PLACES_API_KEY` (Google Cloud key with Places API (New) enabled),
+  `GOOGLE_PLACE_ID` (the Hanson Home Business Profile place ID — find it at
+  https://developers.google.com/maps/documentation/places/web-service/place-id)
+- **Website chat** (`/api/chat`) works out of the box with a scripted
+  assistant that hands off to the team by email (uses the SMTP settings
+  above) whenever a visitor shares a phone number. To plug in live agents
+  or an AI later, replace the provider in
+  `server/src/services/chatService.ts` — the widget and route stay the same.
+
 ## Step 4: Deploy
 
 ```bash

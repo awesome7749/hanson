@@ -11,6 +11,8 @@ import { DatabaseService, prisma } from './services/databaseService';
 import { StorageService } from './services/storageService';
 import { createLeadNotifier } from './services/leadNotifier';
 import { createMetaCapi } from './services/metaCapi';
+import { createGoogleReviews } from './services/googleReviews';
+import { createChatProvider } from './services/chatService';
 
 // Load environment variables
 dotenv.config();
@@ -64,11 +66,14 @@ const ventrix = process.env.VENTRIX_SUBMISSIONS_ENABLED === 'true'
 // Meta Conversions API (META_CAPI_TOKEN). Both no-op when unconfigured.
 const leadNotifier = createLeadNotifier();
 const metaCapi = createMetaCapi();
+const googleReviews = createGoogleReviews();
+const chatProvider = createChatProvider(leadNotifier);
 if (!leadNotifier) console.log('Partial-lead email notifications disabled (SMTP_HOST/SMTP_USER/SMTP_PASS not set).');
 if (!metaCapi) console.log('Meta Conversions API disabled (META_CAPI_TOKEN not set).');
+if (!googleReviews) console.log('Google reviews disabled (GOOGLE_PLACES_API_KEY/GOOGLE_PLACE_ID not set).');
 
 // Mount API routes
-app.use('/api', createApiRouter(rentcastService, hvacPredictorService, databaseService, storageService, adminPassword, ventrix, { notifier: leadNotifier, capi: metaCapi }));
+app.use('/api', createApiRouter(rentcastService, hvacPredictorService, databaseService, storageService, adminPassword, ventrix, { notifier: leadNotifier, capi: metaCapi, reviews: googleReviews, chat: chatProvider }));
 
 app.use('/api', (_req, res) => { res.status(404).json({ error: 'Endpoint not found' }); });
 

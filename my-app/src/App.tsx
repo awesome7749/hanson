@@ -2,6 +2,7 @@ import React, { lazy, Suspense, useEffect, useRef } from "react";
 import { LIVE } from "./revamp/deployment";
 import Receipt from "./revamp/Receipt";
 import ThankYou from "./revamp/ThankYou";
+import ChatWidget from "./revamp/ChatWidget";
 import { captureUtm } from "./revamp/pixel";
 import {
   BrowserRouter,
@@ -69,6 +70,7 @@ export default function App() {
             />
             <Route path="*" element={<Info />} />
           </Routes>
+          <ChatWidget />
         </Shell>
       </BrowserRouter>
     </PreviewProvider>

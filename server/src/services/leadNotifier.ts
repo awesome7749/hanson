@@ -7,8 +7,15 @@ export interface PartialLeadNotice {
   utm: UtmParams;
 }
 
+export interface ChatLeadNotice {
+  sessionId: string;
+  phone: string;
+  transcript: string;
+}
+
 export interface LeadNotifier {
   partialLead(notice: PartialLeadNotice): Promise<void>;
+  chatLead(notice: ChatLeadNotice): Promise<void>;
 }
 
 // Emails the team the moment a step-one partial lead lands, so someone can
@@ -45,6 +52,22 @@ export function createLeadNotifier(env: NodeJS.ProcessEnv = process.env): LeadNo
           `Source: ${source}`,
           '',
           `Lead reference: ${leadId}`,
+        ].join('\n'),
+      });
+    },
+    async chatLead({ sessionId, phone, transcript }: ChatLeadNotice) {
+      await transport.sendMail({
+        from,
+        to,
+        subject: `Website chat: visitor left phone ${phone}`,
+        text: [
+          'A website chat visitor left a phone number. Please follow up within 1 business day.',
+          '',
+          `Phone: ${phone}`,
+          `Chat session: ${sessionId}`,
+          '',
+          'Transcript:',
+          transcript,
         ].join('\n'),
       });
     },

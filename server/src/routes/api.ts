@@ -58,6 +58,44 @@ export function createApiRouter(
   router.use("/requests", createRequestsRouter(databaseService, ventrix, leadHooks));
 
   // ────────────────────────────────────────────────
+  // GET /api/reviews — Google Business Profile summary (public, cached)
+  // ────────────────────────────────────────────────
+  router.get('/reviews', async (_req: Request, res: Response) => {
+    if (!leadHooks?.reviews) return res.json({ configured: false });
+    try {
+      res.set('Cache-Control', 'public, max-age=3600');
+      res.json(await leadHooks.reviews.getSummary());
+    } catch {
+      console.error('Google reviews could not be loaded.');
+      res.json({ configured: false });
+    }
+  });
+
+  // ────────────────────────────────────────────────
+  // POST /api/chat — website chat widget (public)
+  // ────────────────────────────────────────────────
+  router.post('/chat', async (req: Request, res: Response) => {
+    res.set('Cache-Control', 'no-store');
+    const sessionId = typeof req.body?.sessionId === 'string' ? req.body.sessionId.slice(0, 64) : '';
+    const raw = Array.isArray(req.body?.messages) ? req.body.messages.slice(-30) : null;
+    if (!sessionId || !raw || !raw.length) return res.status(400).json({ error: 'Please send a message.' });
+    const messages = raw
+      .filter((m: unknown): m is { role: string; text: string } =>
+        !!m && typeof m === 'object' && typeof (m as any).text === 'string' && ['visitor', 'assistant'].includes((m as any).role))
+      .map((m: { role: string; text: string }) => ({ role: m.role as 'visitor' | 'assistant', text: m.text.slice(0, 1000) }));
+    if (!messages.some((m: { role: string }) => m.role === 'visitor')) return res.status(400).json({ error: 'Please send a message.' });
+    if (!leadHooks?.chat) {
+      return res.json({ reply: { text: 'Chat is offline right now. Call or text us at (401) 612-3443, or use the quote request and we will follow up within 1 business day.' } });
+    }
+    try {
+      res.json({ reply: await leadHooks.chat.reply(messages, { sessionId }) });
+    } catch {
+      console.error('Chat reply failed.');
+      res.status(503).json({ error: 'Chat is having trouble right now. Call or text us at (401) 612-3443.' });
+    }
+  });
+
+  // ────────────────────────────────────────────────
   // POST /api/leads — Create a new lead + fetch property data
   // ────────────────────────────────────────────────
   router.post('/leads', requireAdmin, async (req: Request, res: Response) => {
