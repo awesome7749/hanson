@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { Icon, FAQ } from "./Shared";
-import { HeatPumpExplainer, resources, VentrixConnection } from "./Education";
+import { HeatPumpExplainer, resources } from "./Education";
 import { LifestylePhoto } from "./LifestylePhoto";
 import { HeroSlideshow } from "./HeroSlideshow";
 import { QuoteBreakdown, RebateHighlight } from "./Pricing";
@@ -110,8 +110,6 @@ export default function Home() {
         </div>
         <InstallationPhoto scene="handover" />
       </section>
-
-      <VentrixConnection />
 
       <section className="guide-band">
         <div className="section wrap home-learning">
