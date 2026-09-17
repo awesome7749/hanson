@@ -85,6 +85,77 @@ test('basic requests validate, save once, preserve answers and stay private', as
   }
 });
 
+test('partial leads save on step one, notify once and upgrade to full requests', async () => {
+  const rows = new Map();
+  const original = { upsert: prisma.lead.upsert, findUnique: prisma.lead.findUnique, create: prisma.lead.create, update: prisma.lead.update, transaction: prisma.$transaction };
+  prisma.$transaction = callback => callback(prisma);
+  prisma.lead.findUnique = async ({ where }) => rows.has(where.id) ? { id: where.id, ...rows.get(where.id) } : null;
+  prisma.lead.create = async ({ data }) => { rows.set(data.id, { ...data, createdAt: new Date() }); return { id: data.id, ...rows.get(data.id) }; };
+  prisma.lead.update = async ({ where, data }) => { rows.set(where.id, { ...rows.get(where.id), ...data }); return { id: where.id, ...rows.get(where.id) }; };
+  prisma.lead.upsert = async ({ where, create }) => {
+    if (!rows.has(where.id)) rows.set(where.id, { ...create, createdAt: new Date() });
+    return { id: where.id, ...rows.get(where.id) };
+  };
+  const notices = [];
+  const capiEvents = [];
+  const db = new DatabaseService();
+  const api = createApiRouter({}, {}, db, {}, 'test-password', undefined, {
+    notifier: { partialLead: async notice => { notices.push(notice); } },
+    capi: { send: async event => { capiEvents.push(event); } },
+  });
+  const app = express().use(express.json()).use('/api', api);
+  const server = app.listen(0, '127.0.0.1');
+  await new Promise(resolve => server.once('listening', resolve));
+  const url = `http://127.0.0.1:${server.address().port}/api`;
+  const post = (path, body) => fetch(url + path, { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(body) });
+  try {
+    const partial = { id: '44444444-4444-4444-8444-444444444444', intent: 'heat-pump', zip: '01801', firstName: 'Ada', lastName: 'Example', phone: '202-555-0155', email: '' };
+    const utm = { utm_source: 'facebook', utm_medium: 'paid', utm_campaign: 'heatpump-leads', junk: 'dropped' };
+    const first = await post('/requests/partial', { draft: partial, utm, fbp: 'fb.1.1.2', sourceUrl: 'https://hansonhome.us/start?intent=heat-pump' });
+    assert.equal(first.status, 201);
+    const receipt = (await first.json()).receipt;
+    assert.equal(receipt.status, 'partial');
+    assert.equal(notices.length, 1);
+    assert.equal(notices[0].utm.utm_source, 'facebook');
+    assert.equal(notices[0].utm.junk, undefined);
+    assert.equal(capiEvents.length, 1);
+    assert.equal(capiEvents[0].eventName, 'Lead');
+    assert.equal(capiEvents[0].eventId, receipt.id);
+    // A repeated step-one submit updates the contact but never re-notifies.
+    const retry = await post('/requests/partial', { draft: { ...partial, phone: '202-555-0156' } });
+    assert.equal(retry.status, 201);
+    assert.equal((await retry.json()).receipt.id, receipt.id);
+    assert.equal(rows.get(receipt.id).phone, '202-555-0156');
+    assert.equal(notices.length, 1);
+    for (const patch of [{ phone: '' }, { phone: '123' }, { zip: '10001' }, { firstName: '' }]) {
+      assert.equal((await post('/requests/partial', { draft: { ...partial, ...patch } })).status, 400);
+    }
+    // The full request upgrades the same record and keeps ad attribution.
+    const full = { ...draft(), id: partial.id, firstName: 'Ada', lastName: 'Example', phone: '202-555-0156' };
+    const completed = await post('/requests', { draft: full });
+    assert.equal(completed.status, 201);
+    const completedReceipt = (await completed.json()).receipt;
+    assert.equal(completedReceipt.id, receipt.id);
+    assert.equal(rows.get(receipt.id).status, 'new');
+    const saved = JSON.parse(rows.get(receipt.id).corrections);
+    assert.equal(saved.partial, undefined);
+    assert.equal(saved.utm.utm_source, 'facebook');
+    assert.equal(saved.draft.street, '12 Example Lane');
+    assert.equal(capiEvents.length, 2);
+    assert.equal(capiEvents[1].eventName, 'CompleteRegistration');
+    assert.equal(capiEvents[1].eventId, `${receipt.id}-complete`);
+  } finally {
+    prisma.lead.upsert = original.upsert;
+    prisma.lead.findUnique = original.findUnique;
+    prisma.lead.create = original.create;
+    prisma.lead.update = original.update;
+    prisma.$transaction = original.transaction;
+    server.closeAllConnections();
+    await new Promise(resolve => server.close(resolve));
+    await prisma.$disconnect();
+  }
+});
+
 test('staff tokens survive instance changes and reject tampering or expiry', () => {
   const now = Date.now();
   const token = issueAdminToken('test-password', now);

@@ -1,5 +1,6 @@
 import { LIVE } from "./deployment";
-import { submitRequest } from "./requests";
+import { submitPartialRequest, submitRequest } from "./requests";
+import { fbqTrack } from "./pixel";
 import React, { useEffect, useRef, useState } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { Icon } from "./Shared";
@@ -14,17 +15,18 @@ import {
   validateStep,
 } from "./model";
 const steps = [
-  "Your address",
+  "Your details",
+  "Project address",
   "Your home",
   "Your comfort",
-  "Assessment & utilities",
-  "Your details",
+  "Utilities & preferences",
 ];
 const textFor = [
   [
     "Start your\nproject request.",
-    "Share your address and choose the service you need.",
+    "Tell us who to prepare your quote for and how to reach you.",
   ],
+  ["Where is\nthe project?", "We use this to prepare your written quote."],
   [
     "Tell us about\nyour property.",
     "These details help us plan the right scope for your home.",
@@ -34,11 +36,11 @@ const textFor = [
     "No technical expertise needed. “Not sure” is always okay.",
   ],
   [
-    "Your utilities\nand assessment history.",
-    "Your utilities and assessment history help us plan the next step.",
+    "Utilities and\npreferences.",
+    "Your utilities, assessment history and how we should follow up.",
   ],
-  ["How can we\ncontact you?", "Choose how you’d like us to follow up about your project."],
 ];
+const CALL_LINE = { display: "Call or text (401) 612-3443", tel: "tel:+14016123443" };
 function Choices({
   label,
   name,
@@ -94,7 +96,7 @@ export function Review({
 }) {
   const groups: [string, number, [string, string][]][] = [
     [
-      "Your address",
+      "Your details",
       0,
       [
         [
@@ -103,12 +105,15 @@ export function Review({
             ? "Heat-pump estimate"
             : "Home energy assessment",
         ],
-        ["Home", formatAddress(d)],
+        ["Name", `${d.firstName} ${d.lastName}`],
+        ["Phone", d.phone],
+        ["Email", d.email || "Not added"],
       ],
     ],
+    ["Project address", 1, [["Home", formatAddress(d)]]],
     [
       "Your home",
-      1,
+      2,
       [
         ["Ownership", d.ownership],
         ["Property", d.homeType],
@@ -121,7 +126,7 @@ export function Review({
     ],
     [
       "Your comfort",
-      2,
+      3,
       [
         ["Heating fuel", d.fuel],
         ...(d.intent === "heat-pump"
@@ -137,8 +142,8 @@ export function Review({
       ],
     ],
     [
-      "Assessment & utilities",
-      3,
+      "Utilities & preferences",
+      4,
       [
         ["Electricity", d.electric],
         ...(d.fuel === "Natural gas"
@@ -155,15 +160,6 @@ export function Review({
               string,
             ][])
           : []),
-      ],
-    ],
-    [
-      "Your details",
-      4,
-      [
-        ["Name", `${d.firstName} ${d.lastName}`],
-        ["Email", d.email || "Not added"],
-        ["Phone", d.phone || "Not added"],
         ["Contact preference", d.contactMethod],
         ["Language", d.language],
         ...(d.additional
@@ -229,6 +225,10 @@ export default function Intake() {
   const [busy, setBusy] = useState(false);
   const [submitError, setSubmitError] = useState("");
   const submitting = useRef(false);
+  const leadEventSent = useRef("");
+  useEffect(() => {
+    fbqTrack("track", "ViewContent", { content_name: "start-heat-pump" });
+  }, []);
   useEffect(() => {
     if (initialized.current) return;
     initialized.current = true;
@@ -318,6 +318,7 @@ export default function Intake() {
         {...(type === "number"
           ? { min: 0, inputMode: "numeric" as const }
           : {})}
+        {...(key === "zip" ? { inputMode: "numeric" as const, maxLength: 5 } : {})}
         {...(type === "date" ? { min: todayLocal() } : {})}
       />
       {hint && <small>{hint}</small>}
@@ -373,6 +374,33 @@ export default function Intake() {
       );
       return;
     }
+    if (step === 0) {
+      // Save a partial lead right away so we can follow up even if the rest
+      // of the form is abandoned. Never block the visitor on this request.
+      if (LIVE) {
+        submitPartialRequest(d)
+          .then((receipt) => {
+            if (leadEventSent.current === d.id) return;
+            leadEventSent.current = d.id;
+            fbqTrack(
+              "track",
+              "Lead",
+              { content_name: d.intent, value: 0, currency: "USD" },
+              { eventID: receipt.id },
+            );
+          })
+          .catch(() => {
+            if (leadEventSent.current === d.id) return;
+            leadEventSent.current = d.id;
+            fbqTrack("track", "Lead", {
+              content_name: d.intent,
+              value: 0,
+              currency: "USD",
+            });
+          });
+      }
+    }
+    if (step === 1) fbqTrack("trackCustom", "StartStep2");
     if (step < 4) setStep(step + 1);
     else setReview(true);
   }
@@ -405,7 +433,20 @@ export default function Intake() {
       sample: false,
       photoNames: old?.photoNames || {},
     });
-    nav(`/project/${receipt?.id || d.id}`, { replace: true });
+    if (LIVE) {
+      // A fixed confirmation URL lets Meta and Google count conversions.
+      nav("/start/thank-you", {
+        replace: true,
+        state: {
+          id: receipt?.id || d.id,
+          firstName: d.firstName,
+          intent: d.intent,
+          partnerConsent: d.partnerConsent,
+        },
+      });
+    } else {
+      nav(`/project/${receipt?.id || d.id}`, { replace: true });
+    }
     } catch (error) {
       setSubmitError(error instanceof Error ? error.message : "We could not send your request. Please try again.");
     } finally {
@@ -461,7 +502,13 @@ export default function Intake() {
           <span>
             {review ? "REVIEW YOUR REQUEST" : `STEP ${step + 1} OF 5`}
           </span>
-          <span>Massachusetts</span>
+          <a
+            className="call-line"
+            href={CALL_LINE.tel}
+            onClick={() => fbqTrack("track", "Contact")}
+          >
+            {CALL_LINE.display}
+          </a>
         </div>
         <div className="mobile-progress">
           <span style={{ width: `${((step + 1) / 5) * 100}%` }} />
@@ -502,9 +549,10 @@ export default function Intake() {
             <>
               {step === 0 && (
                 <>
-                  <h2>What is the project address?</h2>
-                  <p className="form-intro">
-                    Your address helps us check service coverage and prepare for your project.
+                  <h2>Let’s get your quote started.</h2>
+                  <p className="value-points">
+                    Fixed all-in price · Mass Save rebates up to $8,500 · No
+                    obligation
                   </p>
                   <fieldset className="intent-options">
                     <legend>What can we help with?</legend>
@@ -547,12 +595,31 @@ export default function Intake() {
                       </label>
                     ))}
                   </fieldset>
-                  {field("street", "Street address")}
-                  {field("unit", "Apartment / unit (optional)")}
                   <div className="form-grid">
-                    {field("city", "City or town")}
+                    {field("firstName", "First name")}
+                    {field("lastName", "Last name")}
+                  </div>
+                  <div className="form-grid">
+                    {field("phone", "Phone number", "tel")}
                     {field("zip", "ZIP code")}
                   </div>
+                  {field("email", "Email address (optional)", "email")}
+                  <div className="quiet-note">
+                    <Icon name="shield" size={17} /> We’ll only use this to
+                    contact you about your quote.{" "}
+                    <Link to="/privacy">Privacy information</Link>
+                  </div>
+                </>
+              )}
+              {step === 1 && (
+                <>
+                  <h2>Where is the project?</h2>
+                  <p className="form-intro">
+                    We use this to prepare your written quote.
+                  </p>
+                  {field("street", "Street address")}
+                  {field("unit", "Apartment / unit (optional)")}
+                  {field("city", "City or town")}
                   {select("state", "State", ["MA", "Other"])}
                   {d.state !== "MA" && (
                     <div className="notice">
@@ -566,7 +633,7 @@ export default function Intake() {
                   </div>
                 </>
               )}
-              {step === 1 && (
+              {step === 2 && (
                 <>
                   <h2>Tell us about your space.</h2>
                   <p className="form-intro">
@@ -610,7 +677,7 @@ export default function Intake() {
                   )}
                 </>
               )}
-              {step === 2 && (
+              {step === 3 && (
                 <>
                   <h2>
                     {d.intent === "heat-pump"
@@ -683,7 +750,7 @@ export default function Intake() {
                   </label>
                 </>
               )}
-              {step === 3 && (
+              {step === 4 && (
                 <>
                   <h2>Let's plan your next step.</h2>
                   <p className="form-intro">
@@ -740,31 +807,13 @@ export default function Intake() {
                       "date",
                       "This is a preference, not a confirmed appointment.",
                     )}
-                </>
-              )}
-              {step === 4 && (
-                <>
-                  <h2>How should we reach you?</h2>
-                  <p className="form-intro">
-                    Choose a contact method and add the matching details.
-                  </p>
-                  <div className="form-grid">
-                    {field("firstName", "First name")}
-                    {field("lastName", "Last name")}
-                  </div>
                   {choice("contactMethod", "Preferred contact method", [
                     "Email",
                     "Phone call",
                     "Text message",
                   ])}
-                  {field(
-                    "email",
-                    d.contactMethod === "Email"
-                      ? "Email address"
-                      : "Email address (optional)",
-                    "email",
-                  )}
-                  {field("phone", "Phone number", "tel")}
+                  {d.contactMethod === "Email" &&
+                    field("email", "Email address", "email")}
                   {select("language", "Preferred language", [
                     "English",
                     "Portuguese",
@@ -849,9 +898,11 @@ export default function Intake() {
             <button type="submit" className="button" disabled={busy}>
               {busy ? "Sending…" : review
                 ? (LIVE ? "Send my request" : "Create preview request")
-                : step === 4
-                  ? "Review my details"
-                  : "Continue"}
+                : step === 0
+                  ? "Get my quote"
+                  : step === 4
+                    ? "Review my details"
+                    : "Continue"}
               <Icon name="arrow" size={18} />
             </button>
           </div>

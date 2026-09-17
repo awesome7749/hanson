@@ -1,6 +1,15 @@
 import { Draft, LeadStatus } from "./model";
+import { getMetaBrowserIds, getStoredUtm } from "./pixel";
 
 export interface RequestReceipt { id: string; createdAt: string; status: LeadStatus }
+
+function attribution() {
+  return {
+    utm: getStoredUtm(),
+    ...getMetaBrowserIds(),
+    sourceUrl: window.location.href,
+  };
+}
 
 export async function submitRequest(draft: Draft): Promise<RequestReceipt> {
   const controller = new AbortController();
@@ -9,7 +18,7 @@ export async function submitRequest(draft: Draft): Promise<RequestReceipt> {
     const response = await fetch("/api/requests", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ draft }),
+      body: JSON.stringify({ draft, ...attribution() }),
       signal: controller.signal,
     });
     const body = await response.json().catch(() => null);
@@ -31,4 +40,30 @@ export async function submitRequest(draft: Draft): Promise<RequestReceipt> {
   } finally {
     clearTimeout(timeout);
   }
+}
+
+// Saves a partial lead (name + phone + ZIP + service type) as soon as the
+// first step is completed, so an abandoned form still leaves someone to call.
+export async function submitPartialRequest(draft: Draft): Promise<{ id: string }> {
+  const response = await fetch("/api/requests/partial", {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({
+      draft: {
+        id: draft.id,
+        intent: draft.intent,
+        zip: draft.zip,
+        firstName: draft.firstName,
+        lastName: draft.lastName,
+        phone: draft.phone,
+        email: draft.email,
+      },
+      ...attribution(),
+    }),
+  });
+  const body = await response.json().catch(() => null);
+  if (!response.ok || !body?.receipt?.id) {
+    throw new Error(body?.error || "Partial lead could not be saved.");
+  }
+  return body.receipt;
 }

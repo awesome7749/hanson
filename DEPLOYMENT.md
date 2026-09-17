@@ -36,6 +36,22 @@ Edit `app.yaml` and update the environment variables:
 
 **IMPORTANT**: Never commit sensitive API keys to Git. Consider using Secret Manager for production.
 
+## Facebook-Ads Lead Plumbing (optional env vars)
+
+These features activate automatically once their env vars are set on the server:
+
+- **Partial-lead email alerts** (a step-1 lead lands → email to the team):
+  `SMTP_HOST`, `SMTP_PORT` (default 587), `SMTP_USER`, `SMTP_PASS`,
+  `LEAD_NOTIFY_TO` (default `info@hansonhome.us`), `LEAD_NOTIFY_FROM` (default `SMTP_USER`)
+- **Meta Conversions API** (server-side Lead / CompleteRegistration events,
+  deduplicated against the browser pixel by event id):
+  `META_CAPI_TOKEN` (Events Manager → dataset → Settings → Conversions API → Generate access token),
+  `META_PIXEL_ID` (default `28505388679095518`)
+
+The Meta Pixel base code lives in `my-app/public/index.html` and only
+initializes on `hansonhome.us`, so localhost and preview traffic never
+pollutes the dataset.
+
 ## Step 4: Deploy
 
 ```bash

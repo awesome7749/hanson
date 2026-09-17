@@ -137,21 +137,32 @@ export function validDate(s: string) {
     s >= todayLocal()
   );
 }
+// Step order (Facebook-ads landing): contact first, address second, so a
+// partial lead with a callable phone number exists after the first step.
+// 0 contact · 1 address · 2 home · 3 comfort · 4 utilities & preferences
 export function validateStep(d: Draft, step: number) {
   const e: Record<string, string> = {};
   const need = (k: keyof Draft, m: string) => {
     if (!String(d[k]).trim()) e[k] = m;
   };
   if (step === 0) {
+    need("firstName", "Enter your first name.");
+    need("lastName", "Enter your last name.");
+    const email = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(d.email);
+    const phone = /^(1)?\d{10}$/.test(d.phone.replace(/\D/g, ""));
+    if (!phone) e.phone = "Enter a valid US phone number so we can follow up.";
+    if (d.email && !email) e.email = "Enter a valid email address.";
+    if (!/^0(?:1\d|2[0-7])\d{2}$/.test(d.zip))
+      e.zip = "Enter a five-digit Massachusetts ZIP code.";
+  }
+  if (step === 1) {
     need("street", "Enter your street address.");
     need("city", "Enter your city or town.");
     if (d.state.trim().toUpperCase() !== "MA")
       e.state =
         "This experience is for Massachusetts homes. Choose Massachusetts, or contact us about another location.";
-    if (!/^0(?:1\d|2[0-7])\d{2}$/.test(d.zip))
-      e.zip = "Enter a five-digit Massachusetts ZIP code.";
   }
-  if (step === 1) {
+  if (step === 2) {
     need("ownership", "Choose an ownership option.");
     need("homeType", "Choose your home type.");
     if (
@@ -172,7 +183,7 @@ export function validateStep(d: Draft, step: number) {
     )
       e.year = "Enter a valid year, or leave it blank.";
   }
-  if (step === 2) {
+  if (step === 3) {
     need("fuel", "Choose your heating fuel, or Not sure.");
     if (d.intent === "heat-pump") {
       need("heating", "Choose your current heating system, or Not sure.");
@@ -182,21 +193,14 @@ export function validateStep(d: Draft, step: number) {
     }
     need("timeline", "Choose when you are thinking of making a change.");
   }
-  if (step === 3) {
+  if (step === 4) {
     need("electric", "Choose your electricity provider, or Not sure.");
     if (d.fuel === "Natural gas")
       need("gas", "Choose your gas provider, or Not sure.");
     need("assessment", "Choose your assessment status, or Not sure.");
     if (d.preferredDate && !validDate(d.preferredDate))
       e.preferredDate = "Choose today or a future date.";
-  }
-  if (step === 4) {
-    need("firstName", "Enter your first name.");
-    need("lastName", "Enter your last name.");
     const email = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(d.email);
-    const phone = /^(1)?\d{10}$/.test(d.phone.replace(/\D/g, ""));
-    if (d.email && !email) e.email = "Enter a valid email address.";
-    if (!phone) e.phone = "Enter a valid US phone number so we can follow up.";
     if (d.contactMethod === "Email" && !email)
       e.email = "Add an email for your preferred contact method.";
     if (!d.consent)

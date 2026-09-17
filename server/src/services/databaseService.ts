@@ -1,4 +1,4 @@
-import { parseWebsiteRequest, websiteLeadData, RequestConflictError } from './websiteRequest';
+import { parseWebsiteRequest, parsePartialRequest, partialLeadData, websiteLeadData, RequestConflictError, UtmParams } from './websiteRequest';
 import { ventrixPayload } from './ventrixPayload';
 import { deliverySummary } from './ventrixService';
 import { PrismaClient } from '@prisma/client';
@@ -9,14 +9,62 @@ const prisma = new PrismaClient();
 export { prisma };
 
 export class DatabaseService {
-  async createWebsiteRequest(draft: ReturnType<typeof parseWebsiteRequest>, enqueuePartner = false) {
-    const data = websiteLeadData(draft);
+  // Step-one submission: store name + phone + ZIP immediately so an abandoned
+  // form still leaves a lead we can call. The full request later upgrades the
+  // same record; an already-completed record is never downgraded.
+  async createPartialRequest(draft: ReturnType<typeof parsePartialRequest>, utm: UtmParams = {}) {
     return prisma.$transaction(async (tx) => {
-      const lead = await tx.lead.upsert({
-        where: { id: data.id }, create: data, update: {},
+      const probe = partialLeadData(draft, utm);
+      const existing = await tx.lead.findUnique({
+        where: { id: probe.id },
         select: { id: true, createdAt: true, status: true, corrections: true },
       });
-      const saved = JSON.parse(lead.corrections || '{}').draft;
+      if (!existing) {
+        const lead = await tx.lead.create({ data: probe, select: { id: true, createdAt: true, status: true } });
+        return { ...lead, created: true };
+      }
+      const meta = JSON.parse(existing.corrections || '{}');
+      if (meta.partial) {
+        // A repeated step-one submit refreshes the contact details but must
+        // not wipe the ad attribution captured on the first visit.
+        const data = partialLeadData(draft, Object.keys(utm).length ? utm : meta.utm || {});
+        const lead = await tx.lead.update({
+          where: { id: data.id },
+          data: { firstName: data.firstName, lastName: data.lastName, email: data.email, phone: data.phone, addressRaw: data.addressRaw, corrections: data.corrections },
+          select: { id: true, createdAt: true, status: true },
+        });
+        return { ...lead, created: false };
+      }
+      return { id: existing.id, createdAt: existing.createdAt, status: existing.status, created: false };
+    });
+  }
+
+  async createWebsiteRequest(draft: ReturnType<typeof parseWebsiteRequest>, enqueuePartner = false, utm: UtmParams = {}) {
+    return prisma.$transaction(async (tx) => {
+      const probe = websiteLeadData(draft, utm);
+      const lead = await tx.lead.upsert({
+        where: { id: probe.id }, create: probe, update: {},
+        select: { id: true, createdAt: true, status: true, corrections: true },
+      });
+      const meta = JSON.parse(lead.corrections || '{}');
+      if (meta.partial) {
+        // Upgrade the step-one partial lead in place, keeping its ad attribution
+        // if this submission arrived without any (e.g. a new session).
+        const { id: leadId, ...data } = websiteLeadData(draft, Object.keys(utm).length ? utm : meta.utm || {});
+        const upgraded = await tx.lead.update({
+          where: { id: leadId },
+          data,
+          select: { id: true, createdAt: true, status: true },
+        });
+        if (enqueuePartner && draft.consent && draft.partnerConsent) {
+          await tx.partnerDelivery.upsert({
+            where: { leadId }, update: {},
+            create: { leadId, payload: ventrixPayload(leadId, draft) },
+          });
+        }
+        return { id: upgraded.id, createdAt: upgraded.createdAt, status: upgraded.status };
+      }
+      const saved = meta.draft;
       if (!saved || Object.entries(draft).some(([key, value]) => (saved[key] ?? (key === 'partnerConsent' ? false : undefined)) !== value)) {
         throw new RequestConflictError('This request was already received. Start a new request to send different details.');
       }

@@ -16,6 +16,9 @@ function radio(name: string) {
 function next() {
   fireEvent.click(screen.getByRole("button", { name: "Continue" }));
 }
+function start() {
+  fireEvent.click(screen.getByRole("button", { name: "Get my quote" }));
+}
 beforeEach(() => {
   sessionStorage.clear();
   window.history.replaceState({}, "", "/");
@@ -29,9 +32,14 @@ test("assessment request can be reviewed, edited, saved and found in the staff v
       screen.getByRole("radio", { name: /An energy assessment/ }),
     ).toBeChecked(),
   );
+  fill("First name", "Alex");
+  fill("Last name", "Example");
+  fill("Phone number", "202-555-0130");
+  fill("ZIP code", "02420");
+  fill("Email address (optional)", "alex@example.com");
+  start();
   fill("Street address", "12 Example Lane");
   fill("City or town", "Lexington");
-  fill("ZIP code", "02420");
   next();
   radio("I own my home");
   radio("Single-family");
@@ -45,11 +53,6 @@ test("assessment request can be reviewed, edited, saved and found in the staff v
   fill("Electricity provider", "Not sure");
   radio("Not yet");
   fill("Preferred assessment date (optional)", "2099-01-05");
-  next();
-  fill("First name", "Alex");
-  fill("Last name", "Example");
-  fill("Email address", "alex@example.com");
-  fill("Phone number", "202-555-0130");
   fireEvent.click(
     screen.getByRole("checkbox", { name: /I agree to be contacted/ }),
   );
@@ -57,12 +60,13 @@ test("assessment request can be reviewed, edited, saved and found in the staff v
   expect(
     screen.getByRole("heading", { name: "Does this look right?" }),
   ).toBeInTheDocument();
-  fireEvent.click(screen.getByRole("button", { name: "Edit Your address" }));
+  fireEvent.click(
+    screen.getByRole("button", { name: "Edit Project address" }),
+  );
   expect(screen.getByLabelText("Street address")).toHaveValue(
     "12 Example Lane",
   );
   fill("Street address", "14 Example Lane");
-  next();
   next();
   next();
   next();
@@ -122,14 +126,24 @@ test("assessment request can be reviewed, edited, saved and found in the staff v
   fireEvent.click(
     screen.getByRole("button", { name: "Start another request" }),
   );
-  expect(screen.getByLabelText("Street address")).toHaveValue("");
+  expect(screen.getByLabelText("First name")).toHaveValue("");
 });
-test("heat-pump flow handles technical unknowns and requires a matching phone contact", async () => {
+test("heat-pump flow handles technical unknowns and requires a phone up front", async () => {
   window.history.replaceState({}, "", "/start?intent=heat-pump");
   render(<App />);
+  fill("First name", "Casey");
+  fill("Last name", "Example");
+  fill("ZIP code", "01801");
+  start();
+  expect(
+    await screen.findByText(
+      "Enter a valid US phone number so we can follow up.",
+    ),
+  ).toBeInTheDocument();
+  fill("Phone number", "202-555-0140");
+  start();
   fill("Street address", "26 Sample Road");
   fill("City or town", "Woburn");
-  fill("ZIP code", "01801");
   next();
   radio("I own my home");
   radio("Townhouse / condo");
@@ -152,20 +166,10 @@ test("heat-pump flow handles technical unknowns and requires a matching phone co
   fill("Electricity provider", "Municipal utility");
   radio("Completed");
   fill("Approximately when? (optional)", "2025");
-  next();
-  fill("First name", "Casey");
-  fill("Last name", "Example");
   radio("Phone call");
   fireEvent.click(
     screen.getByRole("checkbox", { name: /I agree to be contacted/ }),
   );
-  fireEvent.click(screen.getByRole("button", { name: "Review my details" }));
-  expect(
-    await screen.findByText(
-      "Enter a valid US phone number so we can follow up.",
-    ),
-  ).toBeInTheDocument();
-  fill("Phone number", "202-555-0140");
   fireEvent.click(screen.getByRole("button", { name: "Review my details" }));
   expect(screen.getByText("Municipal utility")).toBeInTheDocument();
   fireEvent.click(

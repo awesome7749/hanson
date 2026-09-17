@@ -1,7 +1,7 @@
 import { Router, Request, Response, NextFunction } from 'express';
 import { issueAdminToken, verifyAdminToken, validPassword } from '../services/adminAuth';
 import type { VentrixService } from '../services/ventrixService';
-import { createRequestsRouter } from './requests';
+import { createRequestsRouter, LeadHooks } from './requests';
 import multer from 'multer';
 import { RentCastService } from '../services/rentcastService';
 import { HVACPredictorService } from '../services/hvacPredictorService';
@@ -31,7 +31,8 @@ export function createApiRouter(
   databaseService: DatabaseService,
   storageService: StorageService,
   adminPassword: string,
-  ventrix?: VentrixService
+  ventrix?: VentrixService,
+  leadHooks?: LeadHooks
 ): Router {
   const router = Router();
 
@@ -54,7 +55,7 @@ export function createApiRouter(
     next();
   };
 
-  router.use("/requests", createRequestsRouter(databaseService, ventrix));
+  router.use("/requests", createRequestsRouter(databaseService, ventrix, leadHooks));
 
   // ────────────────────────────────────────────────
   // POST /api/leads — Create a new lead + fetch property data

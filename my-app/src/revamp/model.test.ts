@@ -31,31 +31,30 @@ test("assessment skips equipment-detail requirements but keeps shared context", 
     fuel: "Not sure",
     timeline: "Just exploring",
   };
-  expect(validateStep(d, 2)).toEqual({});
-  expect(validateStep({ ...d, intent: "heat-pump" }, 2)).toHaveProperty(
+  expect(validateStep(d, 3)).toEqual({});
+  expect(validateStep({ ...d, intent: "heat-pump" }, 3)).toHaveProperty(
     "heating",
   );
 });
-test("contact step always requires a phone number for follow-up", () => {
+test("the first step always requires a phone number for follow-up", () => {
   const d = {
     ...makeDraft(),
     firstName: "Alex",
     lastName: "Example",
     email: "alex@example.com",
     phone: "202-555-0130",
-    consent: true,
+    zip: "02420",
   };
-  expect(validateStep(d, 4)).toEqual({});
-  expect(validateStep({ ...d, phone: "" }, 4)).toHaveProperty("phone");
-  expect(
-    validateStep({ ...d, contactMethod: "Phone call", phone: "" }, 4),
-  ).toHaveProperty("phone");
-  expect(validateStep({ ...d, consent: false }, 4)).toHaveProperty("consent");
+  expect(validateStep(d, 0)).toEqual({});
+  expect(validateStep({ ...d, phone: "" }, 0)).toHaveProperty("phone");
+  expect(validateStep({ ...d, phone: "123" }, 0)).toHaveProperty("phone");
+  expect(validateStep({ ...d, email: "" }, 0)).toEqual({});
+  expect(validateStep(d, 4)).toHaveProperty("consent");
 });
 test("blank intake cannot be submitted and past assessment dates are rejected", () => {
   expect(Object.keys(validateAll(makeDraft())).length).toBeGreaterThan(10);
   expect(
-    validateStep({ ...makeDraft(), preferredDate: "2000-01-01" }, 3),
+    validateStep({ ...makeDraft(), preferredDate: "2000-01-01" }, 4),
   ).toHaveProperty("preferredDate");
 });
 
@@ -68,8 +67,8 @@ test("assessment does not get blocked by hidden equipment fields and invalid dat
     size: "20",
     year: "1000",
   };
-  expect(validateStep(d, 1)).toEqual({});
-  expect(validateStep({ ...d, intent: "heat-pump" }, 1)).toHaveProperty("size");
+  expect(validateStep(d, 2)).toEqual({});
+  expect(validateStep({ ...d, intent: "heat-pump" }, 2)).toHaveProperty("size");
   expect(validDate("2099-02-31")).toBe(false);
   expect(validateStep({ ...d, zip: "02903" }, 0)).toHaveProperty("zip");
 });

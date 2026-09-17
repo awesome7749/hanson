@@ -3466,3 +3466,20 @@ footer {
   .rebate-highlight > div:first-child { border: 0; padding-right: 0; }
   .rebate-highlight strong { font-size: 45px; }
 }
+
+/* Facebook-ads landing: phone entry point and value line */
+.call-line {
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  color: var(--ink, inherit);
+  text-decoration: none;
+}
+.call-line:hover {
+  text-decoration: underline;
+}
+.value-points {
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--muted);
+  margin: -6px 0 18px;
+}

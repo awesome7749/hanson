@@ -55,5 +55,5 @@ test("live intake retains answers after failure and confirms only a saved reques
   expect(screen.getByText(/No appointment is booked/)).toBeInTheDocument();
   expect(screen.queryByText("Staff preview")).not.toBeInTheDocument();
   fireEvent.click(screen.getByRole("link", { name: "Start another request" }));
-  await waitFor(() => expect(screen.getByLabelText("Street address")).toHaveValue(""));
+  await waitFor(() => expect(screen.getByLabelText("First name")).toHaveValue(""));
 });
