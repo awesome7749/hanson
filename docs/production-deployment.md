@@ -40,3 +40,21 @@ Apply `server/prisma/sql/20260914-partner-delivery.sql` once through an authenti
 Cloud Run configuration: `--update-secrets=VENTRIX_API_KEY=ventrix-partner-api-key:1 --update-env-vars=VENTRIX_SUBMISSIONS_ENABLED=true`. Preserve every existing runtime setting. Roll back this integration to `hanson-app-revamp-20260913` if needed; retain the delivery table and records. Failed/uncertain sends need staff attention in `/admin`; no background resend job runs.
 
 The heat-pump routing expansion retains the same secret, database schema and API endpoint. Its immediate rollback revision is `hanson-app-ventrix-20260914`; that revision only forwards assessments.
+
+## Facebook-ads landing deployment (September 22, 2026)
+
+Revision `hanson-app-fbads-20260922` (image `gcr.io/hanson-hvac/hanson-app:fbads-20260922`)
+carries the contact-first intake, partial leads (`POST /api/requests/partial`),
+Meta Pixel with UTM capture, the `/start/thank-you` conversion page, the
+Google-reviews endpoint and the chat widget. No database migration was needed;
+partial leads reuse the Lead table with `status=partial`. Deployment accounts
+now also include `jason.j@hansonhome.us` (granted Editor).
+
+Its rollback revision is `hanson-app-ventrix-refresh-20260914`:
+
+    gcloud run services update-traffic hanson-app --to-revisions=hanson-app-ventrix-refresh-20260914=100 --region=us-east1 --project=hanson-hvac
+
+Optional env vars activate follow-up plumbing when set (see DEPLOYMENT.md):
+SMTP_* / LEAD_NOTIFY_* for partial-lead and chat emails, META_CAPI_TOKEN for
+the Conversions API, GOOGLE_PLACES_API_KEY + GOOGLE_PLACE_ID for the reviews
+section.
