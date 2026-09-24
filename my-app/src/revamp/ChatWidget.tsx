@@ -70,7 +70,7 @@ export default function ChatWidget() {
       const reply =
         body?.reply?.text ||
         body?.error ||
-        "We couldn’t send that. Call or text us at (401) 612-3443.";
+        "We couldn’t send that. Call or text us at (339) 227-6775.";
       setMessages([...history, { role: "assistant", text: reply }]);
       if (body?.reply?.handoff) fbqTrack("track", "Contact");
     } catch {
@@ -78,7 +78,7 @@ export default function ChatWidget() {
         ...history,
         {
           role: "assistant",
-          text: "We couldn’t send that. Call or text us at (401) 612-3443.",
+          text: "We couldn’t send that. Call or text us at (339) 227-6775.",
         },
       ]);
     } finally {
@@ -114,7 +114,7 @@ export default function ChatWidget() {
             <button type="button" onClick={() => { setOpen(false); nav("/start?intent=heat-pump"); }}>
               Get my quote
             </button>
-            <a href="tel:+14016123443" onClick={() => fbqTrack("track", "Contact")}>
+            <a href="tel:+13392276775" onClick={() => fbqTrack("track", "Contact")}>
               Call or text us
             </a>
           </div>
