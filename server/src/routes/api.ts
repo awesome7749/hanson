@@ -85,13 +85,13 @@ export function createApiRouter(
       .map((m: { role: string; text: string }) => ({ role: m.role as 'visitor' | 'assistant', text: m.text.slice(0, 1000) }));
     if (!messages.some((m: { role: string }) => m.role === 'visitor')) return res.status(400).json({ error: 'Please send a message.' });
     if (!leadHooks?.chat) {
-      return res.json({ reply: { text: 'Chat is offline right now. Call or text us at (339) 227-6775, or use the quote request and we will follow up within 1 business day.' } });
+      return res.json({ reply: { text: 'Chat is offline right now. Call or text us at (339) 999-4516, or use the quote request and we will follow up within 1 business day.' } });
     }
     try {
       res.json({ reply: await leadHooks.chat.reply(messages, { sessionId }) });
     } catch {
       console.error('Chat reply failed.');
-      res.status(503).json({ error: 'Chat is having trouble right now. Call or text us at (339) 227-6775.' });
+      res.status(503).json({ error: 'Chat is having trouble right now. Call or text us at (339) 999-4516.' });
     }
   });
 

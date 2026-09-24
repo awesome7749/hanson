@@ -28,7 +28,7 @@ export function createChatProvider(notifier: LeadNotifier | null): ChatProvider 
           notifier.chatLead({ sessionId, phone, transcript }).catch(() => console.error('Chat handoff email failed.'));
         }
         return {
-          text: 'Thank you! A Hanson Home specialist will call or text you within 1 business day. If it’s urgent, call or text us now at (339) 227-6775.',
+          text: 'Thank you! A Hanson Home specialist will call or text you within 1 business day. If it’s urgent, call or text us now at (339) 999-4516.',
           handoff: true,
         };
       }
@@ -39,9 +39,9 @@ export function createChatProvider(notifier: LeadNotifier | null): ChatProvider 
         return { text: 'Mass Save rebates can cover up to $8,500 for qualifying heat-pump projects. Eligibility depends on your utilities and home — leave your phone number and a specialist will walk you through it, or start a quote request and we’ll include a rebate review.' };
       }
       if (/(call|phone|talk|speak|human|person|agent)/.test(lower)) {
-        return { text: 'Of course — call or text us at (339) 227-6775, or leave your number here and we’ll reach out within 1 business day.' };
+        return { text: 'Of course — call or text us at (339) 999-4516, or leave your number here and we’ll reach out within 1 business day.' };
       }
-      return { text: 'Thanks for reaching out! A team member can help with that. Leave your phone number here and we’ll call you within 1 business day — or call/text (339) 227-6775 any time.' };
+      return { text: 'Thanks for reaching out! A team member can help with that. Leave your phone number here and we’ll call you within 1 business day — or call/text (339) 999-4516 any time.' };
     },
   };
 }

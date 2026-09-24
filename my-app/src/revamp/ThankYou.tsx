@@ -54,10 +54,10 @@ export default function ThankYou() {
         <p>
           Want to talk sooner? Call or text us any time:{" "}
           <a
-            href="tel:+13392276775"
+            href="tel:+13399994516"
             onClick={() => fbqTrack("track", "Contact")}
           >
-            (339) 227-6775
+            (339) 999-4516
           </a>
           .
         </p>
