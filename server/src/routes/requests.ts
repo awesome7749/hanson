@@ -67,6 +67,12 @@ export function createRequestsRouter(database: Pick<DatabaseService, 'createWebs
         catch { console.error('Request saved; partner delivery needs staff review.'); }
       }
       const ctx = capiRequestContext(req);
+      hooks.notifier?.completeLead({
+        leadId: receipt.id, intent: draft.intent,
+        firstName: draft.firstName, lastName: draft.lastName, phone: draft.phone, email: draft.email,
+        address: [draft.street, draft.unit && `Unit ${draft.unit}`, `${draft.city}, MA ${draft.zip}`].filter(Boolean).join(', '),
+        contactMethod: draft.contactMethod, timeline: draft.timeline, utm,
+      }).catch(() => console.error('Request saved; completion notification email failed.'));
       hooks.capi?.send({
         eventName: 'CompleteRegistration', eventId: `${receipt.id}-complete`, sourceUrl: ctx.sourceUrl, contentName: draft.intent,
         user: { phone: draft.phone, email: draft.email, firstName: draft.firstName, zip: draft.zip, clientIp: ctx.clientIp, userAgent: ctx.userAgent, fbc: ctx.fbc, fbp: ctx.fbp },

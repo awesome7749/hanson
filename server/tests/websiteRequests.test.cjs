@@ -97,10 +97,14 @@ test('partial leads save on step one, notify once and upgrade to full requests',
     return { id: where.id, ...rows.get(where.id) };
   };
   const notices = [];
+  const completions = [];
   const capiEvents = [];
   const db = new DatabaseService();
   const api = createApiRouter({}, {}, db, {}, 'test-password', undefined, {
-    notifier: { partialLead: async notice => { notices.push(notice); } },
+    notifier: {
+      partialLead: async notice => { notices.push(notice); },
+      completeLead: async notice => { completions.push(notice); },
+    },
     capi: { send: async event => { capiEvents.push(event); } },
   });
   const app = express().use(express.json()).use('/api', api);
@@ -132,7 +136,7 @@ test('partial leads save on step one, notify once and upgrade to full requests',
     }
     // The full request upgrades the same record and keeps ad attribution.
     const full = { ...draft(), id: partial.id, firstName: 'Ada', lastName: 'Example', phone: '202-555-0156' };
-    const completed = await post('/requests', { draft: full });
+    const completed = await post('/requests', { draft: full, utm: { utm_source: 'facebook', utm_medium: 'paid' } });
     assert.equal(completed.status, 201);
     const completedReceipt = (await completed.json()).receipt;
     assert.equal(completedReceipt.id, receipt.id);
@@ -144,6 +148,10 @@ test('partial leads save on step one, notify once and upgrade to full requests',
     assert.equal(capiEvents.length, 2);
     assert.equal(capiEvents[1].eventName, 'CompleteRegistration');
     assert.equal(capiEvents[1].eventId, `${receipt.id}-complete`);
+    assert.equal(completions.length, 1);
+    assert.equal(completions[0].phone, '202-555-0156');
+    assert.match(completions[0].address, /12 Example Lane/);
+    assert.equal(completions[0].utm.utm_source, 'facebook');
   } finally {
     prisma.lead.upsert = original.upsert;
     prisma.lead.findUnique = original.findUnique;

@@ -13,8 +13,22 @@ export interface ChatLeadNotice {
   transcript: string;
 }
 
+export interface CompleteLeadNotice {
+  leadId: string;
+  intent: string;
+  firstName: string;
+  lastName: string;
+  phone: string;
+  email: string;
+  address: string;
+  contactMethod: string;
+  timeline: string;
+  utm: UtmParams;
+}
+
 export interface LeadNotifier {
   partialLead(notice: PartialLeadNotice): Promise<void>;
+  completeLead(notice: CompleteLeadNotice): Promise<void>;
   chatLead(notice: ChatLeadNotice): Promise<void>;
 }
 
@@ -51,6 +65,28 @@ export function createLeadNotifier(env: NodeJS.ProcessEnv = process.env): LeadNo
           `Service: ${draft.intent === 'assessment' ? 'Energy assessment' : 'Heat-pump estimate'}`,
           `Source: ${source}`,
           '',
+          `Lead reference: ${leadId}`,
+        ].join('\n'),
+      });
+    },
+    async completeLead({ leadId, intent, firstName, lastName, phone, email, address, contactMethod, timeline, utm }: CompleteLeadNotice) {
+      const source = utm.utm_source ? `${utm.utm_source} / ${utm.utm_medium || '?'} / ${utm.utm_campaign || '?'}${utm.utm_content ? ` / ${utm.utm_content}` : ''}` : 'direct / unknown';
+      await transport.sendMail({
+        from,
+        to,
+        subject: `New quote request: ${firstName} ${lastName} (${phone})`,
+        text: [
+          `A ${intent === 'assessment' ? 'home energy assessment' : 'heat-pump quote'} request was completed on hansonhome.us.`,
+          '',
+          `Name: ${firstName} ${lastName}`,
+          `Phone: ${phone}`,
+          email ? `Email: ${email}` : 'Email: not provided',
+          `Address: ${address}`,
+          `Preferred contact: ${contactMethod}`,
+          `Timeline: ${timeline}`,
+          `Source: ${source}`,
+          '',
+          `Full details: https://hansonhome.us/admin`,
           `Lead reference: ${leadId}`,
         ].join('\n'),
       });
