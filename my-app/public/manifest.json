@@ -1,10 +1,15 @@
 {
   "short_name": "Hanson Home",
-  "name": "Hanson Home — Website Preview",
+  "name": "Hanson Home",
   "icons": [
     {
-      "src": "images/hanson-mascot.png",
-      "sizes": "156x161",
+      "src": "logo192.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "logo512.png",
+      "sizes": "512x512",
       "type": "image/png"
     }
   ],
