@@ -1,0 +1,82 @@
+{
+  "/": {
+    "title": "Hanson Home | Heat Pumps with Up to $8,500 in Rebates",
+    "description": "Massachusetts heat pump installation from Hanson Home. Eligible homeowners may qualify for up to $8,500 in Mass Save rebates. Get a clear estimate.",
+    "heading": "Heat pump installation. Made simple.",
+    "intro": "Hanson Home helps Massachusetts homeowners choose and install heat pumps with clear pricing, professional installation and support at every step.",
+    "highlights": ["Get an itemized estimate for your home and project scope.", "Eligible whole-home and partial-home projects may qualify for Mass Save rebates of up to $8,500."],
+    "links": [{ "path": "/heat-pumps", "label": "Explore heat pumps" }, { "path": "/pricing", "label": "Understand pricing and rebates" }, { "path": "/start?intent=heat-pump", "label": "Get my estimate" }]
+  },
+  "/heat-pumps": {
+    "title": "Heat Pumps for Massachusetts Homes | Hanson Home",
+    "description": "Learn how heat pumps heat and cool Massachusetts homes, what affects system design, and how Hanson Home helps you choose the right equipment.",
+    "heading": "Heat pumps for heating and cooling.",
+    "intro": "A heat pump is an electric heating and cooling system. It moves heat between your home and the outdoors, warming rooms in winter and cooling them in summer.",
+    "highlights": ["System design depends on your home's layout, insulation and heating needs.", "Hanson Home helps you compare equipment and plan an installation."],
+    "links": [{ "path": "/how-it-works", "label": "See the installation process" }, { "path": "/start?intent=heat-pump", "label": "Get my estimate" }]
+  },
+  "/pricing": {
+    "title": "Heat Pump Pricing & Rebates in MA | Hanson Home",
+    "description": "See what shapes a heat pump installation quote in Massachusetts. Hanson Home explains equipment, labor and potential Mass Save rebates separately.",
+    "heading": "Clear scope. Clear price. No hidden fees.",
+    "intro": "Get a quote for the work your home actually needs. We explain the equipment, installation and supporting work together, then agree on the price before starting.",
+    "highlights": ["Your written proposal identifies equipment, labor, supporting work, exclusions and payment terms.", "Potential rebates depend on eligibility and are shown separately from the project price."],
+    "links": [{ "path": "/start?intent=heat-pump", "label": "Get my estimate" }, { "path": "/how-it-works", "label": "Understand the installation work" }]
+  },
+  "/assessment": {
+    "title": "Mass Save Home Energy Assessments | Hanson Home",
+    "description": "Learn what a Mass Save Home Energy Assessment covers and how eligible Massachusetts homeowners can request one at no cost.",
+    "heading": "What is a Mass Save home energy assessment?",
+    "intro": "A Mass Save Home Energy Assessment reviews whole-home energy use and opportunities to improve efficiency and comfort. Eligible customers can receive an assessment at no cost through the program.",
+    "highlights": ["The review considers insulation, air leaks and key energy-using systems.", "A personalized report identifies recommended next steps."],
+    "links": [{ "path": "/start?intent=assessment", "label": "Request an assessment" }, { "path": "/heat-pumps", "label": "Explore heat pumps" }]
+  },
+  "/how-it-works": {
+    "title": "Heat Pump Installation Process | Hanson Home",
+    "description": "See how Hanson Home takes a Massachusetts heat pump project from the first estimate through design, installation, startup and handover.",
+    "heading": "Heat-pump installation. From estimate to startup.",
+    "intro": "We review your home, explain the equipment and price, coordinate installation and show you how to use the finished system.",
+    "highlights": ["Start with your home and comfort goals, then review the written scope and cost.", "The team coordinates installation, system startup and handover."],
+    "links": [{ "path": "/start?intent=heat-pump", "label": "Start my estimate" }, { "path": "/warranty", "label": "Understand warranty coverage" }]
+  },
+  "/warranty": {
+    "title": "Heat Pump Warranty & Service | Hanson Home",
+    "description": "Understand heat pump equipment coverage, installation labor terms, registration and ongoing care before approving your Hanson Home project.",
+    "heading": "Your heat-pump warranty. Coverage explained.",
+    "intro": "Equipment protection, installation labor and routine maintenance are different parts of the conversation. Review what is covered and how to get help before you approve the work.",
+    "highlights": ["Equipment terms depend on the selected manufacturer and product.", "Review labor coverage and maintenance responsibilities in your written agreement."],
+    "links": [{ "path": "/how-it-works", "label": "See the installation process" }, { "path": "/contact", "label": "Ask Hanson Home" }]
+  },
+  "/about": {
+    "title": "About Hanson Home | Massachusetts Heat Pumps",
+    "description": "Meet Hanson Home, a Massachusetts heat pump specialist focused on equipment selection, clear project pricing, professional installation and support.",
+    "heading": "Your Massachusetts heat-pump specialists.",
+    "intro": "Hanson Home helps Massachusetts homeowners choose and install heat pumps. We bring equipment selection, clear project pricing, installation and system handover into one process.",
+    "highlights": ["Heat pumps are our focus.", "We review the equipment, included work, exclusions and price with you before installation."],
+    "links": [{ "path": "/service-area", "label": "See our service area" }, { "path": "/contact", "label": "Contact Hanson Home" }]
+  },
+  "/service-area": {
+    "title": "Massachusetts Heat Pump Service Areas | Hanson Home",
+    "description": "Explore the Massachusetts towns served by Hanson Home and learn about heat pump installation, local heating costs and available incentives.",
+    "heading": "Massachusetts towns we serve.",
+    "intro": "Share your town and project details so the Hanson Home team can confirm local coverage and the right next step.",
+    "highlights": ["Browse town pages for local heating-cost information.", "The team confirms coverage and project details before scheduling."],
+    "links": [{ "path": "/contact", "label": "Ask about your town" }]
+  },
+  "/contact": {
+    "title": "Contact Hanson Home | Heat Pump Projects in MA",
+    "description": "Tell Hanson Home about your Massachusetts heat pump or home energy assessment project. Share your home details and choose how you would like to be contacted.",
+    "heading": "Talk to Hanson Home about your project.",
+    "intro": "Tell us what you want to improve: an aging heating system, a cold room, summer cooling or a clearer plan for your home.",
+    "highlights": ["Share your home details and preferred contact method.", "You can review your answers before sending a request."],
+    "links": [{ "path": "/start?intent=heat-pump", "label": "Start a heat pump request" }, { "path": "/start?intent=assessment", "label": "Request an energy assessment" }]
+  },
+  "/privacy": {
+    "title": "Privacy & Request Information | Hanson Home",
+    "description": "Learn how Hanson Home handles website requests, contact preferences, browser drafts and the information shared with licensed service partners.",
+    "heading": "Your information and your request.",
+    "intro": "Hanson Home uses the information you provide to review your request, contact you in your preferred way and plan the next step.",
+    "highlights": ["Submitted requests are stored in the Hanson Home lead system for staff review.", "With your permission, relevant details may be shared with licensed local service partners."],
+    "links": [{ "path": "/contact", "label": "Contact Hanson Home" }]
+  }
+}

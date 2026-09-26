@@ -5,6 +5,7 @@
 const towns = require('../src/revamp/towns.json');
 const prices = require('../src/revamp/energyPrices.json');
 const installationPhotos = require('../src/revamp/installationPhotos.json');
+const { replacePageHead } = require('./seo-pages.cjs');
 
 const SITE = 'https://hansonhome.us';
 
@@ -49,11 +50,6 @@ function renderTownPage(indexHtml, town) {
     areaServed: { '@type': 'City', name: `${town.name}, MA` },
   };
   const head = [
-    `<link rel="canonical" href="${url}"/>`,
-    `<meta property="og:title" content="${esc(title)}"/>`,
-    `<meta property="og:description" content="${esc(description)}"/>`,
-    `<meta property="og:url" content="${url}"/>`,
-    `<meta property="og:type" content="website"/>`,
     `<script type="application/ld+json">${JSON.stringify(jsonLd).replace(/</g, '\\u003c')}</script>`,
   ].join('');
   const body = [
@@ -79,9 +75,7 @@ function renderTownPage(indexHtml, town) {
     nearby.length ? `<p>Nearby: ${nearby.map((t) => `<a href="/${t.slug}">${esc(t.name)}</a>`).join(', ')}</p>` : '',
     `<p><a href="/service-area">All towns we serve</a></p></main>`,
   ].join('');
-  const html = indexHtml
-    .replace(/<title>[^<]*<\/title>/, `<title>${esc(title)}</title>`)
-    .replace(/(<meta name="description" content=")[^"]*(")/, `$1${esc(description)}$2`)
+  const html = replacePageHead(indexHtml, { title, description }, `/${town.slug}`)
     .replace('</head>', `${head}</head>`)
     .replace('<div id="root"></div>', `<div id="root">${body}</div>`);
   for (const marker of [`<title>${esc(title)}</title>`, `content="${esc(description)}"`, '<div id="root"><main>']) {

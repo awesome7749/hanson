@@ -13,6 +13,7 @@ import { createLeadNotifier } from './services/leadNotifier';
 import { createMetaCapi } from './services/metaCapi';
 import { createGoogleReviews } from './services/googleReviews';
 import { createChatProvider } from './services/chatService';
+import { siteRoute } from './services/siteRouting';
 
 // Load environment variables
 dotenv.config();
@@ -80,6 +81,15 @@ app.use('/api', (_req, res) => { res.status(404).json({ error: 'Endpoint not fou
 // In production, serve the React build as static files
 if (process.env.NODE_ENV === 'production') {
   const publicDir = path.join(__dirname, '../public');
+  app.get('*', (req, res, next) => {
+    const route = siteRoute(req.path);
+    if (route.redirect) {
+      const query = req.originalUrl.slice(req.path.length);
+      return res.redirect(route.redirectStatus || 301, route.redirect + query);
+    }
+    if (route.appOnly) res.set('X-Robots-Tag', 'noindex, nofollow');
+    next();
+  });
   // extensions: pre-rendered town pages (build/woburn.html) answer /woburn.
   // HTML references hashed bundles, so it must not be cached.
   app.use(express.static(publicDir, {
@@ -88,10 +98,14 @@ if (process.env.NODE_ENV === 'production') {
       if (filePath.endsWith('.html')) res.setHeader('Cache-Control', 'no-cache');
     },
   }));
-  // SPA fallback: any non-API route serves index.html (React Router handles it)
-  app.get('*', (_req, res) => {
+  // The SPA handles only form and staff flows. Unknown URLs are real 404s.
+  app.get('*', (req, res) => {
     res.set('Cache-Control', 'no-cache');
-    res.sendFile(path.join(publicDir, 'index.html'));
+    if (!siteRoute(req.path).appOnly) {
+      res.status(404);
+      res.set('X-Robots-Tag', 'noindex, nofollow');
+    }
+    res.sendFile(path.join(publicDir, 'app-shell.html'));
   });
 }
 

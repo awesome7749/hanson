@@ -21,6 +21,7 @@ import Info from "./revamp/Info";
 import Education from "./revamp/Education";
 import Pricing from "./revamp/Pricing";
 import Town from "./revamp/Town";
+import SeoHead from "./revamp/SeoHead";
 import { towns } from "./revamp/towns";
 import "./revamp/theme.css";
 const Admin = lazy(() => import("./pages/Admin"));
@@ -46,6 +47,7 @@ export default function App() {
   return (
     <PreviewProvider>
       <BrowserRouter>
+        <SeoHead />
         <PageTracking />
         <Shell>
           <Routes>

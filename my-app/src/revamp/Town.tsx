@@ -1,52 +1,13 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import { FAQ, Icon } from "./Shared";
-import { Town as TownType, townBySlug, townMapSrc, townMeta, townPhotoSrc, towns } from "./towns";
+import { Town as TownType, townBySlug, townMapSrc, townPhotoSrc, towns } from "./towns";
 import { lifestyleImages } from "./LifestylePhoto";
 import { ASSUMPTIONS, energyPrices, heatNeedFromOil, heatingCostRows, townElectricRates, townGasRates } from "./heatingCosts";
 import installationPhotos from "./installationPhotos.json";
 
-function setHead(name: string, attr: "name" | "rel", value: string | null) {
-  const tag = attr === "rel" ? "link" : "meta";
-  let el = document.head.querySelector(`${tag}[${attr}="${name}"]`);
-  if (value === null) {
-    el?.remove();
-    return;
-  }
-  if (!el) {
-    el = document.createElement(tag);
-    el.setAttribute(attr, name);
-    document.head.appendChild(el);
-  }
-  el.setAttribute(attr === "rel" ? "href" : "content", value);
-}
-
-// Client-side title/description/canonical so in-app navigation matches the
-// pre-rendered HTML; restores the site defaults when leaving the page.
-function useTownHead(town: TownType) {
-  useEffect(() => {
-    const meta = townMeta(town);
-    const prev = {
-      title: document.title,
-      description:
-        document.head.querySelector('meta[name="description"]')?.getAttribute("content") ?? null,
-      canonical:
-        document.head.querySelector('link[rel="canonical"]')?.getAttribute("href") ?? null,
-    };
-    document.title = meta.title;
-    setHead("description", "name", meta.description);
-    setHead("canonical", "rel", `https://hansonhome.us/${town.slug}`);
-    return () => {
-      document.title = prev.title;
-      setHead("description", "name", prev.description);
-      setHead("canonical", "rel", prev.canonical);
-    };
-  }, [town]);
-}
-
 export default function Town({ slug }: { slug: string }) {
   const town = townBySlug(slug)!;
-  useTownHead(town);
   const photos = town.photos ?? [];
   const nearby = (town.nearby ?? [])
     .map((s) => townBySlug(s))
