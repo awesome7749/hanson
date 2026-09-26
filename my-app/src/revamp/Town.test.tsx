@@ -9,7 +9,7 @@ const prerender = require("../../scripts/town-pages.cjs");
 const RESERVED = [
   "heat-pumps", "pricing", "assessment", "how-it-works", "warranty", "start",
   "get-quote", "project", "staff", "admin", "products", "about",
-  "service-area", "contact", "privacy", "images", "static", "api", "sitemap",
+  "service-area", "contact", "privacy", "blog", "images", "static", "api", "sitemap",
   "robots", "index", "manifest",
 ];
 

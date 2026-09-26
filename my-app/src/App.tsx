@@ -21,6 +21,7 @@ import Info from "./revamp/Info";
 import Education from "./revamp/Education";
 import Pricing from "./revamp/Pricing";
 import Town from "./revamp/Town";
+import Blog from "./revamp/Blog";
 import SeoHead from "./revamp/SeoHead";
 import { towns } from "./revamp/towns";
 import "./revamp/theme.css";
@@ -53,6 +54,7 @@ export default function App() {
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/pricing" element={<Pricing />} />
+            <Route path="/blog" element={<Blog />} />
             {["/heat-pumps", "/assessment", "/how-it-works", "/warranty"].map(
               (path) => (
                 <Route key={path} path={path} element={<Education />} />

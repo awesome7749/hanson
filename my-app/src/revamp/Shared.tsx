@@ -88,11 +88,9 @@ export function Shell({ children }: { children: React.ReactNode }) {
                 className={menu ? "nav-links open" : "nav-links"}
                 aria-label="Main navigation"
               >
-                <NavLink to="/heat-pumps">Heat pumps</NavLink>
                 <NavLink to="/pricing">Pricing</NavLink>
-                <NavLink to="/how-it-works">Installation</NavLink>
-                <NavLink to="/assessment">Energy assessment</NavLink>
                 <NavLink to="/warranty">Warranty</NavLink>
+                <NavLink to="/blog">Blog</NavLink>
                 <NavLink to="/about">About us</NavLink>
               </nav>
               <button
@@ -138,6 +136,7 @@ export function Shell({ children }: { children: React.ReactNode }) {
             <div>
               <b>HANSON HOME</b>
               <Link to="/about">About us</Link>
+              <Link to="/blog">Blog</Link>
               <Link to="/service-area">Massachusetts service area</Link>
               <Link to="/contact">Get in touch</Link>
             </div>
