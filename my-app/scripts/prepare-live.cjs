@@ -3,6 +3,7 @@ const path = require('node:path');
 const { towns, renderTownPage } = require('./town-pages.cjs');
 const { pages, renderPublicPage } = require('./seo-pages.cjs');
 const { renderCalculatorPage, ROUTE: calculatorRoute } = require('./calculator-page.cjs');
+const { articles, renderBlogArticle } = require('./blog-articles.cjs');
 if (process.env.REACT_APP_DEPLOYMENT_MODE !== 'live') {
   throw new Error('The public build requires REACT_APP_DEPLOYMENT_MODE=live.');
 }
@@ -20,5 +21,9 @@ for (const route of Object.keys(pages)) {
   fs.writeFileSync(route === '/' ? htmlPath : path.join(root, route.slice(1) + '.html'),
     route === calculatorRoute ? renderCalculatorPage(indexHtml) : renderPublicPage(indexHtml, route, towns));
 }
-const routes = [...Object.keys(pages).map(route => route === '/' ? '' : route), ...towns.map(t => '/' + t.slug)];
+fs.mkdirSync(path.join(root, 'blog'), { recursive: true });
+for (const article of articles) {
+  fs.writeFileSync(path.join(root, 'blog', article.slug + '.html'), renderBlogArticle(indexHtml, article));
+}
+const routes = [...Object.keys(pages).map(route => route === '/' ? '' : route), ...articles.map(article => '/blog/' + article.slug), ...towns.map(t => '/' + t.slug)];
 fs.writeFileSync(path.join(root, 'sitemap.xml'), '<?xml version="1.0" encoding="UTF-8"?><urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">' + routes.map(route => '<url><loc>https://hansonhome.us' + route + '</loc></url>').join('') + '</urlset>');

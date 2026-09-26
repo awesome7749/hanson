@@ -1,0 +1,72 @@
+[
+  {
+    "slug": "winter-heat-pump-care-ma",
+    "title": "How to Run Your Heat Pump Through a Massachusetts Winter",
+    "description": "A practical winter guide to heat-pump settings, snow clearance, defrost cycles, filter care and when to call for service in Massachusetts.",
+    "summary": "The simple settings and checks that help your heat pump keep your home comfortable in cold weather.",
+    "category": "WINTER HEATING GUIDE",
+    "reviewed": "September 26, 2026",
+    "ctaTitle": "Want a winter heating plan for your home?",
+    "ctaText": "Tell us about your current system and the rooms that need better comfort. We can help you understand your heat-pump options.",
+    "intro": "A heat pump can heat a Massachusetts home through winter, but its best routine looks different from an old furnace's. A few habits help the system deliver steady comfort while making it easier to spot a real problem.",
+    "sections": [
+      {
+        "heading": "Choose Heat mode and a comfortable, steady temperature",
+        "paragraphs": [
+          "Set the system to Heat during the heating season. Avoid a mode that automatically switches between heating and cooling; on a sunny winter day, it may cool a room you meant to keep warm. Start with the fan on Auto, then adjust airflow if a room needs it.",
+          "Heat pumps often work most efficiently when maintaining a steady indoor temperature. Large daily thermostat setbacks can trigger extra backup heat in some systems during recovery. If you want a setback while away, ask your installer how your particular controls and backup heat are configured."
+        ],
+        "sourceIds": ["energy-star", "doe-guide"]
+      },
+      {
+        "heading": "Give the outdoor unit room to breathe",
+        "paragraphs": [
+          "The outdoor unit needs moving air even when it is snowing. After a storm, check that drifting snow, leaves, or other debris have not blocked the air path around it. Keep the area below it open so meltwater can drain rather than refreeze around the base. Do not cover the unit while it is running.",
+          "If roof runoff or falling snow repeatedly lands on the equipment, talk with a qualified contractor about a suitable shield or other correction. Avoid striking the coil or chipping ice from the equipment yourself."
+        ],
+        "sourceIds": ["doe-guide", "energy-star-care"]
+      },
+      {
+        "heading": "Know what a normal defrost cycle looks like",
+        "paragraphs": [
+          "Frost can form on the outdoor coil in damp, cold weather. The system normally clears it with a defrost cycle. During that cycle, the outdoor fan may pause, you may see steam, and heating indoors may briefly change. Meltwater near the unit is normal, but keep it from pooling and freezing on a walkway.",
+          "A unit that stays encased in solid ice, repeatedly fails to clear frost, or no longer heats the home needs professional attention. Do not try to force a defrost or break ice off the coil."
+        ],
+        "sourceIds": ["doe-guide"]
+      },
+      {
+        "heading": "Check filters and plan routine service",
+        "paragraphs": [
+          "Check the indoor filter about once a month. Clean a reusable filter or replace a disposable one according to the equipment instructions. A clogged filter restricts airflow and can make the system work harder.",
+          "Arrange a professional heating-season checkup and follow your manufacturer's maintenance schedule. Ask the technician to review airflow, outdoor and indoor coils, controls, and any backup-heating settings."
+        ],
+        "sourceIds": ["energy-star-care", "doe-guide"]
+      },
+      {
+        "heading": "When comfort changes, check the basics first",
+        "paragraphs": [
+          "If the house is not warming as expected, confirm the thermostat is in Heat mode, check for a dirty filter, and look for snow blocking the outdoor unit. If those checks do not resolve the problem, contact a qualified service professional. Persistent ice, unusual noise, repeated short cycling, or backup heat that runs much more than expected are also reasons to call.",
+          "If your home also has a furnace or boiler, make sure you understand when it should take over. The right arrangement depends on the equipment and the home's heating design; your installer can explain your system's controls before the next cold spell."
+        ],
+        "sourceIds": ["doe-guide", "energy-star"]
+      }
+    ],
+    "sources": [
+      {
+        "id": "energy-star",
+        "label": "ENERGY STAR: Air-Source Heat Pumps",
+        "url": "https://www.energystar.gov/products/air_source_heat_pumps"
+      },
+      {
+        "id": "doe-guide",
+        "label": "U.S. Department of Energy: You Installed an Air-Source Heat Pump, Now What?",
+        "url": "https://bsesc.energy.gov/sites/default/files/2024-09/CEE_You_Installed_an_ASHP_Now_What_TRC_01.16.24_1.pdf"
+      },
+      {
+        "id": "energy-star-care",
+        "label": "ENERGY STAR: Heating and Cooling Maintenance Checklist",
+        "url": "https://www.energystar.gov/saveathome/heating-cooling/maintenance-checklist"
+      }
+    ]
+  }
+]

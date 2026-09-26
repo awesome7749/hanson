@@ -90,6 +90,11 @@ if (process.env.NODE_ENV === 'production') {
     if (route.appOnly) res.set('X-Robots-Tag', 'noindex, nofollow');
     next();
   });
+  // The /blog article directory shadows blog.html in express.static.
+  app.get('/blog', (_req, res) => {
+    res.set('Cache-Control', 'no-cache');
+    res.sendFile(path.join(publicDir, 'blog.html'));
+  });
   // extensions: pre-rendered town pages (build/woburn.html) answer /woburn.
   // HTML references hashed bundles, so it must not be cached.
   app.use(express.static(publicDir, {

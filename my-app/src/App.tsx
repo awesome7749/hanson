@@ -23,6 +23,7 @@ import Pricing from "./revamp/Pricing";
 import HeatPumpCostCalculator from "./revamp/HeatPumpCostCalculator";
 import Town from "./revamp/Town";
 import Blog from "./revamp/Blog";
+import BlogArticle from "./revamp/BlogArticle";
 import SeoHead from "./revamp/SeoHead";
 import { towns } from "./revamp/towns";
 import "./revamp/theme.css";
@@ -56,6 +57,7 @@ export default function App() {
             <Route path="/" element={<Home />} />
             <Route path="/pricing" element={<Pricing />} />
             <Route path="/blog" element={<Blog />} />
+            <Route path="/blog/:slug" element={<BlogArticle />} />
             <Route path="/heat-pump-cost-calculator" element={<HeatPumpCostCalculator />} />
             {["/heat-pumps", "/assessment", "/how-it-works", "/warranty"].map(
               (path) => (

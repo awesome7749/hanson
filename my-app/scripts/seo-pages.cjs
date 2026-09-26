@@ -1,4 +1,5 @@
 const pages = require('../src/revamp/seoPages.json');
+const articles = require('../src/revamp/blogArticles.json');
 
 const SITE = 'https://hansonhome.us';
 const esc = (value) => String(value).replace(/[&<>"']/g, (char) => (
@@ -42,6 +43,11 @@ function renderPublicPage(indexHtml, route, towns = []) {
     ...(route === '/service-area'
       ? ['<h2>Towns we serve</h2><ul>',
         ...towns.map((town) => `<li><a href="/${esc(town.slug)}">${esc(town.name)}, MA</a></li>`),
+        '</ul>']
+      : []),
+    ...(route === '/blog'
+      ? ['<h2>Latest articles</h2><ul>',
+        ...articles.map((article) => `<li><a href="/blog/${esc(article.slug)}">${esc(article.title)}</a> — ${esc(article.summary)}</li>`),
         '</ul>']
       : []),
     '<nav aria-label="Related pages"><ul>',
