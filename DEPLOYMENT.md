@@ -1,5 +1,7 @@
 # Deployment Guide for Google App Engine
 
+Historical guide only. The live site uses Cloud Run; see [docs/production-deployment.md](docs/production-deployment.md). Do not use a frontend password for staff access.
+
 ## Prerequisites
 
 1. Google Cloud account with billing enabled
@@ -120,17 +122,7 @@ gcloud app deploy
 
 ## Password Protection
 
-**Current password**: `hanson2026`
-
-To change:
-1. Update `REACT_APP_SITE_PASSWORD` in `.env` (for local dev)
-2. Update `env_variables` in `app.yaml` (for production)
-3. Rebuild and redeploy
-
-To remove password protection:
-1. Edit `my-app/src/App.tsx`
-2. Remove the `<PasswordProtection>` wrapper
-3. Rebuild and redeploy
+The historical frontend password is no longer used. The live staff dashboard uses the server-side `ADMIN_PASSWORD`; see [docs/production-deployment.md](docs/production-deployment.md).
 
 ## Cost Optimization
 

@@ -1,6 +1,7 @@
 # Hanson Home production deployment
 
 Public website: https://hansonhome.us
+Staff dashboard: https://ops.hansonhome.us/
 
 - Source repository: awesome7749/hanson; frontend: my-app; backend: server.
 - Google Cloud project: hanson-hvac; region: us-east1; Cloud Run service: hanson-app.
@@ -19,9 +20,11 @@ Create the container in Cloud Build, deploy a tagged revision using --no-traffic
 
 ## Intake operations
 
-Staff sign-in: https://hansonhome.us/admin using the existing staff password. New requests are saved in the existing Lead table. Assessment requests have their own status and appear in the same inbox. Staff can review the homeowner's full answers and contact preferences and update status/internal notes.
+Staff sign-in: https://ops.hansonhome.us/ using the existing staff password. New requests are saved in the existing Lead table. Assessment requests have their own status and appear in the same inbox. Staff can review the homeowner's full answers and contact preferences and update status/internal notes.
 
-Admin security: the shared `ADMIN_PASSWORD` must be a strong value kept in server-side configuration and rotated if it may have been shared outside staff. Deploying the new cookie-based login signs out any sessions from the previous browser-storage flow. Password attempts are limited per Cloud Run instance; put a shared edge rate limit in front of `/api/admin/login` if brute-force traffic persists across instances. The `/admin` URL is publicly guessable, so its password and API authorization are the security boundary.
+Admin security: the shared `ADMIN_PASSWORD` must be a strong value kept in server-side configuration and rotated if it may have been shared outside staff. The staff dashboard and staff API are served only on the ops hostname; `/admin` and staff API paths return 404 on the public hostname. The ops hostname is still publicly guessable, so its password and API authorization remain the security boundary. Password attempts are limited per Cloud Run instance; put a shared edge rate limit in front of `/api/admin/login` if brute-force traffic persists across instances.
+
+The `ops.hansonhome.us` Cloud Run domain mapping points to `hanson-app` in `us-east1`. At Namecheap, add a CNAME host `ops` with value `ghs.googlehosted.com` (the exact record returned by `gcloud beta run domain-mappings describe --domain=ops.hansonhome.us --region=us-east1 --project=hanson-hvac`). Wait for `Ready=True` and a valid HTTPS response on the ops hostname before shifting traffic to a revision that removes the old `/admin` route. The same Cloud Run service serves both hostnames and selects the staff interface from the request hostname.
 
 New consented heat-pump and assessment requests are forwarded to Ventrix. Hanson does not directly send automatic email/SMS. Staff follow-up is manual. Photo uploads, a customer project account, live scheduling and automated quotes remain deferred. A preferred date is not a confirmed appointment.
 
@@ -39,7 +42,7 @@ Do not delete older revisions or change the database when rolling back. The firs
 
 Apply `server/prisma/sql/20260914-partner-delivery.sql` once through an authenticated database connection before deploying the partner-enabled backend. It only adds a table; it does not modify existing leads. This repository’s original database was not created with Prisma migration history, so use this reviewed additive SQL rather than a schema reset or automatic migration baseline.
 
-Cloud Run configuration: `--update-secrets=VENTRIX_API_KEY=ventrix-partner-api-key:1 --update-env-vars=VENTRIX_SUBMISSIONS_ENABLED=true`. Preserve every existing runtime setting. Roll back this integration to `hanson-app-revamp-20260913` if needed; retain the delivery table and records. Failed/uncertain sends need staff attention in `/admin`; no background resend job runs.
+Cloud Run configuration: `--update-secrets=VENTRIX_API_KEY=ventrix-partner-api-key:1 --update-env-vars=VENTRIX_SUBMISSIONS_ENABLED=true`. Preserve every existing runtime setting. Roll back this integration to `hanson-app-revamp-20260913` if needed; retain the delivery table and records. Failed/uncertain sends need staff attention at `ops.hansonhome.us`; no background resend job runs.
 
 The heat-pump routing expansion retains the same secret, database schema and API endpoint. Its immediate rollback revision is `hanson-app-ventrix-20260914`; that revision only forwards assessments.
 

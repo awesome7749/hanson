@@ -1,5 +1,5 @@
 import React, { lazy, Suspense, useEffect, useRef } from "react";
-import { LIVE } from "./revamp/deployment";
+import { LIVE, OPS } from "./revamp/deployment";
 import Receipt from "./revamp/Receipt";
 import ThankYou from "./revamp/ThankYou";
 import ChatWidget from "./revamp/ChatWidget";
@@ -50,8 +50,11 @@ export default function App() {
     <PreviewProvider>
       <BrowserRouter>
         <SeoHead />
-        <PageTracking />
-        <Shell>
+        {OPS ? (
+          <main id="main"><Suspense fallback={<p className="wrap section">Loading staff sign-in…</p>}><Admin /></Suspense></main>
+        ) : <>
+          <PageTracking />
+          <Shell>
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/pricing" element={<Pricing />} />
@@ -71,7 +74,7 @@ export default function App() {
             <Route path="/project" element={LIVE ? <Receipt /> : <Project />} />
             <Route path="/project/:id" element={LIVE ? <Receipt /> : <Project />} />
             <Route path="/staff" element={LIVE ? <Info /> : <Staff />} />
-            <Route path="/admin" element={LIVE ? <Suspense fallback={<p className="wrap section">Loading staff sign-in…</p>}><Admin /></Suspense> : <Navigate to="/staff" replace />} />
+            {!LIVE && <Route path="/admin" element={<Navigate to="/staff" replace />} />}
             <Route
               path="/products"
               element={<Navigate to="/heat-pumps" replace />}
@@ -83,6 +86,7 @@ export default function App() {
           </Routes>
           <ChatWidget />
         </Shell>
+        </>}
       </BrowserRouter>
     </PreviewProvider>
   );

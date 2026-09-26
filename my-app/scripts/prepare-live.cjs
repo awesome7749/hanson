@@ -10,6 +10,15 @@ const root = path.join(__dirname, '../build');
 const htmlPath = path.join(root, 'index.html');
 const shellHtml = fs.readFileSync(htmlPath, 'utf8');
 fs.writeFileSync(path.join(root, 'app-shell.html'), shellHtml);
+const opsHtml = shellHtml
+  .replace(/<script id="website-structured-data"[\s\S]*?<\/script>/, '')
+  .replace(/<script id="meta-pixel"[\s\S]*?<\/script>/, '')
+  .replace(/<noscript\s*><img[\s\S]*?<\/noscript>/, '')
+  .replace(/<link rel="manifest"[^>]*>/, '')
+  .replace(/<title>[\s\S]*?<\/title>/, '<title>Hanson Home Staff</title>')
+  .replace(/content="Massachusetts heat pump installation[^"]*"/, 'content="Hanson Home staff sign-in."')
+  .replace('Please enable JavaScript to explore Hanson Home and its guided home intake.', 'Please enable JavaScript to use the Hanson Home staff dashboard.');
+fs.writeFileSync(path.join(root, 'ops-shell.html'), opsHtml);
 const indexHtml = shellHtml.replace('noindex,nofollow', 'index,follow');
 fs.writeFileSync(path.join(root, 'robots.txt'), 'User-agent: *\nAllow: /\nDisallow: /api/\nSitemap: https://hansonhome.us/sitemap.xml\n');
 // /woburn is served from build/woburn.html (the server enables extensions: ['html']).

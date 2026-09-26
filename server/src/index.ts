@@ -13,7 +13,7 @@ import { createLeadNotifier } from './services/leadNotifier';
 import { createMetaCapi } from './services/metaCapi';
 import { createGoogleReviews } from './services/googleReviews';
 import { createChatProvider } from './services/chatService';
-import { siteRoute } from './services/siteRouting';
+import { apiAllowedOnHost, isOpsHost, opsPage, siteRoute } from './services/siteRouting';
 
 // Load environment variables
 dotenv.config();
@@ -28,6 +28,12 @@ app.disable('x-powered-by');
 app.use(cors());
 app.use('/api', (_req, res, next) => { res.set('Cache-Control', 'no-store'); next(); });
 app.use(express.json());
+app.use('/api', (req, res, next) => {
+  if (process.env.NODE_ENV === 'production' && !apiAllowedOnHost(req.path, req.get('host'))) {
+    return res.status(404).json({ error: 'Endpoint not found' });
+  }
+  next();
+});
 
 // Initialize services
 const rentcastApiKey = process.env.RENTCAST_API_KEY;
@@ -84,6 +90,24 @@ app.use('/api', (_req, res) => { res.status(404).json({ error: 'Endpoint not fou
 if (process.env.NODE_ENV === 'production') {
   const publicDir = path.join(__dirname, '../public');
   app.get('*', (req, res, next) => {
+    if (isOpsHost(req.get('host'))) {
+      res.set('X-Robots-Tag', 'noindex, nofollow');
+      res.set('Referrer-Policy', 'no-referrer');
+      res.set('X-Content-Type-Options', 'nosniff');
+      res.set('Content-Security-Policy', "default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data:; connect-src 'self'; object-src 'none'; base-uri 'none'; frame-ancestors 'none'");
+      const page = opsPage(req.path);
+      if (page === 'dashboard') {
+        res.set('Cache-Control', 'no-store');
+        return res.sendFile(path.join(publicDir, 'ops-shell.html'));
+      }
+      if (page === 'robots') return res.type('text/plain').send('User-agent: *\nDisallow: /\n');
+      if (page === 'missing') return res.status(404).send('Not found');
+      return next();
+    }
+    if (/^\/(admin|staff)(\/|$)/.test(req.path)) {
+      res.set('X-Robots-Tag', 'noindex, nofollow');
+      return res.status(404).send('Not found');
+    }
     const route = siteRoute(req.path);
     if (route.redirect) {
       const query = req.originalUrl.slice(req.path.length);
@@ -102,6 +126,7 @@ if (process.env.NODE_ENV === 'production') {
   }));
   // The SPA handles only form and staff flows. Unknown URLs are real 404s.
   app.get('*', (req, res) => {
+    if (isOpsHost(req.get('host'))) return res.status(404).send('Not found');
     res.set('Cache-Control', 'no-cache');
     if (!siteRoute(req.path).appOnly) {
       res.status(404);

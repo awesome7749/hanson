@@ -1,7 +1,7 @@
 import { useEffect } from "react";
 import { useLocation } from "react-router-dom";
 import seoPages from "./seoPages.json";
-import { LIVE } from "./deployment";
+import { LIVE, OPS } from "./deployment";
 import { townBySlug, townMeta } from "./towns";
 
 type PageMeta = { title: string; description: string };
@@ -20,6 +20,13 @@ function setMeta(name: string, content: string) {
 export default function SeoHead() {
   const { pathname } = useLocation();
   useEffect(() => {
+    if (OPS) {
+      document.title = "Hanson Home Staff";
+      setMeta("description", "Hanson Home staff sign-in.");
+      setMeta("robots", "noindex,nofollow");
+      document.head.querySelector('link[rel="canonical"]')?.remove();
+      return;
+    }
     const route = pathname.replace(/\/+$/, "") || "/";
     const town = townBySlug(route.slice(1));
     const page = pages[route] || (town ? townMeta(town) : null);

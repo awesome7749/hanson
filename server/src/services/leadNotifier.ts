@@ -86,7 +86,7 @@ export function createLeadNotifier(env: NodeJS.ProcessEnv = process.env): LeadNo
           `Timeline: ${timeline}`,
           `Source: ${source}`,
           '',
-          `Full details: https://hansonhome.us/admin`,
+          `Full details: https://ops.hansonhome.us/`,
           `Lead reference: ${leadId}`,
         ].join('\n'),
       });
