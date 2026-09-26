@@ -38,9 +38,13 @@ test("client navigation uses route-specific titles without indexing the preview"
 test("blog navigation opens the homeowner guides page", () => {
   window.history.replaceState({}, "", "/blog");
   const view = render(<App />);
-  expect(screen.getByRole("navigation", { name: "Main navigation" })).toHaveTextContent("Blog");
+  const navigation = screen.getByRole("navigation", { name: "Main navigation" });
+  expect(navigation).toHaveTextContent("Blog");
+  expect(navigation).not.toHaveTextContent(/Heat pumps|Pricing|Installation|Energy assessment|Warranty/);
   expect(screen.getByRole("heading", { level: 1, name: /Helpful reading/i })).toBeInTheDocument();
-  expect(screen.getByRole("link", { name: /Heat pumps for heating and cooling/i })).toHaveAttribute("href", "/heat-pumps");
+  for (const path of ["/heat-pumps", "/how-it-works", "/pricing", "/assessment", "/warranty"]) {
+    expect(document.querySelector(`.blog-grid a[href="${path}"]`)).toBeInTheDocument();
+  }
   expect(document.title).toBe(seoPages["/blog"].title);
   view.unmount();
 });
