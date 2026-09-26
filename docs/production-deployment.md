@@ -21,6 +21,8 @@ Create the container in Cloud Build, deploy a tagged revision using --no-traffic
 
 Staff sign-in: https://hansonhome.us/admin using the existing staff password. New requests are saved in the existing Lead table. Assessment requests have their own status and appear in the same inbox. Staff can review the homeowner's full answers and contact preferences and update status/internal notes.
 
+Admin security: the shared `ADMIN_PASSWORD` must be a strong value kept in server-side configuration and rotated if it may have been shared outside staff. Deploying the new cookie-based login signs out any sessions from the previous browser-storage flow. Password attempts are limited per Cloud Run instance; put a shared edge rate limit in front of `/api/admin/login` if brute-force traffic persists across instances. The `/admin` URL is publicly guessable, so its password and API authorization are the security boundary.
+
 New consented heat-pump and assessment requests are forwarded to Ventrix. Hanson does not directly send automatic email/SMS. Staff follow-up is manual. Photo uploads, a customer project account, live scheduling and automated quotes remain deferred. A preferred date is not a confirmed appointment.
 
 ## Rollback

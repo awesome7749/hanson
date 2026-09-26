@@ -70,7 +70,7 @@ export default function App() {
             />
             <Route path="/project" element={LIVE ? <Receipt /> : <Project />} />
             <Route path="/project/:id" element={LIVE ? <Receipt /> : <Project />} />
-            <Route path="/staff" element={LIVE ? <Navigate to="/admin" replace /> : <Staff />} />
+            <Route path="/staff" element={LIVE ? <Info /> : <Staff />} />
             <Route path="/admin" element={LIVE ? <Suspense fallback={<p className="wrap section">Loading staff sign-in…</p>}><Admin /></Suspense> : <Navigate to="/staff" replace />} />
             <Route
               path="/products"
