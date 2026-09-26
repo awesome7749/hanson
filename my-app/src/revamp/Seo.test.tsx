@@ -6,6 +6,8 @@ import { towns } from "./towns";
 // eslint-disable-next-line @typescript-eslint/no-var-requires
 const { renderPublicPage } = require("../../scripts/seo-pages.cjs");
 // eslint-disable-next-line @typescript-eslint/no-var-requires
+const { renderCalculatorPage } = require("../../scripts/calculator-page.cjs");
+// eslint-disable-next-line @typescript-eslint/no-var-requires
 const { renderTownPage } = require("../../scripts/town-pages.cjs");
 
 const template = '<html><head><title>Old</title><meta name="description" content="Old"/><script id="website-structured-data" type="application/ld+json">{}</script></head><body><div id="root"></div></body></html>';
@@ -24,6 +26,15 @@ test("every sitemap page has distinct server-rendered metadata and one canonical
     expect(html.match(/property="og:title"/g)).toHaveLength(1);
     expect(html.match(/name="description"/g)).toHaveLength(1);
   }
+});
+
+test("the calculator receives its full guide and one canonical in the public build", () => {
+  const html = renderCalculatorPage(template);
+  expect(html).toContain("annual service allowances");
+  expect(html).toContain('"@type":"WebApplication"');
+  expect(html.match(/rel="canonical"/g)).toHaveLength(1);
+  expect(html.match(/property="og:title"/g)).toHaveLength(1);
+  expect(html.match(/name="description"/g)).toHaveLength(1);
 });
 
 test("client navigation uses route-specific titles without indexing the preview", () => {

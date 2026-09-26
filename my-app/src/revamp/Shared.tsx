@@ -89,6 +89,7 @@ export function Shell({ children }: { children: React.ReactNode }) {
                 aria-label="Main navigation"
               >
                 <NavLink to="/pricing">Pricing</NavLink>
+                <NavLink to="/heat-pump-cost-calculator">Cost calculator</NavLink>
                 <NavLink to="/warranty">Warranty</NavLink>
                 <NavLink to="/blog">Blog</NavLink>
                 <NavLink to="/about">About us</NavLink>
@@ -129,6 +130,7 @@ export function Shell({ children }: { children: React.ReactNode }) {
               <b>YOUR HOME</b>
               <Link to="/heat-pumps">Heat pumps</Link>
               <Link to="/pricing">Pricing</Link>
+              <Link to="/heat-pump-cost-calculator">Cost calculator</Link>
               <Link to="/assessment">Energy assessments</Link>
               <Link to="/how-it-works">How it works</Link>
               <Link to="/warranty">Warranty & care</Link>
