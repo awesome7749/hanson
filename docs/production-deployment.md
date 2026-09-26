@@ -26,6 +26,11 @@ Admin security: the shared `ADMIN_PASSWORD` must be a strong value kept in serve
 
 The `ops.hansonhome.us` Cloud Run domain mapping points to `hanson-app` in `us-east1`. At Namecheap, add a CNAME host `ops` with value `ghs.googlehosted.com` (the exact record returned by `gcloud beta run domain-mappings describe --domain=ops.hansonhome.us --region=us-east1 --project=hanson-hvac`). Wait for `Ready=True` and a valid HTTPS response on the ops hostname before shifting traffic to a revision that removes the old `/admin` route. The same Cloud Run service serves both hostnames and selects the staff interface from the request hostname.
 
+The ops revision `hanson-app-ops-20260926` is staged at 0% traffic from image `gcr.io/hanson-hvac/hanson-app:ops-20260926b`. Once HTTPS is ready, direct traffic to this revision and check the ops sign-in, public intake, and public 404 behavior. The immediate rollback revision is `hanson-app-calculator-20260926`:
+
+    gcloud run services update-traffic hanson-app --to-revisions=hanson-app-ops-20260926=100 --region=us-east1 --project=hanson-hvac --account=gaohan1990@gmail.com
+    gcloud run services update-traffic hanson-app --to-revisions=hanson-app-calculator-20260926=100 --region=us-east1 --project=hanson-hvac --account=gaohan1990@gmail.com
+
 New consented heat-pump and assessment requests are forwarded to Ventrix. Hanson does not directly send automatic email/SMS. Staff follow-up is manual. Photo uploads, a customer project account, live scheduling and automated quotes remain deferred. A preferred date is not a confirmed appointment.
 
 ## Rollback
