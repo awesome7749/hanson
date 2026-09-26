@@ -36,6 +36,7 @@ export default function Home() {
           </form>
           <div className="hero-reassurance"><span>No installation commitment</span><span>A few simple questions</span></div>
           <Link className="text-link hero-secondary" to="/pricing">See pricing details <Icon name="arrow" size={17} /></Link>
+          <Link className="text-link hero-secondary" to="/heat-pump-cost-calculator">Calculate my switching cost <Icon name="arrow" size={17} /></Link>
         </div>
         <HeroSlideshow />
       </section>

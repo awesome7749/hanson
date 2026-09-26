@@ -20,6 +20,7 @@ import Staff from "./revamp/Staff";
 import Info from "./revamp/Info";
 import Education from "./revamp/Education";
 import Pricing from "./revamp/Pricing";
+import HeatPumpCostCalculator from "./revamp/HeatPumpCostCalculator";
 import Town from "./revamp/Town";
 import Blog from "./revamp/Blog";
 import SeoHead from "./revamp/SeoHead";
@@ -55,6 +56,7 @@ export default function App() {
             <Route path="/" element={<Home />} />
             <Route path="/pricing" element={<Pricing />} />
             <Route path="/blog" element={<Blog />} />
+            <Route path="/heat-pump-cost-calculator" element={<HeatPumpCostCalculator />} />
             {["/heat-pumps", "/assessment", "/how-it-works", "/warranty"].map(
               (path) => (
                 <Route key={path} path={path} element={<Education />} />

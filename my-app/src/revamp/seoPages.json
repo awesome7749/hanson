@@ -5,7 +5,7 @@
     "heading": "Heat pump installation. Made simple.",
     "intro": "Hanson Home helps Massachusetts homeowners choose and install heat pumps with clear pricing, professional installation and support at every step.",
     "highlights": ["Get an itemized estimate for your home and project scope.", "Eligible whole-home and partial-home projects may qualify for Mass Save rebates of up to $8,500."],
-    "links": [{ "path": "/heat-pumps", "label": "Explore heat pumps" }, { "path": "/pricing", "label": "Understand pricing and rebates" }, { "path": "/start?intent=heat-pump", "label": "Get my estimate" }]
+    "links": [{ "path": "/heat-pumps", "label": "Explore heat pumps" }, { "path": "/pricing", "label": "Understand pricing and rebates" }, { "path": "/heat-pump-cost-calculator", "label": "Calculate my switching cost" }, { "path": "/start?intent=heat-pump", "label": "Get my estimate" }]
   },
   "/heat-pumps": {
     "title": "Heat Pumps for Massachusetts Homes | Hanson Home",
@@ -21,7 +21,15 @@
     "heading": "Clear scope. Clear price. No hidden fees.",
     "intro": "Get a quote for the work your home actually needs. We explain the equipment, installation and supporting work together, then agree on the price before starting.",
     "highlights": ["Your written proposal identifies equipment, labor, supporting work, exclusions and payment terms.", "Potential rebates depend on eligibility and are shown separately from the project price."],
-    "links": [{ "path": "/start?intent=heat-pump", "label": "Get my estimate" }, { "path": "/how-it-works", "label": "Understand the installation work" }]
+    "links": [{ "path": "/start?intent=heat-pump", "label": "Get my estimate" }, { "path": "/heat-pump-cost-calculator", "label": "Compare annual costs" }, { "path": "/how-it-works", "label": "Understand the installation work" }]
+  },
+  "/heat-pump-cost-calculator": {
+    "title": "Massachusetts Heat Pump Cost Calculator (2026) | Hanson Home",
+    "description": "Estimate your Massachusetts heat pump installation cost, 2026 Mass Save rebate, annual heating and maintenance costs, savings and CO₂ reductions. Compare oil, propane, gas or electric resistance.",
+    "heading": "Massachusetts heat pump cost calculator",
+    "intro": "Estimate the upfront and annual cost of switching from oil, propane, natural gas or electric resistance to a heat pump in Massachusetts.",
+    "highlights": ["Compare energy and routine maintenance costs for your current system and a heat pump.", "Estimate installation cost and a possible 2026 Mass Save rebate from your heated home size."],
+    "links": [{ "path": "/pricing", "label": "Understand installation pricing" }, { "path": "/start?intent=heat-pump", "label": "Get a home-specific estimate" }]
   },
   "/assessment": {
     "title": "Mass Save Home Energy Assessments | Hanson Home",

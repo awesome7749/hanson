@@ -256,6 +256,7 @@ function HeatingCosts({ town }: { town: TownType }) {
         ))}
         .
       </p>
+      <Link className="text-link" to="/heat-pump-cost-calculator">Compare your own installation and heating costs <Icon name="arrow" size={17} /></Link>
     </section>
   );
 }
