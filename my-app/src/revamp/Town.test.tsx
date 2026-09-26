@@ -1,7 +1,7 @@
 import React from "react";
 import { render, screen, within } from "@testing-library/react";
 import App from "../App";
-import { towns, townMeta } from "./towns";
+import { townMapBounds, townMapSrc, towns, townMeta } from "./towns";
 // eslint-disable-next-line @typescript-eslint/no-var-requires
 const prerender = require("../../scripts/town-pages.cjs");
 
@@ -25,6 +25,14 @@ test("town data is valid", () => {
     expect(t.slug).toMatch(/^[a-z0-9]+(-[a-z0-9]+)*$/);
     expect(RESERVED).not.toContain(t.slug);
     for (const n of t.nearby ?? []) expect(slugs).toContain(n);
+    const map = townMapBounds[t.slug];
+    expect(map).toBeDefined();
+    expect(map.bbox).toHaveLength(4);
+    expect(map.center).toHaveLength(2);
+    expect(map.bbox[0]).toBeLessThan(map.center[1]);
+    expect(map.center[1]).toBeLessThan(map.bbox[2]);
+    expect(map.bbox[1]).toBeLessThan(map.center[0]);
+    expect(map.center[0]).toBeLessThan(map.bbox[3]);
   }
 });
 
@@ -62,6 +70,7 @@ test("town page renders with an estimate link and is listed on the service area 
     "href",
     `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(`${town.name}, MA`)}`,
   );
+  expect(screen.getByTitle(`Map of ${town.name}, Massachusetts`)).toHaveAttribute("src", townMapSrc(town));
   view.unmount();
 
   window.history.replaceState({}, "", "/service-area");

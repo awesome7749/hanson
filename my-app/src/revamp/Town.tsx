@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { FAQ, Icon } from "./Shared";
-import { Town as TownType, townBySlug, townMeta, townPhotoSrc, towns } from "./towns";
+import { Town as TownType, townBySlug, townMapSrc, townMeta, townPhotoSrc, towns } from "./towns";
 import { lifestyleImages } from "./LifestylePhoto";
 import { ASSUMPTIONS, energyPrices, heatNeedFromOil, heatingCostRows, townElectricRates, townGasRates } from "./heatingCosts";
 import installationPhotos from "./installationPhotos.json";
@@ -202,7 +202,7 @@ export default function Town({ slug }: { slug: string }) {
         </div>
         <iframe
           title={`Map of ${town.name}, Massachusetts`}
-          src={`https://maps.google.com/maps?q=${encodeURIComponent(town.name + ", MA")}&z=12&output=embed`}
+          src={townMapSrc(town)}
           loading="lazy"
           referrerPolicy="no-referrer-when-downgrade"
         />
