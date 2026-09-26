@@ -1,0 +1,1240 @@
+[
+  {
+    "slug": "acton",
+    "name": "Acton",
+    "county": "Middlesex",
+    "installs": null,
+    "utility": "Eversource",
+    "utilityType": "mass-save",
+    "electricRates": [
+      "Eversource"
+    ],
+    "gasRates": [
+      "National Grid (Boston Gas)"
+    ],
+    "notes": [],
+    "photos": [],
+    "nearby": [
+      "concord",
+      "carlisle",
+      "sudbury",
+      "lincoln"
+    ]
+  },
+  {
+    "slug": "arlington",
+    "name": "Arlington",
+    "county": "Middlesex",
+    "installs": null,
+    "utility": "Eversource",
+    "utilityType": "mass-save",
+    "electricRates": [
+      "Eversource"
+    ],
+    "gasRates": [
+      "National Grid (Boston Gas)"
+    ],
+    "notes": [],
+    "photos": [],
+    "nearby": [
+      "belmont",
+      "medford",
+      "winchester",
+      "watertown"
+    ]
+  },
+  {
+    "slug": "bedford",
+    "name": "Bedford",
+    "county": "Middlesex",
+    "installs": null,
+    "utility": "Eversource",
+    "utilityType": "mass-save",
+    "electricRates": [
+      "Eversource"
+    ],
+    "gasRates": [
+      "National Grid (Boston Gas)"
+    ],
+    "notes": [],
+    "photos": [],
+    "nearby": [
+      "lexington",
+      "burlington",
+      "concord",
+      "carlisle"
+    ]
+  },
+  {
+    "slug": "belmont",
+    "name": "Belmont",
+    "county": "Middlesex",
+    "installs": null,
+    "utility": "Belmont Municipal Light Department",
+    "utilityType": "municipal",
+    "electricRates": [
+      "Belmont Municipal Light Department"
+    ],
+    "gasRates": [
+      "National Grid (Boston Gas)"
+    ],
+    "notes": [],
+    "photos": [],
+    "nearby": [
+      "arlington",
+      "watertown",
+      "waltham",
+      "cambridge"
+    ]
+  },
+  {
+    "slug": "billerica",
+    "name": "Billerica",
+    "county": "Middlesex",
+    "installs": null,
+    "utility": "National Grid",
+    "utilityType": "mass-save",
+    "electricRates": [
+      "National Grid"
+    ],
+    "gasRates": [
+      "National Grid (Boston Gas)"
+    ],
+    "notes": [],
+    "photos": [],
+    "nearby": [
+      "carlisle",
+      "bedford",
+      "wilmington",
+      "burlington"
+    ]
+  },
+  {
+    "slug": "boston",
+    "name": "Boston",
+    "county": "Suffolk",
+    "installs": null,
+    "utility": "Eversource",
+    "utilityType": "mass-save",
+    "electricRates": [
+      "Eversource"
+    ],
+    "gasRates": [
+      "National Grid (Boston Gas)",
+      "Eversource (NSTAR Gas)"
+    ],
+    "notes": [],
+    "photos": [],
+    "nearby": [
+      "chelsea",
+      "cambridge",
+      "somerville",
+      "everett"
+    ]
+  },
+  {
+    "slug": "braintree",
+    "name": "Braintree",
+    "county": "Norfolk",
+    "installs": null,
+    "utility": "Braintree Electric Light Department",
+    "utilityType": "municipal",
+    "electricRates": [
+      "Braintree Electric Light Department"
+    ],
+    "gasRates": [
+      "National Grid (Boston Gas)"
+    ],
+    "notes": [],
+    "photos": [],
+    "nearby": [
+      "quincy",
+      "weymouth",
+      "milton",
+      "randolph"
+    ]
+  },
+  {
+    "slug": "brookline",
+    "name": "Brookline",
+    "county": "Norfolk",
+    "installs": null,
+    "utility": "Eversource",
+    "utilityType": "mass-save",
+    "electricRates": [
+      "Eversource"
+    ],
+    "gasRates": [
+      "National Grid (Boston Gas)"
+    ],
+    "notes": [],
+    "photos": [],
+    "nearby": [
+      "cambridge",
+      "boston",
+      "somerville",
+      "watertown"
+    ]
+  },
+  {
+    "slug": "burlington",
+    "name": "Burlington",
+    "county": "Middlesex",
+    "installs": null,
+    "utility": "Eversource",
+    "utilityType": "mass-save",
+    "electricRates": [
+      "Eversource"
+    ],
+    "gasRates": [
+      "National Grid (Boston Gas)"
+    ],
+    "notes": [],
+    "photos": [],
+    "nearby": [
+      "woburn",
+      "wilmington",
+      "bedford",
+      "lexington"
+    ]
+  },
+  {
+    "slug": "cambridge",
+    "name": "Cambridge",
+    "county": "Middlesex",
+    "installs": null,
+    "utility": "Eversource",
+    "utilityType": "mass-save",
+    "electricRates": [
+      "Eversource"
+    ],
+    "gasRates": [
+      "Eversource (NSTAR Gas)"
+    ],
+    "notes": [],
+    "photos": [],
+    "nearby": [
+      "somerville",
+      "boston",
+      "brookline",
+      "medford"
+    ]
+  },
+  {
+    "slug": "canton",
+    "name": "Canton",
+    "county": "Norfolk",
+    "installs": null,
+    "utility": "Eversource",
+    "utilityType": "mass-save",
+    "electricRates": [
+      "Eversource"
+    ],
+    "gasRates": [
+      "Eversource (EGMA)"
+    ],
+    "notes": [],
+    "photos": [],
+    "nearby": [
+      "sharon",
+      "norwood",
+      "randolph",
+      "walpole"
+    ]
+  },
+  {
+    "slug": "carlisle",
+    "name": "Carlisle",
+    "county": "Middlesex",
+    "installs": null,
+    "utility": "Eversource",
+    "utilityType": "mass-save",
+    "electricRates": [
+      "Eversource"
+    ],
+    "gasRates": [
+      "National Grid (Boston Gas)"
+    ],
+    "notes": [],
+    "photos": [],
+    "nearby": [
+      "billerica",
+      "bedford",
+      "concord",
+      "acton"
+    ]
+  },
+  {
+    "slug": "chelsea",
+    "name": "Chelsea",
+    "county": "Suffolk",
+    "installs": null,
+    "utility": "Eversource",
+    "utilityType": "mass-save",
+    "electricRates": [
+      "Eversource"
+    ],
+    "gasRates": [
+      "National Grid (Boston Gas)"
+    ],
+    "notes": [],
+    "photos": [],
+    "nearby": [
+      "everett",
+      "revere",
+      "boston",
+      "winthrop"
+    ]
+  },
+  {
+    "slug": "concord",
+    "name": "Concord",
+    "county": "Middlesex",
+    "installs": null,
+    "utility": "Concord Municipal Light Plant",
+    "utilityType": "municipal",
+    "electricRates": [
+      "Concord Municipal Light Plant"
+    ],
+    "gasRates": [
+      "National Grid (Boston Gas)"
+    ],
+    "notes": [],
+    "photos": [],
+    "nearby": [
+      "lincoln",
+      "bedford",
+      "acton",
+      "carlisle"
+    ]
+  },
+  {
+    "slug": "dedham",
+    "name": "Dedham",
+    "county": "Norfolk",
+    "installs": null,
+    "utility": "Eversource",
+    "utilityType": "mass-save",
+    "electricRates": [
+      "Eversource"
+    ],
+    "gasRates": [
+      "Eversource (NSTAR Gas)"
+    ],
+    "notes": [],
+    "photos": [],
+    "nearby": [
+      "westwood",
+      "norwood",
+      "needham",
+      "milton"
+    ]
+  },
+  {
+    "slug": "dover",
+    "name": "Dover",
+    "county": "Norfolk",
+    "installs": null,
+    "utility": "Eversource",
+    "utilityType": "mass-save",
+    "electricRates": [
+      "Eversource"
+    ],
+    "gasRates": [
+      "Eversource (EGMA)"
+    ],
+    "notes": [],
+    "photos": [],
+    "nearby": [
+      "needham",
+      "wellesley",
+      "westwood",
+      "natick"
+    ]
+  },
+  {
+    "slug": "everett",
+    "name": "Everett",
+    "county": "Middlesex",
+    "installs": null,
+    "utility": "National Grid",
+    "utilityType": "mass-save",
+    "electricRates": [
+      "National Grid"
+    ],
+    "gasRates": [
+      "National Grid (Boston Gas)"
+    ],
+    "notes": [],
+    "photos": [],
+    "nearby": [
+      "malden",
+      "chelsea",
+      "revere",
+      "somerville"
+    ]
+  },
+  {
+    "slug": "framingham",
+    "name": "Framingham",
+    "county": "Middlesex",
+    "installs": null,
+    "utility": "Eversource",
+    "utilityType": "mass-save",
+    "electricRates": [
+      "Eversource"
+    ],
+    "gasRates": [
+      "Eversource (NSTAR Gas)"
+    ],
+    "notes": [],
+    "photos": [],
+    "nearby": [
+      "natick",
+      "wellesley",
+      "wayland",
+      "dover"
+    ]
+  },
+  {
+    "slug": "lexington",
+    "name": "Lexington",
+    "county": "Middlesex",
+    "installs": null,
+    "utility": "Eversource",
+    "utilityType": "mass-save",
+    "electricRates": [
+      "Eversource"
+    ],
+    "gasRates": [
+      "National Grid (Boston Gas)"
+    ],
+    "notes": [],
+    "photos": [],
+    "nearby": [
+      "bedford",
+      "arlington",
+      "belmont",
+      "burlington"
+    ]
+  },
+  {
+    "slug": "lincoln",
+    "name": "Lincoln",
+    "county": "Middlesex",
+    "installs": null,
+    "utility": "Eversource",
+    "utilityType": "mass-save",
+    "electricRates": [
+      "Eversource"
+    ],
+    "gasRates": [
+      "National Grid (Boston Gas)"
+    ],
+    "notes": [],
+    "photos": [],
+    "nearby": [
+      "concord",
+      "weston",
+      "lexington",
+      "bedford"
+    ]
+  },
+  {
+    "slug": "lynn",
+    "name": "Lynn",
+    "county": "Essex",
+    "installs": null,
+    "utility": "National Grid",
+    "utilityType": "mass-save",
+    "electricRates": [
+      "National Grid"
+    ],
+    "gasRates": [
+      "National Grid (Boston Gas)"
+    ],
+    "notes": [],
+    "photos": [],
+    "nearby": [
+      "swampscott",
+      "saugus",
+      "peabody",
+      "salem"
+    ]
+  },
+  {
+    "slug": "lynnfield",
+    "name": "Lynnfield",
+    "county": "Essex",
+    "installs": null,
+    "utility": "Reading Municipal Light Department or Peabody Municipal Light Plant",
+    "utilityType": "municipal",
+    "electricRates": [
+      "Reading Municipal Light Department",
+      "Peabody Municipal Light Plant"
+    ],
+    "gasRates": [
+      "National Grid (Boston Gas)"
+    ],
+    "notes": [],
+    "photos": [],
+    "nearby": [
+      "reading",
+      "wakefield",
+      "stoneham",
+      "saugus"
+    ]
+  },
+  {
+    "slug": "malden",
+    "name": "Malden",
+    "county": "Middlesex",
+    "installs": null,
+    "utility": "National Grid",
+    "utilityType": "mass-save",
+    "electricRates": [
+      "National Grid"
+    ],
+    "gasRates": [
+      "National Grid (Boston Gas)"
+    ],
+    "notes": [],
+    "photos": [],
+    "nearby": [
+      "everett",
+      "medford",
+      "melrose",
+      "chelsea"
+    ]
+  },
+  {
+    "slug": "marblehead",
+    "name": "Marblehead",
+    "county": "Essex",
+    "installs": null,
+    "utility": "Marblehead Municipal Light Department",
+    "utilityType": "municipal",
+    "electricRates": [
+      "Marblehead Municipal Light Department"
+    ],
+    "gasRates": [
+      "National Grid (Boston Gas)"
+    ],
+    "notes": [],
+    "photos": [],
+    "nearby": [
+      "salem",
+      "swampscott",
+      "peabody",
+      "lynn"
+    ]
+  },
+  {
+    "slug": "medford",
+    "name": "Medford",
+    "county": "Middlesex",
+    "installs": null,
+    "utility": "National Grid",
+    "utilityType": "mass-save",
+    "electricRates": [
+      "National Grid"
+    ],
+    "gasRates": [
+      "National Grid (Boston Gas)"
+    ],
+    "notes": [],
+    "photos": [],
+    "nearby": [
+      "somerville",
+      "malden",
+      "arlington",
+      "everett"
+    ]
+  },
+  {
+    "slug": "melrose",
+    "name": "Melrose",
+    "county": "Middlesex",
+    "installs": null,
+    "utility": "National Grid",
+    "utilityType": "mass-save",
+    "electricRates": [
+      "National Grid"
+    ],
+    "gasRates": [
+      "National Grid (Boston Gas)"
+    ],
+    "notes": [],
+    "photos": [],
+    "nearby": [
+      "stoneham",
+      "malden",
+      "saugus",
+      "wakefield"
+    ]
+  },
+  {
+    "slug": "milton",
+    "name": "Milton",
+    "county": "Norfolk",
+    "installs": null,
+    "utility": "Eversource",
+    "utilityType": "mass-save",
+    "electricRates": [
+      "Eversource"
+    ],
+    "gasRates": [
+      "National Grid (Boston Gas)"
+    ],
+    "notes": [],
+    "photos": [],
+    "nearby": [
+      "quincy",
+      "braintree",
+      "dedham",
+      "randolph"
+    ]
+  },
+  {
+    "slug": "natick",
+    "name": "Natick",
+    "county": "Middlesex",
+    "installs": null,
+    "utility": "Eversource",
+    "utilityType": "mass-save",
+    "electricRates": [
+      "Eversource"
+    ],
+    "gasRates": [
+      "National Grid (Boston Gas)",
+      "Eversource (NSTAR Gas)"
+    ],
+    "notes": [],
+    "photos": [],
+    "nearby": [
+      "wellesley",
+      "framingham",
+      "dover",
+      "wayland"
+    ]
+  },
+  {
+    "slug": "needham",
+    "name": "Needham",
+    "county": "Norfolk",
+    "installs": null,
+    "utility": "Eversource",
+    "utilityType": "mass-save",
+    "electricRates": [
+      "Eversource"
+    ],
+    "gasRates": [
+      "Eversource (NSTAR Gas)"
+    ],
+    "notes": [],
+    "photos": [],
+    "nearby": [
+      "wellesley",
+      "dover",
+      "newton",
+      "dedham"
+    ]
+  },
+  {
+    "slug": "newton",
+    "name": "Newton",
+    "county": "Middlesex",
+    "installs": null,
+    "utility": "Eversource",
+    "utilityType": "mass-save",
+    "electricRates": [
+      "Eversource"
+    ],
+    "gasRates": [
+      "National Grid (Boston Gas)"
+    ],
+    "notes": [],
+    "photos": [],
+    "nearby": [
+      "watertown",
+      "waltham",
+      "needham",
+      "belmont"
+    ]
+  },
+  {
+    "slug": "norwood",
+    "name": "Norwood",
+    "county": "Norfolk",
+    "installs": null,
+    "utility": "Norwood Municipal Light Department",
+    "utilityType": "municipal",
+    "electricRates": [
+      "Norwood Municipal Light Department"
+    ],
+    "gasRates": [
+      "National Grid (Boston Gas)"
+    ],
+    "notes": [],
+    "photos": [],
+    "nearby": [
+      "westwood",
+      "dedham",
+      "canton",
+      "walpole"
+    ]
+  },
+  {
+    "slug": "peabody",
+    "name": "Peabody",
+    "county": "Essex",
+    "installs": null,
+    "utility": "Peabody Municipal Light Plant",
+    "utilityType": "municipal",
+    "electricRates": [
+      "Peabody Municipal Light Plant"
+    ],
+    "gasRates": [
+      "National Grid (Boston Gas)"
+    ],
+    "notes": [],
+    "photos": [],
+    "nearby": [
+      "salem",
+      "swampscott",
+      "marblehead",
+      "lynn"
+    ]
+  },
+  {
+    "slug": "quincy",
+    "name": "Quincy",
+    "county": "Norfolk",
+    "installs": null,
+    "utility": "National Grid",
+    "utilityType": "mass-save",
+    "electricRates": [
+      "National Grid"
+    ],
+    "gasRates": [
+      "National Grid (Boston Gas)"
+    ],
+    "notes": [],
+    "photos": [],
+    "nearby": [
+      "braintree",
+      "milton",
+      "weymouth",
+      "randolph"
+    ]
+  },
+  {
+    "slug": "randolph",
+    "name": "Randolph",
+    "county": "Norfolk",
+    "installs": null,
+    "utility": "National Grid",
+    "utilityType": "mass-save",
+    "electricRates": [
+      "National Grid"
+    ],
+    "gasRates": [
+      "Eversource (EGMA)"
+    ],
+    "notes": [],
+    "photos": [],
+    "nearby": [
+      "braintree",
+      "canton",
+      "milton",
+      "weymouth"
+    ]
+  },
+  {
+    "slug": "reading",
+    "name": "Reading",
+    "county": "Middlesex",
+    "installs": null,
+    "utility": "Reading Municipal Light Department",
+    "utilityType": "municipal",
+    "electricRates": [
+      "Reading Municipal Light Department"
+    ],
+    "gasRates": [
+      "National Grid (Boston Gas)"
+    ],
+    "notes": [],
+    "photos": [],
+    "nearby": [
+      "wakefield",
+      "lynnfield",
+      "stoneham",
+      "wilmington"
+    ]
+  },
+  {
+    "slug": "revere",
+    "name": "Revere",
+    "county": "Suffolk",
+    "installs": null,
+    "utility": "National Grid",
+    "utilityType": "mass-save",
+    "electricRates": [
+      "National Grid"
+    ],
+    "gasRates": [
+      "National Grid (Boston Gas)"
+    ],
+    "notes": [],
+    "photos": [],
+    "nearby": [
+      "chelsea",
+      "everett",
+      "winthrop",
+      "malden"
+    ]
+  },
+  {
+    "slug": "salem",
+    "name": "Salem",
+    "county": "Essex",
+    "installs": null,
+    "utility": "National Grid",
+    "utilityType": "mass-save",
+    "electricRates": [
+      "National Grid"
+    ],
+    "gasRates": [
+      "National Grid (Boston Gas)"
+    ],
+    "notes": [],
+    "photos": [],
+    "nearby": [
+      "peabody",
+      "marblehead",
+      "swampscott",
+      "lynn"
+    ]
+  },
+  {
+    "slug": "saugus",
+    "name": "Saugus",
+    "county": "Essex",
+    "installs": null,
+    "utility": "National Grid",
+    "utilityType": "mass-save",
+    "electricRates": [
+      "National Grid"
+    ],
+    "gasRates": [
+      "National Grid (Boston Gas)"
+    ],
+    "notes": [],
+    "photos": [],
+    "nearby": [
+      "melrose",
+      "lynn",
+      "revere",
+      "malden"
+    ]
+  },
+  {
+    "slug": "sharon",
+    "name": "Sharon",
+    "county": "Norfolk",
+    "installs": null,
+    "utility": "Eversource",
+    "utilityType": "mass-save",
+    "electricRates": [
+      "Eversource"
+    ],
+    "gasRates": [
+      "Eversource (EGMA)"
+    ],
+    "notes": [],
+    "photos": [],
+    "nearby": [
+      "canton",
+      "walpole",
+      "norwood",
+      "westwood"
+    ]
+  },
+  {
+    "slug": "somerville",
+    "name": "Somerville",
+    "county": "Middlesex",
+    "installs": null,
+    "utility": "Eversource",
+    "utilityType": "mass-save",
+    "electricRates": [
+      "Eversource"
+    ],
+    "gasRates": [
+      "National Grid (Boston Gas)",
+      "Eversource (NSTAR Gas)"
+    ],
+    "notes": [],
+    "photos": [],
+    "nearby": [
+      "cambridge",
+      "medford",
+      "everett",
+      "boston"
+    ]
+  },
+  {
+    "slug": "stoneham",
+    "name": "Stoneham",
+    "county": "Middlesex",
+    "installs": null,
+    "utility": "Eversource",
+    "utilityType": "mass-save",
+    "electricRates": [
+      "Eversource"
+    ],
+    "gasRates": [
+      "National Grid (Boston Gas)"
+    ],
+    "notes": [],
+    "photos": [],
+    "nearby": [
+      "wakefield",
+      "melrose",
+      "woburn",
+      "winchester"
+    ]
+  },
+  {
+    "slug": "sudbury",
+    "name": "Sudbury",
+    "county": "Middlesex",
+    "installs": null,
+    "utility": "Eversource",
+    "utilityType": "mass-save",
+    "electricRates": [
+      "Eversource"
+    ],
+    "gasRates": [
+      "National Grid (Boston Gas)"
+    ],
+    "notes": [],
+    "photos": [],
+    "nearby": [
+      "wayland",
+      "weston",
+      "concord",
+      "lincoln"
+    ]
+  },
+  {
+    "slug": "swampscott",
+    "name": "Swampscott",
+    "county": "Essex",
+    "installs": null,
+    "utility": "National Grid",
+    "utilityType": "mass-save",
+    "electricRates": [
+      "National Grid"
+    ],
+    "gasRates": [
+      "National Grid (Boston Gas)"
+    ],
+    "notes": [],
+    "photos": [],
+    "nearby": [
+      "lynn",
+      "salem",
+      "marblehead",
+      "peabody"
+    ]
+  },
+  {
+    "slug": "wakefield",
+    "name": "Wakefield",
+    "county": "Middlesex",
+    "installs": null,
+    "utility": "Wakefield Municipal Light Department",
+    "utilityType": "municipal",
+    "electricRates": [
+      "Wakefield Municipal Light Department"
+    ],
+    "gasRates": [
+      "Wakefield Municipal Gas & Light Department",
+      "National Grid (Boston Gas)"
+    ],
+    "notes": [],
+    "photos": [],
+    "nearby": [
+      "reading",
+      "stoneham",
+      "lynnfield",
+      "melrose"
+    ]
+  },
+  {
+    "slug": "walpole",
+    "name": "Walpole",
+    "county": "Norfolk",
+    "installs": null,
+    "utility": "Eversource",
+    "utilityType": "mass-save",
+    "electricRates": [
+      "Eversource"
+    ],
+    "gasRates": [
+      "Eversource (EGMA)"
+    ],
+    "notes": [],
+    "photos": [],
+    "nearby": [
+      "sharon",
+      "norwood",
+      "westwood",
+      "canton"
+    ]
+  },
+  {
+    "slug": "waltham",
+    "name": "Waltham",
+    "county": "Middlesex",
+    "installs": null,
+    "utility": "Eversource",
+    "utilityType": "mass-save",
+    "electricRates": [
+      "Eversource"
+    ],
+    "gasRates": [
+      "National Grid (Boston Gas)"
+    ],
+    "notes": [],
+    "photos": [],
+    "nearby": [
+      "watertown",
+      "newton",
+      "belmont",
+      "weston"
+    ]
+  },
+  {
+    "slug": "watertown",
+    "name": "Watertown",
+    "county": "Middlesex",
+    "installs": null,
+    "utility": "Eversource",
+    "utilityType": "mass-save",
+    "electricRates": [
+      "Eversource"
+    ],
+    "gasRates": [
+      "National Grid (Boston Gas)"
+    ],
+    "notes": [],
+    "photos": [],
+    "nearby": [
+      "belmont",
+      "newton",
+      "waltham",
+      "arlington"
+    ]
+  },
+  {
+    "slug": "wayland",
+    "name": "Wayland",
+    "county": "Middlesex",
+    "installs": null,
+    "utility": "Eversource",
+    "utilityType": "mass-save",
+    "electricRates": [
+      "Eversource"
+    ],
+    "gasRates": [
+      "National Grid (Boston Gas)",
+      "Eversource (NSTAR Gas)"
+    ],
+    "notes": [],
+    "photos": [],
+    "nearby": [
+      "weston",
+      "sudbury",
+      "lincoln",
+      "natick"
+    ]
+  },
+  {
+    "slug": "wellesley",
+    "name": "Wellesley",
+    "county": "Norfolk",
+    "installs": null,
+    "utility": "Wellesley Municipal Light Plant",
+    "utilityType": "municipal",
+    "electricRates": [
+      "Wellesley Municipal Light Plant"
+    ],
+    "gasRates": [
+      "National Grid (Boston Gas)"
+    ],
+    "notes": [],
+    "photos": [],
+    "nearby": [
+      "natick",
+      "needham",
+      "dover",
+      "weston"
+    ]
+  },
+  {
+    "slug": "weston",
+    "name": "Weston",
+    "county": "Middlesex",
+    "installs": null,
+    "utility": "Eversource",
+    "utilityType": "mass-save",
+    "electricRates": [
+      "Eversource"
+    ],
+    "gasRates": [
+      "National Grid (Boston Gas)"
+    ],
+    "notes": [],
+    "photos": [],
+    "nearby": [
+      "wayland",
+      "waltham",
+      "lincoln",
+      "wellesley"
+    ]
+  },
+  {
+    "slug": "westwood",
+    "name": "Westwood",
+    "county": "Norfolk",
+    "installs": null,
+    "utility": "Eversource",
+    "utilityType": "mass-save",
+    "electricRates": [
+      "Eversource"
+    ],
+    "gasRates": [
+      "Eversource (NSTAR Gas)"
+    ],
+    "notes": [],
+    "photos": [],
+    "nearby": [
+      "norwood",
+      "dedham",
+      "dover",
+      "needham"
+    ]
+  },
+  {
+    "slug": "weymouth",
+    "name": "Weymouth",
+    "county": "Norfolk",
+    "installs": null,
+    "utility": "National Grid",
+    "utilityType": "mass-save",
+    "electricRates": [
+      "National Grid"
+    ],
+    "gasRates": [
+      "National Grid (Boston Gas)"
+    ],
+    "notes": [],
+    "photos": [],
+    "nearby": [
+      "braintree",
+      "quincy",
+      "randolph",
+      "milton"
+    ]
+  },
+  {
+    "slug": "wilmington",
+    "name": "Wilmington",
+    "county": "Middlesex",
+    "installs": null,
+    "utility": "Reading Municipal Light Department",
+    "utilityType": "municipal",
+    "electricRates": [
+      "Reading Municipal Light Department"
+    ],
+    "gasRates": [
+      "National Grid (Boston Gas)"
+    ],
+    "notes": [],
+    "photos": [],
+    "nearby": [
+      "burlington",
+      "reading",
+      "woburn",
+      "billerica"
+    ]
+  },
+  {
+    "slug": "winchester",
+    "name": "Winchester",
+    "county": "Middlesex",
+    "installs": null,
+    "utility": "Eversource",
+    "utilityType": "mass-save",
+    "electricRates": [
+      "Eversource"
+    ],
+    "gasRates": [
+      "National Grid (Boston Gas)"
+    ],
+    "notes": [],
+    "photos": [],
+    "nearby": [
+      "woburn",
+      "stoneham",
+      "arlington",
+      "medford"
+    ]
+  },
+  {
+    "slug": "winthrop",
+    "name": "Winthrop",
+    "county": "Suffolk",
+    "installs": null,
+    "utility": "National Grid",
+    "utilityType": "mass-save",
+    "electricRates": [
+      "National Grid"
+    ],
+    "gasRates": [
+      "National Grid (Boston Gas)"
+    ],
+    "notes": [],
+    "photos": [],
+    "nearby": [
+      "revere",
+      "chelsea",
+      "boston",
+      "everett"
+    ]
+  },
+  {
+    "slug": "woburn",
+    "name": "Woburn",
+    "county": "Middlesex",
+    "installs": null,
+    "utility": "Eversource",
+    "utilityType": "mass-save",
+    "electricRates": [
+      "Eversource"
+    ],
+    "gasRates": [
+      "National Grid (Boston Gas)"
+    ],
+    "notes": [],
+    "photos": [],
+    "nearby": [
+      "winchester",
+      "stoneham",
+      "burlington",
+      "lexington"
+    ]
+  }
+]

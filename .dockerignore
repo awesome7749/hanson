@@ -9,3 +9,10 @@ my-app/node_modules
 my-app/build
 *.md
 .claude
+
+**/.env*
+**/.openai
+app.yaml
+server/uploads
+server/results
+server/jetson

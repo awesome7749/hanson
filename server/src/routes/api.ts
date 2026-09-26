@@ -1,5 +1,7 @@
 import { Router, Request, Response, NextFunction } from 'express';
-import crypto from 'crypto';
+import { issueAdminToken, verifyAdminToken, validPassword } from '../services/adminAuth';
+import type { VentrixService } from '../services/ventrixService';
+import { createRequestsRouter, LeadHooks } from './requests';
 import multer from 'multer';
 import { RentCastService } from '../services/rentcastService';
 import { HVACPredictorService } from '../services/hvacPredictorService';
@@ -22,15 +24,15 @@ const upload = multer({
   },
 });
 
-// ─── Admin session tokens (in-memory, cleared on restart) ───
-const adminTokens = new Set<string>();
 
 export function createApiRouter(
   rentcastService: RentCastService,
   hvacPredictorService: HVACPredictorService,
   databaseService: DatabaseService,
   storageService: StorageService,
-  adminPassword: string
+  adminPassword: string,
+  ventrix?: VentrixService,
+  leadHooks?: LeadHooks
 ): Router {
   const router = Router();
 
@@ -46,16 +48,57 @@ export function createApiRouter(
       token = req.query.token;
     }
 
-    if (!token || !adminTokens.has(token)) {
+    if (!token || !verifyAdminToken(token, adminPassword)) {
       return res.status(401).json({ error: 'Authentication required' });
     }
+    res.set("Cache-Control", "no-store");
     next();
   };
+
+  router.use("/requests", createRequestsRouter(databaseService, ventrix, leadHooks));
+
+  // ────────────────────────────────────────────────
+  // GET /api/reviews — Google Business Profile summary (public, cached)
+  // ────────────────────────────────────────────────
+  router.get('/reviews', async (_req: Request, res: Response) => {
+    if (!leadHooks?.reviews) return res.json({ configured: false });
+    try {
+      res.set('Cache-Control', 'public, max-age=3600');
+      res.json(await leadHooks.reviews.getSummary());
+    } catch {
+      console.error('Google reviews could not be loaded.');
+      res.json({ configured: false });
+    }
+  });
+
+  // ────────────────────────────────────────────────
+  // POST /api/chat — website chat widget (public)
+  // ────────────────────────────────────────────────
+  router.post('/chat', async (req: Request, res: Response) => {
+    res.set('Cache-Control', 'no-store');
+    const sessionId = typeof req.body?.sessionId === 'string' ? req.body.sessionId.slice(0, 64) : '';
+    const raw = Array.isArray(req.body?.messages) ? req.body.messages.slice(-30) : null;
+    if (!sessionId || !raw || !raw.length) return res.status(400).json({ error: 'Please send a message.' });
+    const messages = raw
+      .filter((m: unknown): m is { role: string; text: string } =>
+        !!m && typeof m === 'object' && typeof (m as any).text === 'string' && ['visitor', 'assistant'].includes((m as any).role))
+      .map((m: { role: string; text: string }) => ({ role: m.role as 'visitor' | 'assistant', text: m.text.slice(0, 1000) }));
+    if (!messages.some((m: { role: string }) => m.role === 'visitor')) return res.status(400).json({ error: 'Please send a message.' });
+    if (!leadHooks?.chat) {
+      return res.json({ reply: { text: 'Chat is offline right now. Call or text us at (339) 227-6775, or use the quote request and we will follow up within 1 business day.' } });
+    }
+    try {
+      res.json({ reply: await leadHooks.chat.reply(messages, { sessionId }) });
+    } catch {
+      console.error('Chat reply failed.');
+      res.status(503).json({ error: 'Chat is having trouble right now. Call or text us at (339) 227-6775.' });
+    }
+  });
 
   // ────────────────────────────────────────────────
   // POST /api/leads — Create a new lead + fetch property data
   // ────────────────────────────────────────────────
-  router.post('/leads', async (req: Request, res: Response) => {
+  router.post('/leads', requireAdmin, async (req: Request, res: Response) => {
     try {
       const { address, firstName, lastName, email, phone } = req.body;
 
@@ -100,7 +143,7 @@ export function createApiRouter(
   // ────────────────────────────────────────────────
   // PATCH /api/leads/:id — Update lead fields (survey, details, utilities)
   // ────────────────────────────────────────────────
-  router.patch('/leads/:id', async (req: Request, res: Response) => {
+  router.patch('/leads/:id', requireAdmin, async (req: Request, res: Response) => {
     try {
       const { id } = req.params;
       const allowedFields = [
@@ -132,7 +175,7 @@ export function createApiRouter(
   // ────────────────────────────────────────────────
   // POST /api/leads/:id/predict — Run HVAC prediction and save results
   // ────────────────────────────────────────────────
-  router.post('/leads/:id/predict', async (req: Request, res: Response) => {
+  router.post('/leads/:id/predict', requireAdmin, async (req: Request, res: Response) => {
     try {
       const { id } = req.params;
 
@@ -183,7 +226,7 @@ export function createApiRouter(
   // ────────────────────────────────────────────────
   // POST /api/leads/:id/photos — Upload a photo to GCS
   // ────────────────────────────────────────────────
-  router.post('/leads/:id/photos', upload.single('photo'), async (req: Request, res: Response) => {
+  router.post('/leads/:id/photos', requireAdmin, upload.single('photo'), async (req: Request, res: Response) => {
     try {
       if (!req.file) {
         return res.status(400).json({ error: 'No file uploaded' });
@@ -228,12 +271,24 @@ export function createApiRouter(
   // ────────────────────────────────────────────────
   router.post('/admin/login', (req: Request, res: Response) => {
     const { password } = req.body;
-    if (!password || password !== adminPassword) {
+    if (!validPassword(password, adminPassword)) {
       return res.status(401).json({ error: 'Invalid password' });
     }
-    const token = crypto.randomBytes(32).toString('hex');
-    adminTokens.add(token);
+    const token = issueAdminToken(adminPassword);
+    res.set("Cache-Control", "no-store");
     res.json({ token });
+  });
+
+  router.post('/admin/leads/:id/ventrix/retry', requireAdmin, async (req, res) => {
+    if (!ventrix) return res.status(503).json({ error: 'Ventrix connection is not enabled.' });
+    try {
+      await ventrix.deliver(req.params.id, { retry: true, confirmDuplicateCheck: req.body?.confirmDuplicateCheck === true });
+      const lead = await databaseService.getLeadById(req.params.id);
+      if (!lead?.partnerDelivery) return res.status(404).json({ error: 'No Ventrix delivery is queued for this request.' });
+      res.json({ lead });
+    } catch {
+      res.status(503).json({ error: 'The delivery status could not be updated. Refresh before retrying.' });
+    }
   });
 
   // ────────────────────────────────────────────────
@@ -302,7 +357,7 @@ export function createApiRouter(
   // ────────────────────────────────────────────────
 
   // POST /api/rentcast - Direct property lookup (used by tests)
-  router.post('/rentcast', async (req: Request, res: Response) => {
+  router.post('/rentcast', requireAdmin, async (req: Request, res: Response) => {
     try {
       const { address } = req.body;
       if (!address) {
@@ -319,7 +374,7 @@ export function createApiRouter(
   });
 
   // POST /api/predict-hvac - Direct HVAC prediction (used by tests)
-  router.post('/predict-hvac', async (req: Request, res: Response) => {
+  router.post('/predict-hvac', requireAdmin, async (req: Request, res: Response) => {
     try {
       const { userHints, ...propertyData } = req.body as PropertyData & { userHints?: UserHints };
       if (!propertyData || !propertyData.formattedAddress) {

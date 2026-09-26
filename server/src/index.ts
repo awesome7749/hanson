@@ -3,11 +3,16 @@ import path from 'path';
 import cors from 'cors';
 import multer from 'multer';
 import dotenv from 'dotenv';
+import { VentrixService, PrismaDeliveryStore } from './services/ventrixService';
 import { createApiRouter } from './routes/api';
 import { RentCastService } from './services/rentcastService';
 import { HVACPredictorService } from './services/hvacPredictorService';
 import { DatabaseService, prisma } from './services/databaseService';
 import { StorageService } from './services/storageService';
+import { createLeadNotifier } from './services/leadNotifier';
+import { createMetaCapi } from './services/metaCapi';
+import { createGoogleReviews } from './services/googleReviews';
+import { createChatProvider } from './services/chatService';
 
 // Load environment variables
 dotenv.config();
@@ -16,7 +21,9 @@ const app = express();
 const PORT = process.env.PORT || 3001;
 
 // Middleware
+app.disable('x-powered-by');
 app.use(cors());
+app.use('/api', (_req, res, next) => { res.set('Cache-Control', 'no-store'); next(); });
 app.use(express.json());
 
 // Initialize services
@@ -51,15 +58,39 @@ const hvacPredictorService = new HVACPredictorService(openaiApiKey);
 const databaseService = new DatabaseService();
 const storageService = new StorageService(gcsProjectId, gcsBucket);
 
+const ventrix = process.env.VENTRIX_SUBMISSIONS_ENABLED === 'true'
+  ? new VentrixService(new PrismaDeliveryStore(prisma), process.env.VENTRIX_API_KEY || '')
+  : undefined;
+
+// Optional lead plumbing: partial-lead email alerts (SMTP_* env vars) and
+// Meta Conversions API (META_CAPI_TOKEN). Both no-op when unconfigured.
+const leadNotifier = createLeadNotifier();
+const metaCapi = createMetaCapi();
+const googleReviews = createGoogleReviews();
+const chatProvider = createChatProvider(leadNotifier);
+if (!leadNotifier) console.log('Partial-lead email notifications disabled (SMTP_HOST/SMTP_USER/SMTP_PASS not set).');
+if (!metaCapi) console.log('Meta Conversions API disabled (META_CAPI_TOKEN not set).');
+if (!googleReviews) console.log('Google reviews disabled (GOOGLE_PLACES_API_KEY/GOOGLE_PLACE_ID not set).');
+
 // Mount API routes
-app.use('/api', createApiRouter(rentcastService, hvacPredictorService, databaseService, storageService, adminPassword));
+app.use('/api', createApiRouter(rentcastService, hvacPredictorService, databaseService, storageService, adminPassword, ventrix, { notifier: leadNotifier, capi: metaCapi, reviews: googleReviews, chat: chatProvider }));
+
+app.use('/api', (_req, res) => { res.status(404).json({ error: 'Endpoint not found' }); });
 
 // In production, serve the React build as static files
 if (process.env.NODE_ENV === 'production') {
   const publicDir = path.join(__dirname, '../public');
-  app.use(express.static(publicDir));
+  // extensions: pre-rendered town pages (build/woburn.html) answer /woburn.
+  // HTML references hashed bundles, so it must not be cached.
+  app.use(express.static(publicDir, {
+    extensions: ['html'],
+    setHeaders: (res, filePath) => {
+      if (filePath.endsWith('.html')) res.setHeader('Cache-Control', 'no-cache');
+    },
+  }));
   // SPA fallback: any non-API route serves index.html (React Router handles it)
   app.get('*', (_req, res) => {
+    res.set('Cache-Control', 'no-cache');
     res.sendFile(path.join(publicDir, 'index.html'));
   });
 }

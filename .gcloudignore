@@ -46,3 +46,6 @@ docker-compose.yml
 server/uploads/
 server/results/
 server/jetson/
+
+**/.env*
+**/.openai/
