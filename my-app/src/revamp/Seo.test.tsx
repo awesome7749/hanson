@@ -39,8 +39,10 @@ test("blog navigation opens the homeowner guides page", () => {
   window.history.replaceState({}, "", "/blog");
   const view = render(<App />);
   const navigation = screen.getByRole("navigation", { name: "Main navigation" });
+  expect(navigation.querySelector('a[href="/pricing"]')).toBeInTheDocument();
+  expect(navigation.querySelector('a[href="/warranty"]')).toBeInTheDocument();
   expect(navigation).toHaveTextContent("Blog");
-  expect(navigation).not.toHaveTextContent(/Heat pumps|Pricing|Installation|Energy assessment|Warranty/);
+  expect(navigation).not.toHaveTextContent(/Heat pumps|Installation|Energy assessment/);
   expect(screen.getByRole("heading", { level: 1, name: /Helpful reading/i })).toBeInTheDocument();
   for (const path of ["/heat-pumps", "/how-it-works", "/pricing", "/assessment", "/warranty"]) {
     expect(document.querySelector(`.blog-grid a[href="${path}"]`)).toBeInTheDocument();

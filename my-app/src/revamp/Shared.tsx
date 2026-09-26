@@ -88,6 +88,8 @@ export function Shell({ children }: { children: React.ReactNode }) {
                 className={menu ? "nav-links open" : "nav-links"}
                 aria-label="Main navigation"
               >
+                <NavLink to="/pricing">Pricing</NavLink>
+                <NavLink to="/warranty">Warranty</NavLink>
                 <NavLink to="/blog">Blog</NavLink>
                 <NavLink to="/about">About us</NavLink>
               </nav>
