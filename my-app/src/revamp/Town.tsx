@@ -149,7 +149,7 @@ export default function Town({ slug }: { slug: string }) {
         <span className="eyebrow">REAL CUSTOMER WORK</span>
         <h2>Hanson Home installations.</h2>
         <p className="town-gallery-intro">
-          Selected outdoor installations from customer homes in our Massachusetts
+          Selected installations from customer homes in our Massachusetts
           service area. We leave out addresses and exact locations for privacy.
         </p>
         <div className="town-gallery town-gallery-shared">

@@ -8,5 +8,15 @@
     "file": "outdoor-mini-split-home.webp",
     "alt": "Outdoor mini-split unit and line sets installed beside a customer's home",
     "caption": "Outdoor mini-split installation at a customer home"
+  },
+  {
+    "file": "indoor-mini-split-pink-room.webp",
+    "alt": "Indoor mini-split unit mounted above a doorway in a customer home",
+    "caption": "Indoor unit installed above a doorway"
+  },
+  {
+    "file": "indoor-mini-split-gray-room.webp",
+    "alt": "Indoor mini-split unit mounted in a mostly empty gray room",
+    "caption": "Indoor unit installed in a customer room"
   }
 ]
