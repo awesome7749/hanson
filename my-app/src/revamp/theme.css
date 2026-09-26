@@ -3710,6 +3710,21 @@ footer {
   font-size: 14px;
   color: var(--muted);
 }
+.town-gallery-intro {
+  max-width: 720px;
+}
+.town-gallery-shared {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+.town-gallery-shared img {
+  object-fit: contain;
+  background: var(--paper);
+}
+@media (max-width: 650px) {
+  .town-gallery-shared {
+    grid-template-columns: 1fr;
+  }
+}
 .town-map {
   display: grid;
   grid-template-columns: 1fr 1.3fr;

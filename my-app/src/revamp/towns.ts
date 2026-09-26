@@ -1,4 +1,5 @@
 import townData from "./towns.json";
+import townMapData from "./townMapBounds.json";
 
 // One public landing page per Massachusetts town, served at /<slug>.
 // Edit towns.json to add towns, install counts, local notes and photos.
@@ -30,6 +31,16 @@ export type Town = {
 };
 
 export const towns: Town[] = townData as Town[];
+
+type TownMap = { bbox: number[]; center: number[] };
+// 2025 U.S. Census Massachusetts county-subdivision boundaries and interior
+// points. The bounds include 10% padding around each town.
+export const townMapBounds = townMapData as Record<string, TownMap>;
+
+export function townMapSrc(town: Town) {
+  const { bbox, center } = townMapBounds[town.slug];
+  return `https://www.openstreetmap.org/export/embed.html?bbox=${bbox.join("%2C")}&layer=mapnik&marker=${center.join("%2C")}`;
+}
 
 export function townBySlug(slug: string) {
   return towns.find((t) => t.slug === slug);

@@ -4,6 +4,7 @@
 // on load. Used by prepare-live.cjs; data comes from src/revamp/towns.json.
 const towns = require('../src/revamp/towns.json');
 const prices = require('../src/revamp/energyPrices.json');
+const installationPhotos = require('../src/revamp/installationPhotos.json');
 
 const SITE = 'https://hansonhome.us';
 
@@ -69,6 +70,10 @@ function renderTownPage(indexHtml, town) {
     ...photos.map(
       (p) =>
         `<img src="/images/towns/${esc(town.slug)}/${esc(p.file)}" alt="${esc(p.caption || `Heat-pump installation in ${town.name}, MA`)}"/>`,
+    ),
+    '<h2>Hanson Home installations</h2><p>Selected installations from customer homes in our Massachusetts service area. We leave out addresses and exact locations for privacy.</p>',
+    ...installationPhotos.map((photo) =>
+      `<img src="/images/installations/${esc(photo.file)}" alt="${esc(photo.alt)}"/>`,
     ),
     `<p><a href="/start?intent=heat-pump&amp;town=${encodeURIComponent(town.name)}">Get a ${esc(town.name)} heat-pump estimate</a></p>`,
     nearby.length ? `<p>Nearby: ${nearby.map((t) => `<a href="/${t.slug}">${esc(t.name)}</a>`).join(', ')}</p>` : '',
