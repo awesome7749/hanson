@@ -8,6 +8,9 @@ const { renderPublicPage } = require("../../scripts/seo-pages.cjs");
 // eslint-disable-next-line @typescript-eslint/no-var-requires
 const { renderCalculatorPage } = require("../../scripts/calculator-page.cjs");
 // eslint-disable-next-line @typescript-eslint/no-var-requires
+const { renderBlogArticle } = require("../../scripts/blog-articles.cjs");
+import articles from "./blogArticles.json";
+// eslint-disable-next-line @typescript-eslint/no-var-requires
 const { renderTownPage } = require("../../scripts/town-pages.cjs");
 
 const template = '<html><head><title>Old</title><meta name="description" content="Old"/><script id="website-structured-data" type="application/ld+json">{}</script></head><body><div id="root"></div></body></html>';
@@ -58,6 +61,22 @@ test("blog navigation opens the homeowner guides page", () => {
   for (const path of ["/heat-pumps", "/how-it-works", "/pricing", "/assessment", "/warranty"]) {
     expect(document.querySelector(`.blog-grid a[href="${path}"]`)).toBeInTheDocument();
   }
+  expect(document.querySelector(`.blog-latest a[href="/blog/${articles[0].slug}"]`)).toBeInTheDocument();
   expect(document.title).toBe(seoPages["/blog"].title);
+  view.unmount();
+});
+
+test("winter article has full public content, sources, and route metadata", () => {
+  const article = articles[0];
+  const html = renderBlogArticle(template, article);
+  expect(html).toContain(`<h1>${article.title}</h1>`);
+  expect(html).toContain(article.sections[0].paragraphs[0]);
+  expect(html).toContain(article.sources[0].url);
+  expect(html).toContain(`href="https://hansonhome.us/blog/${article.slug}"`);
+  expect(html.match(/rel="canonical"/g)).toHaveLength(1);
+  window.history.replaceState({}, "", `/blog/${article.slug}`);
+  const view = render(<App />);
+  expect(screen.getByRole("heading", { level: 1, name: article.title })).toBeInTheDocument();
+  expect(document.title).toBe(`${article.title} | Hanson Home`);
   view.unmount();
 });
