@@ -4,6 +4,7 @@ import { FAQ, Icon } from "./Shared";
 import { Town as TownType, townBySlug, townMeta, townPhotoSrc, towns } from "./towns";
 import { lifestyleImages } from "./LifestylePhoto";
 import { ASSUMPTIONS, energyPrices, heatNeedFromOil, heatingCostRows, townElectricRates, townGasRates } from "./heatingCosts";
+import installationPhotos from "./installationPhotos.json";
 
 function setHead(name: string, attr: "name" | "rel", value: string | null) {
   const tag = attr === "rel" ? "link" : "meta";
@@ -144,6 +145,28 @@ export default function Town({ slug }: { slug: string }) {
         </section>
       )}
 
+      <section className="wrap section">
+        <span className="eyebrow">REAL CUSTOMER WORK</span>
+        <h2>Hanson Home installations.</h2>
+        <p className="town-gallery-intro">
+          Selected outdoor installations from customer homes in our Massachusetts
+          service area. We leave out addresses and exact locations for privacy.
+        </p>
+        <div className="town-gallery town-gallery-shared">
+          {installationPhotos.map((photo) => (
+            <figure key={photo.file}>
+              <img
+                src={`/images/installations/${photo.file}`}
+                alt={photo.alt}
+                loading="lazy"
+                decoding="async"
+              />
+              <figcaption>{photo.caption}</figcaption>
+            </figure>
+          ))}
+        </div>
+      </section>
+
       <section className="wrap section town-map">
         <div>
           <span className="eyebrow">OUR SERVICE AREA</span>
@@ -166,6 +189,16 @@ export default function Town({ slug }: { slug: string }) {
           <Link className="text-link" to="/service-area">
             All towns we serve <Icon name="arrow" size={17} />
           </Link>
+          <p>
+            <a
+              className="text-link"
+              href={`https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(`${town.name}, MA`)}`}
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Open {town.name} in Google Maps
+            </a>
+          </p>
         </div>
         <iframe
           title={`Map of ${town.name}, Massachusetts`}

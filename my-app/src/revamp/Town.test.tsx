@@ -42,6 +42,7 @@ test("pre-rendered page injects head tags and static content", () => {
   expect(html).toContain(`<title>${townMeta(towns[0]).title}</title>`);
   expect(html).toContain(`href="https://hansonhome.us/${towns[0].slug}"`);
   expect(html).toContain(`<h1>Heat-pump installation in ${towns[0].name}, MA</h1>`);
+  expect(html).toContain('/images/installations/outdoor-condenser-home.webp');
 });
 
 test("town page renders with an estimate link and is listed on the service area page", () => {
@@ -55,6 +56,11 @@ test("town page renders with an estimate link and is listed on the service area 
   expect(
     screen.getByRole("link", { name: new RegExp(`Get a ${town.name} estimate`) }),
   ).toHaveAttribute("href", `/start?intent=heat-pump&town=${encodeURIComponent(town.name)}`);
+  expect(screen.getByRole("img", { name: /Outdoor heat-pump unit installed beside/ })).toBeInTheDocument();
+  expect(screen.getByRole("link", { name: `Open ${town.name} in Google Maps` })).toHaveAttribute(
+    "href",
+    `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(`${town.name}, MA`)}`,
+  );
   view.unmount();
 
   window.history.replaceState({}, "", "/service-area");
