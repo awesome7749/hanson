@@ -98,7 +98,7 @@ if (process.env.NODE_ENV === 'production') {
       const page = opsPage(req.path);
       if (page === 'dashboard') {
         res.set('Cache-Control', 'no-store');
-        return res.sendFile(path.join(publicDir, 'ops-shell.html'));
+        return res.sendFile(path.join(__dirname, '../ops-shell.html'));
       }
       if (page === 'robots') return res.type('text/plain').send('User-agent: *\nDisallow: /\n');
       if (page === 'missing') return res.status(404).send('Not found');
