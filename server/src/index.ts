@@ -19,6 +19,8 @@ import { siteRoute } from './services/siteRouting';
 dotenv.config();
 
 const app = express();
+// Cloud Run terminates TLS at its proxy; use the forwarded scheme and client IP.
+if (process.env.NODE_ENV === 'production') app.set('trust proxy', 1);
 const PORT = process.env.PORT || 3001;
 
 // Middleware

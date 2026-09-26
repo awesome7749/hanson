@@ -24,7 +24,7 @@ export default function SeoHead() {
     const town = townBySlug(route.slice(1));
     const page = pages[route] || (town ? townMeta(town) : null);
     const meta = page || {
-      title: route === "/admin" ? "Staff Sign In | Hanson Home" : "Hanson Home",
+      title: "Hanson Home",
       description: "Hanson Home helps Massachusetts homeowners plan heat pump installations and home energy assessments.",
     };
     document.title = meta.title;

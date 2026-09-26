@@ -1,7 +1,6 @@
 const aliases: Record<string, string> = {
   '/get-quote': '/start',
   '/products': '/heat-pumps',
-  '/staff': '/admin',
 };
 
 const appOnlyRoutes = new Set(['/start', '/start/thank-you', '/admin', '/project']);
