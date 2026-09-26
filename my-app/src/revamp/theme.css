@@ -2066,6 +2066,51 @@ footer {
 .info-cards .panel h3 {
   font-size: 24px;
 }
+.blog-hero {
+  padding-block: 76px 44px;
+}
+.blog-hero h1 {
+  max-width: 760px;
+  font-size: clamp(38px, 4.5vw, 58px);
+  line-height: 1.1;
+}
+.blog-hero p {
+  max-width: 650px;
+  font-size: 18px;
+}
+.blog-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 24px;
+  padding-bottom: 80px;
+}
+.blog-card {
+  display: flex;
+  flex-direction: column;
+  margin: 0;
+  transition: border-color 160ms ease, transform 160ms ease;
+}
+.blog-card:hover,
+.blog-card:focus-visible {
+  border-color: var(--accent);
+  transform: translateY(-2px);
+}
+.blog-card h2 {
+  font-size: 25px;
+  margin-block: 16px 10px;
+}
+.blog-card p {
+  line-height: 1.65;
+  margin-bottom: 24px;
+}
+.blog-card .text-link {
+  margin-top: auto;
+}
+@media (max-width: 700px) {
+  .blog-hero { padding-block: 52px 28px; }
+  .blog-hero p { font-size: 16px; }
+  .blog-grid { grid-template-columns: 1fr; gap: 16px; padding-bottom: 55px; }
+}
 .narrow {
   max-width: 790px;
 }

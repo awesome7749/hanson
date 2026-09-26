@@ -34,3 +34,13 @@ test("client navigation uses route-specific titles without indexing the preview"
   expect(document.head.querySelector('meta[name="robots"]')).toHaveAttribute("content", "noindex,nofollow");
   view.unmount();
 });
+
+test("blog navigation opens the homeowner guides page", () => {
+  window.history.replaceState({}, "", "/blog");
+  const view = render(<App />);
+  expect(screen.getByRole("navigation", { name: "Main navigation" })).toHaveTextContent("Blog");
+  expect(screen.getByRole("heading", { level: 1, name: /Helpful reading/i })).toBeInTheDocument();
+  expect(screen.getByRole("link", { name: /Heat pumps for heating and cooling/i })).toHaveAttribute("href", "/heat-pumps");
+  expect(document.title).toBe(seoPages["/blog"].title);
+  view.unmount();
+});

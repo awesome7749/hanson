@@ -71,6 +71,14 @@
     "highlights": ["Share your home details and preferred contact method.", "You can review your answers before sending a request."],
     "links": [{ "path": "/start?intent=heat-pump", "label": "Start a heat pump request" }, { "path": "/start?intent=assessment", "label": "Request an energy assessment" }]
   },
+  "/blog": {
+    "title": "Hanson Home Blog | Heat Pump Guides for MA Homeowners",
+    "description": "Read Hanson Home guides to heat pumps, installation, pricing, Mass Save assessments and warranty coverage for Massachusetts homeowners.",
+    "heading": "Helpful reading for a more comfortable home.",
+    "intro": "Explore our guides to heat pumps, installation, pricing and home energy assessments in Massachusetts.",
+    "highlights": ["Understand how heat pumps heat and cool your home.", "Learn what to expect from installation, a written quote and ongoing care."],
+    "links": [{ "path": "/heat-pumps", "label": "Heat pump guide" }, { "path": "/how-it-works", "label": "Installation guide" }, { "path": "/pricing", "label": "Pricing guide" }, { "path": "/assessment", "label": "Energy assessment guide" }, { "path": "/warranty", "label": "Warranty guide" }]
+  },
   "/privacy": {
     "title": "Privacy & Request Information | Hanson Home",
     "description": "Learn how Hanson Home handles website requests, contact preferences, browser drafts and the information shared with licensed service partners.",
