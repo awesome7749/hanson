@@ -4,6 +4,7 @@ import { FAQ, Icon } from "./Shared";
 import { usePreview } from "./Store";
 import { lifestyleImages } from "./LifestylePhoto";
 import { LIVE } from "./deployment";
+import { TownDirectory } from "./Town";
 const pages: Record<
   string,
   {
@@ -210,6 +211,7 @@ export default function Info() {
           </article>
         ))}
       </section>
+      {pathname === "/service-area" && <TownDirectory />}
       <section className="section wrap faq-section">
         <div>
           <span className="eyebrow">LET’S TALK IT THROUGH</span>

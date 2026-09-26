@@ -3687,3 +3687,134 @@ footer {
     bottom: 14px;
   }
 }
+
+/* Town landing pages (/woburn, /lexington, …) */
+.town-gallery {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: 20px;
+  margin-top: 25px;
+}
+.town-gallery figure {
+  margin: 0;
+}
+.town-gallery img {
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+  border-radius: 14px;
+  display: block;
+}
+.town-gallery figcaption {
+  margin-top: 8px;
+  font-size: 14px;
+  color: var(--muted);
+}
+.town-map {
+  display: grid;
+  grid-template-columns: 1fr 1.3fr;
+  gap: 50px;
+  align-items: center;
+}
+.town-map iframe {
+  width: 100%;
+  height: 380px;
+  border: 0;
+  border-radius: 14px;
+}
+.town-nearby a {
+  color: var(--ink);
+}
+.town-directory {
+  list-style: none;
+  padding: 0;
+  margin: 25px 0 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+  gap: 10px 25px;
+}
+.town-directory a {
+  color: var(--ink);
+  font-weight: 600;
+}
+@media (max-width: 850px) {
+  .town-map {
+    grid-template-columns: 1fr;
+    gap: 25px;
+  }
+  .town-map iframe {
+    height: 300px;
+  }
+}
+
+/* Town page heating-cost comparison */
+.heating-costs > p {
+  max-width: 720px;
+}
+.inline-input input {
+  width: 5.5em;
+  padding: 4px 8px;
+  font: inherit;
+  font-weight: 600;
+  border: 1px solid var(--control-line);
+  border-radius: 8px;
+  background: white;
+  color: var(--ink);
+}
+.cost-bars {
+  display: grid;
+  gap: 14px;
+  margin: 28px 0 22px;
+  max-width: 860px;
+}
+.cost-row {
+  display: grid;
+  grid-template-columns: 170px 1fr 120px;
+  gap: 18px;
+  align-items: center;
+}
+.cost-label {
+  display: flex;
+  flex-direction: column;
+  line-height: 1.3;
+}
+.cost-label small {
+  color: var(--muted);
+}
+.cost-track {
+  height: 28px;
+  background: var(--soft);
+  border-radius: 6px;
+  overflow: hidden;
+}
+.cost-bar {
+  display: block;
+  height: 100%;
+  background: var(--stone);
+  border-radius: 6px;
+}
+.cost-row.heatPump .cost-bar {
+  background: var(--taupe);
+}
+.cost-value {
+  font-weight: 700;
+  font-variant-numeric: tabular-nums;
+  text-align: right;
+}
+.cost-notes {
+  font-size: 13px;
+  color: var(--muted);
+}
+.cost-notes a {
+  color: inherit;
+}
+@media (max-width: 550px) {
+  .cost-row {
+    grid-template-columns: 1fr auto;
+    gap: 6px 12px;
+  }
+  .cost-track {
+    grid-column: 1 / -1;
+    grid-row: 2;
+  }
+}

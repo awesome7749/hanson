@@ -20,6 +20,8 @@ import Staff from "./revamp/Staff";
 import Info from "./revamp/Info";
 import Education from "./revamp/Education";
 import Pricing from "./revamp/Pricing";
+import Town from "./revamp/Town";
+import { towns } from "./revamp/towns";
 import "./revamp/theme.css";
 const Admin = lazy(() => import("./pages/Admin"));
 // The Meta Pixel base code fires PageView on the initial load only; a SPA
@@ -68,6 +70,9 @@ export default function App() {
               path="/products"
               element={<Navigate to="/heat-pumps" replace />}
             />
+            {towns.map((t) => (
+              <Route key={t.slug} path={"/" + t.slug} element={<Town slug={t.slug} />} />
+            ))}
             <Route path="*" element={<Info />} />
           </Routes>
           <ChatWidget />

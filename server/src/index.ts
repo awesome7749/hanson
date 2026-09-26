@@ -80,7 +80,14 @@ app.use('/api', (_req, res) => { res.status(404).json({ error: 'Endpoint not fou
 // In production, serve the React build as static files
 if (process.env.NODE_ENV === 'production') {
   const publicDir = path.join(__dirname, '../public');
-  app.use(express.static(publicDir));
+  // extensions: pre-rendered town pages (build/woburn.html) answer /woburn.
+  // HTML references hashed bundles, so it must not be cached.
+  app.use(express.static(publicDir, {
+    extensions: ['html'],
+    setHeaders: (res, filePath) => {
+      if (filePath.endsWith('.html')) res.setHeader('Cache-Control', 'no-cache');
+    },
+  }));
   // SPA fallback: any non-API route serves index.html (React Router handles it)
   app.get('*', (_req, res) => {
     res.set('Cache-Control', 'no-cache');

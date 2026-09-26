@@ -240,6 +240,7 @@ export default function Intake() {
       return;
     }
     const intent = new URLSearchParams(location.search).get("intent");
+    const town = new URLSearchParams(location.search).get("town");
     const address = (location.state as { address?: string } | null)?.address;
     if (leads.some((l) => l.draft.id === d.id)) setStep(0);
     setDraft((old) => {
@@ -255,6 +256,7 @@ export default function Intake() {
               : base.intent,
         ),
         ...(address ? { street: address } : {}),
+        ...(town && !base.city ? { city: town } : {}),
       };
     });
   }, [location.search, location.state, setDraft, setStep, leads, d.id]);
