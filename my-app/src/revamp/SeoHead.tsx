@@ -3,6 +3,7 @@ import { useLocation } from "react-router-dom";
 import seoPages from "./seoPages.json";
 import { LIVE, OPS } from "./deployment";
 import { townBySlug, townMeta } from "./towns";
+import articles from "./blogArticles.json";
 
 type PageMeta = { title: string; description: string };
 const pages = seoPages as Record<string, PageMeta>;
@@ -29,7 +30,8 @@ export default function SeoHead() {
     }
     const route = pathname.replace(/\/+$/, "") || "/";
     const town = townBySlug(route.slice(1));
-    const page = pages[route] || (town ? townMeta(town) : null);
+    const article = articles.find((item) => route === `/blog/${item.slug}`);
+    const page = pages[route] || (article ? { title: `${article.title} | Hanson Home`, description: article.description } : town ? townMeta(town) : null);
     const meta = page || {
       title: "Hanson Home",
       description: "Hanson Home helps Massachusetts homeowners plan heat pump installations and home energy assessments.",

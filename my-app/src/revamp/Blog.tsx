@@ -1,6 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { Icon } from "./Shared";
+import articles from "./blogArticles.json";
 
 const guides = [
   {
@@ -37,6 +38,19 @@ export default function Blog() {
         <span className="eyebrow">HANSON HOME BLOG</span>
         <h1>Helpful reading for a more comfortable home.</h1>
         <p>Explore our guides to heat pumps, installation, pricing and home energy assessments in Massachusetts.</p>
+      </section>
+      <section className="wrap blog-latest" aria-label="Latest articles">
+        <div className="blog-latest-heading"><span className="eyebrow">LATEST ARTICLES</span><h2>Practical advice for every season.</h2></div>
+        <div className="blog-grid">
+          {articles.map((article) => (
+            <Link className="panel blog-card" to={`/blog/${article.slug}`} key={article.slug}>
+              <span className="eyebrow">{article.category}</span>
+              <h3>{article.title}</h3>
+              <p>{article.summary}</p>
+              <span className="text-link">Read article <Icon name="arrow" size={17} /></span>
+            </Link>
+          ))}
+        </div>
       </section>
       <section className="wrap blog-grid" aria-label="Homeowner guides">
         {guides.map((guide) => (
