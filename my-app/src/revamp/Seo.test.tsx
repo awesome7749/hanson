@@ -72,6 +72,8 @@ test("winter article has full public content, sources, and route metadata", () =
   expect(html).toContain(`<h1>${article.title}</h1>`);
   expect(html).toContain(article.sections[0].paragraphs[0]);
   expect(html).toContain(article.sources[0].url);
+  expect(html).toContain(article.image.src);
+  expect(html).toContain(`content="https://hansonhome.us${article.image.src}"`);
   expect(html).toContain(`href="https://hansonhome.us/blog/${article.slug}"`);
   expect(html.match(/rel="canonical"/g)).toHaveLength(1);
   window.history.replaceState({}, "", `/blog/${article.slug}`);

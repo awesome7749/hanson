@@ -17,6 +17,10 @@ export default function BlogArticle() {
         <p className="blog-article-lede">{article.intro}</p>
         <p className="blog-reviewed">Reviewed {article.reviewed}</p>
       </header>
+      <figure className="blog-article-photo">
+        <img src={article.image.src} alt={article.image.alt} width="1800" height="1350" />
+        <figcaption>{article.image.caption}</figcaption>
+      </figure>
       <div className="blog-article-body">
         {article.sections.map((section) => (
           <section key={section.heading}>
