@@ -27,6 +27,7 @@ COPY --from=backend /app/server/node_modules ./node_modules
 COPY --from=backend /app/server/package.json ./
 COPY --from=backend /app/server/prisma ./prisma
 COPY --from=frontend /app/my-app/build ./public
+RUN mv ./public/ops-shell.html ./ops-shell.html
 EXPOSE 8080
 ENV PORT=8080 NODE_ENV=production
 CMD ["node", "dist/index.js"]

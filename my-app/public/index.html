@@ -19,8 +19,8 @@
       {"@context":"https://schema.org","@type":"WebSite","name":"Hanson Home","url":"https://hansonhome.us/"}
     </script>
     <!-- Meta Pixel (only initializes on the production domain) -->
-    <script>
-      if (/(^|\.)hansonhome\.us$/.test(window.location.hostname)) {
+    <script id="meta-pixel">
+      if (["hansonhome.us", "www.hansonhome.us"].includes(window.location.hostname)) {
         !(function (f, b, e, v, n, t, s) {
           if (f.fbq) return;
           n = f.fbq = function () {

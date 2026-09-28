@@ -1,5 +1,5 @@
 import { Router, Request, Response, NextFunction } from 'express';
-import { issueAdminToken, verifyAdminToken, validPassword } from '../services/adminAuth';
+import { clearAdminSession, issueAdminToken, readAdminSession, setAdminSession, verifyAdminToken, validPassword } from '../services/adminAuth';
 import type { VentrixService } from '../services/ventrixService';
 import { createRequestsRouter, LeadHooks } from './requests';
 import multer from 'multer';
@@ -35,23 +35,30 @@ export function createApiRouter(
   leadHooks?: LeadHooks
 ): Router {
   const router = Router();
+  const failedLogins = new Map<string, { count: number; expires: number }>();
+  const loginWindowMs = 15 * 60 * 1000;
+  const maxFailedLogins = 5;
+
+  const sameOrigin = (req: Request) => {
+    const origin = req.get('Origin');
+    if (!origin) return false;
+    try {
+      return new URL(origin).origin === `${req.protocol}://${req.get('host')}`;
+    } catch {
+      return false;
+    }
+  };
 
   // ─── Admin auth middleware ───
-  // Accepts token via Authorization header or ?token= query param (for <img> tags)
   const requireAdmin = (req: Request, res: Response, next: NextFunction) => {
-    let token: string | undefined;
-
-    const authHeader = req.headers.authorization;
-    if (authHeader && authHeader.startsWith('Bearer ')) {
-      token = authHeader.slice(7);
-    } else if (typeof req.query.token === 'string') {
-      token = req.query.token;
-    }
-
+    res.set('Cache-Control', 'no-store');
+    const token = readAdminSession(req);
     if (!token || !verifyAdminToken(token, adminPassword)) {
       return res.status(401).json({ error: 'Authentication required' });
     }
-    res.set("Cache-Control", "no-store");
+    if (!['GET', 'HEAD'].includes(req.method) && !sameOrigin(req)) {
+      return res.status(403).json({ error: 'Request origin not allowed' });
+    }
     next();
   };
 
@@ -270,13 +277,37 @@ export function createApiRouter(
   // POST /api/admin/login — Authenticate admin
   // ────────────────────────────────────────────────
   router.post('/admin/login', (req: Request, res: Response) => {
-    const { password } = req.body;
+    res.set('Cache-Control', 'no-store');
+    if (req.get('Origin') && !sameOrigin(req)) return res.status(403).json({ error: 'Request origin not allowed' });
+    const key = req.ip || req.socket.remoteAddress || 'unknown';
+    const now = Date.now();
+    const prior = failedLogins.get(key);
+    const attempt = prior && prior.expires > now ? prior : { count: 0, expires: now + loginWindowMs };
+    if (attempt.count >= maxFailedLogins) {
+      res.set('Retry-After', String(Math.ceil((attempt.expires - now) / 1000)));
+      return res.status(429).json({ error: 'Too many sign-in attempts. Please try again later.' });
+    }
+    const password = req.body?.password;
     if (!validPassword(password, adminPassword)) {
+      failedLogins.set(key, { count: attempt.count + 1, expires: attempt.expires });
+      if (failedLogins.size > 5000) {
+        for (const [address, value] of failedLogins) if (value.expires <= now) failedLogins.delete(address);
+        if (failedLogins.size > 5000) failedLogins.delete(failedLogins.keys().next().value!);
+      }
       return res.status(401).json({ error: 'Invalid password' });
     }
+    failedLogins.delete(key);
     const token = issueAdminToken(adminPassword);
-    res.set("Cache-Control", "no-store");
-    res.json({ token });
+    setAdminSession(res, token);
+    res.json({ authenticated: true });
+  });
+
+  router.get('/admin/session', requireAdmin, (_req, res) => res.json({ authenticated: true }));
+  router.post('/admin/logout', (req, res) => {
+    if (!sameOrigin(req)) return res.status(403).json({ error: 'Request origin not allowed' });
+    res.set('Cache-Control', 'no-store');
+    clearAdminSession(res);
+    res.json({ authenticated: false });
   });
 
   router.post('/admin/leads/:id/ventrix/retry', requireAdmin, async (req, res) => {
@@ -337,7 +368,7 @@ export function createApiRouter(
 
       const stream = storageService.getReadStream(photo.gcsPath);
       res.set('Content-Type', photo.mimeType);
-      res.set('Cache-Control', 'private, max-age=3600');
+      res.set('Cache-Control', 'no-store');
       stream.pipe(res);
       stream.on('error', () => {
         if (!res.headersSent) {

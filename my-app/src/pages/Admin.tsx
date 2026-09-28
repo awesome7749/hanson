@@ -114,9 +114,8 @@ function RequestDetails({ value }: { value: string }) {
 }
 
 const Admin: React.FC = () => {
-  const [token, setToken] = useState<string | null>(
-    () => sessionStorage.getItem('admin_token')
-  );
+  const [authenticated, setAuthenticated] = useState(false);
+  const [checkingSession, setCheckingSession] = useState(true);
   const [password, setPassword] = useState('');
   const [loginError, setLoginError] = useState('');
   const [loginLoading, setLoginLoading] = useState(false);
@@ -132,9 +131,13 @@ const Admin: React.FC = () => {
   const [duplicateChecked, setDuplicateChecked] = useState<Record<string, boolean>>({});
   const [actionError, setActionError] = useState("");
 
-  const authHeaders = (): HeadersInit => ({
-    Authorization: `Bearer ${token}`,
-  });
+  useEffect(() => {
+    sessionStorage.removeItem('admin_token'); // discard credentials from earlier versions
+    fetch('/api/admin/session')
+      .then(res => setAuthenticated(res.ok))
+      .catch(() => setAuthenticated(false))
+      .finally(() => setCheckingSession(false));
+  }, []);
 
   const handleLogin = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -151,8 +154,7 @@ const Admin: React.FC = () => {
         setLoginError(data.error || 'Login failed');
         return;
       }
-      sessionStorage.setItem('admin_token', data.token);
-      setToken(data.token);
+      setAuthenticated(true);
       setPassword('');
     } catch {
       setLoginError('Network error — is the server running?');
@@ -161,22 +163,31 @@ const Admin: React.FC = () => {
     }
   };
 
-  const handleLogout = () => {
-    sessionStorage.removeItem('admin_token');
-    setToken(null);
+  const clearAdminView = () => {
+    setAuthenticated(false);
     setLeads([]);
     setDetailCache({});
     setExpandedId(null);
   };
 
+  const handleLogout = async () => {
+    try {
+      const res = await fetch('/api/admin/logout', { method: 'POST' });
+      if (!res.ok) throw new Error('Sign out failed');
+      clearAdminView();
+    } catch {
+      setActionError('Could not sign out. Check your connection and try again.');
+    }
+  };
+
   // Fetch leads once authenticated
   useEffect(() => {
-    if (!token) return;
+    if (!authenticated) return;
     setLoading(true);
-    fetch('/api/admin/leads', { headers: authHeaders() })
+    fetch('/api/admin/leads')
       .then((res) => {
         if (res.status === 401) {
-          handleLogout();
+          clearAdminView();
           return null;
         }
         return res.json();
@@ -186,7 +197,7 @@ const Admin: React.FC = () => {
       })
       .catch((err) => console.error('Failed to fetch leads:', err))
       .finally(() => setLoading(false));
-  }, [token]); // eslint-disable-line react-hooks/exhaustive-deps
+  }, [authenticated]); // eslint-disable-line react-hooks/exhaustive-deps
 
   const toggleExpand = async (id: string) => {
     if (expandedId === id) {
@@ -197,9 +208,9 @@ const Admin: React.FC = () => {
 
     if (!detailCache[id]) {
       try {
-        const res = await fetch(`/api/admin/leads/${id}`, { headers: authHeaders() });
+        const res = await fetch(`/api/admin/leads/${id}`);
         if (res.status === 401) {
-          handleLogout();
+          clearAdminView();
           return;
         }
         const data = await res.json();
@@ -226,7 +237,7 @@ const Admin: React.FC = () => {
     try {
       const res = await fetch(`/api/leads/${leadId}`, {
         method: 'PATCH',
-        headers: { ...authHeaders(), 'Content-Type': 'application/json' },
+        headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ status: newStatus }),
       });
       if (!res.ok) { setActionError("The change could not be saved. Please sign in again and retry."); return; }
@@ -252,7 +263,7 @@ const Admin: React.FC = () => {
     try {
       const res = await fetch(`/api/leads/${leadId}`, {
         method: 'PATCH',
-        headers: { ...authHeaders(), 'Content-Type': 'application/json' },
+        headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ adminNotes: notes }),
       });
       if (!res.ok) { setActionError("The note could not be saved. Please sign in again and retry."); return; }
@@ -274,7 +285,7 @@ const Admin: React.FC = () => {
     setActionError("");
     try {
       const res = await fetch(`/api/admin/leads/${id}/ventrix/retry`, {
-        method: 'POST', headers: { ...authHeaders(), 'Content-Type': 'application/json' },
+        method: 'POST', headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ confirmDuplicateCheck: duplicateChecked[id] === true }),
       });
       const body = await res.json();
@@ -438,7 +449,7 @@ const Admin: React.FC = () => {
             <h4>Photos ({detail.photos.length})</h4>
             <div className="admin__photos">
               {detail.photos.map((photo) => {
-                const proxyUrl = `/api/admin/photos/${photo.id}?token=${token}`;
+                const proxyUrl = `/api/admin/photos/${photo.id}`;
                 return (
                   <a key={photo.id} href={proxyUrl} target="_blank" rel="noopener noreferrer">
                     <img
@@ -457,7 +468,9 @@ const Admin: React.FC = () => {
   );
 
   // ─── Login gate ───
-  if (!token) {
+  if (checkingSession) return <div className="admin"><div className="admin__loading">Checking staff session...</div></div>;
+
+  if (!authenticated) {
     return (
       <div className="admin">
         <div className="admin__login">

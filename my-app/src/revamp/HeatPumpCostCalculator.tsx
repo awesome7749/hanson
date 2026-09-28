@@ -128,6 +128,10 @@ export default function HeatPumpCostCalculator() {
             <div className="hpc-rebate-preview" aria-live="polite"><span>Potential Mass Save® rebate</span><strong>{money(result.potentialRebate)}</strong><p>{result.sponsored ? `${modeledInput.tons} estimated tons × ${money(result.rebateRate)}/ton = ${money(modeledInput.tons * result.rebateRate)}, capped at $8,500.` : "No Mass Save rebate is counted for this utility. Ask your utility about other incentives."}</p></div>
             <a className="hpc-rebate-link" href="#incentives">See 2026 rebate details and eligibility ↓</a>
           </section>
+
+          <section className="hpc-panel hpc-consultation-panel"><div className="hpc-step"><span>5</span><div><h3>Ready for a free consultation?</h3><p>See how we price a real project. On the pricing page, choose “Get my estimate” to share your home details with our team.</p></div></div>
+            <Link className="button" to="/pricing">See pricing and get started <Icon name="arrow" size={18} /></Link>
+          </section>
         </div>
 
         <div className="hpc-results">
