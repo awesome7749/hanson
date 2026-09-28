@@ -1,0 +1,74 @@
+[
+  {
+    "slug": "cold-room-heat-pump-ma",
+    "title": "Why One Room Stays Cold: What to Check Before Adding a Heat Pump",
+    "description": "A Massachusetts homeowner's guide to finding the cause of a cold room and deciding whether insulation, airflow repairs, or a right-sized heat pump is the next step.",
+    "summary": "A cold room needs a diagnosis before it needs equipment. Start with the room, the building shell, and the way heat reaches the space.",
+    "category": "HOME COMFORT GUIDE",
+    "reviewed": "September 28, 2026",
+    "ctaTitle": "Ready to make that room more comfortable?",
+    "ctaText": "Tell us which room stays cold, how it is heated today, and what you have already tried. We can help you plan the next step for your home.",
+    "ctaPath": "/start?intent=assessment",
+    "ctaLabel": "Request an assessment",
+    "intro": "A chilly bedroom, office, or room over a garage is frustrating, especially when the rest of the house feels fine. A heat pump may be part of the answer, but the best place to start is finding out why that room loses heat or receives too little of it.",
+    "sections": [
+      {
+        "heading": "Describe the pattern before choosing a fix",
+        "paragraphs": [
+          "Write down which room is cold, when it happens, and whether the door is usually open or closed. Is the room uncomfortable only on windy nights, after a long cold spell, or throughout winter? Compare it with nearby rooms and note how each is heated. These details help a contractor distinguish a room that loses heat quickly from one that simply does not receive enough warm air.",
+          "If the room is part of a ducted system, note whether the supply register is open and unobstructed. Do not close other rooms' registers to force air into it; ask a qualified contractor to check the duct system and airflow instead."
+        ],
+        "sourceIds": ["doe-sizing", "energy-star-ductless"]
+      },
+      {
+        "heading": "Look for drafts and missing insulation",
+        "paragraphs": [
+          "A room over a garage, beside an attic, or at the edge of the house can have a different heat-loss problem from a central room. Air leaks and thin or missing insulation can make its surfaces feel cold and increase the heat needed to keep it comfortable.",
+          "A home energy assessment can help identify air-sealing and insulation opportunities before new equipment is selected. In Massachusetts, Mass Save describes a no-cost assessment that reviews the home and provides recommendations. Ask what was found in the specific room and whether weatherization should come before equipment sizing."
+        ],
+        "sourceIds": ["doe-sizing", "mass-save-assessment"]
+      },
+      {
+        "heading": "Check how heat reaches the room",
+        "paragraphs": [
+          "If the home has ducts, a disconnected or leaky branch can leave a room short of heat even when the main system is running. A contractor can inspect the ductwork, measure delivered airflow, and check whether repairs or balancing are appropriate.",
+          "With a ductless system, placement and the path of moving air matter. Warm air from a wall unit may not reliably reach a bedroom behind a closed door. ENERGY STAR advises homeowners to consider room layout and airflow when planning a mini split. A dedicated indoor unit or a compact ducted design may be worth discussing for separated rooms, depending on the calculated load and available space."
+        ],
+        "sourceIds": ["doe-sizing", "energy-star-ductless"]
+      },
+      {
+        "heading": "Ask for a room-specific heating load",
+        "paragraphs": [
+          "Square footage alone cannot tell you what size system a cold room needs. The contractor should calculate its heating and cooling load using Manual J or an equivalent method, accounting for insulation, windows, air leakage, and any heat already supplied by the existing system.",
+          "This matters for a single problem room as much as for a whole home. A unit that is too large can cycle frequently and may not solve the original comfort issue. If air sealing or insulation work is planned, ask whether the equipment calculation should use the home's condition after those improvements."
+        ],
+        "sourceIds": ["doe-sizing", "energy-star-ductless"]
+      },
+      {
+        "heading": "Choose the scope that matches the problem",
+        "paragraphs": [
+          "The right next step might be duct repair, insulation and air sealing, a heat pump serving one room, or a broader heating plan. Ask the installer to explain which rooms the proposed system will serve, how it will move heat to them, and what heating source remains for the rest of the house.",
+          "Before signing a proposal, request the room-by-room findings, the equipment model and capacity, the proposed indoor-unit location, and any work excluded from the quote. That makes it easier to compare the plan with the comfort problem you actually want to solve."
+        ],
+        "sourceIds": ["doe-sizing", "energy-star-ductless", "mass-save-assessment"]
+      }
+    ],
+    "sources": [
+      {
+        "id": "doe-sizing",
+        "label": "Cold-Climate Heat Pump Sizing and Selection Guide (DOE-hosted)",
+        "url": "https://bsesc.energy.gov/sites/default/files/2024-10/Guide%20To%20Sizing%20%26%20Selecting%20Air-Source.pdf"
+      },
+      {
+        "id": "energy-star-ductless",
+        "label": "ENERGY STAR: Ductless Heating and Cooling",
+        "url": "https://www.energystar.gov/products/ductless_heating_cooling"
+      },
+      {
+        "id": "mass-save-assessment",
+        "label": "Mass Save: Homeowners Get Started",
+        "url": "https://www.masssave.com/get-started/homeowners"
+      }
+    ]
+  }
+]
