@@ -11,6 +11,7 @@ function renderBlogArticle(indexHtml, article) {
   const body = [
     `<main><article><header><p><a href="/blog">All homeowner guides</a></p><h1>${esc(article.title)}</h1>`,
     `<p>${esc(article.intro)}</p><p>Reviewed ${esc(article.reviewed)}</p></header>`,
+    ...(article.image ? [`<figure><img src="${esc(article.image.src)}" alt="${esc(article.image.alt)}" width="1800" height="1350"/><figcaption>${esc(article.image.caption)}</figcaption></figure>`] : []),
     ...article.sections.map((section) => [
       `<section><h2>${esc(section.heading)}</h2>`,
       ...section.paragraphs.map((paragraph) => `<p>${esc(paragraph)}</p>`),
@@ -27,6 +28,7 @@ function renderBlogArticle(indexHtml, article) {
   ].join('');
   return replacePageHead(indexHtml, meta, route)
     .replace('<meta property="og:type" content="website"/>', '<meta property="og:type" content="article"/>')
+    .replace('content="https://hansonhome.us/logo512.png"', article.image ? `content="https://hansonhome.us${esc(article.image.src)}"` : 'content="https://hansonhome.us/logo512.png"')
     .replace('<div id="root"></div>', `<div id="root">${body}</div>`);
 }
 

@@ -66,17 +66,19 @@ test("blog navigation opens the homeowner guides page", () => {
   view.unmount();
 });
 
-test("blog article has full public content, sources, and route metadata", () => {
-  const article = articles[0];
-  const html = renderBlogArticle(template, article);
-  expect(html).toContain(`<h1>${article.title}</h1>`);
-  expect(html).toContain(article.sections[0].paragraphs[0]);
-  expect(html).toContain(article.sources[0].url);
-  expect(html).toContain(`href="https://hansonhome.us/blog/${article.slug}"`);
-  expect(html.match(/rel="canonical"/g)).toHaveLength(1);
-  window.history.replaceState({}, "", `/blog/${article.slug}`);
-  const view = render(<App />);
-  expect(screen.getByRole("heading", { level: 1, name: article.title })).toBeInTheDocument();
-  expect(document.title).toBe(`${article.title} | Hanson Home`);
-  view.unmount();
+test("both blog articles have full public content, sources, and route metadata", () => {
+  for (const article of articles) {
+    const html = renderBlogArticle(template, article);
+    expect(html).toContain(`<h1>${article.title}</h1>`);
+    expect(html).toContain(article.sections[0].paragraphs[0]);
+    expect(html).toContain(article.sources[0].url);
+    if (article.image) expect(html).toContain(`content="https://hansonhome.us${article.image.src}"`);
+    expect(html).toContain(`href="https://hansonhome.us/blog/${article.slug}"`);
+    expect(html.match(/rel="canonical"/g)).toHaveLength(1);
+    window.history.replaceState({}, "", `/blog/${article.slug}`);
+    const view = render(<App />);
+    expect(screen.getByRole("heading", { level: 1, name: article.title })).toBeInTheDocument();
+    expect(document.title).toBe(`${article.title} | Hanson Home`);
+    view.unmount();
+  }
 });

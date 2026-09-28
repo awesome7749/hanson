@@ -2118,6 +2118,9 @@ footer {
 .blog-article-header h1 { font-size: clamp(38px, 4.4vw, 60px); }
 .blog-article-lede { font-size: 21px; line-height: 1.6; }
 .blog-reviewed { font-size: 13px; margin-top: 24px; }
+.blog-article-photo { max-width: 820px; margin: 40px 0 8px; }
+.blog-article-photo img { width: 100%; height: auto; border-radius: 14px; }
+.blog-article-photo figcaption { color: var(--taupe); font-size: 13px; margin-top: 10px; }
 .blog-article-body { max-width: 790px; }
 .blog-article-body section { padding-block: 42px 12px; border-bottom: 1px solid var(--stone); }
 .blog-article-body h2 { font-size: clamp(28px, 2.8vw, 38px); }
