@@ -11,7 +11,7 @@ function renderBlogArticle(indexHtml, article) {
   const body = [
     `<main><article><header><p><a href="/blog">All homeowner guides</a></p><h1>${esc(article.title)}</h1>`,
     `<p>${esc(article.intro)}</p><p>Reviewed ${esc(article.reviewed)}</p></header>`,
-    `<figure><img src="${esc(article.image.src)}" alt="${esc(article.image.alt)}" width="1800" height="1350"/><figcaption>${esc(article.image.caption)}</figcaption></figure>`,
+    ...(article.image ? [`<figure><img src="${esc(article.image.src)}" alt="${esc(article.image.alt)}" width="1800" height="1350"/><figcaption>${esc(article.image.caption)}</figcaption></figure>`] : []),
     ...article.sections.map((section) => [
       `<section><h2>${esc(section.heading)}</h2>`,
       ...section.paragraphs.map((paragraph) => `<p>${esc(paragraph)}</p>`),
@@ -21,14 +21,14 @@ function renderBlogArticle(indexHtml, article) {
         return `<a href="#source-${esc(id)}">${esc(source.label)}</a>`;
       }).join(', ')}</p></section>`,
     ].join('')),
-    `<aside><h2>${esc(article.ctaTitle)}</h2><p>${esc(article.ctaText)}</p><p><a href="/start?intent=heat-pump">Get my estimate</a></p></aside>`,
+    `<aside><h2>${esc(article.ctaTitle)}</h2><p>${esc(article.ctaText)}</p><p><a href="${esc(article.ctaPath)}">${esc(article.ctaLabel)}</a></p></aside>`,
     '<footer><h2>Sources</h2><ul>',
     ...article.sources.map((source) => `<li id="source-${esc(source.id)}"><a href="${esc(source.url)}">${esc(source.label)}</a></li>`),
     '</ul></footer></article></main>',
   ].join('');
   return replacePageHead(indexHtml, meta, route)
     .replace('<meta property="og:type" content="website"/>', '<meta property="og:type" content="article"/>')
-    .replace('content="https://hansonhome.us/logo512.png"', `content="https://hansonhome.us${esc(article.image.src)}"`)
+    .replace('content="https://hansonhome.us/logo512.png"', article.image ? `content="https://hansonhome.us${esc(article.image.src)}"` : 'content="https://hansonhome.us/logo512.png"')
     .replace('<div id="root"></div>', `<div id="root">${body}</div>`);
 }
 

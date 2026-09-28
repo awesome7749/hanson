@@ -17,10 +17,10 @@ export default function BlogArticle() {
         <p className="blog-article-lede">{article.intro}</p>
         <p className="blog-reviewed">Reviewed {article.reviewed}</p>
       </header>
-      <figure className="blog-article-photo">
+      {article.image && <figure className="blog-article-photo">
         <img src={article.image.src} alt={article.image.alt} width="1800" height="1350" />
         <figcaption>{article.image.caption}</figcaption>
-      </figure>
+      </figure>}
       <div className="blog-article-body">
         {article.sections.map((section) => (
           <section key={section.heading}>
@@ -39,7 +39,7 @@ export default function BlogArticle() {
         <span className="eyebrow">PLAN YOUR NEXT STEP</span>
         <h2>{article.ctaTitle}</h2>
         <p>{article.ctaText}</p>
-        <Link className="button" to="/start?intent=heat-pump">Get my estimate <Icon name="arrow" size={18} /></Link>
+        <Link className="button" to={article.ctaPath}>{article.ctaLabel} <Icon name="arrow" size={18} /></Link>
       </aside>
       <footer className="blog-article-sources">
         <h2>Sources</h2>
