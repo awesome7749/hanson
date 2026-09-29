@@ -21,6 +21,7 @@ function renderBlogArticle(indexHtml, article) {
     languages.length > 1 ? `<nav aria-label="${esc(ui.language)}">${languages.map((item) => `<a href="/blog/${esc(item.slug)}" lang="${esc(item.locale)}" hreflang="${esc(item.locale)}"${item.slug === article.slug ? ' aria-current="page"' : ''}>${esc(item.languageLabel)}</a>`).join(' · ')}</nav>` : '',
     `<h1>${esc(article.title)}</h1>`,
     `<p>${esc(article.intro)}</p><p>${esc(ui.reviewed)} ${esc(article.reviewed)}${article.readingMinutes ? ` · ${article.readingMinutes} ${esc(ui.minutes)}` : ''}</p></header>`,
+    article.openingSummary ? `<section id="${esc(article.openingSummary.id)}" aria-labelledby="blog-summary-heading"><h2 id="blog-summary-heading">${esc(article.openingSummary.heading)}</h2>${article.openingSummary.paragraphs.map((paragraph) => `<p>${esc(paragraph)}</p>`).join('')}<ul>${article.openingSummary.bullets.map((bullet) => `<li>${esc(bullet)}</li>`).join('')}</ul><p>${esc(ui.sources)}: ${citations(article.openingSummary.sourceIds)}</p></section>` : '',
     article.disclosure ? `<p>${esc(article.disclosure)}</p>` : '',
     article.image ? `<figure><img src="${esc(article.image.src)}" alt="${esc(article.image.alt)}" width="1800" height="1350"/><figcaption>${esc(article.image.caption)}</figcaption></figure>` : '',
     article.showContents ? `<nav aria-label="${esc(ui.contents)}"><h2>${esc(ui.contents)}</h2><ol>${article.sections.map((section, index) => `<li><a href="#${esc(sectionId(section, index))}">${esc(section.heading)}</a></li>`).join('')}</ol></nav>` : '',

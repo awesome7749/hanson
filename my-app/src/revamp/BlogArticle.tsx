@@ -39,6 +39,12 @@ export default function BlogArticle() {
         <p className="blog-article-lede">{article.intro}</p>
         <p className="blog-reviewed">{ui.reviewed} {article.reviewed}{article.readingMinutes ? ` · ${article.readingMinutes} ${ui.minutes}` : ""}</p>
       </header>
+      {article.openingSummary && <section id={article.openingSummary.id} className="blog-opening-summary" aria-labelledby="blog-summary-heading">
+        <h2 id="blog-summary-heading">{article.openingSummary.heading}</h2>
+        {article.openingSummary.paragraphs.map((paragraph) => <p key={paragraph}>{paragraph}</p>)}
+        <ul>{article.openingSummary.bullets?.map((bullet) => <li key={bullet}>{bullet}</li>)}</ul>
+        <p className="blog-section-sources">{ui.sources}:{citations(article.openingSummary.sourceIds)}</p>
+      </section>}
       {article.disclosure && <p className="blog-article-disclosure">{article.disclosure}</p>}
       {article.image && <figure className="blog-article-photo">
         <img src={article.image.src} alt={article.image.alt} width="1800" height="1350" />

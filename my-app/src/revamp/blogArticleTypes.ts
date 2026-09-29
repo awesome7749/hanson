@@ -26,6 +26,7 @@ export type BlogArticleData = {
   disclosure?: string;
   image?: { src: string; alt: string; caption: string };
   intro: string;
+  openingSummary?: ArticleSection;
   sections: ArticleSection[];
   sources: ArticleSource[];
   ctaTitle: string;

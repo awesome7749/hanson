@@ -71,6 +71,12 @@ test.each(articles)("$slug has matching public content, citations and route meta
   const document = new DOMParser().parseFromString(html, "text/html");
   expect(document.querySelector("h1")?.textContent).toBe(article.title);
   expect(document.body.textContent).toContain(article.sections[0].paragraphs[0]);
+  if (article.openingSummary) {
+    const summary = document.querySelector("#guide-summary")!;
+    expect(summary.textContent).toContain(article.openingSummary.heading);
+    expect(summary.querySelectorAll("li")).toHaveLength(6);
+    expect(summary.compareDocumentPosition(document.querySelector(`nav[aria-label="${articleUi(article).contents}"]`)!)).toBe(Node.DOCUMENT_POSITION_FOLLOWING);
+  }
   expect(html).toContain(article.sources[0].url);
   if (article.image) {
     expect(html).toContain(article.image.src);
@@ -91,6 +97,7 @@ test.each(articles)("$slug has matching public content, citations and route meta
   const view = render(<App />);
   expect(screen.getByRole("heading", { level: 1, name: article.title })).toBeInTheDocument();
   expect(window.document.title).toBe(`${article.title} | Hanson Home`);
+  if (article.openingSummary) expect(screen.getByRole("heading", { name: article.openingSummary.heading })).toBeInTheDocument();
   if (article.showContents) {
     expect(screen.getByRole("navigation", { name: articleUi(article).contents })).toBeInTheDocument();
     expect(screen.getAllByRole("table")).toHaveLength(article.sections.filter((section) => section.table).length);

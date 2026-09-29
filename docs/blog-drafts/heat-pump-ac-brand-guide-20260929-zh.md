@@ -1,8 +1,21 @@
-# 热泵与空调品牌详解：品牌历史、技术差异与选购指南
+# 热泵与空调品牌全面指南：品牌历史、技术与选购方法
 
-**待审批草稿，尚未发布。**
+**已批准发布。**
 
 选择热泵，关系到家里一月是否暖和、七月是否凉爽，以及安装后由谁提供支持。Hanson Home 可以安装各个品牌的热泵。本指南介绍品牌背后的制造商，并分享我们对设备比较、系统设计和购买决策的建议。
+
+## 先看摘要：选品牌时真正需要比较什么
+
+先明确系统要完成的任务：夏季制冷、辅助供暖，还是承担主要冬季供暖。本指南把品牌历史、技术参数与实际选购决策联系起来，帮助您判断哪种方案适合自己的住宅。
+
+- 热泵可以供暖，也可以制冷。风管式、无风管式或混合布局，应根据需要改善的房间及住宅的空气分配条件来选择。
+- 比较具体型号以及获认可的室内外机组合。品牌历史、共同股东或制造合作关系有助于理解背景，但不能证明所有产品性能相同。
+- 马萨诸塞州冬季供暖应核对当地设计温度下的制热量、效率、最小输出及备用供暖方案。标称能在低温运行，并不意味着能提供全屋所需的热量。
+- 比较完整安装价格、控制器、风管与电气施工、调试、保修及本地维修支持。季节效率评级本身无法预测您家的电费。
+- TCL 是 Hanson Home 的主推品牌，因此本文给予更多介绍。对于 TCL、博世、美的、大金、三菱电机及其他品牌，我们都采用同样的具体型号核对标准。
+- Hanson Home 可以安装所有品牌的热泵。欢迎带着您家的舒适需求和其他报价来讨论，我们会解释设备、系统设计及售后方案之间的取舍。
+
+资料来源: [ENERGY STAR: air-source heat-pump buying guidance](https://www.energystar.gov/products/air_source_heat_pumps); [AHRI: how and why equipment is certified](https://www.ahrinet.org/certification/cee-directory/how-and-why-certified); [NEEP: sizing and selecting heat pumps in cold climates](https://neep.org/sites/default/files/resources/ASHP%20Sizing%20%26%20Selecting%20-%208x11_edits.pdf)
 
 Hanson Home 可以安装所有品牌的热泵。TCL 是我们的主推品牌，因此本文给予更多介绍。我们的建议以住宅需求和具体设备为依据；厂家参数与企业历史另附来源。
 

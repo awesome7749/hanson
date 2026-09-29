@@ -1,7 +1,7 @@
 [
   {
     "slug": "heat-pump-ac-brand-guide",
-    "title": "Heat Pump & AC Brands Explained: History, Technology and How to Choose",
+    "title": "Comprehensive Guide to Heat Pump & AC Brands: History, Technology, and How to Choose",
     "description": "Hanson Home compares TCL, Bosch, Midea, Daikin, Mitsubishi and other heat-pump brands, with practical recommendations on winter heating, design and service.",
     "summary": "Hanson Home’s guide to brand histories, manufacturing relationships and the technical choices that shape winter comfort, operating costs and a well-designed installation.",
     "category": "IN-DEPTH BUYER’S GUIDE",
@@ -962,7 +962,27 @@
     "ctaLabel": "Discuss my heat pump options",
     "locale": "en",
     "languageLabel": "English",
-    "translationGroup": "heat-pump-ac-brand-guide"
+    "translationGroup": "heat-pump-ac-brand-guide",
+    "openingSummary": {
+      "id": "guide-summary",
+      "heading": "At a glance: what matters when choosing a brand",
+      "paragraphs": [
+        "The best starting point is the job your system must do: summer cooling, supplemental heating or dependable winter heat. This guide connects brand histories and technical specifications to the decisions that affect your home."
+      ],
+      "bullets": [
+        "A heat pump provides heating and cooling. Choose a ducted, ductless or mixed layout around the rooms you need to serve and the distribution your home can support.",
+        "Compare exact models and matched indoor/outdoor combinations. Brand history, shared ownership and manufacturing partnerships provide context; they do not make every product equivalent.",
+        "For Massachusetts winters, check heat output and efficiency at the local design temperature, minimum output and the backup plan. A low operating-temperature limit alone does not promise enough heat.",
+        "Compare the complete installed price, controls, duct and electrical work, commissioning, warranty and local service. Seasonal efficiency ratings alone cannot predict your bill.",
+        "TCL is Hanson Home’s main brand and receives extra coverage here. We apply the same model-specific checks to TCL, Bosch, Midea, Daikin, Mitsubishi Electric and the other brands discussed.",
+        "Hanson Home can install all heat-pump brands. Bring us your comfort priorities and competing quotes so we can explain the equipment, design and service tradeoffs for your home."
+      ],
+      "sourceIds": [
+        "energy-star",
+        "ahri",
+        "neep-sizing"
+      ]
+    }
   },
   {
     "slug": "winter-heat-pump-care-ma",

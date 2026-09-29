@@ -1,8 +1,21 @@
-# Heat Pump & AC Brands Explained: History, Technology and How to Choose
+# Comprehensive Guide to Heat Pump & AC Brands: History, Technology, and How to Choose
 
-**Draft for approval — not published.**
+**Approved for publication.**
 
 Choosing a heat pump means choosing how your home will feel in January, how it will cool in July and who will support it after installation. Hanson Home installs heat pumps across all brands. In this guide, we explain the manufacturers behind the names and share our recommendations for comparing equipment, designing the system and making a confident buying decision.
+
+## At a glance: what matters when choosing a brand
+
+The best starting point is the job your system must do: summer cooling, supplemental heating or dependable winter heat. This guide connects brand histories and technical specifications to the decisions that affect your home.
+
+- A heat pump provides heating and cooling. Choose a ducted, ductless or mixed layout around the rooms you need to serve and the distribution your home can support.
+- Compare exact models and matched indoor/outdoor combinations. Brand history, shared ownership and manufacturing partnerships provide context; they do not make every product equivalent.
+- For Massachusetts winters, check heat output and efficiency at the local design temperature, minimum output and the backup plan. A low operating-temperature limit alone does not promise enough heat.
+- Compare the complete installed price, controls, duct and electrical work, commissioning, warranty and local service. Seasonal efficiency ratings alone cannot predict your bill.
+- TCL is Hanson Home’s main brand and receives extra coverage here. We apply the same model-specific checks to TCL, Bosch, Midea, Daikin, Mitsubishi Electric and the other brands discussed.
+- Hanson Home can install all heat-pump brands. Bring us your comfort priorities and competing quotes so we can explain the equipment, design and service tradeoffs for your home.
+
+Sources: [ENERGY STAR: air-source heat-pump buying guidance](https://www.energystar.gov/products/air_source_heat_pumps); [AHRI: how and why equipment is certified](https://www.ahrinet.org/certification/cee-directory/how-and-why-certified); [NEEP: sizing and selecting heat pumps in cold climates](https://neep.org/sites/default/files/resources/ASHP%20Sizing%20%26%20Selecting%20-%208x11_edits.pdf)
 
 Hanson Home can install heat pumps from all brands. TCL is our main brand, so we give it additional coverage. Our recommendations are based on the home’s requirements and the proposed equipment; manufacturer specifications and company histories are cited separately.
 

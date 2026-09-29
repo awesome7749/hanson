@@ -1,8 +1,21 @@
-# Marcas de bombas de calor e ar-condicionado: história, tecnologia e como escolher
+# Guia completo de marcas de bombas de calor e ar-condicionado: história, tecnologia e como escolher
 
-**Rascunho para aprovação; não publicado.**
+**Aprovado para publicação.**
 
 Escolher uma bomba de calor significa pensar no conforto da casa em janeiro, na refrigeração em julho e em quem dará suporte depois da instalação. A Hanson Home instala bombas de calor de todas as marcas. Neste guia, explicamos os fabricantes por trás dos nomes e compartilhamos recomendações para comparar equipamentos, projetar o sistema e decidir com segurança.
+
+## Resumo: o que importa ao escolher uma marca
+
+Comece pela função do sistema: refrigerar no verão, complementar o aquecimento ou fornecer calor confiável no inverno. Este guia relaciona a história das marcas e as especificações técnicas às decisões que afetam sua casa.
+
+- Uma bomba de calor aquece e refrigera. Escolha uma configuração com dutos, sem dutos ou mista conforme os ambientes atendidos e a distribuição de ar que a casa permite.
+- Compare modelos específicos e combinações aprovadas de unidades internas e externas. História, propriedade compartilhada e parcerias de fabricação ajudam a entender o contexto; não tornam todos os produtos equivalentes.
+- Para o inverno de Massachusetts, verifique capacidade e eficiência na temperatura de projeto local, capacidade mínima e plano de aquecimento auxiliar. Funcionar em temperatura baixa não garante calor suficiente.
+- Compare preço instalado completo, controles, obras elétricas e de dutos, comissionamento, garantia e assistência local. A eficiência sazonal, sozinha, não prevê sua conta de energia.
+- A TCL é a marca principal da Hanson Home e recebe mais espaço neste guia. Aplicamos as mesmas verificações por modelo à TCL, Bosch, Midea, Daikin, Mitsubishi Electric e às demais marcas.
+- A Hanson Home pode instalar bombas de calor de todas as marcas. Traga suas prioridades de conforto e outros orçamentos para discutirmos as diferenças de equipamento, projeto e assistência para sua casa.
+
+Fontes: [ENERGY STAR: air-source heat-pump buying guidance](https://www.energystar.gov/products/air_source_heat_pumps); [AHRI: how and why equipment is certified](https://www.ahrinet.org/certification/cee-directory/how-and-why-certified); [NEEP: sizing and selecting heat pumps in cold climates](https://neep.org/sites/default/files/resources/ASHP%20Sizing%20%26%20Selecting%20-%208x11_edits.pdf)
 
 A Hanson Home pode instalar bombas de calor de todas as marcas. A TCL é nossa marca principal e recebe mais espaço. Nossas recomendações consideram as necessidades da casa e o equipamento proposto; especificações e histórias empresariais têm suas próprias fontes.
 
