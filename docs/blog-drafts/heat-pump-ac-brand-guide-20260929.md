@@ -217,7 +217,7 @@ Sources: [LG: history of its residential air-conditioning business](https://www.
 
 ## TCL: its HVAC history is longer than many US shoppers realize
 
-TCL’s North American HVAC history dates its air-conditioner division to 1999. Its current HVAC collection separates Advantage, Multi Match and other families. That matters because knowing TCL from a television or a retail room AC does not tell you the configuration or winter capability of a contractor-installed TCL system.
+TCL’s North American HVAC history dates its air-conditioner division to 1999. Its current HVAC collection separates Advantage, Multi Match and other product families.
 
 TCL is Hanson Home’s main brand, and we can also install other brands. We recommend evaluating a TCL proposal on the same concrete questions as a Bosch, Daikin or Mitsubishi Electric proposal: can the specified combination meet the load, does its control and indoor-unit layout suit the home, and is the installation and service scope clear?
 
@@ -227,16 +227,15 @@ A good TCL proposal should identify every indoor and outdoor model, the matched 
 
 Sources: [TCL North America: HVAC division history](https://us.tcl.com/pages/hvac-about-us); [TCL North America: HVAC product collection](https://us.tcl.com/pages/hvac-product-collection)
 
-## Did TCL enter Home Depot? Yes—with a useful qualification
+## TCL mini-splits at Home Depot
 
-TCL Industries’ 2025 annual report says the Air Conditioner business entered North American retailers including Home Depot. TCL also maintains a Home Depot mini-split support page with product manuals. Together, these support the retail-expansion claim; they do not establish the first sale date of every product category or availability at every store.
+TCL Industries’ 2025 annual report says its Air Conditioner business entered North American retail channels, including Home Depot. Home Depot’s TCL mini-split category lists ductless systems, and some product listings are marked “Expert Installation Available.”
 
-Our interpretation: broader retail presence can make a brand easier to encounter, but it is not independent proof of long-term reliability, local parts stock or whole-house heating suitability. A window AC, portable unit, retail mini-split and centrally ducted heat pump may serve very different jobs.
+For homeowners comparing professionally installed systems, the retailer’s mini-split listings offer a concrete example of TCL’s retail range. The selected model and complete installation plan determine winter capacity, room coverage, controls and service.
 
-Compare a retail equipment price with a contractor quote only after adding the same scope: appropriate design, all indoor units, electrical work, refrigerant piping, condensate drainage, permits, commissioning and service coverage. Ask who supports the installed system, especially when equipment is bought through one channel and installed through another.
+Compare any retail equipment price with a contractor’s proposal only after matching the scope: system design, indoor units, electrical work, refrigerant piping, drainage, permits, commissioning and service coverage.
 
-Sources: [TCL Industries: 2025 annual report, pp. 31–32](https://static-obg.tcl.com/content/dam/brandsite/region/china/pdf/report2025en-20260429.pdf); [TCL: Home Depot mini-split support hub](https://us.tcl.com/pages/hvac-home-depot-mini-split)
-
+Sources: [TCL Industries: 2025 annual report, pp. 31–32](https://static-obg.tcl.com/content/dam/brandsite/region/china/pdf/report2025en-20260429.pdf); [Home Depot: TCL mini-split air conditioners](https://www.homedepot.com/b/Heating-Venting-Cooling-Mini-Split-Air-Conditioners/TCL/N-5yc1vZc4m1Zals)
 ## A TCL specification reading exercise: what “three ton” leaves out
 
 TCL’s Advantage submittal for indoor H36AHH18XAE with outdoor H36TDH18XAC lists the figures below and identifies AHRI reference 215869484. This is a manufacturer-document example, not a claim that this is the right system for every house or that every current TCL model shares its ratings. Have the installer verify the current certificate and supplied model revisions.
@@ -444,7 +443,7 @@ Already considering TCL, Bosch, Mitsubishi Electric, Daikin or another brand? Br
 25. [Samsung HVAC: WindFree Max Heat](https://www.samsunghvac.com/residential/windfree-max-heat) — Series-specific 5°F heating claim, base-pan heater and dispersed cooling airflow.
 26. [Lennox: Lennox Powered by Samsung product launch](https://www.investor.lennox.com/news-releases/news-release-details/lennox-debuts-lennox-powered-samsung-mini-split-and-vrf-product) — Confirms joint venture established in 2024 and the subsequent co-branded ductless and VRF offerings.
 27. [TCL Industries: 2025 annual report, pp. 31–32](https://static-obg.tcl.com/content/dam/brandsite/region/china/pdf/report2025en-20260429.pdf) — TCL Air Conditioner business reports entry into North American retailers including Home Depot in its 2025 business review.
-28. [TCL: Home Depot mini-split support hub](https://us.tcl.com/pages/hvac-home-depot-mini-split) — Current retailer-specific support page with 9K–24K and 36K manuals; does not establish whole-house heating suitability.
+28. [Home Depot: TCL mini-split air conditioners](https://www.homedepot.com/b/Heating-Venting-Cooling-Mini-Split-Air-Conditioners/TCL/N-5yc1vZc4m1Zals) — Retail category listing; individual products and installation availability may change.
 29. [TCL North America: HVAC product collection](https://us.tcl.com/pages/hvac-product-collection) — Distinct Advantage, Multi Match and other HVAC families; marketing descriptions are not universal product specifications.
 30. [TCL: Advantage H36AHH18XAE / H36TDH18XAC submittal, pp. 1–2](https://cdn.shopify.com/s/files/1/0687/7151/2385/files/Submittal_Sheet_-_AHU_-_36K_230V.pdf?v=1764127657) — Manufacturer submittal lists AHRI 215869484, SEER2 19, HSPF2-4 9, 26,000 BTU/h and COP 1.9 at 5°F. Current directory status and quote configuration must be checked separately.
 31. [Midea Comfort: EVOX G3 specifications](https://www.mideacomfort.us/g3.html) — Published family-level maxima, R-454B, 24V/485 controls and airflow features; not all maxima necessarily coexist in one combination.

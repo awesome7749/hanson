@@ -215,7 +215,7 @@ Fuentes: [LG: history of its residential air-conditioning business](https://www.
 
 ## La historia de climatización de TCL precede a su expansión comercial reciente
 
-TCL fecha su división de aire acondicionado en 1999. Su colección actual distingue Advantage, Multi Match y otras familias. Conocer sus televisores o un AC minorista no informa de la configuración ni capacidad invernal de un sistema instalado por contratistas.
+TCL fecha el origen de su división de aire acondicionado en Norteamérica en 1999. Su catálogo actual distingue las familias Advantage, Multi Match y otras.
 
 TCL es la marca principal de Hanson Home, y también instalamos otras marcas. Recomendamos las mismas preguntas que para Bosch, Daikin o Mitsubishi Electric: si el conjunto cubre la carga, si los controles y unidades interiores encajan y si instalación y servicio están claros.
 
@@ -225,16 +225,15 @@ Una propuesta debe identificar modelos interiores y exteriores, calificación de
 
 Fuentes: [TCL North America: HVAC division history](https://us.tcl.com/pages/hvac-about-us); [TCL North America: HVAC product collection](https://us.tcl.com/pages/hvac-product-collection)
 
-## La entrada de TCL en Home Depot y lo que demuestra
+## Mini-splits TCL en Home Depot
 
-El informe anual 2025 de TCL Industries dice que su negocio de AC entró en minoristas norteamericanos, incluido Home Depot. TCL mantiene además una página de soporte mini-split Home Depot con manuales. Respaldan la expansión, pero no fijan la primera venta de cada categoría ni disponibilidad en todas las tiendas.
+El informe anual 2025 de TCL Industries indica que su negocio de aire acondicionado llegó a canales minoristas de Norteamérica, incluido Home Depot. La categoría de mini-splits TCL de Home Depot muestra equipos sin conductos y algunos productos indican «Expert Installation Available» (instalación profesional disponible).
 
-Nuestra interpretación: mayor presencia facilita encontrar la marca, pero no prueba de forma independiente confiabilidad a largo plazo, inventario local o idoneidad para calentar toda la casa. Un AC de ventana, portátil, mini-split minorista y bomba central pueden resolver necesidades distintas.
+Para quienes comparan sistemas con instalación profesional, los mini-splits publicados por la tienda ofrecen un ejemplo concreto de la gama TCL disponible en el comercio minorista. El modelo elegido y el alcance completo de la instalación determinan la capacidad invernal, las habitaciones atendidas, los controles y el servicio.
 
-Compare precio minorista y cotización profesional solo con el mismo alcance: diseño, unidades interiores, electricidad, tuberías, drenaje, permisos, puesta en marcha y servicio. Pregunte quién respalda el sistema, especialmente si compra e instalación pertenecen a canales distintos.
+Compare el precio del equipo minorista con un presupuesto profesional solo cuando el alcance sea equivalente: diseño, unidades interiores, electricidad, tuberías de refrigerante, drenaje, permisos, puesta en marcha y servicio.
 
-Fuentes: [TCL Industries: 2025 annual report, pp. 31–32](https://static-obg.tcl.com/content/dam/brandsite/region/china/pdf/report2025en-20260429.pdf); [TCL: Home Depot mini-split support hub](https://us.tcl.com/pages/hvac-home-depot-mini-split)
-
+Fuentes: [TCL Industries: 2025 annual report, pp. 31–32](https://static-obg.tcl.com/content/dam/brandsite/region/china/pdf/report2025en-20260429.pdf); [Home Depot: TCL mini-split air conditioners](https://www.homedepot.com/b/Heating-Venting-Cooling-Mini-Split-Air-Conditioners/TCL/N-5yc1vZc4m1Zals)
 ## Cómo leer una ficha TCL y por qué tres toneladas no bastan
 
 La ficha Advantage del conjunto H36AHH18XAE interior y H36TDH18XAC exterior publica estos valores y referencia AHRI 215869484. Es un ejemplo documental, no una afirmación de que sirve a todas las casas o representa toda la gama actual. El instalador debe verificar certificado vigente y versiones suministradas.
@@ -444,7 +443,7 @@ Investigación revisada el 29 de septiembre de 2026. Consulte la documentación 
 25. [Samsung HVAC: WindFree Max Heat](https://www.samsunghvac.com/residential/windfree-max-heat)
 26. [Lennox: Lennox Powered by Samsung product launch](https://www.investor.lennox.com/news-releases/news-release-details/lennox-debuts-lennox-powered-samsung-mini-split-and-vrf-product)
 27. [TCL Industries: 2025 annual report, pp. 31–32](https://static-obg.tcl.com/content/dam/brandsite/region/china/pdf/report2025en-20260429.pdf)
-28. [TCL: Home Depot mini-split support hub](https://us.tcl.com/pages/hvac-home-depot-mini-split)
+28. [Home Depot: TCL mini-split air conditioners](https://www.homedepot.com/b/Heating-Venting-Cooling-Mini-Split-Air-Conditioners/TCL/N-5yc1vZc4m1Zals)
 29. [TCL North America: HVAC product collection](https://us.tcl.com/pages/hvac-product-collection)
 30. [TCL: Advantage H36AHH18XAE / H36TDH18XAC submittal, pp. 1–2](https://cdn.shopify.com/s/files/1/0687/7151/2385/files/Submittal_Sheet_-_AHU_-_36K_230V.pdf?v=1764127657)
 31. [Midea Comfort: EVOX G3 specifications](https://www.mideacomfort.us/g3.html)

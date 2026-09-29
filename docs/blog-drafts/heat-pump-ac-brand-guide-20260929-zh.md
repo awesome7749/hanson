@@ -215,7 +215,7 @@ Lennox 产品发布公告确认，Samsung Lennox HVAC North America 于2024年�
 
 ## TCL 的暖通历史比许多美国消费者想象得更长
 
-TCL 北美暖通历史记载，其空调事业部成立于1999年。目前产品分 Advantage、Multi Match 等系列。熟悉 TCL 电视或零售房间空调，并不能说明专业安装 TCL 系统的配置或冬季能力。
+TCL 北美暖通历史记载，其空调事业部成立于 1999 年。目前产品包括 Advantage、Multi Match 等系列。
 
 TCL 是 Hanson Home 的主推品牌，我们也可以安装其他品牌。我们建议像评估博世、大金或三菱电机一样评估 TCL：具体组合能否满足负荷、控制和室内机布局是否适合住宅、安装和服务范围是否清楚。
 
@@ -225,16 +225,15 @@ TCL 是 Hanson Home 的主推品牌，我们也可以安装其他品牌。我们
 
 资料来源: [TCL North America: HVAC division history](https://us.tcl.com/pages/hvac-about-us); [TCL North America: HVAC product collection](https://us.tcl.com/pages/hvac-product-collection)
 
-## TCL 进入 Home Depot 了吗
+## Home Depot 上架 TCL mini-split 空调
 
-TCL Industries 2025年年报称，空调业务进入包括 Home Depot 在内的北美零售渠道。TCL 还设有 Home Depot mini-split 支持页面和产品手册。这些资料支持零售扩张的说法，但不能确定所有产品类别的首次销售日期或每家门店的供货情况。
+TCL Industries 在 2025 年年报中表示，其空调业务进入了包括 Home Depot 在内的北美零售渠道。Home Depot 的 TCL mini-split 产品分类页列有无风管空调，部分商品还标明“可提供专业安装”。
 
-我们认为，零售覆盖扩大让品牌更容易接触，但不是长期可靠性、本地配件库存或全屋供暖适用性的独立证据。窗机、移动空调、零售 mini-split 和中央风管式热泵可能承担完全不同的任务。
+这些零售商品为业主了解 TCL 的 mini-split 产品提供了具体参考。冬季制热量、房间覆盖、控制方式和售后服务，取决于具体型号和完整的安装方案。
 
-比较零售设备价与承包商报价，应先补齐相同范围：合理设计、所有室内机、电气施工、冷媒管、冷凝水排水、许可、调试与服务保障。尤其设备采购和安装渠道不同的时候，要问清谁支持已安装的系统。
+比较零售设备价格和承包商报价时，应先确保方案范围一致：系统设计、室内机、电气施工、冷媒管、排水、许可、调试和售后服务。
 
-资料来源: [TCL Industries: 2025 annual report, pp. 31–32](https://static-obg.tcl.com/content/dam/brandsite/region/china/pdf/report2025en-20260429.pdf); [TCL: Home Depot mini-split support hub](https://us.tcl.com/pages/hvac-home-depot-mini-split)
-
+资料来源: [TCL Industries: 2025 annual report, pp. 31–32](https://static-obg.tcl.com/content/dam/brandsite/region/china/pdf/report2025en-20260429.pdf); [Home Depot: TCL mini-split air conditioners](https://www.homedepot.com/b/Heating-Venting-Cooling-Mini-Split-Air-Conditioners/TCL/N-5yc1vZc4m1Zals)
 ## 读懂 TCL 参数：三吨不代表所有温度下都输出三吨
 
 TCL Advantage 室内机 H36AHH18XAE 与室外机 H36TDH18XAC 的提交文件列出下表参数及 AHRI 编号215869484。这是厂家文件示例，不表示该组合适合所有住宅，也不表示当前全部 TCL 型号参数相同。请安装方核实当前认证与实际供货版本。
@@ -444,7 +443,7 @@ Hanson Home 可以帮助比较并安装各品牌设备。下表说明我们如�
 25. [Samsung HVAC: WindFree Max Heat](https://www.samsunghvac.com/residential/windfree-max-heat)
 26. [Lennox: Lennox Powered by Samsung product launch](https://www.investor.lennox.com/news-releases/news-release-details/lennox-debuts-lennox-powered-samsung-mini-split-and-vrf-product)
 27. [TCL Industries: 2025 annual report, pp. 31–32](https://static-obg.tcl.com/content/dam/brandsite/region/china/pdf/report2025en-20260429.pdf)
-28. [TCL: Home Depot mini-split support hub](https://us.tcl.com/pages/hvac-home-depot-mini-split)
+28. [Home Depot: TCL mini-split air conditioners](https://www.homedepot.com/b/Heating-Venting-Cooling-Mini-Split-Air-Conditioners/TCL/N-5yc1vZc4m1Zals)
 29. [TCL North America: HVAC product collection](https://us.tcl.com/pages/hvac-product-collection)
 30. [TCL: Advantage H36AHH18XAE / H36TDH18XAC submittal, pp. 1–2](https://cdn.shopify.com/s/files/1/0687/7151/2385/files/Submittal_Sheet_-_AHU_-_36K_230V.pdf?v=1764127657)
 31. [Midea Comfort: EVOX G3 specifications](https://www.mideacomfort.us/g3.html)
