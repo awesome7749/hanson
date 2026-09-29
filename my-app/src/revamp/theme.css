@@ -2115,6 +2115,14 @@ footer {
 .blog-article { max-width: 1000px; padding-block: 58px 100px; }
 .blog-article-header { max-width: 820px; padding-bottom: 46px; border-bottom: 1px solid var(--stone); }
 .blog-article-header .text-link { margin-bottom: 42px; }
+.blog-article-topline { display: flex; align-items: flex-start; justify-content: space-between; gap: 18px; margin-bottom: 42px; }
+.blog-article-topline .text-link { margin-bottom: 0; }
+.blog-language-picker { position: relative; flex-shrink: 0; z-index: 5; }
+.blog-language-picker button { display: flex; align-items: center; gap: 8px; padding: 10px 14px; border: 1px solid var(--stone); background: var(--soft); border-radius: 8px; font: inherit; font-size: 14px; cursor: pointer; color: var(--ink); }
+.blog-language-picker nav { position: absolute; right: 0; top: calc(100% + 6px); min-width: 168px; border: 1px solid var(--stone); border-radius: 8px; background: var(--soft); padding: 6px; box-shadow: 0 8px 22px #0002; }
+.blog-language-picker nav a { display: block; padding: 10px 12px; border-radius: 5px; font-size: 15px; }
+.blog-language-picker nav a:hover, .blog-language-picker nav a[aria-current="page"] { background: var(--putty); }
+.blog-language-picker button:focus-visible, .blog-language-picker nav a:focus-visible { outline: 2px solid var(--taupe); outline-offset: 3px; }
 .blog-article-header h1 { font-size: clamp(38px, 4.4vw, 60px); }
 .blog-article-lede { font-size: 21px; line-height: 1.6; }
 .blog-reviewed { font-size: 13px; margin-top: 24px; }
@@ -3908,4 +3916,40 @@ footer {
     grid-column: 1 / -1;
     grid-row: 2;
   }
+}
+
+/* Longer research guides: navigation, accessible comparisons and cited takeaways. */
+.blog-article-disclosure { max-width: 820px; padding: 22px 24px; margin: 28px 0; border-left: 3px solid var(--taupe); background: var(--soft); line-height: 1.7; font-size: 15px; }
+.blog-opening-summary { max-width: 820px; margin-top: 32px; padding: 28px; background: var(--soft); border: 1px solid var(--stone); border-radius: 14px; scroll-margin-top: 100px; }
+.blog-opening-summary h2 { font-size: clamp(25px, 2.8vw, 32px); margin-bottom: 18px; }
+.blog-opening-summary p, .blog-opening-summary li { font-size: 16px; line-height: 1.7; }
+.blog-opening-summary ul { padding-left: 22px; }
+.blog-opening-summary li { padding-left: 4px; margin-bottom: 12px; }
+.blog-opening-summary .blog-section-sources { font-size: 13px; margin-bottom: 0; }
+.blog-article-contents { max-width: 820px; margin-top: 32px; padding: 28px; border: 1px solid var(--stone); border-radius: 14px; }
+.blog-article-contents h2 { font-size: 25px; margin-bottom: 18px; }
+.blog-article-contents ol { columns: 2; column-gap: 34px; padding-left: 22px; margin: 0; }
+.blog-article-contents li { break-inside: avoid; padding-left: 4px; margin-bottom: 12px; font-size: 14px; line-height: 1.6; }
+.blog-article-contents a:hover { text-decoration: underline; }
+.blog-article-topline .text-link { margin-bottom: 0; }
+.blog-article-body section, .blog-article-sources li { scroll-margin-top: 100px; }
+.blog-article-checklist { padding-left: 24px; }
+.blog-article-checklist li { font-size: 17px; line-height: 1.8; margin-bottom: 12px; }
+.blog-table-scroll { max-width: 100%; overflow-x: auto; margin: 28px 0; border: 1px solid var(--stone); border-radius: 10px; }
+.blog-table-scroll:focus-visible { outline: 2px solid var(--taupe); outline-offset: 3px; }
+.blog-comparison-table { width: 100%; min-width: 640px; border-collapse: collapse; font-size: 14px; line-height: 1.65; }
+.blog-comparison-table caption { text-align: left; font-weight: 600; padding: 18px; background: var(--soft); }
+.blog-comparison-table th, .blog-comparison-table td { text-align: left; vertical-align: top; padding: 16px; border-bottom: 1px solid var(--stone); overflow-wrap: anywhere; }
+.blog-comparison-table thead { background: var(--putty); }
+.blog-comparison-table tbody th { width: 26%; font-weight: 600; }
+.blog-comparison-table tbody tr:last-child > * { border-bottom: 0; }
+.blog-comparison-table a { text-decoration: underline; white-space: nowrap; }
+.blog-article-takeaway { padding: 20px 24px; margin: 26px 0; background: var(--soft); border-left: 3px solid var(--taupe); }
+.blog-article-body .blog-article-takeaway p { margin: 0; font-size: 16px; }
+.blog-article-sources li p { margin-top: 5px; color: var(--taupe); font-size: 13px; line-height: 1.6; }
+@media (max-width: 640px) {
+  .blog-article-contents { padding: 22px; }
+  .blog-opening-summary { padding: 22px; }
+  .blog-article-contents ol { columns: 1; }
+  .blog-article-disclosure { padding: 18px; }
 }
