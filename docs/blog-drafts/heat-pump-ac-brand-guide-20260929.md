@@ -2,17 +2,17 @@
 
 **Draft for approval — not published.**
 
-The names on heat pumps hide a rich history of engineering, acquisitions and manufacturing partnerships. This guide turns that history into practical questions about winter output, summer comfort, operating costs and service—so you can choose a system with evidence.
+Choosing a heat pump means choosing how your home will feel in January, how it will cool in July and who will support it after installation. Hanson Home installs heat pumps across all brands. In this guide, we explain the manufacturers behind the names and share our recommendations for comparing equipment, designing the system and making a confident buying decision.
 
-Hanson Home’s main offered brand is TCL. Manufacturer claims are identified and evaluated with the same model-level questions used for other brands.
+Hanson Home can install heat pumps from all brands. TCL is our main brand, so we give it additional coverage. Our recommendations are based on the home’s requirements and the proposed equipment; manufacturer specifications and company histories are cited separately.
 
 Research checked September 29, 2026.
 
 ## The short answer: choose a documented system and a service plan
 
-A familiar logo can help you find an installer, but it cannot tell you how a particular heat pump will perform in your house. A consumer choosing between TCL, Bosch, Midea, Daikin or another brand should compare the complete indoor/outdoor combination, the heating and cooling loads it must serve, the controls included, and who will repair it.
+At Hanson Home, our recommendation is to choose the system that fits the house, the heating plan and the homeowner’s priorities. That starts with the rooms you want to improve, the equipment you already have and whether you need summer cooling, supplemental heat or a replacement for your current heating system.
 
-Hanson Home’s main offered brand is TCL. We give it additional space here and apply the same buying questions to it as to every other manufacturer. The histories below come from corporate records; performance examples come from manufacturer documents. Our buying interpretations and worked examples are identified as such. These sources do not provide a comparable, independent failure-rate ranking across all brands.
+We can install heat pumps across all brands, including the manufacturers discussed here. TCL is our main brand and gets additional space in this guide. We also explain when another product or configuration deserves a closer look. Corporate histories and performance figures come from the linked sources; Hanson Home’s recommendations explain how we would use that information in a buying decision. The sources do not establish a comparable, independent failure-rate ranking across brands.
 
 For a Massachusetts home, start with three decisions: whether you need cooling only or substantial winter heating; whether you will use ducts, room-by-room units or a combination; and whether the old furnace or boiler will remain. ENERGY STAR recommends a Manual J load calculation, while AHRI explains that certified ratings belong to the matched system.
 
@@ -20,7 +20,33 @@ For a Massachusetts home, start with three decisions: whether you need cooling o
 - Ask for heating capacity and efficiency at your home’s winter design temperature.
 - Ask who supplies parts, handles warranty claims and provides service after installation.
 
+> Hanson Home’s starting recommendation: decide what the system must accomplish before choosing the logo. A good proposal should explain both the equipment choice and the installation needed to make it work in your home.
+
 Sources: [ENERGY STAR: air-source heat-pump buying guidance](https://www.energystar.gov/products/air_source_heat_pumps); [AHRI: how and why equipment is certified](https://www.ahrinet.org/certification/cee-directory/how-and-why-certified)
+
+## Heat pumps and air conditioners explained
+
+An air conditioner moves heat from inside the home to outdoors. An air-source heat pump can reverse that process to provide heating as well as cooling. It uses electricity to run the compressor and fans while moving heat between indoors and outdoors; this is different from making all the heat with an electric resistance element.
+
+Ducted systems distribute conditioned air through ducts. Ductless systems deliver it through indoor units serving individual rooms or zones. Either approach still needs an appropriate equipment selection and a way for conditioned air to reach the spaces you want to make comfortable. A heat pump is not limited to a wall-mounted mini-split.
+
+Hanson Home’s recommendation is to choose the layout around the home: existing ducts and return paths, available wall or ceiling space, room use, appearance and the heating system you want to keep or replace. We can discuss equipment across brands once those requirements are clear.
+
+Sources: [ENERGY STAR: air-source heat-pump buying guidance](https://www.energystar.gov/products/air_source_heat_pumps)
+
+## Hanson Home recommendations for common Massachusetts projects
+
+Here is how we recommend narrowing the choices before comparing brands. These are design recommendations for common situations; the final equipment selection needs the home’s load calculation and the proposed system’s performance data.
+
+For primary winter heating, put heating capacity at the local design temperature ahead of the highest advertised cooling efficiency. A model with strong summer ratings can still need substantial backup heat. We recommend comparing a higher winter-performance option with a clearly planned backup arrangement, including the installed price and likely operating tradeoffs.
+
+For a house with existing ducts, first establish whether the ducts can deliver the required airflow to the rooms that need it. If the distribution works, a compatible ducted heat pump can keep the interior familiar. If one floor or bedroom has poor airflow, include the duct correction or a separate zone in the comparison. Replacing the outdoor equipment alone may leave the original comfort problem.
+
+For an addition, upstairs rooms or a home without ducts, compare the smallest useful single-zone, multi-zone and compact ducted layouts. We recommend checking minimum output and closed-door room coverage before deciding how many indoor units to buy. One large outdoor unit is not automatically the simplest solution to several small loads.
+
+When budget is the priority, compare complete installed proposals and ask what a higher price actually buys. Our recommendation is to preserve appropriate sizing, drainage, electrical work and commissioning, then weigh equipment upgrades against their documented comfort and energy benefits. The operating-cost examples later in this guide show why an efficiency premium may or may not pay back.
+
+Sources: [ENERGY STAR: air-source heat-pump buying guidance](https://www.energystar.gov/products/air_source_heat_pumps); [NEEP: sizing and selecting heat pumps in cold climates](https://neep.org/sites/default/files/resources/ASHP%20Sizing%20%26%20Selecting%20-%208x11_edits.pdf); [NEEP: installing heat pumps in cold climates](https://neep.org/sites/default/files/resources/InstallingASHPinCold_edits.pdf)
 
 ## A brief history: why the brands arrived at different strengths
 
@@ -60,6 +86,8 @@ Carrier’s own North American ductless joint-venture announcement calls Midea a
 
 For a Midea quote, distinguish a room air conditioner from a professionally installed ducted or ductless system. Request the US product family, matched-system certificate, control package and local parts path. Our buying interpretation is that a direct Midea-branded offer is worth evaluating on its documents and installed scope; the supplier history alone cannot establish a reliability advantage or a particular price saving.
 
+> Hanson Home recommendation: include a documented Midea system in a value comparison when its winter output, controls and service arrangement meet the project’s needs. Compare the complete installed scope with the alternatives; manufacturing scale alone does not settle the choice.
+
 Sources: [Midea: brand history](https://www.midea.com/vn-en/brandstory); [Midea Building Technologies: history and partnerships](https://hvac.midea.com/about_mbt/); [Carrier: North American residential ductless partnership with Midea](https://www.carrier.com/carrier/en/worldwide/news/news-article/carrier--midea-launch-residential-ductless-hvac-joint-venture-in-north-america.html)
 
 ## Bosch and Midea: what the official partnership actually establishes
@@ -78,6 +106,8 @@ On its IDS Ultra page, Bosch describes enhanced vapor injection and publishes up
 
 Our buying interpretation: an IDS offer can be attractive for a ducted retrofit, but the family suffix matters. Compare its cold-weather output, approved air handler, duct airflow and thermostat instructions. An attractive price on a different IDS generation is not an equivalent substitute for a quoted cold-climate combination.
 
+> Hanson Home recommendation: for a ducted winter-heating project, compare the exact IDS generation with the existing ducts, indoor unit and backup plan. Consider IDS Ultra where its verified winter performance adds value; do not pay for or assume Ultra performance on a different IDS tier.
+
 Sources: [Bosch: completion of Johnson Controls / Hitachi HVAC acquisition](https://www.bosch-presse.de/pressportal/us/en/press-release-28096.html); [Bosch: IDS Ultra technical overview](https://www.bosch-homecomfort.com/us/en/ocs/residential/ids-ultra-inverter-ducted-split-cold-climate-heat-pump-20831889-p/)
 
 ## Sanyo and Panasonic: a legacy name with a real HVAC lineage
@@ -87,6 +117,8 @@ Panasonic’s HVAC history includes Sanyo’s 1947 roots, alongside Panasonic’
 For an owner of an older Sanyo mini-split, the relevant question is the service path for that particular installed system. Before approving a repair, ask whether its control board, sensors, fan motor and refrigerant-side components remain available, and compare the complete repair price with a properly designed replacement.
 
 For a new purchase, ask which current US Panasonic model and distributor are actually being offered. Our interpretation: Sanyo is useful historical context and a legacy service issue, not a reason to assume a modern Panasonic indoor unit will connect to an old Sanyo outdoor unit. Require a manufacturer-approved match and current warranty terms.
+
+> Hanson Home recommendation: with an older Sanyo installation, establish the available repair parts and complete repair cost before choosing a replacement. If replacement is appropriate, revisit the room loads and layout rather than automatically copying the old unit’s nominal size.
 
 Sources: [Panasonic: HVAC business history](https://www.panasonic.com/global/hvac-cc/about/history/hvac.html); [Panasonic: Sanyo becomes wholly owned, April 2011](https://holdings.panasonic/global/corporate/about/history/chronicle/2011.html); [Panasonic press release: Sanyo North American HVAC integration](https://www.prnewswire.com/news-releases/panasonic-incorporates-sanyo-hvac-unit-into-north-american-operations-129448098.html)
 
@@ -108,6 +140,8 @@ The same sheet distinguishes variable-speed models from two-stage and other scro
 
 Our interpretation: a lower-cost model from a respected brand may be a sensible cooling or supplemental-heating choice, while a primary-heating project can justify a different tier. Ask for the selected combination’s low-temperature tables. Neither a corporate reputation nor an inverter label establishes equal winter capability across all tiers.
 
+> Hanson Home recommendation: ask what changes between the quoted Daikin tiers in your actual application. For a primary-heating project, winter capacity and the complete control package can justify a different choice than for occasional cooling or supplemental heat.
+
 Sources: [Daikin: R-32 split-system heat-pump comparison, May 2026](https://daikincomfort.com/docs/default-source/general/general/pf-hpsplits_r32.pdf)
 
 ## Mitsubishi Electric, Trane and American Standard: read the full label
@@ -120,6 +154,8 @@ For a concrete example of why product generations matter, METUS’s April 2026 a
 
 Our buying interpretation: compare the proposed single-zone or multi-zone arrangement, minimum output, allowed indoor combinations and controls. A cold-climate feature name is a starting point; engineering data must show how the selected combination serves each room.
 
+> Hanson Home recommendation: include a documented Mitsubishi Electric option when strong low-temperature heating or a particular indoor-unit layout is a priority. Compare the selected combination’s minimum output and connected-room performance as carefully as its maximum winter capacity.
+
 Sources: [Mitsubishi Electric: air-conditioning history](https://www.mitsubishielectric.com/bu/air-conditioning-systems/history/); [Mitsubishi Electric Trane HVAC US: brands, ownership and warranty conditions](https://www.mitsubishicomfort.com/metus); [METUS: 2026 five-ton SMART MULTI H2i launch](https://www.mitsubishicomfort.com/press-releases/SMART-MULTI-5tonH2i-release-2026)
 
 ## Fujitsu General / GENERAL and Rheem: a name change buyers may encounter
@@ -130,6 +166,8 @@ Effective January 1, 2026, Fujitsu General changed its corporate name to GENERAL
 
 Our buying interpretation: judge the exact US product and support documents rather than treating a renamed company as a newly invented manufacturer. Ask the dealer to identify the warranty issuer, the current registration process and the distributor responsible for parts. Group ownership does not make all Rheem and GENERAL products the same system.
 
+> Hanson Home recommendation: consider the actual GENERAL/Fujitsu combination and its support arrangements alongside the other ductless options. A corporate name change should prompt a paperwork check, not an automatic rejection of equipment that fits the project.
+
 Sources: [GENERAL: company and air-conditioning history](https://www.generalww.com/global/history/index.html); [Fujitsu General: joins Paloma Rheem group, August 22, 2025](https://www.generalww.com/global/news/2025/0822/nr20250822-1.pdf); [GENERAL: January 1, 2026 corporate name change](https://www.generalww.com/global/info/20260101/index.html)
 
 ## Gree: substantial AC manufacturing, with important generation differences
@@ -139,6 +177,8 @@ Gree’s corporate profile dates its establishment to 1991 and describes its ear
 The Sapphire page lists a heating operating range extending to −22°F. An operating limit answers whether the equipment can run at a temperature. It does not, by itself, state the heat output, electrical input or share of your home’s load delivered there.
 
 Our buying interpretation: a Gree system deserves the same model-level evaluation as other manufacturers. Ask for the submittal and extended ratings for the actual US combination, its refrigerant generation and the parts/warranty path through the proposed dealer. Confirm that online literature describes the equipment being installed.
+
+> Hanson Home recommendation: a Gree proposal belongs in the comparison when the exact US model has the required output and a clear local service path. Use current model documents to compare equivalent rating methods and refrigerant generations.
 
 Sources: [Gree: corporate profile](https://global.gree.com/usa/channels/735.html); [Gree Comfort: Sapphire documents and performance claims](https://www.greecomfort.com/our-products/sapphire/)
 
@@ -158,15 +198,19 @@ Samsung’s WindFree Max Heat page describes 100% heating performance at 5°F, a
 
 Lennox’s product-launch release confirms that Samsung Lennox HVAC North America was established in 2024 and introduced Lennox Powered by Samsung ductless and VRF offerings. Our buying interpretation: ask which distribution channel and warranty contract accompany a Samsung-branded versus co-branded proposal. Do not transfer a feature or specification from one product family to every Lennox system.
 
+> Hanson Home recommendation: if indoor appearance or airflow comfort is a deciding factor, look at the specific LG or Samsung indoor-unit options in the proposed room layout. Keep heating output, control behavior and service support in the decision alongside those comfort features.
+
 Sources: [LG: history of its residential air-conditioning business](https://www.lg.com/ph/about-lg/press-and-media/lg-electronics-launches-the-brand-new-line-up-for-single-commercial-air-conditioners/); [LG USA: residential HVAC systems and LGRED](https://www.lg.com/us/residential-hvac/hvac-systems); [Samsung HVAC: WindFree Max Heat](https://www.samsunghvac.com/residential/windfree-max-heat); [Lennox: Lennox Powered by Samsung product launch](https://www.investor.lennox.com/news-releases/news-release-details/lennox-debuts-lennox-powered-samsung-mini-split-and-vrf-product)
 
 ## TCL: its HVAC history is longer than many US shoppers realize
 
 TCL’s North American HVAC history dates its air-conditioner division to 1999. Its current HVAC collection separates Advantage, Multi Match and other families. That matters because knowing TCL from a television or a retail room AC does not tell you the configuration or winter capability of a contractor-installed TCL system.
 
-We give TCL additional attention because it is Hanson Home’s main offered brand. Our buying view is that it belongs on a documented shortlist when the proposed model meets the home’s loads and comes with a clear service arrangement. The brand relationship does not remove the need to check winter output, controls and warranty details.
+TCL is Hanson Home’s main brand, and we can also install other brands. We recommend evaluating a TCL proposal on the same concrete questions as a Bosch, Daikin or Mitsubishi Electric proposal: can the specified combination meet the load, does its control and indoor-unit layout suit the home, and is the installation and service scope clear?
 
 A good TCL proposal should identify every indoor and outdoor model, the matched rating, the operating range, backup-heating plan if needed, electrical scope and included controls. If a quote refers only to “TCL inverter” or an efficiency maximum from another family, ask for the product-specific paperwork before deciding.
+
+> Hanson Home recommendation: put TCL on the shortlist when the proposed combination fits your home and budget. If its winter output or configuration does not meet the project’s requirements, compare a different combination or another brand. The specifications should explain the recommendation.
 
 Sources: [TCL North America: HVAC division history](https://us.tcl.com/pages/hvac-about-us); [TCL North America: HVAC product collection](https://us.tcl.com/pages/hvac-product-collection)
 
@@ -199,13 +243,13 @@ TCL’s Advantage submittal for indoor H36AHH18XAE with outdoor H36TDH18XAC list
 
 Sources: [TCL: Advantage H36AHH18XAE / H36TDH18XAC submittal, pp. 1–2](https://cdn.shopify.com/s/files/1/0687/7151/2385/files/Submittal_Sheet_-_AHU_-_36K_230V.pdf?v=1764127657)
 
-## How we would use that TCL data in a real buying conversation
+## How Hanson Home would turn the TCL data into an installation decision
 
 Consider an illustrative house that needs 32,000 BTU/h at 5°F. If the quoted system delivers 26,000 BTU/h at the same condition, the simple capacity difference is 6,000 BTU/h. The contractor must explain how the rest is supplied, whether by a different approved combination, additional equipment or planned backup. This is a worked example, not a heating assessment of a particular customer home.
 
 Now consider a zone needing 22,000 BTU/h at the same condition. The same output might cover that zone’s load, subject to the manufacturer’s rating conditions, piping corrections, defrost behavior and actual distribution. The exercise demonstrates why our conclusion should be “check the fit,” rather than a blanket judgment about TCL.
 
-For a TCL offer, ask Hanson to show the documents for the model actually proposed. Get the equipment warranty and any installation or labor coverage in writing, along with registration requirements, the claims contact and the local service arrangement. The budget should also identify any duct work, drainage work and backup electrical heat required by the design.
+This is the kind of comparison to request from Hanson Home for TCL or any other brand. Ask us to walk through the proposed model numbers, winter output and remaining load, then compare the installation options and backup plan. Review the equipment warranty, labor coverage, registration requirements and service contact alongside any duct, drainage or electrical work in the proposal.
 
 > A system can be a good fit for one home and need a different design for another. The load and the complete proposal make that distinction.
 
@@ -273,6 +317,8 @@ Our comparison questions: Will the existing thermostat work? Will retaining it c
 
 Have the quote name the exact thermostat, interfaces and backup control sequence. For a multi-zone layout, ask what happens when one room wants heating while another wants cooling; do not assume independent temperature settings mean unrestricted simultaneous modes.
 
+> Hanson Home recommendation: include duct corrections, thermostat interfaces and backup controls in the quote comparison. A lower equipment price can lose its advantage if those necessary pieces are missing from the scope.
+
 Sources: [Bosch: R-454B air-to-air product FAQs](https://www.bosch-homecomfort.com/us/en/residential/service-support/technical-support/frequently-asked-questions/air-to-air-r-454b-heat-pump-systems-faq/); [Midea Comfort: EVOX G3 specifications](https://www.mideacomfort.us/g3.html); [TCL: Advantage H36AHH18XAE / H36TDH18XAC submittal, pp. 1–2](https://cdn.shopify.com/s/files/1/0687/7151/2385/files/Submittal_Sheet_-_AHU_-_36K_230V.pdf?v=1764127657); [Daikin: R-32 split-system heat-pump comparison, May 2026](https://daikincomfort.com/docs/default-source/general/general/pf-hpsplits_r32.pdf)
 
 ## R-32 versus R-454B: what a consumer should compare
@@ -295,7 +341,7 @@ Cooling example: under identical seasonal load and rating assumptions, changing 
 
 Our buying interpretation: compare the price premium with realistic heating and cooling savings, maintenance and service terms. If a more efficient option costs $2,000 extra and plausibly saves $100 annually, a simple energy-only payback would be 20 years. Comfort improvements, financing, maintenance and future rates may change the decision, but should be stated separately.
 
-> Annual cost needs the home’s load, local weather, operating efficiency, applicable rates and backup-heating use. A brand name or single maximum COP cannot supply those inputs.
+> Hanson Home recommendation: ask us to compare the equipment premium with the comfort benefit and a realistic operating-cost scenario using your rates. Spending more can be worthwhile, but the explanation should identify which improvement matters in your house and what assumptions support the savings.
 
 ## Warranty, parts and commissioning: compare what happens after the sale
 
@@ -307,11 +353,13 @@ NEEP’s installation guide addresses siting, snow and water management, refrige
 
 Keep the model/serial list, matched-system certificate, manuals, registration confirmation and commissioning record together. Our interpretation: documented installation and a workable repair path are purchase value. A larger equipment discount may not compensate for an unclear service agreement when heat is needed.
 
+> Hanson Home recommendation: treat the installation scope and after-sale service terms as part of the product you are buying. Ask for the commissioning checks, registration responsibility and labor coverage in writing, whichever brand you select.
+
 Sources: [Mitsubishi Electric Trane HVAC US: brands, ownership and warranty conditions](https://www.mitsubishicomfort.com/metus); [Bosch: IDS Ultra technical overview](https://www.bosch-homecomfort.com/us/en/ocs/residential/ids-ultra-inverter-ducted-split-cold-climate-heat-pump-20831889-p/); [NEEP: installing heat pumps in cold climates](https://neep.org/sites/default/files/resources/InstallingASHPinCold_edits.pdf)
 
-## Build a shortlist around your home’s job
+## Build a shortlist with Hanson Home around your home’s needs
 
-Use the following as a decision framework, not a universal brand ranking. Each candidate still needs a suitable combination, complete scope and local support. The questions apply equally to Hanson’s TCL proposals and competing quotes.
+Hanson Home can help you compare and install equipment across brands. The table below is our framework for deciding which configurations deserve closer investigation. It is not a universal brand ranking: each shortlisted combination still needs appropriate capacity, a complete installation scope and a workable service plan.
 
 **A practical shortlist framework**
 
@@ -338,13 +386,21 @@ Ask every bidder to complete the same fields. A useful proposal makes these answ
 - Price: complete installed total and clearly itemized alternatives; compare the same scope.
 - Decision: document which option meets the loads, comfort priorities, service expectations and budget.
 
-> Our recommendation: select the best documented proposal for your house. TCL’s growing presence, Bosch’s partnerships and Japanese brands’ long histories are useful context; the system design and service agreement turn that context into a buying decision.
+> Bring this scorecard and your quotes to Hanson Home. We can discuss the proposed brands, explain the system choices and help you compare what is included. Our recommendation is the combination of equipment, design and support that fits your home’s requirements and priorities.
 
-## Want the model numbers and a heating plan for your home?
+## What to discuss with Hanson Home before choosing equipment
 
-Tell Hanson Home about your current heating system and the rooms you want to improve. Ask us to explain the proposed TCL combination, winter capacity, controls, installation scope and service terms.
+Start with the comfort problem. Tell us which rooms are too cold or too hot, whether doors usually stay closed, how you use each floor and what you want to retain from the existing heating system. Share any model numbers or quotes you already have. These details make a brand comparison more useful than a list of efficiency scores.
 
-[Request a heat-pump estimate](https://hansonhome.us/start?intent=heat-pump)
+Ask us to explain the choices in plain language: why a ducted or ductless layout fits, how the proposed equipment covers winter demand, what happens during defrost or backup operation, and which controls you will use every day. For summer cooling, include airflow, noise, humidity and indoor-unit placement in the discussion.
+
+Finish by comparing the complete project: equipment, electrical and duct work, piping, drainage, permits, commissioning, warranty and service terms. A useful recommendation should make the tradeoffs visible so you can decide what is worth paying for. Hanson Home can work with your preferred brand and help you evaluate other options that fit the same goals.
+
+## Compare heat pump options with Hanson Home
+
+Already considering TCL, Bosch, Mitsubishi Electric, Daikin or another brand? Bring your preferred model or a competing quote to Hanson Home. Tell us about your current heating system, winter comfort problems and budget. We can help you compare the equipment and installation options, explain the tradeoffs and plan a system for your home.
+
+[Discuss my heat pump options](https://hansonhome.us/start?intent=heat-pump)
 
 ## Research sources
 
