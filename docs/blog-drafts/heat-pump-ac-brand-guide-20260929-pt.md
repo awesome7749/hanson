@@ -215,7 +215,7 @@ Fontes: [LG: history of its residential air-conditioning business](https://www.l
 
 ## A experiência da TCL em climatização é anterior à expansão recente no varejo
 
-A divisão de ar-condicionado TCL surgiu em 1999. Sua coleção atual distingue Advantage, Multi Match e outras famílias. Conhecer a marca por televisores ou AC de varejo não informa a configuração ou capacidade invernal de um sistema profissionalmente instalado.
+A história da TCL na América do Norte situa a criação de sua divisão de ar-condicionado em 1999. Seu catálogo atual inclui as famílias Advantage, Multi Match e outras.
 
 A TCL é a marca principal da Hanson Home, mas instalamos outras marcas. Use as mesmas perguntas de Bosch, Daikin ou Mitsubishi Electric: o conjunto cobre a carga, controles e unidades internas combinam com a casa, e instalação e assistência são claras?
 
@@ -225,16 +225,15 @@ Uma proposta TCL deve indicar todos os modelos, classificação do conjunto, fai
 
 Fontes: [TCL North America: HVAC division history](https://us.tcl.com/pages/hvac-about-us); [TCL North America: HVAC product collection](https://us.tcl.com/pages/hvac-product-collection)
 
-## A entrada da TCL na Home Depot e seus limites
+## Mini-splits TCL na Home Depot
 
-O relatório anual 2025 da TCL Industries informa entrada do negócio de AC em varejistas norte-americanos, incluindo Home Depot. A TCL também mantém suporte Home Depot mini-split com manuais. Esses dados comprovam expansão, mas não a primeira venda de cada categoria nem estoque em todas as lojas.
+O relatório anual de 2025 da TCL Industries informa que o negócio de ar-condicionado entrou em canais de varejo na América do Norte, incluindo a Home Depot. A categoria de mini-splits TCL da Home Depot lista sistemas sem dutos; alguns anúncios informam disponibilidade de instalação profissional.
 
-Maior presença facilita conhecer a marca, mas não é prova independente de confiabilidade duradoura, peças locais ou adequação para aquecer toda a casa. AC de janela, portátil, mini-split de varejo e bomba dutada central podem atender necessidades muito diferentes.
+Essas listagens de varejo dão aos proprietários um exemplo concreto da linha de mini-splits TCL disponível no comércio. O modelo escolhido e o escopo completo da instalação determinam a capacidade no inverno, os ambientes atendidos, os controles e a assistência.
 
-Compare preço de varejo e orçamento profissional só com o mesmo escopo: projeto, unidades internas, elétrica, tubulação, drenagem, licenças, comissionamento e assistência. Pergunte quem atende o sistema quando compra e instalação vêm de canais diferentes.
+Compare o preço do equipamento no varejo com um orçamento profissional somente quando o escopo for equivalente: projeto, unidades internas, elétrica, tubulação de refrigerante, drenagem, licenças, comissionamento e assistência.
 
-Fontes: [TCL Industries: 2025 annual report, pp. 31–32](https://static-obg.tcl.com/content/dam/brandsite/region/china/pdf/report2025en-20260429.pdf); [TCL: Home Depot mini-split support hub](https://us.tcl.com/pages/hvac-home-depot-mini-split)
-
+Fontes: [TCL Industries: 2025 annual report, pp. 31–32](https://static-obg.tcl.com/content/dam/brandsite/region/china/pdf/report2025en-20260429.pdf); [Home Depot: TCL mini-split air conditioners](https://www.homedepot.com/b/Heating-Venting-Cooling-Mini-Split-Air-Conditioners/TCL/N-5yc1vZc4m1Zals)
 ## Como ler a ficha TCL e por que três toneladas não dizem tudo
 
 A ficha Advantage do conjunto interno H36AHH18XAE e externo H36TDH18XAC apresenta os valores abaixo e AHRI 215869484. É um exemplo documental, não indicação universal para casas ou toda a linha TCL. O instalador deve conferir certificado atual e versões fornecidas.
@@ -401,7 +400,7 @@ Peça os mesmos campos a todos. Uma proposta útil deve ser comparável antes da
 
 ## O que conversar com a Hanson Home antes de escolher
 
-Comece pelo problema: cômodos frios ou quentes, portas fechadas, uso de cada andar e o que deseja manter da calefação. Compartilhe modelos e orçamentos. Isso torna a comparação mais útil que uma lista de eficiências.
+Comece pelo problema: cômodos frios ou quentes, portas fechadas, uso de cada andar e o que deseja manter do sistema de aquecimento. Compartilhe modelos e orçamentos. Isso torna a comparação mais útil que uma lista de eficiências.
 
 Peça explicação clara sobre a distribuição, cobertura do inverno, degelo, apoio e controles diários. Para o verão, inclua vazão, ruído, umidade e posição das unidades.
 
@@ -444,7 +443,7 @@ Pesquisa revisada em 29 de setembro de 2026. Consulte a documentação atual do 
 25. [Samsung HVAC: WindFree Max Heat](https://www.samsunghvac.com/residential/windfree-max-heat)
 26. [Lennox: Lennox Powered by Samsung product launch](https://www.investor.lennox.com/news-releases/news-release-details/lennox-debuts-lennox-powered-samsung-mini-split-and-vrf-product)
 27. [TCL Industries: 2025 annual report, pp. 31–32](https://static-obg.tcl.com/content/dam/brandsite/region/china/pdf/report2025en-20260429.pdf)
-28. [TCL: Home Depot mini-split support hub](https://us.tcl.com/pages/hvac-home-depot-mini-split)
+28. [Home Depot: TCL mini-split air conditioners](https://www.homedepot.com/b/Heating-Venting-Cooling-Mini-Split-Air-Conditioners/TCL/N-5yc1vZc4m1Zals)
 29. [TCL North America: HVAC product collection](https://us.tcl.com/pages/hvac-product-collection)
 30. [TCL: Advantage H36AHH18XAE / H36TDH18XAC submittal, pp. 1–2](https://cdn.shopify.com/s/files/1/0687/7151/2385/files/Submittal_Sheet_-_AHU_-_36K_230V.pdf?v=1764127657)
 31. [Midea Comfort: EVOX G3 specifications](https://www.mideacomfort.us/g3.html)

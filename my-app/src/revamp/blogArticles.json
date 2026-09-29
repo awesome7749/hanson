@@ -344,7 +344,7 @@
         "id": "tcl",
         "heading": "TCL: its HVAC history is longer than many US shoppers realize",
         "paragraphs": [
-          "TCL’s North American HVAC history dates its air-conditioner division to 1999. Its current HVAC collection separates Advantage, Multi Match and other families. That matters because knowing TCL from a television or a retail room AC does not tell you the configuration or winter capability of a contractor-installed TCL system.",
+          "TCL’s North American HVAC history dates its air-conditioner division to 1999. Its current HVAC collection separates Advantage, Multi Match and other product families.",
           "TCL is Hanson Home’s main brand, and we can also install other brands. We recommend evaluating a TCL proposal on the same concrete questions as a Bosch, Daikin or Mitsubishi Electric proposal: can the specified combination meet the load, does its control and indoor-unit layout suit the home, and is the installation and service scope clear?",
           "A good TCL proposal should identify every indoor and outdoor model, the matched rating, the operating range, backup-heating plan if needed, electrical scope and included controls. If a quote refers only to “TCL inverter” or an efficiency maximum from another family, ask for the product-specific paperwork before deciding."
         ],
@@ -356,11 +356,11 @@
       },
       {
         "id": "tcl-home-depot",
-        "heading": "Did TCL enter Home Depot? Yes—with a useful qualification",
+        "heading": "TCL mini-splits at Home Depot",
         "paragraphs": [
-          "TCL Industries’ 2025 annual report says the Air Conditioner business entered North American retailers including Home Depot. TCL also maintains a Home Depot mini-split support page with product manuals. Together, these support the retail-expansion claim; they do not establish the first sale date of every product category or availability at every store.",
-          "Our interpretation: broader retail presence can make a brand easier to encounter, but it is not independent proof of long-term reliability, local parts stock or whole-house heating suitability. A window AC, portable unit, retail mini-split and centrally ducted heat pump may serve very different jobs.",
-          "Compare a retail equipment price with a contractor quote only after adding the same scope: appropriate design, all indoor units, electrical work, refrigerant piping, condensate drainage, permits, commissioning and service coverage. Ask who supports the installed system, especially when equipment is bought through one channel and installed through another."
+          "TCL Industries’ 2025 annual report says its Air Conditioner business entered North American retail channels, including Home Depot. Home Depot’s TCL mini-split category lists ductless systems, and some product listings are marked “Expert Installation Available.”",
+          "For homeowners comparing professionally installed systems, the retailer’s mini-split listings offer a concrete example of TCL’s retail range. The selected model and complete installation plan determine winter capacity, room coverage, controls and service.",
+          "Compare any retail equipment price with a contractor’s proposal only after matching the scope: system design, indoor units, electrical work, refrigerant piping, drainage, permits, commissioning and service coverage."
         ],
         "sourceIds": [
           "tcl-report",
@@ -882,9 +882,9 @@
       },
       {
         "id": "tcl-home-depot",
-        "label": "TCL: Home Depot mini-split support hub",
-        "url": "https://us.tcl.com/pages/hvac-home-depot-mini-split",
-        "note": "Current retailer-specific support page with 9K–24K and 36K manuals; does not establish whole-house heating suitability."
+        "label": "Home Depot: TCL mini-split air conditioners",
+        "url": "https://www.homedepot.com/b/Heating-Venting-Cooling-Mini-Split-Air-Conditioners/TCL/N-5yc1vZc4m1Zals",
+        "note": "Home Depot’s TCL mini-split category lists ductless equipment. Individual products and service availability may change."
       },
       {
         "id": "tcl-collection",
