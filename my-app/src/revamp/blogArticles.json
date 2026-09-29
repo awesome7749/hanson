@@ -959,7 +959,10 @@
         "note": "DH9VS and DH7VS family efficiency, compressor, control and DOE Challenge distinctions; values are maxima, not all-size guarantees."
       }
     ],
-    "ctaLabel": "Discuss my heat pump options"
+    "ctaLabel": "Discuss my heat pump options",
+    "locale": "en",
+    "languageLabel": "English",
+    "translationGroup": "heat-pump-ac-brand-guide"
   },
   {
     "slug": "winter-heat-pump-care-ma",

@@ -32,6 +32,10 @@ export type BlogArticleData = {
   ctaText: string;
   ctaPath?: string;
   ctaLabel?: string;
+  locale?: string;
+  languageLabel?: string;
+  translationGroup?: string;
+  ui?: Record<string, string>;
 };
 
 export function articleSectionId(section: ArticleSection, index: number) {

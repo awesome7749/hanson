@@ -1,5 +1,5 @@
 import React from "react";
-import { render, screen } from "@testing-library/react";
+import { fireEvent, render, screen } from "@testing-library/react";
 import App from "../App";
 import seoPages from "./seoPages.json";
 import { towns } from "./towns";
@@ -9,9 +9,7 @@ const { renderPublicPage } = require("../../scripts/seo-pages.cjs");
 const { renderCalculatorPage } = require("../../scripts/calculator-page.cjs");
 // eslint-disable-next-line @typescript-eslint/no-var-requires
 const { renderBlogArticle } = require("../../scripts/blog-articles.cjs");
-import articleData from "./blogArticles.json";
-import { BlogArticleData } from "./blogArticleTypes";
-const articles: BlogArticleData[] = articleData;
+import { articles, articleLanguages, articleUi } from "./blogArticleData";
 // eslint-disable-next-line @typescript-eslint/no-var-requires
 const { renderTownPage } = require("../../scripts/town-pages.cjs");
 
@@ -94,9 +92,52 @@ test.each(articles)("$slug has matching public content, citations and route meta
   expect(screen.getByRole("heading", { level: 1, name: article.title })).toBeInTheDocument();
   expect(window.document.title).toBe(`${article.title} | Hanson Home`);
   if (article.showContents) {
-    expect(screen.getByRole("navigation", { name: "Article contents" })).toBeInTheDocument();
+    expect(screen.getByRole("navigation", { name: articleUi(article).contents })).toBeInTheDocument();
     expect(screen.getAllByRole("table")).toHaveLength(article.sections.filter((section) => section.table).length);
   }
+  view.unmount();
+});
+
+test("language editions retain the complete structure, citations and technical table figures", () => {
+  const original = articles.find((article) => article.locale === "en")!;
+  const editions = articleLanguages(original);
+  expect(editions.map((article) => article.locale)).toEqual(["en", "es", "zh-Hans", "pt-BR"]);
+  for (const edition of editions) {
+    expect(edition.sources.map((source) => [source.id, source.url])).toEqual(original.sources.map((source) => [source.id, source.url]));
+    expect(edition.sections.map((section) => section.id)).toEqual(original.sections.map((section) => section.id));
+    edition.sections.forEach((section, index) => {
+      const source = original.sections[index];
+      expect(section.paragraphs).toHaveLength(source.paragraphs.length);
+      expect(section.bullets?.length).toBe(source.bullets?.length);
+      expect(section.sourceIds).toEqual(source.sourceIds);
+      if (section.table && source.table) {
+        expect(section.table.rows).toHaveLength(source.table.rows.length);
+        section.table.rows.forEach((row, rowIndex) => {
+          expect(row.sourceIds).toEqual(source.table!.rows[rowIndex].sourceIds);
+          const figures = (text: string) => (text.match(/[-−]?\d+(?:[,.]\d+)*(?:%|°F)?/g) || []).sort();
+          // Named products may be translated, but every published numeric table value stays unchanged.
+          expect(figures(row.cells[1])).toEqual(figures(source.table!.rows[rowIndex].cells[1]));
+        });
+      }
+    });
+    const html = renderBlogArticle(template, edition);
+    expect(html).toContain(`lang="${edition.locale}"`);
+    const doc = new DOMParser().parseFromString(html, "text/html");
+    expect(doc.querySelectorAll('link[hreflang]')).toHaveLength(5);
+    expect(JSON.parse(doc.querySelector("#blog-structured-data")!.textContent!)).toMatchObject({ inLanguage: edition.locale });
+  }
+});
+
+test("the language button switches the complete article and document language", () => {
+  window.history.replaceState({}, "", "/blog/heat-pump-ac-brand-guide");
+  const view = render(<App />);
+  fireEvent.click(screen.getByRole("button", { name: "Article language" }));
+  fireEvent.click(screen.getByRole("link", { name: "简体中文" }));
+  const chinese = articles.find((article) => article.locale === "zh-Hans")!;
+  expect(screen.getByRole("heading", { level: 1, name: chinese.title })).toBeInTheDocument();
+  expect(document.documentElement.lang).toBe("zh-Hans");
+  expect(window.location.pathname).toBe(`/blog/${chinese.slug}`);
+  expect(screen.getByRole("button", { name: "文章语言" })).toHaveAttribute("aria-expanded", "false");
   view.unmount();
 });
 
