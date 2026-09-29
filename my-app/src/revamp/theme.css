@@ -3909,3 +3909,31 @@ footer {
     grid-row: 2;
   }
 }
+
+/* Longer research guides: navigation, accessible comparisons and cited takeaways. */
+.blog-article-disclosure { max-width: 820px; padding: 22px 24px; margin: 28px 0; border-left: 3px solid var(--taupe); background: var(--soft); line-height: 1.7; font-size: 15px; }
+.blog-article-contents { max-width: 820px; margin-top: 32px; padding: 28px; border: 1px solid var(--stone); border-radius: 14px; }
+.blog-article-contents h2 { font-size: 25px; margin-bottom: 18px; }
+.blog-article-contents ol { columns: 2; column-gap: 34px; padding-left: 22px; margin: 0; }
+.blog-article-contents li { break-inside: avoid; padding-left: 4px; margin-bottom: 12px; font-size: 14px; line-height: 1.6; }
+.blog-article-contents a:hover { text-decoration: underline; }
+.blog-article-body section, .blog-article-sources li { scroll-margin-top: 100px; }
+.blog-article-checklist { padding-left: 24px; }
+.blog-article-checklist li { font-size: 17px; line-height: 1.8; margin-bottom: 12px; }
+.blog-table-scroll { max-width: 100%; overflow-x: auto; margin: 28px 0; border: 1px solid var(--stone); border-radius: 10px; }
+.blog-table-scroll:focus-visible { outline: 2px solid var(--taupe); outline-offset: 3px; }
+.blog-comparison-table { width: 100%; min-width: 640px; border-collapse: collapse; font-size: 14px; line-height: 1.65; }
+.blog-comparison-table caption { text-align: left; font-weight: 600; padding: 18px; background: var(--soft); }
+.blog-comparison-table th, .blog-comparison-table td { text-align: left; vertical-align: top; padding: 16px; border-bottom: 1px solid var(--stone); overflow-wrap: anywhere; }
+.blog-comparison-table thead { background: var(--putty); }
+.blog-comparison-table tbody th { width: 26%; font-weight: 600; }
+.blog-comparison-table tbody tr:last-child > * { border-bottom: 0; }
+.blog-comparison-table a { text-decoration: underline; white-space: nowrap; }
+.blog-article-takeaway { padding: 20px 24px; margin: 26px 0; background: var(--soft); border-left: 3px solid var(--taupe); }
+.blog-article-body .blog-article-takeaway p { margin: 0; font-size: 16px; }
+.blog-article-sources li p { margin-top: 5px; color: var(--taupe); font-size: 13px; line-height: 1.6; }
+@media (max-width: 640px) {
+  .blog-article-contents { padding: 22px; }
+  .blog-article-contents ol { columns: 1; }
+  .blog-article-disclosure { padding: 18px; }
+}
