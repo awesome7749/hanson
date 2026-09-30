@@ -11,7 +11,7 @@ React Router 7 uses package exports that the existing CRA/Jest 27 resolver does 
 ## Explore the private preview
 
 - `/`: New Massachusetts-focused homepage using the supplied Hanson mascot.
-- `/heat-pumps`: Heating and cooling explainer, cold-climate design, cost factors and FAQs.
+- `/blog/heat-pumps-massachusetts-winter-guide`: Detailed heat-pump blog covering Massachusetts winter heating, technology, design, costs and interactive heat-flow diagrams. `/heat-pumps`, `/heatpump` and `/products` redirect here.
 - `/assessment`: Mass Save Home Energy Assessment overview, eligibility context and visit preparation.
 - `/how-it-works`: Six installation stages, homeowner preparation and handover expectations.
 - `/warranty`: Equipment versus labor coverage, registration questions and system care.

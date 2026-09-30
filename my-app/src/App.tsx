@@ -28,6 +28,10 @@ import SeoHead from "./revamp/SeoHead";
 import { towns } from "./revamp/towns";
 import "./revamp/theme.css";
 const Admin = lazy(() => import("./pages/Admin"));
+function HeatPumpGuideRedirect() {
+  const { search, hash } = useLocation();
+  return <Navigate to={`/blog/heat-pumps-massachusetts-winter-guide${search}${hash}`} replace />;
+}
 // The Meta Pixel base code fires PageView on the initial load only; a SPA
 // route change must re-fire it manually. Also captures ad UTM parameters
 // from the landing URL so /start can attach them to the lead.
@@ -62,7 +66,8 @@ export default function App() {
             <Route path="/blog" element={<Blog />} />
             <Route path="/blog/:slug" element={<BlogArticle />} />
             <Route path="/heat-pump-cost-calculator" element={<HeatPumpCostCalculator />} />
-            {["/heat-pumps", "/assessment", "/how-it-works", "/warranty"].map(
+            {["/heat-pumps", "/heatpump", "/products"].map((path) => <Route key={path} path={path} element={<HeatPumpGuideRedirect />} />)}
+            {["/assessment", "/how-it-works", "/warranty"].map(
               (path) => (
                 <Route key={path} path={path} element={<Education />} />
               ),
@@ -77,10 +82,6 @@ export default function App() {
             <Route path="/project/:id" element={LIVE ? <Receipt /> : <Project />} />
             <Route path="/staff" element={LIVE ? <Info /> : <Staff />} />
             {!LIVE && <Route path="/admin" element={<Navigate to="/staff" replace />} />}
-            <Route
-              path="/products"
-              element={<Navigate to="/heat-pumps" replace />}
-            />
             {towns.map((t) => (
               <Route key={t.slug} path={"/" + t.slug} element={<Town slug={t.slug} />} />
             ))}

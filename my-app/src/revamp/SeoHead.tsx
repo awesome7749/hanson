@@ -61,7 +61,7 @@ export default function SeoHead() {
         document.head.appendChild(fallback);
       }
     }
-    const page = pages[route] || (article ? { title: `${article.title} | Hanson Home`, description: article.description } : town ? townMeta(town) : null);
+    const page = pages[route] || (article ? { title: article.seoTitle || `${article.title} | Hanson Home`, description: article.description } : town ? townMeta(town) : null);
     const meta = page || {
       title: "Hanson Home",
       description: "Hanson Home helps Massachusetts homeowners plan heat pump installations and home energy assessments.",
@@ -73,8 +73,16 @@ export default function SeoHead() {
     setProperty("og:description", meta.description);
     setProperty("og:url", `https://hansonhome.us${route === "/" ? "/" : route}`);
     setProperty("og:type", article ? "article" : "website");
+    const shareImage = `https://hansonhome.us${article?.image?.src || "/logo512.png"}`;
+    setProperty("og:image", shareImage);
+    setMeta("twitter:card", "summary_large_image");
+    setMeta("twitter:title", meta.title);
+    setMeta("twitter:description", meta.description);
+    setMeta("twitter:image", shareImage);
     setProperty("og:locale", ({ es: "es_US", "zh-Hans": "zh_CN", "pt-BR": "pt_BR" } as Record<string, string>)[article?.locale || "en"] || "en_US");
     document.head.querySelector("#blog-structured-data")?.remove();
+    document.head.querySelector("#blog-breadcrumb-data")?.remove();
+    document.head.querySelector("#blog-faq-data")?.remove();
     if (article) {
       const structured = document.createElement("script");
       structured.id = "blog-structured-data";
@@ -87,9 +95,33 @@ export default function SeoHead() {
         author: { "@type": "Organization", name: "Hanson Home", url: "https://hansonhome.us/" },
         publisher: { "@type": "Organization", name: "Hanson Home", url: "https://hansonhome.us/" },
         ...(article.reviewedIso ? { dateModified: article.reviewedIso } : {}),
+        ...(article.publishedIso ? { datePublished: article.publishedIso } : {}),
         ...(article.image ? { image: `https://hansonhome.us${article.image.src}` } : {}),
       });
       document.head.appendChild(structured);
+      const breadcrumb = document.createElement("script");
+      breadcrumb.id = "blog-breadcrumb-data";
+      breadcrumb.type = "application/ld+json";
+      breadcrumb.textContent = JSON.stringify({
+        "@context": "https://schema.org", "@type": "BreadcrumbList",
+        itemListElement: [
+          { "@type": "ListItem", position: 1, name: "Hanson Home", item: "https://hansonhome.us/" },
+          { "@type": "ListItem", position: 2, name: "Blog", item: "https://hansonhome.us/blog" },
+          { "@type": "ListItem", position: 3, name: article.title, item: `https://hansonhome.us${route}` },
+        ],
+      });
+      document.head.appendChild(breadcrumb);
+      const faqs = article.sections.flatMap((section) => section.faqs || []);
+      if (faqs.length) {
+        const faq = document.createElement("script");
+        faq.id = "blog-faq-data";
+        faq.type = "application/ld+json";
+        faq.textContent = JSON.stringify({
+          "@context": "https://schema.org", "@type": "FAQPage",
+          mainEntity: faqs.map((item) => ({ "@type": "Question", name: item.question, acceptedAnswer: { "@type": "Answer", text: item.answer } })),
+        });
+        document.head.appendChild(faq);
+      }
     }
 
     const existing = document.head.querySelector<HTMLLinkElement>('link[rel="canonical"]');

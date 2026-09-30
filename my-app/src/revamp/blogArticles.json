@@ -1,5 +1,900 @@
 [
   {
+    "slug": "heat-pumps-massachusetts-winter-guide",
+    "title": "Heat Pumps in Massachusetts: How They Work, Winter Performance & New Technology",
+    "seoTitle": "Heat Pumps in Massachusetts: Winter Guide | Hanson Home",
+    "description": "Can heat pumps heat a Massachusetts home all winter? Explore cold-climate performance, new technology, sizing, costs and an interactive heat-flow diagram.",
+    "summary": "Can a heat pump be your only winter heat in Massachusetts? A detailed guide to cold-climate technology, room-by-room design, costs and how heat moves.",
+    "category": "MASSACHUSETTS HEAT-PUMP GUIDE",
+    "reviewed": "September 29, 2026",
+    "reviewedIso": "2026-09-29",
+    "publishedIso": "2026-09-29",
+    "showContents": true,
+    "locale": "en",
+    "intro": "A modern heat pump can do much more than add summer air conditioning. This Hanson Home guide explains how heat moves, what today’s cold-climate equipment can deliver in a Massachusetts winter, and how to turn promising technology into a comfortable, well-designed home.",
+    "openingSummary": {
+      "id": "guide-summary",
+      "heading": "The winter answer, in one minute",
+      "paragraphs": [
+        "Yes: properly selected and designed cold-climate heat pumps can provide a Massachusetts home’s full winter heating. The home’s heat loss, the exact system’s output and the way heat reaches each room determine whether that is the right plan for you."
+      ],
+      "bullets": [
+        "Heat pumps transfer heat; they do not normally bring outdoor air into your rooms.",
+        "Cold-climate equipment is tested below freezing. At 5°F, capacity and efficiency still need separate review.",
+        "A lowest-operating-temperature claim is not a whole-home heating guarantee.",
+        "Inverter compressors, vapor injection and better controls support useful winter performance.",
+        "Backup heat is a project-specific choice; operating costs depend on your rates and actual system performance.",
+        "Hanson Home helps you compare the home, equipment and installation scope together."
+      ],
+      "sourceIds": [
+        "masscec-pilot",
+        "energy-star-cold"
+      ]
+    },
+    "disclosure": "Written by Hanson Home. TCL is our main brand, and we can install heat pumps across brands. Manufacturer examples are identified; hypothetical diagrams and calculations are labeled. Customer installation photos show equipment and placement, not measured winter performance. This guide does not promise a specific temperature, bill or rebate for every home.",
+    "image": {
+      "src": "/images/installations/outdoor-condenser-home.webp",
+      "alt": "Outdoor heat-pump condenser installed beside a home from Hanson Home’s customer gallery.",
+      "caption": "A real Hanson Home customer installation. Winter performance depends on the selected equipment and design; the photo is not a winter test."
+    },
+    "sections": [
+      {
+        "id": "winter-answer",
+        "heading": "Can a heat pump be your only heat source in Massachusetts?",
+        "paragraphs": [
+          "Yes. A cold-climate air-source heat pump can be designed to provide a Massachusetts home’s full winter heating. “Heat pumps cannot work here without an oil or gas system” is too broad. MassCEC’s whole-home pilot specifically demonstrated homes heated and cooled by air-source heat pumps alone. The pilot is now closed, but its documented applications answer the basic question: whole-home heat-pump heating is a demonstrated approach.",
+          "The equally important qualification is that a heat pump is part of a designed system. A model’s ability to operate at −13°F does not tell you how much heat it produces there, whether that output reaches every bedroom, or whether the electricity use meets your budget. A cooling-focused installation can be excellent at air conditioning and still be an incomplete winter replacement.",
+          "For your home, ask a more useful question: what heating load must be met at the local winter design temperature, and what can the exact proposed equipment deliver at that temperature? Hanson Home can help you review a proposal around that question, including room coverage, the existing heating system and a clearly stated plan for unusually cold weather."
+        ],
+        "sourceIds": [
+          "masscec-pilot",
+          "masscec-faq"
+        ],
+        "takeaway": "A full-winter heat-pump project is possible. Make the cold-weather capacity and room-by-room delivery plan part of the proposal."
+      },
+      {
+        "id": "how-heat-pumps-work",
+        "heading": "How a heat pump works: watch heat move",
+        "paragraphs": [
+          "A heat pump moves thermal energy between two places. In heating mode, the outdoor coil absorbs energy from outside air, and the indoor coil releases energy into your rooms. Electricity runs the compressor and fans. In cooling mode, the two coils swap roles: heat leaves your house and is released outdoors. That is why the same equipment can replace both heating equipment and air conditioning in a suitable project.",
+          "It does not normally bring outdoor air into your living room. The outdoor fan moves outdoor air across one coil; the indoor fan recirculates indoor air across the other. Refrigerant circulates in sealed piping between them. Fresh-air ventilation is a separate question for your home, even when the heating and cooling are excellent.",
+          "Try the interactive diagram. Heating shows energy moving inside; cooling shows it moving outside. Defrost shows the brief winter reversal that clears frost from the outdoor coil. The arrows describe a simplified cycle, not literal installation piping. The compressor still compresses refrigerant in every mode; the reversing valve changes the coils’ jobs."
+        ],
+        "sourceIds": [
+          "masscec-primer",
+          "nrcan-cycle"
+        ],
+        "figures": [
+          {
+            "src": "/images/blog/heat-pump-guide/heat-cycle.svg",
+            "mobileSrc": "/images/blog/heat-pump-guide/heat-cycle-mobile.svg",
+            "alt": "Separate outdoor and indoor air loops linked by a sealed refrigerant circuit.",
+            "caption": "Air stays on its own side; refrigerant transfers heat. Switch modes in the interactive version.",
+            "credit": "Hanson Home original educational illustration",
+            "sourceUrl": "/images/blog/heat-pump-guide/heat-cycle.svg",
+            "width": 760,
+            "height": 560,
+            "kind": "diagram",
+            "interactive": "heat-flow"
+          }
+        ]
+      },
+      {
+        "id": "refrigeration-cycle",
+        "heading": "The four steps inside the refrigeration cycle",
+        "paragraphs": [
+          "In winter, low-pressure refrigerant reaches the outdoor coil colder than the outdoor air. Energy can therefore flow from the air into the refrigerant, even when the air feels bitterly cold to us. The refrigerant evaporates as it absorbs that energy. “Cold” describes a temperature; it does not mean that the air contains no usable thermal energy.",
+          "The compressor takes in refrigerant vapor and raises its pressure and temperature. The hotter refrigerant then travels to the indoor coil, transfers heat to room air and condenses. An expansion device lowers the liquid refrigerant’s pressure before it returns toward the outdoor coil. Real equipment also uses sensors, controls and other components to keep this process stable.",
+          "Think of the electricity as the work that makes heat move from a colder place to a warmer place. The system has not created three units of energy from one. It can deliver heat drawn from outdoors plus the energy used to operate it. That is the physical reason heat pumps can deliver more heat per unit of electricity than electric resistance heating."
+        ],
+        "sourceIds": [
+          "nrcan-cycle"
+        ],
+        "bullets": [
+          "Outdoor coil: absorbs heat in heating mode.",
+          "Compressor: raises refrigerant pressure and temperature.",
+          "Indoor coil: releases heat into the home.",
+          "Expansion device: lowers pressure before the next absorption step."
+        ]
+      },
+      {
+        "id": "efficiency-explained",
+        "heading": "COP, capacity, SEER2 and HSPF2: four different questions",
+        "paragraphs": [
+          "Capacity is heat output per unit of time, commonly listed in BTU/h. It answers “How much heating can this system deliver?” COP, or coefficient of performance, compares heat delivered with electrical energy consumed at a stated condition. It answers “How much electricity does that heating take?” A system can retain strong capacity in the cold while its COP declines.",
+          "For an illustrative COP of 3, one kilowatt-hour of electricity produces three kilowatt-hours of delivered heat: approximately two drawn from outdoors and one from electrical input. At COP 2, the same delivered heat needs more electricity. Resistance heat is roughly COP 1 at the point of use. This illustration is an energy balance, not a prediction for any particular product or month.",
+          "SEER2 is a seasonal cooling metric. HSPF2 is a seasonal heating metric under standardized test conditions. Use them to compare like-for-like ratings, then check winter capacity and COP separately. A high cooling efficiency number cannot tell you whether the unit covers a Massachusetts home’s heating load on its coldest design day."
+        ],
+        "sourceIds": [
+          "energy-star-buying"
+        ],
+        "figures": [
+          {
+            "src": "/images/blog/heat-pump-guide/energy-balance.svg",
+            "mobileSrc": "/images/blog/heat-pump-guide/energy-balance-mobile.svg",
+            "alt": "At illustrative COP 3, one unit of electricity plus two units of outdoor heat equals three units of delivered heat.",
+            "caption": "An example energy balance at COP 3. Real COP changes with weather, operating conditions and the installed system.",
+            "credit": "Hanson Home original educational illustration",
+            "sourceUrl": "/images/blog/heat-pump-guide/energy-balance.svg",
+            "width": 760,
+            "height": 560,
+            "kind": "diagram"
+          }
+        ],
+        "table": {
+          "caption": "Read each number for the question it actually answers",
+          "columns": [
+            "Number",
+            "What it tells you",
+            "What it does not prove"
+          ],
+          "rows": [
+            {
+              "cells": [
+                "BTU/h at your design temperature",
+                "Available winter heating output",
+                "That all rooms receive enough of it"
+              ]
+            },
+            {
+              "cells": [
+                "COP at a stated condition",
+                "Heating efficiency at that condition",
+                "Your annual heating bill"
+              ]
+            },
+            {
+              "cells": [
+                "HSPF2",
+                "Standardized seasonal heating efficiency",
+                "Full output at every outdoor temperature"
+              ]
+            },
+            {
+              "cells": [
+                "SEER2",
+                "Standardized seasonal cooling efficiency",
+                "Suitability as your sole winter heating system"
+              ]
+            }
+          ]
+        }
+      },
+      {
+        "id": "cold-climate-proof",
+        "heading": "What “cold climate” means—and what the evidence shows",
+        "paragraphs": [
+          "ENERGY STAR’s residential cold-climate criteria include a COP of at least 1.75 at 5°F and at least 70% of the heating capacity measured at 47°F, using specified test procedures. Those thresholds are useful evidence of low-temperature performance. They are not a requirement that every product retain 100% output, and they do not certify that the product is sized for your house.",
+          "Field research adds a necessary reality check. PNNL’s January 2025 report covered 22 prototype systems from the DOE cold-climate challenge. In the 0–5°F outdoor-temperature bin, median observed COP was 1.9, excluding auxiliary-heating and defrost periods. Many monitored sites experienced milder winters, and only eight had at least ten heating hours below 0°F. Those limits belong beside the result.",
+          "The takeaway is encouraging and specific: useful low-temperature heating has been demonstrated outside a laboratory. The report does not establish a seasonal efficiency of 1.9 for every home, a guarantee at every subzero temperature, or a reliability ranking among retail brands. Your project still needs its own equipment data and installation plan."
+        ],
+        "sourceIds": [
+          "energy-star-cold",
+          "pnnl-field"
+        ],
+        "table": {
+          "caption": "Different kinds of evidence answer different questions",
+          "columns": [
+            "Evidence",
+            "What it supports",
+            "What still needs checking"
+          ],
+          "rows": [
+            {
+              "cells": [
+                "ENERGY STAR cold-climate designation",
+                "Specified low-temperature qualification thresholds",
+                "Your matched model, home load and installation"
+              ],
+              "sourceIds": [
+                "energy-star-cold"
+              ]
+            },
+            {
+              "cells": [
+                "PNNL prototype field study",
+                "Measured heating in monitored cold-weather conditions",
+                "Defrost, backup use and full-season bills in your home"
+              ],
+              "sourceIds": [
+                "pnnl-field"
+              ]
+            },
+            {
+              "cells": [
+                "MassCEC whole-home pilot",
+                "Documented Massachusetts whole-home applications",
+                "Suitability of your house and proposed design"
+              ],
+              "sourceIds": [
+                "masscec-pilot"
+              ]
+            }
+          ]
+        }
+      },
+      {
+        "id": "winter-temperatures",
+        "heading": "What changes at 32°F, 17°F, 5°F and below zero?",
+        "paragraphs": [
+          "There is no universal “heat pumps stop working at freezing” rule. Around freezing, moisture and outdoor-coil temperature can create frost, so defrost behavior matters. At lower temperatures, the house generally loses heat faster and the heat pump has a harder transfer job. Cold-climate equipment is engineered to keep delivering useful output under those conditions.",
+          "You will often see 47°F, 17°F and 5°F in performance tables because they are familiar rating or reporting points. They are not switch settings for every house. A local heating design temperature is selected for the project’s location and calculation method; it is not Massachusetts’ all-time record low. A coastal house and an inland house should not automatically receive the same assumptions.",
+          "For subzero operation, find the manufacturer’s documented heating range and available output. “Runs down to −13°F” is an operating claim. “Delivers 30,000 BTU/h at −5°F with this indoor/outdoor combination” is a capacity claim. Ask how the design handles weather colder than its design point and whether published capacity accounts for the conditions being discussed."
+        ],
+        "sourceIds": [
+          "neep-tools",
+          "doe-challenge"
+        ],
+        "figures": [
+          {
+            "src": "/images/blog/heat-pump-guide/winter-checkpoints.svg",
+            "mobileSrc": "/images/blog/heat-pump-guide/winter-checkpoints-mobile.svg",
+            "alt": "Winter checkpoints distinguish freezing and defrost from 17°F and 5°F reporting points and model-specific subzero limits.",
+            "caption": "These are questions to ask at different temperatures, not a performance curve or a statewide design temperature.",
+            "credit": "Hanson Home original educational illustration",
+            "sourceUrl": "/images/blog/heat-pump-guide/winter-checkpoints.svg",
+            "width": 760,
+            "height": 560,
+            "kind": "diagram"
+          }
+        ],
+        "takeaway": "Ask for BTU/h at the temperature your project is designed around. A lowest-operating-temperature headline is only one piece of that answer."
+      },
+      {
+        "id": "your-home",
+        "heading": "Winter sizing: compare the home’s heat loss with the heat pump’s output",
+        "paragraphs": [
+          "A room-by-room load calculation accounts for the building you actually have: walls, windows, insulation, infiltration, floor area, ceilings and other inputs. Two 2,000-square-foot houses can have very different heating needs. An old boiler’s nameplate is also not a measurement of current heat loss; it may have been oversized from the beginning.",
+          "Here is a deliberately simplified example. Suppose a home’s calculated load is 30,000 BTU/h at its selected design point of 5°F. A proposed matched system delivering 34,000 BTU/h at that point clears this basic capacity comparison. A second system delivering 24,000 BTU/h leaves a 6,000 BTU/h gap. The second product may still operate normally; it simply does not meet this example’s full load alone.",
+          "That comparison starts the conversation, rather than finishes it. Room delivery, defrost effects, airflow, manufacturer selection rules and the cooling load also need review. So does the lowest output the equipment can sustain in mild weather. Oversizing a system for a rare extreme can create cycling and summer humidity problems if the design ignores its operating range."
+        ],
+        "sourceIds": [
+          "acca-load",
+          "acca-variable"
+        ],
+        "figures": [
+          {
+            "src": "/images/blog/heat-pump-guide/capacity-load.svg",
+            "mobileSrc": "/images/blog/heat-pump-guide/capacity-load-mobile.svg",
+            "alt": "Illustrative home load rises as outdoor temperature falls; two example heat pumps have different capacities at 5°F.",
+            "caption": "Illustrative values only: a 30,000 BTU/h load at 5°F, compared with 34,000 and 24,000 BTU/h systems. Neither curve represents a brand or measured home.",
+            "credit": "Hanson Home original educational illustration",
+            "sourceUrl": "/images/blog/heat-pump-guide/capacity-load.svg",
+            "width": 760,
+            "height": 560,
+            "kind": "diagram"
+          }
+        ],
+        "takeaway": "For a winter replacement, ask to see the load and the equipment output on the same page, at the same outdoor temperature."
+      },
+      {
+        "id": "backup-heat",
+        "heading": "Do you need backup heat, or can you retire the boiler?",
+        "paragraphs": [
+          "Some homes can use heat pumps alone. Others benefit from electric auxiliary heat, a retained boiler or furnace, or a staged transition. These are design choices, not evidence that all heat pumps fail in winter. A house with a high heat loss, limited electrical capacity, difficult room coverage or recently installed combustion equipment may lead to a different practical plan than a well-weatherized home with a failing boiler.",
+          "Keep three questions separate. A thermal balance point is where the equipment’s heating output and the building’s load meet. An economic crossover is where the cost of delivered heat favors another source under the assumed fuel prices and efficiency. An emergency plan addresses outages or equipment failure. Those points are not automatically the same temperature.",
+          "If backup is included, the proposal should say what it is, what triggers it, whether it supplements or replaces heat-pump operation, and what electrical work and controls are required. “Emergency heat” on a thermostat can refer to resistance heat, with substantially different electricity use. Keeping an existing system can also affect rebate eligibility, so confirm the current program conditions before assuming it fits a whole-home incentive.",
+          "Do not confuse backup heating with backup power. An air-source heat pump needs electricity, and most modern oil or gas systems also need power for controls, burners or circulation. Generator compatibility and startup requirements need their own equipment review. Solar panels alone do not establish an outage heating plan."
+        ],
+        "sourceIds": [
+          "neep-sizing",
+          "energy-star-buying"
+        ],
+        "table": {
+          "caption": "Three heating approaches to discuss for your home",
+          "columns": [
+            "Approach",
+            "Why consider it",
+            "Question to resolve"
+          ],
+          "rows": [
+            {
+              "cells": [
+                "Heat pump as full heating source",
+                "One heating/cooling system; potential to retire combustion equipment",
+                "Does the actual design cover the whole home and the cold-weather load?"
+              ]
+            },
+            {
+              "cells": [
+                "Heat pump plus electric auxiliary heat",
+                "Additional heat for specified operating conditions",
+                "How much auxiliary use is expected, and can the electrical system support it?"
+              ]
+            },
+            {
+              "cells": [
+                "Heat pump with retained boiler/furnace",
+                "A staged conversion, existing asset or defined backup strategy",
+                "When does each system run, and what are the cost and eligibility effects?"
+              ]
+            }
+          ]
+        }
+      },
+      {
+        "id": "new-technology",
+        "heading": "What changed: inverter compressors and a wider operating range",
+        "paragraphs": [
+          "Traditional single-speed equipment mostly cycles between off and full output. An inverter drive lets a compatible compressor vary its speed within an operating range. Instead of repeatedly overshooting a mild-weather load, a well-selected variable-capacity system can spend more time matching it. At colder conditions, it can increase output within its limits.",
+          "That is why a heat pump running for a long time is not automatically struggling. Steady operation can be the intended behavior. However, “variable speed” is not a promise of unlimited output or perfect efficiency. The minimum heating output, maximum cold-weather output, control strategy and indoor equipment combination all matter.",
+          "For a proposal, ask for both ends of the range. The maximum helps answer the winter design question. The minimum helps answer how the system behaves on a mild October day or with only one small zone calling. It is possible to buy an inverter system that is still poorly matched to the home."
+        ],
+        "sourceIds": [
+          "acca-variable",
+          "bosch-evi"
+        ],
+        "figures": [
+          {
+            "src": "/images/blog/heat-pump-guide/compressor-modulation.svg",
+            "mobileSrc": "/images/blog/heat-pump-guide/compressor-modulation-mobile.svg",
+            "alt": "A conceptual diagram contrasts repeated full-output cycles with variable output following the home load.",
+            "caption": "Conceptual operating patterns. This illustration does not assign a savings percentage to inverter equipment.",
+            "credit": "Hanson Home original educational illustration",
+            "sourceUrl": "/images/blog/heat-pump-guide/compressor-modulation.svg",
+            "width": 760,
+            "height": 560,
+            "kind": "diagram"
+          }
+        ]
+      },
+      {
+        "id": "vapor-injection",
+        "heading": "Vapor injection, better coils and smarter controls",
+        "paragraphs": [
+          "Some cold-climate systems use enhanced vapor injection. In simple terms, an additional refrigerant stream enters an intermediate part of the compression process. Along with the rest of the system design, that can support low-temperature output and operating conditions. Bosch describes an EVI compressor in its IDS Ultra; other manufacturers use their own product-specific approaches.",
+          "Improved heat exchangers, refrigerant metering, fan control and defrost logic also help equipment operate over a wider range of weather. These improvements work together. A label such as “hyper heat,” “inverter” or “vapor injection” should lead you to performance documentation, not replace it.",
+          "For a concrete example of newer capability, Mitsubishi Electric describes its Deluxe Wall-mounted H2i plus MSZ/MUZ-FS family as maintaining 100% heating capacity at −5°F. That claim belongs to the named family and rating basis. It is not a claim about every Mitsubishi model, every multi-zone combination, or every installed home. This is the same model-specific discipline used in Hanson Home’s brand guide."
+        ],
+        "sourceIds": [
+          "bosch-evi",
+          "mitsubishi-h2i"
+        ],
+        "links": [
+          {
+            "path": "/blog/heat-pump-ac-brand-guide",
+            "label": "Compare the technologies and histories behind heat-pump brands"
+          }
+        ]
+      },
+      {
+        "id": "read-a-submittal",
+        "heading": "A real TCL example: read the winter output before the tonnage",
+        "paragraphs": [
+          "Here is the same kind of documentation Hanson Home uses in its brand guide. TCL’s Advantage H36AHH18XAE indoor / H36TDH18XAC outdoor submittal lists AHRI reference 215869484. At the stated 5°F heating test condition, it reports 26,000 BTU/h capacity and COP 1.9. Those figures belong to this specific published match, rather than the TCL brand as a whole.",
+          "Now compare two hypothetical homes designed around that same 5°F point. A 22,000 BTU/h home load is below the listed 26,000 BTU/h output. A 30,000 BTU/h home load is above it by 4,000 BTU/h. The product name has not changed; the building requirement has. That is why the home and the equipment documentation have to be considered together.",
+          "These arithmetic comparisons are a screening example. They do not establish installed capacity, the amount of backup needed or suitability for a particular house. Room coverage, airflow, defrost, selection rules and colder-than-design conditions still need review. Before approval, verify the current submittal, directory record and full proposed configuration."
+        ],
+        "sourceIds": [
+          "tcl-submittal"
+        ],
+        "figures": [
+          {
+            "src": "/images/blog/brand-guide/tcl-advantage.webp",
+            "width": 720,
+            "height": 480,
+            "credit": "TCL North America",
+            "sourceUrl": "https://us.tcl.com/pages/hvac-product-collection",
+            "kind": "product",
+            "alt": "TCL Advantage product-family image. Match the proposed equipment to its own submittal and AHRI record.",
+            "caption": "TCL Advantage product-family image. Match the proposed equipment to its own submittal and AHRI record."
+          }
+        ],
+        "takeaway": "TCL is Hanson Home’s main brand. We apply the same load-versus-output review to TCL and to any other brand you bring us.",
+        "links": [
+          {
+            "path": "/blog/heat-pump-ac-brand-guide",
+            "label": "See the TCL submittal in the comprehensive brand guide"
+          }
+        ]
+      },
+      {
+        "id": "refrigerants-and-next-generation",
+        "heading": "R-32, R-454B and what comes next",
+        "paragraphs": [
+          "Many newer systems use refrigerants such as R-32 or R-454B as part of the shift toward lower global-warming-potential refrigerants. EPA lists these refrigerants with applicable use conditions; both are in the A2L safety class. The equipment and installation must be designed for the chosen refrigerant. They are not substitutes to pour into an older R-410A system.",
+          "A lower-GWP refrigerant addresses refrigerant-related climate impact. It does not, by itself, prove superior winter heating, lower bills or a longer equipment life. Compare capacity, efficiency, controls and service support on the exact system. Ask which refrigerant your proposal uses and whether the installers and service provider support that platform.",
+          "Research is also exploring thermal storage paired with heat pumps: storing heating or cooling energy so electrical demand can shift away from a peak period. DOE’s thermal-storage-ready multi-split project is an example. Treat project targets and prototypes as emerging work, rather than assuming those capabilities are standard on a system available for your house today."
+        ],
+        "sourceIds": [
+          "epa-refrigerants",
+          "doe-storage"
+        ]
+      },
+      {
+        "id": "defrost",
+        "heading": "Frost, steam and defrost: normal winter behavior explained",
+        "paragraphs": [
+          "The outdoor coil can become cold enough for moisture to freeze on its surface. Frost restricts heat transfer and airflow, so the system periodically clears it. Many air-source systems temporarily reverse the refrigeration cycle to warm the outdoor coil. You may notice a changed sound, a stopped outdoor fan, water below the unit or a brief cloud of steam.",
+          "During that interval, the indoor system may pause heating, reduce fan operation or use auxiliary heat, depending on the equipment. Defrost consumes energy and affects delivered performance. A point COP that excludes defrost cannot be treated as the full-system efficiency for a damp winter day.",
+          "A light frost layer that clears is different from a unit remaining encased in ice or a home steadily losing temperature. Persistent icing, repeated faults or a blocked coil deserves service. Keep the required clearances open and avoid roof runoff or plowed snow around the unit. Do not chip ice off coil fins or pour hot water onto the equipment; follow the manufacturer’s care instructions and call for help if it is not clearing normally."
+        ],
+        "sourceIds": [
+          "nrcan-cycle",
+          "neep-install"
+        ],
+        "figures": [
+          {
+            "src": "/images/blog/heat-pump-guide/defrost-cycle.svg",
+            "mobileSrc": "/images/blog/heat-pump-guide/defrost-cycle-mobile.svg",
+            "alt": "Normal heating, temporary outdoor-coil defrost, meltwater drainage and return to heating.",
+            "caption": "Defrost is a short operating phase. Persistent ice or poor recovery needs investigation, rather than being assumed normal.",
+            "credit": "Hanson Home original educational illustration",
+            "sourceUrl": "/images/blog/heat-pump-guide/defrost-cycle.svg",
+            "width": 760,
+            "height": 560,
+            "kind": "diagram"
+          }
+        ],
+        "links": [
+          {
+            "path": "/blog/winter-heat-pump-care-ma",
+            "label": "Read the winter heat-pump care guide"
+          }
+        ]
+      },
+      {
+        "id": "equipment-options",
+        "heading": "Ducted, ductless, single-zone or multi-zone?",
+        "paragraphs": [
+          "Ducted heat pumps use an air handler and ducts to distribute conditioned air. That can suit a home with usable ductwork or a project where ducts can be added. The ducts still need review: leakage, airflow, return paths and resistance to airflow can prevent otherwise capable equipment from delivering its rated performance.",
+          "Ductless systems use indoor units serving rooms or zones, connected to outdoor equipment by refrigerant lines. Wall-mounted heads are only one option; some families offer floor-mounted units, ceiling cassettes or compact ducted units. This can be practical in homes with boilers and no central ducts, but placement and coverage need more thought than counting bedrooms.",
+          "A single-zone system pairs one outdoor unit with one indoor unit. Multi-zone systems connect multiple indoor units to shared outdoor equipment. The shared unit’s capacity, minimum output and permitted combinations matter. Adding the nameplate capacities of all heads does not prove that every room can receive that total simultaneously on a cold day. Multiple single-zone systems can offer another design approach, with different space, installation and service tradeoffs."
+        ],
+        "sourceIds": [
+          "masscec-primer",
+          "energy-star-ductless",
+          "neep-sizing"
+        ],
+        "figures": [
+          {
+            "src": "/images/installations/indoor-mini-split-pink-room.webp",
+            "alt": "Wall-mounted indoor heat-pump unit above a doorway in a Hanson Home customer room.",
+            "caption": "A real Hanson Home indoor installation. Placement and zone coverage need a plan for the particular room.",
+            "credit": "Hanson Home customer installation gallery",
+            "sourceUrl": "/service-area",
+            "width": 1600,
+            "height": 1200,
+            "kind": "photo"
+          },
+          {
+            "src": "/images/installations/outdoor-condenser-home.webp",
+            "alt": "Outdoor condenser beside a Hanson Home customer home.",
+            "caption": "A real outdoor installation from Hanson Home’s gallery. This photo is not a low-temperature performance test.",
+            "credit": "Hanson Home customer installation gallery",
+            "sourceUrl": "/service-area",
+            "width": 1800,
+            "height": 1350,
+            "kind": "photo"
+          }
+        ]
+      },
+      {
+        "id": "room-by-room",
+        "heading": "Whole-home comfort means the bedrooms count, too",
+        "paragraphs": [
+          "An open living room can be easy to serve while a closed bedroom, bathroom or finished attic remains cold. Air and heat need a delivery path. A hallway unit should not automatically be assumed to heat several closed rooms, and a thermostat in a warm common area cannot tell you that a distant room is comfortable.",
+          "Ask how each room receives its calculated share of heating. In a ducted design, that includes supply airflow, return paths and what happens when doors are closed. In a ductless design, it includes the head’s location, air throw, sensing and the room boundaries. The answer may involve additional indoor units or a compact ducted zone rather than one larger living-room head.",
+          "For Hanson Home, this is a useful conversation before a quote: which rooms feel cold now, which doors stay closed, where people sleep and work, and which spaces are actually heated? Bring those details and a sketch or photos of the layout. A whole-home total is valuable, but the comfort you experience happens one room at a time."
+        ],
+        "sourceIds": [
+          "acca-rooms"
+        ],
+        "figures": [
+          {
+            "src": "/images/blog/heat-pump-guide/room-coverage.svg",
+            "mobileSrc": "/images/blog/heat-pump-guide/room-coverage-mobile.svg",
+            "alt": "A floor-plan illustration highlights the living space and closed bedrooms as distinct zones requiring heat delivery.",
+            "caption": "Conceptual layout, not a floor plan or load calculation for a customer. Closed rooms need a documented heating path.",
+            "credit": "Hanson Home original educational illustration",
+            "sourceUrl": "/images/blog/heat-pump-guide/room-coverage.svg",
+            "width": 760,
+            "height": 560,
+            "kind": "diagram"
+          }
+        ]
+      },
+      {
+        "id": "weatherization",
+        "heading": "Insulation and air sealing change the heating job",
+        "paragraphs": [
+          "A heat pump has to replace the heat escaping from the building. Reducing that loss can change the equipment size, electricity use and comfort outcome. Drafts and cold surfaces can also make a room uncomfortable even when the thermostat reports the target air temperature. Replacing heating equipment alone will not necessarily solve those building problems.",
+          "If attic insulation or air sealing is planned, discuss timing before final equipment selection. Sizing to the house after the work can produce a different answer than sizing to its current condition. The load calculation should reflect the scope actually being completed, rather than optimistic assumptions about improvements that may never happen.",
+          "A home energy assessment can help identify envelope improvements and program requirements. It is a useful companion to heat-pump planning, but it does not replace the heating/cooling design and equipment selection. A homeowner can benefit from both: one looks for efficiency opportunities across the home, while the other defines how the selected HVAC system will serve it."
+        ],
+        "sourceIds": [
+          "masssave-rebates"
+        ],
+        "links": [
+          {
+            "path": "/assessment",
+            "label": "Understand the Mass Save home energy assessment"
+          }
+        ]
+      },
+      {
+        "id": "winter-operation",
+        "heading": "How heat-pump heating feels day to day",
+        "paragraphs": [
+          "Expect a different rhythm from a furnace or boiler. Supply air may feel less hot, while longer operating periods maintain room temperature more steadily. The useful test is whether the rooms hold their intended temperatures, not whether each burst of air feels like a furnace blast.",
+          "Large overnight setbacks can make the system work hard to catch up and may trigger auxiliary heat in some configurations. Start with the manufacturer’s operating guidance and a steady, comfortable setting, then adjust with an understanding of your controls. “Never touch the thermostat” is too absolute; the goal is to avoid an operating pattern that undermines your specific design.",
+          "During the first heating season, check more than the room containing the thermostat. Note closed-bedroom temperatures, any unexplained auxiliary-heat indication and whether outdoor frost clears. Compare energy use over similar weather conditions where possible. A colder month naturally requires more heat, and one electricity bill includes household uses beyond space heating."
+        ],
+        "sourceIds": [
+          "masssave-operation"
+        ],
+        "figures": [
+          {
+            "src": "/images/installations/indoor-mini-split-gray-room.webp",
+            "alt": "Wall-mounted mini-split in a gray room, with existing baseboard and window air conditioner visible.",
+            "caption": "A Hanson Home customer-room installation. Existing equipment is visible; the photo does not imply that a boiler was retired or that the unit is the home’s sole heat source.",
+            "credit": "Hanson Home customer installation gallery",
+            "sourceUrl": "/service-area",
+            "width": 1200,
+            "height": 1600,
+            "kind": "photo"
+          }
+        ]
+      },
+      {
+        "id": "cost-and-incentives",
+        "heading": "Will a heat pump cost less to run in Massachusetts?",
+        "paragraphs": [
+          "It can, but the answer depends on the fuel you replace, its price, your electricity rate, existing equipment efficiency and the heat pump’s delivered seasonal performance. Replacing resistance heat is a different comparison from replacing an efficient gas furnace. High efficiency and low cost are related, but they are not the same measurement.",
+          "Use the all-in variable electricity price relevant to the added heating use, rather than the supply charge alone. Account for delivery charges, seasonal rate provisions and any time-dependent pricing. For the old system, distinguish fuel savings from fixed charges that remain because you still use that service for cooking or hot water.",
+          "For a worked example, assume electricity costs $0.30/kWh and the heat pump delivers seasonal COP 2.5. Its energy cost is $0.12 per kWh of delivered heat. If gas costs $2.00 per therm and a gas system operates at 90% efficiency, the comparable energy cost is about $0.076 per kWh of delivered heat, using 29.3 kWh per therm. On these hypothetical inputs, gas has the lower energy cost. Different rates or efficiencies can reverse the result.",
+          "That example deliberately separates a cost calculation from a sales promise. Installation price, cooling benefits, service costs and potential fixed-charge removal belong in the full decision. Hanson Home’s calculator is a starting point for exploring assumptions; your utility bills and an actual proposal make the comparison more useful."
+        ],
+        "sourceIds": [],
+        "table": {
+          "caption": "Hypothetical heating-energy cost example—not current tariffs or a savings forecast",
+          "columns": [
+            "System",
+            "Assumed inputs",
+            "Cost per kWh of delivered heat"
+          ],
+          "rows": [
+            {
+              "cells": [
+                "Heat pump",
+                "$0.30/kWh electricity; seasonal COP 2.5",
+                "$0.30 ÷ 2.5 = $0.120"
+              ]
+            },
+            {
+              "cells": [
+                "Electric resistance",
+                "$0.30/kWh electricity; COP 1",
+                "$0.30 ÷ 1 = $0.300"
+              ]
+            },
+            {
+              "cells": [
+                "Gas heating",
+                "$2.00/therm; 29.3 kWh/therm; 90% efficiency",
+                "$2.00 ÷ (29.3 × 0.90) ≈ $0.076"
+              ]
+            }
+          ]
+        },
+        "links": [
+          {
+            "path": "/heat-pump-cost-calculator",
+            "label": "Explore your heating and installation costs with our calculator"
+          },
+          {
+            "path": "/pricing",
+            "label": "See what belongs in a written installation price"
+          }
+        ]
+      },
+      {
+        "id": "seasonal-rates",
+        "heading": "Winter electric rates and 2026 incentives",
+        "paragraphs": [
+          "Massachusetts’ DPU describes seasonal heat-pump rate provisions for eligible Eversource, National Grid and Unitil residential customers. The winter period is November 1 through April 30. The provisions lower specified delivery charges; they do not create one statewide electricity price or make all electricity free. Check eligibility, enrollment and your bill with your own utility.",
+          "For 2026, Mass Save lists whole-home rebates of $2,650 per ton up to $8,500, partial-home rebates of $1,125 per ton up to $8,500, and basic rebates of $250 per ton up to $2,500. Income-qualified pathways may offer higher assistance. Amounts are separate from your project’s eligibility: sponsor, equipment, participating installer, weatherization, controls and verification requirements can affect the outcome.",
+          "The federal energy efficient home improvement credit ended for property placed in service after December 31, 2025, according to IRS Form 5695 instructions. Do not carry an old $2,000 federal heat-pump credit into a 2026 estimate. Program and rate details here were reviewed September 29, 2026; confirm current terms before making a commitment."
+        ],
+        "sourceIds": [
+          "ma-rates",
+          "masssave-rebates",
+          "irs-credit"
+        ]
+      },
+      {
+        "id": "installation-quality",
+        "heading": "Installation quality is part of winter performance",
+        "paragraphs": [
+          "The equipment’s published rating assumes suitable installation and operation. A restricted filter, inadequate duct airflow, incorrect refrigerant work, a poorly located sensor or outdoor-coil obstruction can change what the home actually receives. A product with strong published capacity still needs the supporting work to deliver it.",
+          "Outdoor placement should account for snow accumulation, manufacturer clearances, meltwater drainage and roof runoff. A decorative enclosure that blocks airflow can undermine the system. Sound and service access also deserve a place in the siting conversation before the unit is mounted.",
+          "Ask what commissioning will document. Relevant checks can include electrical verification, refrigerant procedures, airflow and static pressure for ducted systems, drain operation, control configuration and functional checks for each zone. The right procedures depend on the model. At handover, you should know how to operate the controls, clean the permitted filters and request service."
+        ],
+        "sourceIds": [
+          "neep-install"
+        ],
+        "figures": [
+          {
+            "src": "/images/blog/heat-pump-guide/winter-installation.svg",
+            "mobileSrc": "/images/blog/heat-pump-guide/winter-installation-mobile.svg",
+            "alt": "Illustrated outdoor unit with snow clearance, open airflow, controlled roof runoff and a safe meltwater drainage path.",
+            "caption": "A winter-ready location accounts for airflow, snow, roof runoff and drainage. Exact mounting heights and clearances come from the manufacturer and site conditions.",
+            "credit": "Hanson Home original educational illustration",
+            "sourceUrl": "/images/blog/heat-pump-guide/winter-installation.svg",
+            "width": 760,
+            "height": 560,
+            "kind": "diagram"
+          }
+        ],
+        "links": [
+          {
+            "path": "/how-it-works",
+            "label": "Follow Hanson Home’s installation process"
+          },
+          {
+            "path": "/warranty",
+            "label": "Understand equipment coverage and ongoing care"
+          }
+        ]
+      },
+      {
+        "id": "brands-and-hanson",
+        "heading": "How Hanson Home helps you compare brands and designs",
+        "paragraphs": [
+          "Start with the home and intended use, then compare equipment that can meet them. For a full heating replacement, winter capacity and room coverage belong near the top of the comparison. For a ducted retrofit, include the duct assessment and controls. For a home without ducts, compare the proposed indoor-unit layout and zone behavior.",
+          "Hanson Home’s comprehensive brand guide explains manufacturer histories, corporate relationships and technology differences across TCL, Bosch, Midea, Daikin, Mitsubishi Electric and others. TCL is our main brand, and we can install heat pumps across brands. That relationship is part of our disclosure; it does not change the need to check the exact model against your home.",
+          "Bring us your current heating-system details, fuel and electricity bills, winter comfort concerns and any preferred brand or competing quote. We can help you discuss the equipment, configuration, included work and tradeoffs. The next step should leave you with a clearer project scope, rather than a brand name and an unexplained lowest-temperature claim."
+        ],
+        "sourceIds": [],
+        "links": [
+          {
+            "path": "/blog/heat-pump-ac-brand-guide",
+            "label": "Read the comprehensive heat-pump and AC brand guide"
+          },
+          {
+            "path": "/service-area",
+            "label": "Find Hanson Home’s Massachusetts service areas"
+          },
+          {
+            "path": "/start?intent=heat-pump",
+            "label": "Discuss a heat-pump plan for your home"
+          }
+        ],
+        "takeaway": "Our recommendation starts with what the home needs. Cold-weather performance belongs in the equipment comparison, regardless of brand."
+      },
+      {
+        "id": "quote-checklist",
+        "heading": "The questions to ask before approving a winter heating replacement",
+        "paragraphs": [
+          "A useful written proposal makes the heating plan reviewable. You do not need to become an HVAC designer, but you should be able to understand the assumptions and ask for missing information. Compare bids with the same intended scope: whole-home heating, partial heating, cooling or a staged conversion.",
+          "If one proposal uses a smaller system and another uses a larger one, ask to see the load assumptions and matched equipment output before treating either as obviously better. Extra tonnage is not the same as better design. Similarly, a lower price may omit electrical work, controls or a room that the other bid serves.",
+          "If an answer is uncertain, have it resolved before deciding to remove an existing heating system. An itemized scope, verified equipment combination and stated operating strategy make the decision easier to evaluate. Keep the manufacturer documentation, startup information and warranty terms with the final proposal."
+        ],
+        "sourceIds": [],
+        "bullets": [
+          "What is the room-by-room heating load, and which local design temperature was used?",
+          "What are the exact outdoor and indoor model numbers and matched-system rating?",
+          "How many BTU/h does the selected combination deliver at the design temperature?",
+          "How will bedrooms, bathrooms and other closed spaces receive heat?",
+          "What minimum output, cooling capacity and humidity-control behavior are expected?",
+          "Is backup included, when will it run, and what happens below the design temperature?",
+          "What duct, electrical, drainage, control and commissioning work is included?",
+          "Which current rebates and utility-rate options were checked for this actual project?",
+          "What are the equipment warranty, labor terms and ongoing service responsibilities?"
+        ]
+      },
+      {
+        "id": "heat-pump-questions",
+        "heading": "Massachusetts heat-pump questions, answered",
+        "paragraphs": [],
+        "sourceIds": [
+          "masscec-pilot",
+          "energy-star-cold",
+          "masssave-operation",
+          "epa-refrigerants"
+        ],
+        "faqs": [
+          {
+            "question": "Can a heat pump heat a Massachusetts house without oil or gas?",
+            "answer": "Yes, a cold-climate system can be designed to provide full winter heating. MassCEC has documented whole-home applications. Whether your home can retire oil or gas depends on calculated heat loss, matched-system cold-weather capacity, room delivery and the selected backup or extreme-weather strategy."
+          },
+          {
+            "question": "Do heat pumps stop working at 32°F?",
+            "answer": "No. Freezing is not a universal operating cutoff. Cold-climate equipment can provide heating well below freezing. Frost and defrost may matter around freezing, while colder conditions make equipment capacity and the home’s rising heat loss especially important."
+          },
+          {
+            "question": "Does “works at −13°F” mean it will heat my entire house?",
+            "answer": "No. An operating limit says the equipment can run under specified conditions; it does not establish enough output for your house. Ask for the heating capacity of the exact indoor/outdoor combination at the project’s design temperature and compare it with the calculated load."
+          },
+          {
+            "question": "Is backup heat always required?",
+            "answer": "There is no single answer for every home. Some designs use heat pumps alone; others use auxiliary electric heat or retained combustion equipment for defined conditions. Have the designer document the intended strategy, electrical requirements, controls and current rebate implications."
+          },
+          {
+            "question": "Does a mini-split bring cold outdoor air indoors?",
+            "answer": "Normally, no. The indoor unit recirculates room air and the outdoor unit moves outdoor air across its own coil. A sealed refrigerant circuit transfers heat between the coils. Fresh-air ventilation is a separate building-system function."
+          },
+          {
+            "question": "Why is my heat pump running so much in winter?",
+            "answer": "Longer, steadier operation can be normal for variable-capacity equipment. Check whether rooms maintain temperature. A system that runs continuously while the house loses temperature, shows persistent icing or repeatedly faults needs investigation."
+          },
+          {
+            "question": "Is steam from the outdoor unit a problem?",
+            "answer": "A short steam cloud during defrost can be normal as frost melts. Persistent ice, repeated faults, unusual prolonged behavior or poor indoor heating should be assessed by a service provider. Do not damage the coil while trying to remove ice."
+          },
+          {
+            "question": "Are heat pumps always cheaper than natural gas?",
+            "answer": "No. Delivered heating cost depends on all-in electricity and gas prices, the old system’s efficiency and the heat pump’s seasonal performance. Compare your bills and realistic assumptions, including auxiliary use and any seasonal utility rate."
+          },
+          {
+            "question": "Is a higher SEER2 enough for Massachusetts winter heating?",
+            "answer": "No. SEER2 measures standardized cooling efficiency. Winter selection also requires heating capacity and COP at relevant temperatures, room coverage, appropriate sizing and a suitable installation."
+          },
+          {
+            "question": "Should I choose R-32 or R-454B for better winter performance?",
+            "answer": "The refrigerant alone is not a winter-performance ranking. Compare the actual system’s capacity, efficiency, operating range, controls and service support. Each refrigerant requires compatible equipment and installation procedures."
+          }
+        ]
+      }
+    ],
+    "sources": [
+      {
+        "id": "masscec-pilot",
+        "label": "MassCEC: Whole-Home Air-Source Heat Pump Pilot",
+        "url": "https://www.masscec.com/program/whole-home-air-source-heat-pump-pilot",
+        "note": "Closed 2019–2022 pilot; evidence of whole-home applications, not an open incentive or a guarantee for every house."
+      },
+      {
+        "id": "masscec-primer",
+        "label": "MassCEC: Air-Source Heat Pumps",
+        "url": "https://goclean.masscec.com/homeowners/air-source-heat-pumps/",
+        "note": "Massachusetts homeowner overview of refrigeration, system configurations and planning."
+      },
+      {
+        "id": "masscec-faq",
+        "label": "MassCEC: heat-pump questions",
+        "url": "https://goclean.masscec.com/faq/",
+        "note": "Cold-climate operation and homeowner planning; current equipment documentation governs selection."
+      },
+      {
+        "id": "nrcan-cycle",
+        "label": "Natural Resources Canada: Heating and cooling with a heat pump",
+        "url": "https://natural-resources.canada.ca/energy-efficiency/energy-star/heating-cooling-heat-pump",
+        "note": "Refrigeration cycle, heat transfer, defrost and balance-point concepts. Older generalized operating limits are not used as limits for current equipment."
+      },
+      {
+        "id": "energy-star-cold",
+        "label": "ENERGY STAR: residential heat-pump product criteria",
+        "url": "https://www.energystar.gov/products/air_source_heat_pumps/key-product-criteria",
+        "note": "Cold-climate designation: COP ≥1.75 and at least 70% capacity retention at 5°F under specified tests. These are qualification thresholds, not installed-system guarantees."
+      },
+      {
+        "id": "energy-star-buying",
+        "label": "ENERGY STAR: Air-Source Heat Pumps",
+        "url": "https://www.energystar.gov/products/air_source_heat_pumps",
+        "note": "Homeowner guidance on selection, sizing and installation."
+      },
+      {
+        "id": "pnnl-field",
+        "label": "PNNL-37127: DOE cold-climate challenge field validation, January 2025",
+        "url": "https://www.pnnl.gov/main/publications/external/technical_reports/PNNL-37127.pdf",
+        "note": "Executive summary, pp. iii–iv: 22 prototypes; median COP 1.9 in the 0–5°F bin excludes auxiliary heat and defrost. Only eight sites had ≥10 heating hours below 0°F. Not a brand comparison or a Massachusetts-wide seasonal average."
+      },
+      {
+        "id": "doe-challenge",
+        "label": "DOE: Cold-Climate Heat Pump Technology Challenge specification",
+        "url": "https://www.energy.gov/sites/default/files/2021-10/bto-cchp-tech-challenge-spec-102521.pdf",
+        "note": "Challenge performance targets and separate 5°F and −15°F segments; targets do not describe every retail heat pump."
+      },
+      {
+        "id": "mitsubishi-h2i",
+        "label": "Mitsubishi Electric: Deluxe Wall-mounted H2i plus system",
+        "url": "https://www.mitsubishicomfort.com/articles/introducing-deluxe-wall-mounted-h2i-plus-system",
+        "note": "Manufacturer describes 100% heating capacity at −5°F for the named MSZ/MUZ-FS family. Verify the actual matched model, rating basis and installation conditions."
+      },
+      {
+        "id": "bosch-evi",
+        "label": "Bosch: IDS Ultra cold-climate heat pump",
+        "url": "https://www.bosch-homecomfort.com/us/en/ocs/residential/ids-ultra-inverter-ducted-split-cold-climate-heat-pump-20831889-p/",
+        "note": "Manufacturer explanation of enhanced vapor injection and inverter technology. No family maximum is represented as universal performance."
+      },
+      {
+        "id": "neep-sizing",
+        "label": "NEEP: Guide to Sizing & Selecting ASHPs in Cold Climates",
+        "url": "https://neep.org/sites/default/files/resources/ASHP%20Sizing%20%26%20Selecting%20-%208x11_edits.pdf",
+        "note": "Design loads, extended capacity data, low-load operation and configuration tradeoffs. Engineering guidance, not a rebate list."
+      },
+      {
+        "id": "neep-tools",
+        "label": "NEEP: Cold Climate Heat Pump Sizing Support Tools user guide",
+        "url": "https://neep.org/user-guide-cold-climate-heat-pump-sizing-support-tools",
+        "note": "2024 support tools for comparing product capacity with building heating needs."
+      },
+      {
+        "id": "acca-load",
+        "label": "ACCA: Manual J Residential Load Calculation",
+        "url": "https://www.acca.org/standards/technical-manuals/manual-j",
+        "note": "Recognized residential heating/cooling load calculation method. Square footage alone is not a room-by-room calculation."
+      },
+      {
+        "id": "acca-variable",
+        "label": "ACCA: Correctly sizing variable-capacity heat-pump equipment",
+        "url": "https://hvac-blog.acca.org/correctly-sizing-variable-capacity-heat-pump-equipment/",
+        "note": "Variable-capacity selection, heating and cooling needs, and oversizing considerations."
+      },
+      {
+        "id": "acca-rooms",
+        "label": "ACCA: Block load versus room-by-room load",
+        "url": "https://hvac-blog.acca.org/hey-ed-is-there-a-difference-between-a-block-load-and-a-room-by-room-load/",
+        "note": "Distinguishes equipment-selection load from individual-room delivery requirements."
+      },
+      {
+        "id": "neep-install",
+        "label": "NEEP: Guide to Installing ASHPs in Cold Climates",
+        "url": "https://neep.org/sites/default/files/resources/InstallingASHPinCold_edits.pdf",
+        "note": "Outdoor siting, snow and meltwater, indoor placement, refrigerant work and commissioning."
+      },
+      {
+        "id": "masssave-operation",
+        "label": "Mass Save: What to expect when heating with a heat pump",
+        "url": "https://www.masssave.com/en/-/media/3A485B840F1C472F8DF1378F73ED6FC0.ashx",
+        "note": "Homeowner explanation of longer run times, supply-air feel, setbacks and cold-weather operation."
+      },
+      {
+        "id": "energy-star-ductless",
+        "label": "ENERGY STAR: Ductless Heating & Cooling",
+        "url": "https://www.energystar.gov/products/ductless_heating_cooling",
+        "note": "Ductless configurations and siting considerations, including defrost meltwater."
+      },
+      {
+        "id": "epa-refrigerants",
+        "label": "EPA: substitutes in residential/light-commercial AC and heat pumps",
+        "url": "https://www.epa.gov/snap/substitutes-residential-and-light-commercial-air-conditioning-and-heat-pumps",
+        "note": "R-32 and R-454B listings and A2L use conditions. Refrigerant choice is distinct from winter capacity."
+      },
+      {
+        "id": "doe-storage",
+        "label": "DOE: Thermal Storage-Ready, High-Performance Multi-Split Heat Pump System",
+        "url": "https://www.energy.gov/cmei/buildings/articles/thermal-storage-ready-high-performance-multi-split-heat-pump-system",
+        "note": "Research project; performance targets and grid flexibility are not presented as a current standard Hanson Home product."
+      },
+      {
+        "id": "masssave-rebates",
+        "label": "Mass Save: 2026 Air Source Heat Pump rebates",
+        "url": "https://www.masssave.com/en/residential/rebates-offers-services/heating-and-cooling/heat-pumps/air-source-heat-pumps",
+        "note": "Reviewed September 29, 2026. Amounts, utility sponsorship, qualifying equipment, installer, weatherization and verification requirements must be checked for the actual project."
+      },
+      {
+        "id": "ma-rates",
+        "label": "Massachusetts DPU: residential electric seasonal heat-pump rates",
+        "url": "https://www.mass.gov/info-details/residential-electric-seasonal-heat-pump-rates",
+        "note": "Seasonal delivery-rate provisions for eligible Eversource, National Grid and Unitil customers; not a single statewide all-in electricity price."
+      },
+      {
+        "id": "irs-credit",
+        "label": "IRS: 2025 Form 5695 instructions",
+        "url": "https://www.irs.gov/instructions/i5695",
+        "note": "The energy efficient home improvement credit is unavailable for property placed in service after December 31, 2025. No expired federal heat-pump credit is included."
+      },
+      {
+        "id": "tcl-submittal",
+        "label": "TCL: Advantage H36AHH18XAE / H36TDH18XAC submittal, pp. 1–2",
+        "url": "https://cdn.shopify.com/s/files/1/0687/7151/2385/files/Submittal_Sheet_-_AHU_-_36K_230V.pdf?v=1764127657",
+        "note": "Manufacturer submittal lists AHRI 215869484, SEER2 19, HSPF2-4 9, 26,000 BTU/h and COP 1.9 at 5°F. Current directory status and quote configuration must be checked separately."
+      }
+    ],
+    "ctaTitle": "Find out what full-winter heat-pump heating would mean for your home.",
+    "ctaText": "Tell Hanson Home about your town, current heating system, cold rooms and comfort goals. Bring your bills, a preferred brand or an existing quote. We’ll help you discuss the design, equipment and installation scope before you decide on your next step.",
+    "ctaPath": "/start?intent=heat-pump",
+    "ctaLabel": "Plan my heat-pump project",
+    "ui": {
+      "sourceIntro": "Research reviewed {date}. Engineering guidance, manufacturer claims, program rules and Hanson Home’s planning explanations are identified separately. Use current documentation for the exact proposed equipment and project."
+    },
+    "readingMinutes": 22,
+    "translationGroup": "heat-pumps-massachusetts-winter-guide",
+    "languageLabel": "English"
+  },
+  {
     "slug": "heat-pump-ac-brand-guide",
     "title": "Comprehensive Guide to Heat Pump & AC Brands: History, Technology, and How to Choose",
     "description": "Hanson Home compares TCL, Bosch, Midea, Daikin, Mitsubishi and other heat-pump brands, with practical recommendations on winter heating, design and service.",

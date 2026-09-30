@@ -58,7 +58,7 @@ test("blog navigation opens the homeowner guides page", () => {
   expect(navigation).toHaveTextContent("Blog");
   expect(navigation).not.toHaveTextContent(/Heat pumps|Installation|Energy assessment/);
   expect(screen.getByRole("heading", { level: 1, name: /Helpful reading/i })).toBeInTheDocument();
-  for (const path of ["/heat-pumps", "/how-it-works", "/pricing", "/assessment", "/warranty"]) {
+  for (const path of ["/how-it-works", "/pricing", "/assessment", "/warranty"]) {
     expect(document.querySelector(`.blog-grid a[href="${path}"]`)).toBeInTheDocument();
   }
   expect(document.querySelector(`.blog-latest a[href="/blog/${articles[0].slug}"]`)).toBeInTheDocument();
@@ -96,7 +96,7 @@ test.each(articles)("$slug has matching public content, citations and route meta
   window.history.replaceState({}, "", `/blog/${article.slug}`);
   const view = render(<App />);
   expect(screen.getByRole("heading", { level: 1, name: article.title })).toBeInTheDocument();
-  expect(window.document.title).toBe(`${article.title} | Hanson Home`);
+  expect(window.document.title).toBe(article.seoTitle || `${article.title} | Hanson Home`);
   if (article.openingSummary) expect(screen.getByRole("heading", { name: article.openingSummary.heading })).toBeInTheDocument();
   if (article.showContents) {
     expect(screen.getByRole("navigation", { name: articleUi(article).contents })).toBeInTheDocument();
@@ -105,8 +105,8 @@ test.each(articles)("$slug has matching public content, citations and route meta
   view.unmount();
 });
 
-test("language editions retain the complete structure, citations and technical table figures", () => {
-  const original = articles.find((article) => article.locale === "en")!;
+test.each(["heat-pump-ac-brand-guide", "heat-pumps-massachusetts-winter-guide"])("%s language editions retain the complete structure, citations and technical table figures", (slug) => {
+  const original = articles.find((article) => article.slug === slug)!;
   const editions = articleLanguages(original);
   expect(editions.map((article) => article.locale)).toEqual(["en", "es", "zh-Hans", "pt-BR"]);
   for (const edition of editions) {
@@ -117,6 +117,8 @@ test("language editions retain the complete structure, citations and technical t
       expect(section.paragraphs).toHaveLength(source.paragraphs.length);
       expect(section.bullets?.length).toBe(source.bullets?.length);
       expect(section.sourceIds).toEqual(source.sourceIds);
+      expect(section.faqs?.length).toBe(source.faqs?.length);
+      expect(section.figures?.length).toBe(source.figures?.length);
       if (section.table && source.table) {
         expect(section.table.rows).toHaveLength(source.table.rows.length);
         section.table.rows.forEach((row, rowIndex) => {

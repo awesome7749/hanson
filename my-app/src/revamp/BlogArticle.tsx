@@ -3,6 +3,7 @@ import { Link, Navigate, useLocation, useParams } from "react-router-dom";
 import { articles, articleLanguages, articleUi } from "./blogArticleData";
 import { articleSectionId } from "./blogArticleTypes";
 import { Icon } from "./Shared";
+import HeatPumpAnimation from "./HeatPumpAnimation";
 
 export default function BlogArticle() {
   const { slug } = useParams();
@@ -37,7 +38,7 @@ export default function BlogArticle() {
         <span className="eyebrow">{article.category}</span>
         <h1>{article.title}</h1>
         <p className="blog-article-lede">{article.intro}</p>
-        <p className="blog-reviewed">{ui.reviewed} {article.reviewed}{article.readingMinutes ? ` · ${article.readingMinutes} ${ui.minutes}` : ""}</p>
+        <p className="blog-reviewed">{article.publishedIso && `${ui.by} · `}{ui.reviewed} <time dateTime={article.reviewedIso}>{article.reviewed}</time>{article.readingMinutes ? ` · ${article.readingMinutes} ${ui.minutes}` : ""}</p>
       </header>
       {article.openingSummary && <section id={article.openingSummary.id} className="blog-opening-summary" aria-labelledby="blog-summary-heading">
         <h2 id="blog-summary-heading">{article.openingSummary.heading}</h2>
@@ -58,12 +59,14 @@ export default function BlogArticle() {
         {article.sections.map((section, sectionIndex) => (
           <section id={articleSectionId(section, sectionIndex)} key={section.heading}>
             <h2>{section.heading}</h2>
-            {section.figures && <div className="blog-section-figures">{section.figures.map((figure) => <figure className={`blog-source-figure blog-source-figure-${figure.kind}`} key={figure.src}>
+            {section.figures && <div className="blog-section-figures">{section.figures.map((figure) => figure.interactive === "heat-flow" ? <HeatPumpAnimation key={`${article.locale}-${figure.src}`} locale={article.locale} /> : <figure className={`blog-source-figure blog-source-figure-${figure.kind}`} key={figure.src}>
               <a href={figure.sourceUrl} target="_blank" rel="noreferrer"><picture>{figure.mobileSrc && <source media="(max-width: 600px)" srcSet={figure.mobileSrc} width="460" height="650" />}<img src={figure.src} alt={figure.alt} width={figure.width} height={figure.height} loading="lazy" decoding="async" /></picture></a>
               <figcaption><p>{figure.caption}</p><a href={figure.sourceUrl} target="_blank" rel="noreferrer">{ui.imageCredit}: {figure.credit} ↗</a></figcaption>
             </figure>)}</div>}
             {section.paragraphs.map((paragraph) => <p key={paragraph}>{paragraph}</p>)}
             {section.bullets && <ul className="blog-article-checklist">{section.bullets.map((item) => <li key={item}>{item}</li>)}</ul>}
+            {section.faqs && <div className="blog-article-faqs">{section.faqs.map((faq) => <div key={faq.question}><h3>{faq.question}</h3><p>{faq.answer}</p></div>)}</div>}
+            {section.links && <nav className="blog-section-links" aria-label={`${ui.relatedReading}: ${section.heading}`}>{section.links.map((link) => <Link className="text-link" key={link.path} to={link.path}>{link.label} <Icon name="arrow" size={16} /></Link>)}</nav>}
             {section.table && <div className="blog-table-scroll" role="region" aria-label={section.table.caption} tabIndex={0}>
               <table className="blog-comparison-table">
                 <caption>{section.table.caption}</caption>
