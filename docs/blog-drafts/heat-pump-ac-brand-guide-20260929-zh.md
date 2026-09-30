@@ -21,6 +21,14 @@ Hanson Home 可以安装所有品牌的热泵。TCL 是我们的主推品牌，�
 
 ## 先选适合住宅的系统和服务方案
 
+![Manual J 根据当地气候、房屋围护结构和各房间的条件计算供暖与制冷负荷。请安装方提供逐房间的计算结果，以及采用的室内外设计温度。示意图由 Hanson Home 根据 ACCA 的方法说明绘制。](../../my-app/public/images/blog/brand-guide/manual-j-inputs-zh-Hans.svg)
+
+Manual J 根据当地气候、房屋围护结构和各房间的条件计算供暖与制冷负荷。请安装方提供逐房间的计算结果，以及采用的室内外设计温度。示意图由 Hanson Home 根据 ACCA 的方法说明绘制。 [图片来源 / 署名: Hanson Home · ACCA](https://www.acca.org/standards/technical-manuals/manual-j)
+
+![ACCA 的 Manual J 是本文介绍的住宅负荷计算方法。这里展示其官方发布的封面，方便您向安装方询问所采用的计算依据。](../../my-app/public/images/blog/brand-guide/manual-j.webp)
+
+ACCA 的 Manual J 是本文介绍的住宅负荷计算方法。这里展示其官方发布的封面，方便您向安装方询问所采用的计算依据。 [图片来源 / 署名: ACCA](https://www.acca.org/standards/technical-manuals/manual-j)
+
 Hanson Home 建议选择符合住宅条件、供暖计划和业主需求的系统。首先要明确哪些房间需要改善、家里已有何种设备，以及您需要的是夏季制冷、辅助供暖，还是替换现有供暖系统。
 
 我们可以安装各个品牌的热泵，包括本指南讨论的厂商。TCL 是我们的主推品牌，本文会多作介绍；同时也说明何时值得考虑其他产品或配置。企业历史和性能数据来自所列资料；Hanson Home 的建议说明我们如何将这些信息用于选购决策。这些来源并不能构成各品牌故障率的独立、可比排名。
@@ -36,6 +44,10 @@ Hanson Home 建议选择符合住宅条件、供暖计划和业主需求的系�
 资料来源: [ENERGY STAR: air-source heat-pump buying guidance](https://www.energystar.gov/products/air_source_heat_pumps); [AHRI: how and why equipment is certified](https://www.ahrinet.org/certification/cee-directory/how-and-why-certified)
 
 ## 热泵与空调的基本原理
+
+![Hanson Home 客户住宅中的热泵安装实例。图片由 Hanson Home 提供，来自实际项目。](../../my-app/public/images/installations/outdoor-condenser-home.webp)
+
+Hanson Home 客户住宅中的热泵安装实例。图片由 Hanson Home 提供，来自实际项目。 [图片来源 / 署名: Hanson Home](https://hansonhome.us/how-it-works)
 
 空调把室内热量搬到室外。空气源热泵可以反向运行，在制冷之外提供供暖。它用电驱动压缩机和风扇，在室内外之间转移热量；这与完全依靠电阻发热的方式不同。
 
@@ -61,6 +73,46 @@ Hanson Home 建议根据住宅条件规划布局：现有风管与回风路径�
 
 ## 品牌历史为何形成不同背景
 
+![品牌标识：TCL](../../my-app/public/images/blog/brand-guide/tcl-logo.webp)
+
+品牌标识：TCL [图片来源 / 署名: TCL North America](https://us.tcl.com/pages/hvac-product-collection)
+
+![品牌标识：Midea](../../my-app/public/images/blog/brand-guide/midea-logo.svg)
+
+品牌标识：Midea [图片来源 / 署名: Midea Comfort](https://www.mideacomfort.us/g3.html)
+
+![品牌标识：Bosch](../../my-app/public/images/blog/brand-guide/bosch-logo.svg)
+
+品牌标识：Bosch [图片来源 / 署名: Bosch Home Comfort](https://www.bosch-homecomfort.com/us/en/ocs/residential/ids-ultra-inverter-ducted-split-cold-climate-heat-pump-20831889-p/)
+
+![品牌标识：Daikin](../../my-app/public/images/blog/brand-guide/daikin-logo.webp)
+
+品牌标识：Daikin [图片来源 / 署名: Daikin Comfort Technologies](https://daikincomfort.com/)
+
+![品牌标识：Panasonic (Sanyo)](../../my-app/public/images/blog/brand-guide/panasonic-logo.svg)
+
+品牌标识：Panasonic (Sanyo) [图片来源 / 署名: Panasonic Holdings](https://news.panasonic.com/global/)
+
+![品牌标识：Mitsubishi Electric](../../my-app/public/images/blog/brand-guide/mitsubishi-logo.svg)
+
+品牌标识：Mitsubishi Electric [图片来源 / 署名: Mitsubishi Electric Trane HVAC US](https://www.mitsubishicomfort.com/metus)
+
+![品牌标识：GENERAL](../../my-app/public/images/blog/brand-guide/general-logo.svg)
+
+品牌标识：GENERAL [图片来源 / 署名: GENERAL Inc.](https://www.generalww.com/global/history/index.html)
+
+![品牌标识：GREE](../../my-app/public/images/blog/brand-guide/gree-logo.svg)
+
+品牌标识：GREE [图片来源 / 署名: GREE Comfort](https://www.greecomfort.com/our-products/sapphire/)
+
+![品牌标识：Carrier](../../my-app/public/images/blog/brand-guide/carrier-logo.webp)
+
+品牌标识：Carrier [图片来源 / 署名: Carrier](https://www.carrier.com/commercial/en/us/about/history/)
+
+![品牌标识：Samsung HVAC](../../my-app/public/images/blog/brand-guide/samsung-logo.svg)
+
+品牌标识：Samsung HVAC [图片来源 / 署名: Samsung HVAC](https://www.samsunghvac.com/residential/windfree-max-heat)
+
 企业成立年份与开始生产空调的年份是两回事。供暖行业积累、房间空调制造经验和美国经销合作都有参考价值，但含义不同。下表选择与今天购买相关的里程碑，品牌历史长短本身不代表优劣。
 
 **代表性里程碑及原始来源**
@@ -79,6 +131,10 @@ Hanson Home 建议根据住宅条件规划布局：现有风管与回风路径�
 
 ## 谁制造设备：四种关系要分清
 
+![TCL 官方参数文件节选：AHRI 编号及室内外机型号。请安装方在 AHRI 官方目录中核实具体配套组合及当前认证记录。](../../my-app/public/images/blog/brand-guide/tcl-ahri-reference.webp)
+
+TCL 官方参数文件节选：AHRI 编号及室内外机型号。请安装方在 AHRI 官方目录中核实具体配套组合及当前认证记录。 [图片来源 / 署名: TCL North America](https://cdn.shopify.com/s/files/1/0687/7151/2385/files/Submittal_Sheet_-_AHU_-_36K_230V.pdf?v=1764127657)
+
 品牌所有权说明谁控制名称；OEM 是设备制造商；自有标签销售商以自己的品牌销售设备；合资公司整合特定业务或能力。零部件供应商可能只提供压缩机或风扇，并不负责整机设计、组装或保修。不能把这些关系简单归结为两个品牌“完全一样”。
 
 AHRI 认证计划接受 OEM 和自有标签销售商。配套系统记录有助于核实所选组合，但认证记录说明的是性能，并不是工厂所有权、固件、服务支持或配件通用性的完整清单。
@@ -90,6 +146,10 @@ AHRI 认证计划接受 OEM 和自有标签销售商。配套系统记录有助�
 资料来源: [AHRI: how and why equipment is certified](https://www.ahrinet.org/certification/cee-directory/how-and-why-certified)
 
 ## 美的：成熟制造商与不易被看见的供应业务
+
+![美的 EVOX G3 风管式系统官方图片。请核实报价中的具体室内机和室外机型号。](../../my-app/public/images/blog/brand-guide/midea-g3.webp)
+
+美的 EVOX G3 风管式系统官方图片。请核实报价中的具体室内机和室外机型号。 [图片来源 / 署名: Midea Comfort](https://www.mideacomfort.us/g3.html)
 
 美的将企业起源追溯到1968年，1985年进入空调业务。其楼宇科技事业部记录了1999年采用 Toshiba-Carrier 技术的 VRF 里程碑、2015年博世 VRF 合作以及2016年收购 Clivet。这些是特定业务关系，不代表关联品牌的所有家用设备相同。
 
@@ -110,6 +170,10 @@ Carrier 自己发布的北美无风管合资公告称，美的是长期的全球
 资料来源: [Bosch: Midea VRF joint-venture announcement, March 31, 2015](https://www.bosch-presse.de/pressportal/de/bosch-und-midea-vereinbaren-joint-venture-fuer-die-fertigung-von-vrf-systemen-42920.html); [Midea Building Technologies: history and partnerships](https://hvac.midea.com/about_mbt/)
 
 ## 今天的博世：核对 IDS 代际与扩大后的品牌集团
+
+![博世 IDS Ultra 室外机与空气处理机。应根据所选配套组合核实参数。](../../my-app/public/images/blog/brand-guide/bosch-ultra.webp)
+
+博世 IDS Ultra 室外机与空气处理机。应根据所选配套组合核实参数。 [图片来源 / 署名: Bosch Home Comfort](https://www.bosch-homecomfort.com/us/en/ocs/residential/ids-ultra-inverter-ducted-split-cold-climate-heat-pump-20831889-p/)
 
 博世于2025年7月31日完成对 Johnson Controls 家用及轻商用暖通业务，以及 Johnson Controls–Hitachi Air Conditioning 的收购，使其暖通业务发生明显变化。公告说明了 YORK 和 Hitachi 品牌的长期许可。这是企业组合变化，不意味着 YORK 系统与现有博世 IDS 系统可互换。
 
@@ -183,6 +247,10 @@ METUS 于2026年4月发布五吨 SMART MULTI H2i 室外机，称其5°F供暖能
 
 ## 格力：空调制造背景与产品代际差异
 
+![所引用产品页面中的格力 Sapphire 无风管系统图片。请确认实际报价的型号代际和冷媒。](../../my-app/public/images/blog/brand-guide/gree-sapphire.webp)
+
+所引用产品页面中的格力 Sapphire 无风管系统图片。请确认实际报价的型号代际和冷媒。 [图片来源 / 署名: GREE Comfort](https://www.greecomfort.com/our-products/sapphire/)
+
 格力企业简介记载1991年成立，以及早期家用空调组装生产。美国 Sapphire 页面展示了资料核对的重要性：同页既有 SEER2/HSPF2，也有旧 SEER/HSPF 宣传，并附具体型号资料。只抄最高数字，可能混比不同测试体系或代际。
 
 Sapphire 页面给出的供暖运行范围低至−22°F。运行下限说明设备是否能在该温度运行，但不能单独说明该温度下的供暖量、用电功率或能覆盖住宅多少负荷。
@@ -195,6 +263,10 @@ Sapphire 页面给出的供暖运行范围低至−22°F。运行下限说明设
 
 ## Carrier：悠久空调历史与有据可查的无风管供应关系
 
+![Carrier 的历史档案将这张图片对应于 1902 年 Sackett & Wilhelms 的空调安装项目，展示了现代品牌背后的工业起源。](../../my-app/public/images/blog/brand-guide/carrier-history.webp)
+
+Carrier 的历史档案将这张图片对应于 1902 年 Sackett & Wilhelms 的空调安装项目，展示了现代品牌背后的工业起源。 [图片来源 / 署名: Carrier](https://www.carrier.com/commercial/en/us/about/history/)
+
 Carrier 的历史包括 Willis Carrier 于1902年推出现代空调系统，以及1915年成立公司。其无风管合资公告介绍另一业务层面：在长期供应关系基础上，结合 Carrier 经销网络和美的无风管研发能力。
 
 我们认为，品牌历史可用于了解服务渠道，但技术比较仍要看产品系列。若报价同时包含 Carrier 中央式与无风管设备，应分别索取资料和保修条款。同一标牌或与美的的合作，都不能证明配件普遍通用。
@@ -202,6 +274,10 @@ Carrier 的历史包括 Willis Carrier 于1902年推出现代空调系统，以�
 资料来源: [Carrier: history of modern air conditioning](https://www.carrier.com/commercial/en/us/about/history/); [Carrier: North American residential ductless partnership with Midea](https://www.carrier.com/carrier/en/worldwide/news/news-article/carrier--midea-launch-residential-ductless-hvac-joint-venture-in-north-america.html)
 
 ## LG、三星与 Lennox：舒适功能及变化中的渠道
+
+![三星 Max Heat 产品页面发布的 WindFree 室内机图片。请同时核实配套室外机与房间设计方案。](../../my-app/public/images/blog/brand-guide/samsung-windfree.webp)
+
+三星 Max Heat 产品页面发布的 WindFree 室内机图片。请同时核实配套室外机与房间设计方案。 [图片来源 / 署名: Samsung HVAC](https://www.samsunghvac.com/residential/windfree-max-heat)
 
 LG 将家用空调业务追溯到1968年。目前美国住宅产品页面称，部分 LGRED 型号5°F时供暖能力100%，可运行至−13°F，并列出多种室内机形态。外观、吊顶空间或送风方向影响设计时，这些选择很有意义。
 
@@ -214,6 +290,10 @@ Lennox 产品发布公告确认，Samsung Lennox HVAC North America 于2024年�
 资料来源: [LG: history of its residential air-conditioning business](https://www.lg.com/ph/about-lg/press-and-media/lg-electronics-launches-the-brand-new-line-up-for-single-commercial-air-conditioners/); [LG USA: residential HVAC systems and LGRED](https://www.lg.com/us/residential-hvac/hvac-systems); [Samsung HVAC: WindFree Max Heat](https://www.samsunghvac.com/residential/windfree-max-heat); [Lennox: Lennox Powered by Samsung product launch](https://www.investor.lennox.com/news-releases/news-release-details/lennox-debuts-lennox-powered-samsung-mini-split-and-vrf-product)
 
 ## TCL 的暖通历史比许多美国消费者想象得更长
+
+![TCL Advantage 系列官方产品图片。请将报价中的设备与对应参数文件及 AHRI 记录核对。](../../my-app/public/images/blog/brand-guide/tcl-advantage.webp)
+
+TCL Advantage 系列官方产品图片。请将报价中的设备与对应参数文件及 AHRI 记录核对。 [图片来源 / 署名: TCL North America](https://us.tcl.com/pages/hvac-product-collection)
 
 TCL 北美暖通历史记载，其空调事业部成立于 1999 年。目前产品包括 Advantage、Multi Match 等系列。
 

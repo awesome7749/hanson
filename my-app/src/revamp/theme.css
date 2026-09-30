@@ -3953,3 +3953,21 @@ footer {
   .blog-article-contents ol { columns: 1; }
   .blog-article-disclosure { padding: 18px; }
 }
+
+/* Article visuals retain the complete manufacturer image and a visible source. */
+.blog-section-figures { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 280px), 1fr)); gap: 24px; margin: 26px 0 32px; }
+.blog-source-figure { margin: 0; padding: 20px; min-width: 0; background: #fff; border: 1px solid var(--stone); border-radius: 14px; }
+.blog-source-figure > a { display: flex; align-items: center; justify-content: center; min-height: 140px; }
+.blog-source-figure img { display: block; max-width: 100%; width: auto; height: auto; max-height: 340px; object-fit: contain; }
+.blog-source-figure figcaption { margin-top: 16px; font-size: 13px; line-height: 1.6; color: var(--taupe); }
+.blog-article-body .blog-source-figure figcaption p { font-size: 14px; line-height: 1.6; margin: 0 0 8px; }
+.blog-source-figure figcaption a { text-decoration: underline; text-underline-offset: 3px; }
+.blog-source-figure-logo { padding: 18px; }
+.blog-source-figure-logo > a { min-height: 72px; }
+.blog-source-figure-logo img { max-width: 180px; max-height: 66px; }
+.blog-source-figure-document img { max-height: 400px; }
+.blog-source-figure-diagram { grid-column: 1 / -1; }
+.blog-source-figure-diagram img { width: 100%; max-height: none; }
+.blog-source-figure-photo img { border-radius: 8px; }
+
+.blog-source-figure picture { display: block; max-width: 100%; }
