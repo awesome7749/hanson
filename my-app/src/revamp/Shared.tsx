@@ -128,7 +128,7 @@ export function Shell({ children }: { children: React.ReactNode }) {
             </div>
             <div>
               <b>YOUR HOME</b>
-              <Link to="/heat-pumps">Heat pumps</Link>
+              <Link to="/blog/heat-pumps-massachusetts-winter-guide">Heat pumps</Link>
               <Link to="/pricing">Pricing</Link>
               <Link to="/heat-pump-cost-calculator">Cost calculator</Link>
               <Link to="/assessment">Energy assessments</Link>

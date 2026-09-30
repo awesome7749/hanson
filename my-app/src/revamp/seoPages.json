@@ -5,15 +5,7 @@
     "heading": "Heat pump installation. Made simple.",
     "intro": "Hanson Home helps Massachusetts homeowners choose and install heat pumps with clear pricing, professional installation and support at every step.",
     "highlights": ["Get an itemized estimate for your home and project scope.", "Eligible whole-home and partial-home projects may qualify for Mass Save rebates of up to $8,500."],
-    "links": [{ "path": "/heat-pumps", "label": "Explore heat pumps" }, { "path": "/pricing", "label": "Understand pricing and rebates" }, { "path": "/heat-pump-cost-calculator", "label": "Calculate my switching cost" }, { "path": "/start?intent=heat-pump", "label": "Get my estimate" }]
-  },
-  "/heat-pumps": {
-    "title": "Heat Pumps for Massachusetts Homes | Hanson Home",
-    "description": "Learn how heat pumps heat and cool Massachusetts homes, what affects system design, and how Hanson Home helps you choose the right equipment.",
-    "heading": "Heat pumps for heating and cooling.",
-    "intro": "A heat pump is an electric heating and cooling system. It moves heat between your home and the outdoors, warming rooms in winter and cooling them in summer.",
-    "highlights": ["System design depends on your home's layout, insulation and heating needs.", "Hanson Home helps you compare equipment and plan an installation."],
-    "links": [{ "path": "/how-it-works", "label": "See the installation process" }, { "path": "/start?intent=heat-pump", "label": "Get my estimate" }]
+    "links": [{ "path": "/blog/heat-pumps-massachusetts-winter-guide", "label": "Explore heat pumps" }, { "path": "/pricing", "label": "Understand pricing and rebates" }, { "path": "/heat-pump-cost-calculator", "label": "Calculate my switching cost" }, { "path": "/start?intent=heat-pump", "label": "Get my estimate" }]
   },
   "/pricing": {
     "title": "Heat Pump Pricing & Rebates in MA | Hanson Home",
@@ -37,7 +29,7 @@
     "heading": "What is a Mass Save home energy assessment?",
     "intro": "A Mass Save Home Energy Assessment reviews whole-home energy use and opportunities to improve efficiency and comfort. Eligible customers can receive an assessment at no cost through the program.",
     "highlights": ["The review considers insulation, air leaks and key energy-using systems.", "A personalized report identifies recommended next steps."],
-    "links": [{ "path": "/start?intent=assessment", "label": "Request an assessment" }, { "path": "/heat-pumps", "label": "Explore heat pumps" }]
+    "links": [{ "path": "/start?intent=assessment", "label": "Request an assessment" }, { "path": "/blog/heat-pumps-massachusetts-winter-guide", "label": "Explore heat pumps" }]
   },
   "/how-it-works": {
     "title": "Heat Pump Installation Process | Hanson Home",
@@ -85,7 +77,7 @@
     "heading": "Helpful reading for a more comfortable home.",
     "intro": "Explore our guides to heat pumps, installation, pricing and home energy assessments in Massachusetts.",
     "highlights": ["Understand how heat pumps heat and cool your home.", "Learn what to expect from installation, a written quote and ongoing care."],
-    "links": [{ "path": "/heat-pumps", "label": "Heat pump guide" }, { "path": "/how-it-works", "label": "Installation guide" }, { "path": "/pricing", "label": "Pricing guide" }, { "path": "/assessment", "label": "Energy assessment guide" }, { "path": "/warranty", "label": "Warranty guide" }]
+    "links": [{ "path": "/blog/heat-pumps-massachusetts-winter-guide", "label": "Heat pump guide" }, { "path": "/how-it-works", "label": "Installation guide" }, { "path": "/pricing", "label": "Pricing guide" }, { "path": "/assessment", "label": "Energy assessment guide" }, { "path": "/warranty", "label": "Warranty guide" }]
   },
   "/privacy": {
     "title": "Privacy & Request Information | Hanson Home",

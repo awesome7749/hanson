@@ -1,0 +1,33 @@
+.heat-animation { margin: 30px 0; padding: 24px; border: 1px solid var(--stone); border-radius: 18px; background: #fff; }
+.heat-animation-top { display: flex; gap: 16px; align-items: center; justify-content: space-between; }
+.heat-animation-top h3 { font-size: 24px; margin: 6px 0 20px; }
+.heat-animation button { cursor: pointer; font: inherit; font-size: 14px; padding: 10px 14px; border: 1px solid var(--control-line); border-radius: 8px; color: var(--ink); background: #fff; }
+.heat-animation button:focus-visible { outline: 3px solid #326c86; outline-offset: 3px; }
+.heat-animation-modes { display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 16px; }
+.heat-animation-modes button[aria-pressed="true"] { background: var(--ink); color: #fff; border-color: var(--ink); }
+.heat-animation svg { display: block; width: 100%; height: auto; }
+.heat-animation .heat-animation-mobile { display: none; }
+.heat-refrigerant, .heat-air { fill: none; stroke-width: 5; stroke-linecap: round; }
+.heat-refrigerant { stroke-dasharray: 11 9; }
+.heat-air { stroke-dasharray: 9 8; }
+.heat-animation-playing .heat-refrigerant { animation: heat-flow 1.8s linear infinite; }
+.heat-animation-playing .heat-air { animation: heat-flow 2s linear infinite; }
+.heat-svg-label { font: 600 21px var(--body); fill: var(--ink); }
+.heat-svg-small { font: 18px var(--body); fill: var(--taupe); }
+.heat-animation-key { display: flex; gap: 18px; flex-wrap: wrap; font-size: 13px; margin: 20px 0; }
+.heat-animation-key i { display: inline-block; width: 12px; height: 12px; border-radius: 50%; margin-right: 7px; }
+.heat-animation figcaption { border-top: 1px solid var(--stone); padding-top: 18px; }
+.blog-article-body .heat-animation figcaption p { font-size: 15px; line-height: 1.7; margin: 8px 0 12px; }
+.heat-animation figcaption small { color: var(--taupe); font-size: 12px; line-height: 1.6; display: block; }
+@keyframes heat-flow { to { stroke-dashoffset: -40; } }
+@media (prefers-reduced-motion: reduce) { .heat-animation-playing .heat-refrigerant, .heat-animation-playing .heat-air { animation: none; } }
+@media (max-width: 600px) {
+  .heat-animation .heat-animation-mobile { display: block; }
+  .heat-animation .heat-animation-desktop { display: none; }
+  .heat-animation { padding: 14px; }
+  .heat-animation-top { align-items: flex-start; }
+  .heat-animation-top h3 { font-size: 20px; }
+  .heat-animation-play { max-width: 108px; }
+  .heat-animation button { font-size: 12px; padding: 9px 10px; }
+  .heat-animation-key { gap: 10px; font-size: 12px; }
+}

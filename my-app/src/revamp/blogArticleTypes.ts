@@ -9,6 +9,7 @@ export type ArticleFigure = {
   height: number;
   kind: string;
   mobileSrc?: string;
+  interactive?: string;
 };
 export type ArticleTable = {
   caption: string;
@@ -24,15 +25,19 @@ export type ArticleSection = {
   table?: ArticleTable;
   takeaway?: string;
   figures?: ArticleFigure[];
+  links?: { path: string; label: string }[];
+  faqs?: { question: string; answer: string }[];
 };
 export type BlogArticleData = {
   slug: string;
   title: string;
+  seoTitle?: string;
   description: string;
   summary: string;
   category: string;
   reviewed: string;
   reviewedIso?: string;
+  publishedIso?: string;
   readingMinutes?: number;
   showContents?: boolean;
   disclosure?: string;
@@ -48,7 +53,7 @@ export type BlogArticleData = {
   locale?: string;
   languageLabel?: string;
   translationGroup?: string;
-  ui?: Record<string, string>;
+  ui?: Partial<Record<string, string>>;
 };
 
 export function articleSectionId(section: ArticleSection, index: number) {

@@ -58,7 +58,7 @@ test("blog navigation opens the homeowner guides page", () => {
   expect(navigation).toHaveTextContent("Blog");
   expect(navigation).not.toHaveTextContent(/Heat pumps|Installation|Energy assessment/);
   expect(screen.getByRole("heading", { level: 1, name: /Helpful reading/i })).toBeInTheDocument();
-  for (const path of ["/heat-pumps", "/how-it-works", "/pricing", "/assessment", "/warranty"]) {
+  for (const path of ["/how-it-works", "/pricing", "/assessment", "/warranty"]) {
     expect(document.querySelector(`.blog-grid a[href="${path}"]`)).toBeInTheDocument();
   }
   expect(document.querySelector(`.blog-latest a[href="/blog/${articles[0].slug}"]`)).toBeInTheDocument();
@@ -96,7 +96,7 @@ test.each(articles)("$slug has matching public content, citations and route meta
   window.history.replaceState({}, "", `/blog/${article.slug}`);
   const view = render(<App />);
   expect(screen.getByRole("heading", { level: 1, name: article.title })).toBeInTheDocument();
-  expect(window.document.title).toBe(`${article.title} | Hanson Home`);
+  expect(window.document.title).toBe(article.seoTitle || `${article.title} | Hanson Home`);
   if (article.openingSummary) expect(screen.getByRole("heading", { name: article.openingSummary.heading })).toBeInTheDocument();
   if (article.showContents) {
     expect(screen.getByRole("navigation", { name: articleUi(article).contents })).toBeInTheDocument();
@@ -106,7 +106,7 @@ test.each(articles)("$slug has matching public content, citations and route meta
 });
 
 test("language editions retain the complete structure, citations and technical table figures", () => {
-  const original = articles.find((article) => article.locale === "en")!;
+  const original = articles.find((article) => article.slug === "heat-pump-ac-brand-guide")!;
   const editions = articleLanguages(original);
   expect(editions.map((article) => article.locale)).toEqual(["en", "es", "zh-Hans", "pt-BR"]);
   for (const edition of editions) {

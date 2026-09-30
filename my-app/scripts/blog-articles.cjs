@@ -9,7 +9,7 @@ function renderBlogArticle(indexHtml, article) {
   const route = `/blog/${article.slug}`;
   const ui = { back: 'All homeowner guides', reviewed: 'Reviewed', minutes: 'minute read', contents: 'In this guide', sources: 'Sources', language: 'Article language', ...article.ui };
   const languages = article.translationGroup ? articles.filter((item) => item.translationGroup === article.translationGroup) : [];
-  const meta = { title: `${article.title} | Hanson Home`, description: article.description };
+  const meta = { title: article.seoTitle || `${article.title} | Hanson Home`, description: article.description };
   const citations = (ids, numbered = false) => ids.map((id) => {
     const index = article.sources.findIndex((item) => item.id === id);
     if (index < 0) throw new Error(`Unknown source ${id} in ${article.slug}`);
@@ -21,7 +21,7 @@ function renderBlogArticle(indexHtml, article) {
     `<main><article lang="${esc(article.locale || 'en')}"><header><p><a href="/blog">${esc(ui.back)}</a></p>`,
     languages.length > 1 ? `<nav aria-label="${esc(ui.language)}">${languages.map((item) => `<a href="/blog/${esc(item.slug)}" lang="${esc(item.locale)}" hreflang="${esc(item.locale)}"${item.slug === article.slug ? ' aria-current="page"' : ''}>${esc(item.languageLabel)}</a>`).join(' · ')}</nav>` : '',
     `<h1>${esc(article.title)}</h1>`,
-    `<p>${esc(article.intro)}</p><p>${esc(ui.reviewed)} ${esc(article.reviewed)}${article.readingMinutes ? ` · ${article.readingMinutes} ${esc(ui.minutes)}` : ''}</p></header>`,
+    `<p>${esc(article.intro)}</p><p>${article.publishedIso ? 'By Hanson Home · ' : ''}${esc(ui.reviewed)} <time${article.reviewedIso ? ` datetime="${esc(article.reviewedIso)}"` : ''}>${esc(article.reviewed)}</time>${article.readingMinutes ? ` · ${article.readingMinutes} ${esc(ui.minutes)}` : ''}</p></header>`,
     article.openingSummary ? `<section id="${esc(article.openingSummary.id)}" aria-labelledby="blog-summary-heading"><h2 id="blog-summary-heading">${esc(article.openingSummary.heading)}</h2>${article.openingSummary.paragraphs.map((paragraph) => `<p>${esc(paragraph)}</p>`).join('')}<ul>${article.openingSummary.bullets.map((bullet) => `<li>${esc(bullet)}</li>`).join('')}</ul><p>${esc(ui.sources)}: ${citations(article.openingSummary.sourceIds)}</p></section>` : '',
     article.disclosure ? `<p>${esc(article.disclosure)}</p>` : '',
     article.image ? `<figure><img src="${esc(article.image.src)}" alt="${esc(article.image.alt)}" width="1800" height="1350"/><figcaption>${esc(article.image.caption)}</figcaption></figure>` : '',
@@ -31,6 +31,8 @@ function renderBlogArticle(indexHtml, article) {
       renderFigures(section.figures),
       ...section.paragraphs.map((paragraph) => `<p>${esc(paragraph)}</p>`),
       section.bullets ? `<ul>${section.bullets.map((item) => `<li>${esc(item)}</li>`).join('')}</ul>` : '',
+      section.faqs ? `<div>${section.faqs.map((faq) => `<h3>${esc(faq.question)}</h3><p>${esc(faq.answer)}</p>`).join('')}</div>` : '',
+      section.links ? `<nav aria-label="${esc(`Related reading: ${section.heading}`)}">${section.links.map((link) => `<a href="${esc(link.path)}">${esc(link.label)}</a>`).join(' · ')}</nav>` : '',
       section.table ? renderTable(section.table) : '',
       section.takeaway ? `<aside><p>${esc(section.takeaway)}</p></aside>` : '',
       section.sourceIds.length ? `<p>${esc(ui.sources)}: ${citations(section.sourceIds)}</p>` : '',
@@ -49,6 +51,7 @@ function renderBlogArticle(indexHtml, article) {
     author: { '@type': 'Organization', name: 'Hanson Home', url: 'https://hansonhome.us/' },
     publisher: { '@type': 'Organization', name: 'Hanson Home', url: 'https://hansonhome.us/' },
     ...(article.reviewedIso ? { dateModified: article.reviewedIso } : {}),
+    ...(article.publishedIso ? { datePublished: article.publishedIso } : {}),
     ...(article.image ? { image: `https://hansonhome.us${article.image.src}` } : {}),
   };
   let html = replacePageHead(indexHtml, meta, route)
@@ -59,6 +62,24 @@ function renderBlogArticle(indexHtml, article) {
   if (languages.length > 1) html = html.replace('</head>', languages.map((item) => `<link rel="alternate" data-blog-language="true" hreflang="${esc(item.locale)}" href="https://hansonhome.us/blog/${esc(item.slug)}"/>`).join('') + `<link rel="alternate" data-blog-language="true" hreflang="x-default" href="https://hansonhome.us/blog/${esc(article.translationGroup)}"/></head>`);
   html = html.replace('</head>', `<meta property="og:locale" content="${({ es: 'es_US', 'zh-Hans': 'zh_CN', 'pt-BR': 'pt_BR' })[article.locale] || 'en_US'}"/></head>`);
   if (article.image) html = html.replace('content="https://hansonhome.us/logo512.png"', `content="https://hansonhome.us${esc(article.image.src)}"`);
+  const breadcrumbs = {
+    '@context': 'https://schema.org', '@type': 'BreadcrumbList',
+    itemListElement: [
+      { '@type': 'ListItem', position: 1, name: 'Hanson Home', item: 'https://hansonhome.us/' },
+      { '@type': 'ListItem', position: 2, name: 'Blog', item: 'https://hansonhome.us/blog' },
+      { '@type': 'ListItem', position: 3, name: article.title, item: `https://hansonhome.us${route}` },
+    ],
+  };
+  const jsonScript = (id, data) => `<script id="${id}" type="application/ld+json">${JSON.stringify(data).replace(/</g, '\\u003c')}</script>`;
+  html = html.replace('</head>', `${jsonScript('blog-breadcrumb-data', breadcrumbs)}</head>`);
+  const faqs = article.sections.flatMap((section) => section.faqs || []);
+  if (faqs.length) html = html.replace('</head>', `${jsonScript('blog-faq-data', {
+    '@context': 'https://schema.org', '@type': 'FAQPage',
+    mainEntity: faqs.map((item) => ({ '@type': 'Question', name: item.question, acceptedAnswer: { '@type': 'Answer', text: item.answer } })),
+  })}</head>`);
+  // The same share metadata is present before JavaScript and after client navigation.
+  html = html.replace(/<meta\b(?=[^>]*\bname=["']twitter:(?:card|title|description|image)["'])[^>]*>\s*/gi, '');
+  html = html.replace('</head>', `<meta name="twitter:card" content="summary_large_image"/><meta name="twitter:title" content="${esc(meta.title)}"/><meta name="twitter:description" content="${esc(meta.description)}"/><meta name="twitter:image" content="https://hansonhome.us${esc(article.image?.src || '/logo512.png')}"/></head>`);
   return html;
 }
 module.exports = { articles, renderBlogArticle };

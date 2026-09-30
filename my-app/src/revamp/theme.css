@@ -3971,3 +3971,15 @@ footer {
 .blog-source-figure-photo img { border-radius: 8px; }
 
 .blog-source-figure picture { display: block; max-width: 100%; }
+
+.blog-card-image { display: block; width: 100%; height: 180px; object-fit: cover; border-radius: 10px; margin-bottom: 22px; }
+.blog-section-links { display: flex; flex-direction: column; align-items: flex-start; gap: 14px; margin: 24px 0; }
+.blog-section-links .text-link { font-size: 15px; line-height: 1.6; }
+.blog-article-faqs > div { padding: 22px 0 8px; border-bottom: 1px solid var(--stone); }
+.blog-article-faqs h3 { font-size: 22px; line-height: 1.45; }
+.blog-section-figures .heat-animation { grid-column: 1 / -1; margin: 0; }
+@media (max-width: 600px) {
+  .heat-animation .heat-svg-label { font-size: 25px; }
+  .heat-animation .heat-svg-small { font-size: 20px; }
+  .blog-article-faqs h3 { font-size: 20px; }
+}

@@ -120,7 +120,7 @@ export default function Home() {
             <h2>One system for<br />heating and cooling.</h2>
             <p>A heat pump moves heat into your home in winter and out in summer.
               It runs on electricity and can serve individual rooms or a whole home.</p>
-            <Link className="text-link" to="/heat-pumps">Explore heat-pump options <Icon name="arrow" /></Link>
+            <Link className="text-link" to="/blog/heat-pumps-massachusetts-winter-guide">Explore heat-pump options <Icon name="arrow" /></Link>
           </div>
           <HeatPumpExplainer compact />
         </div>
