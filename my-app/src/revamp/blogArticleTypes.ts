@@ -1,4 +1,15 @@
 export type ArticleSource = { id: string; label: string; url: string; note?: string };
+export type ArticleFigure = {
+  src: string;
+  alt: string;
+  caption: string;
+  credit: string;
+  sourceUrl: string;
+  width: number;
+  height: number;
+  kind: string;
+  mobileSrc?: string;
+};
 export type ArticleTable = {
   caption: string;
   columns: string[];
@@ -12,6 +23,7 @@ export type ArticleSection = {
   bullets?: string[];
   table?: ArticleTable;
   takeaway?: string;
+  figures?: ArticleFigure[];
 };
 export type BlogArticleData = {
   slug: string;

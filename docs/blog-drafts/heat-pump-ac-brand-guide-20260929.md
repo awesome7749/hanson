@@ -23,6 +23,14 @@ Research checked September 29, 2026.
 
 ## The short answer: choose a documented system and a service plan
 
+![Manual J uses the home’s climate, envelope and room details to calculate heating and cooling loads. Ask for the room-by-room results and the design temperatures used. Illustration by Hanson Home, based on ACCA guidance.](../../my-app/public/images/blog/brand-guide/manual-j-inputs-en.svg)
+
+Manual J uses the home’s climate, envelope and room details to calculate heating and cooling loads. Ask for the room-by-room results and the design temperatures used. Illustration by Hanson Home, based on ACCA guidance. [Image credit / source: Hanson Home · ACCA](https://www.acca.org/standards/technical-manuals/manual-j)
+
+![ACCA’s Manual J is the residential load-calculation method discussed here. Its published cover helps identify the reference to ask your contractor about.](../../my-app/public/images/blog/brand-guide/manual-j.webp)
+
+ACCA’s Manual J is the residential load-calculation method discussed here. Its published cover helps identify the reference to ask your contractor about. [Image credit / source: ACCA](https://www.acca.org/standards/technical-manuals/manual-j)
+
 At Hanson Home, our recommendation is to choose the system that fits the house, the heating plan and the homeowner’s priorities. That starts with the rooms you want to improve, the equipment you already have and whether you need summer cooling, supplemental heat or a replacement for your current heating system.
 
 We can install heat pumps across all brands, including the manufacturers discussed here. TCL is our main brand and gets additional space in this guide. We also explain when another product or configuration deserves a closer look. Corporate histories and performance figures come from the linked sources; Hanson Home’s recommendations explain how we would use that information in a buying decision. The sources do not establish a comparable, independent failure-rate ranking across brands.
@@ -38,6 +46,10 @@ For a Massachusetts home, start with three decisions: whether you need cooling o
 Sources: [ENERGY STAR: air-source heat-pump buying guidance](https://www.energystar.gov/products/air_source_heat_pumps); [AHRI: how and why equipment is certified](https://www.ahrinet.org/certification/cee-directory/how-and-why-certified)
 
 ## Heat pumps and air conditioners explained
+
+![A heat-pump installation at a Hanson Home client site. Actual project photo supplied by Hanson Home.](../../my-app/public/images/installations/outdoor-condenser-home.webp)
+
+A heat-pump installation at a Hanson Home client site. Actual project photo supplied by Hanson Home. [Image credit / source: Hanson Home](https://hansonhome.us/how-it-works)
 
 An air conditioner moves heat from inside the home to outdoors. An air-source heat pump can reverse that process to provide heating as well as cooling. It uses electricity to run the compressor and fans while moving heat between indoors and outdoors; this is different from making all the heat with an electric resistance element.
 
@@ -63,6 +75,46 @@ Sources: [ENERGY STAR: air-source heat-pump buying guidance](https://www.energys
 
 ## A brief history: why the brands arrived at different strengths
 
+![Brand identification: TCL](../../my-app/public/images/blog/brand-guide/tcl-logo.webp)
+
+Brand identification: TCL [Image credit / source: TCL North America](https://us.tcl.com/pages/hvac-product-collection)
+
+![Brand identification: Midea](../../my-app/public/images/blog/brand-guide/midea-logo.svg)
+
+Brand identification: Midea [Image credit / source: Midea Comfort](https://www.mideacomfort.us/g3.html)
+
+![Brand identification: Bosch](../../my-app/public/images/blog/brand-guide/bosch-logo.svg)
+
+Brand identification: Bosch [Image credit / source: Bosch Home Comfort](https://www.bosch-homecomfort.com/us/en/ocs/residential/ids-ultra-inverter-ducted-split-cold-climate-heat-pump-20831889-p/)
+
+![Brand identification: Daikin](../../my-app/public/images/blog/brand-guide/daikin-logo.webp)
+
+Brand identification: Daikin [Image credit / source: Daikin Comfort Technologies](https://daikincomfort.com/)
+
+![Brand identification: Panasonic (Sanyo)](../../my-app/public/images/blog/brand-guide/panasonic-logo.svg)
+
+Brand identification: Panasonic (Sanyo) [Image credit / source: Panasonic Holdings](https://news.panasonic.com/global/)
+
+![Brand identification: Mitsubishi Electric](../../my-app/public/images/blog/brand-guide/mitsubishi-logo.svg)
+
+Brand identification: Mitsubishi Electric [Image credit / source: Mitsubishi Electric Trane HVAC US](https://www.mitsubishicomfort.com/metus)
+
+![Brand identification: GENERAL](../../my-app/public/images/blog/brand-guide/general-logo.svg)
+
+Brand identification: GENERAL [Image credit / source: GENERAL Inc.](https://www.generalww.com/global/history/index.html)
+
+![Brand identification: GREE](../../my-app/public/images/blog/brand-guide/gree-logo.svg)
+
+Brand identification: GREE [Image credit / source: GREE Comfort](https://www.greecomfort.com/our-products/sapphire/)
+
+![Brand identification: Carrier](../../my-app/public/images/blog/brand-guide/carrier-logo.webp)
+
+Brand identification: Carrier [Image credit / source: Carrier](https://www.carrier.com/commercial/en/us/about/history/)
+
+![Brand identification: Samsung HVAC](../../my-app/public/images/blog/brand-guide/samsung-logo.svg)
+
+Brand identification: Samsung HVAC [Image credit / source: Samsung HVAC](https://www.samsunghvac.com/residential/windfree-max-heat)
+
 The year a corporation was founded and the year it began making air conditioners are different facts. A long heating heritage, a room-AC manufacturing business and a US distribution partnership can all be useful—but each tells you something different. This timeline highlights milestones relevant to buying a system today, rather than awarding points for age.
 
 **Selected milestones, with primary sources**
@@ -81,6 +133,10 @@ The year a corporation was founded and the year it began making air conditioners
 
 ## Who makes the equipment? Four relationships to understand
 
+![Excerpt from TCL’s published submittal: the AHRI reference and indoor/outdoor model fields. Ask your installer to verify the exact combination and its current certificate in the AHRI Directory.](../../my-app/public/images/blog/brand-guide/tcl-ahri-reference.webp)
+
+Excerpt from TCL’s published submittal: the AHRI reference and indoor/outdoor model fields. Ask your installer to verify the exact combination and its current certificate in the AHRI Directory. [Image credit / source: TCL North America](https://cdn.shopify.com/s/files/1/0687/7151/2385/files/Submittal_Sheet_-_AHU_-_36K_230V.pdf?v=1764127657)
+
 Brand ownership identifies the company controlling a name. An OEM manufactures equipment; a private brand marketer sells equipment under its own label. A joint venture combines defined businesses or capabilities. A component supplier might provide the compressor or fan without designing, assembling or warranting the complete system. Those relationships should not be collapsed into one claim that two brands are “the same.”
 
 AHRI’s certification program accepts both OEMs and private brand marketers. Its matched-system records are useful for confirming a proposed combination, but a certificate is a performance record—not a complete map of factory ownership, firmware, service support or interchangeable parts.
@@ -92,6 +148,10 @@ Our practical interpretation: shared manufacturing can create good value, yet th
 Sources: [AHRI: how and why equipment is certified](https://www.ahrinet.org/certification/cee-directory/how-and-why-certified)
 
 ## Midea: an established manufacturer with a less visible supplier role
+
+![Midea EVOX G3 ducted-system image. Verify the exact indoor and outdoor models in the proposal.](../../my-app/public/images/blog/brand-guide/midea-g3.webp)
+
+Midea EVOX G3 ducted-system image. Verify the exact indoor and outdoor models in the proposal. [Image credit / source: Midea Comfort](https://www.mideacomfort.us/g3.html)
 
 Midea dates its corporate roots to 1968 and its entry into air conditioning to 1985. Its Building Technologies division records a 1999 VRF milestone using Toshiba-Carrier technology, the 2015 Bosch VRF partnership and its 2016 acquisition of Clivet. These are specific business relationships, rather than evidence that every associated brand has the same residential equipment.
 
@@ -112,6 +172,10 @@ This supports the statement that Midea and Bosch collaborated on Bosch-branded H
 Sources: [Bosch: Midea VRF joint-venture announcement, March 31, 2015](https://www.bosch-presse.de/pressportal/de/bosch-und-midea-vereinbaren-joint-venture-fuer-die-fertigung-von-vrf-systemen-42920.html); [Midea Building Technologies: history and partnerships](https://hvac.midea.com/about_mbt/)
 
 ## Bosch today: inspect the IDS generation and the expanded brand family
+
+![Bosch IDS Ultra outdoor unit and air handler. The illustrated family’s specifications should be checked for the selected combination.](../../my-app/public/images/blog/brand-guide/bosch-ultra.webp)
+
+Bosch IDS Ultra outdoor unit and air handler. The illustrated family’s specifications should be checked for the selected combination. [Image credit / source: Bosch Home Comfort](https://www.bosch-homecomfort.com/us/en/ocs/residential/ids-ultra-inverter-ducted-split-cold-climate-heat-pump-20831889-p/)
 
 Bosch’s HVAC business changed substantially when it completed the Johnson Controls residential/light commercial HVAC and Johnson Controls–Hitachi Air Conditioning transactions on July 31, 2025. Its release describes long-term licenses for YORK and Hitachi branding. That is a corporate portfolio change; it does not make a YORK system interchangeable with an existing Bosch IDS system.
 
@@ -185,6 +249,10 @@ Sources: [GENERAL: company and air-conditioning history](https://www.generalww.c
 
 ## Gree: substantial AC manufacturing, with important generation differences
 
+![GREE Sapphire ductless-system image from the cited product page. Confirm the model generation and refrigerant offered.](../../my-app/public/images/blog/brand-guide/gree-sapphire.webp)
+
+GREE Sapphire ductless-system image from the cited product page. Confirm the model generation and refrigerant offered. [Image credit / source: GREE Comfort](https://www.greecomfort.com/our-products/sapphire/)
+
 Gree’s corporate profile dates its establishment to 1991 and describes its early residential AC assembly and production. Its US Sapphire page illustrates a research trap: the page contains both SEER2/HSPF2 notation and older SEER/HSPF marketing, along with documents tied to specific model numbers. A shopper copying only the largest number can compare different rating systems or generations.
 
 The Sapphire page lists a heating operating range extending to −22°F. An operating limit answers whether the equipment can run at a temperature. It does not, by itself, state the heat output, electrical input or share of your home’s load delivered there.
@@ -197,6 +265,10 @@ Sources: [Gree: corporate profile](https://global.gree.com/usa/channels/735.html
 
 ## Carrier: historic AC leadership and a documented ductless supplier relationship
 
+![Carrier’s archive identifies this image with the 1902 Sackett & Wilhelms air-conditioning installation. It shows the industrial roots behind the modern brand.](../../my-app/public/images/blog/brand-guide/carrier-history.webp)
+
+Carrier’s archive identifies this image with the 1902 Sackett & Wilhelms air-conditioning installation. It shows the industrial roots behind the modern brand. [Image credit / source: Carrier](https://www.carrier.com/commercial/en/us/about/history/)
+
 Carrier connects its history to Willis Carrier’s 1902 modern air-conditioning system and the company’s formation in 1915. Its ductless joint-venture release explains a different part of the business: Carrier’s distribution network combined with Midea’s ductless development expertise, building on a longstanding supplier relationship.
 
 Our buying interpretation: brand heritage can be useful when choosing a service channel, while the product family still determines the technical comparison. If a contractor offers Carrier central equipment and Carrier ductless equipment, request the documents and warranty terms for each. Neither a shared badge nor the Midea relationship establishes universal parts interchangeability.
@@ -204,6 +276,10 @@ Our buying interpretation: brand heritage can be useful when choosing a service 
 Sources: [Carrier: history of modern air conditioning](https://www.carrier.com/commercial/en/us/about/history/); [Carrier: North American residential ductless partnership with Midea](https://www.carrier.com/carrier/en/worldwide/news/news-article/carrier--midea-launch-residential-ductless-hvac-joint-venture-in-north-america.html)
 
 ## LG, Samsung and Lennox: comfort features plus changing distribution
+
+![Samsung WindFree indoor-unit image from its Max Heat product page. Check the accompanying outdoor unit and room design.](../../my-app/public/images/blog/brand-guide/samsung-windfree.webp)
+
+Samsung WindFree indoor-unit image from its Max Heat product page. Check the accompanying outdoor unit and room design. [Image credit / source: Samsung HVAC](https://www.samsunghvac.com/residential/windfree-max-heat)
 
 LG dates its residential AC roots to 1968. Its current US residential page describes select LGRED models delivering 100% heating at 5°F and operating to −13°F, and lists several indoor unit styles. That combination can matter when appearance, ceiling space or airflow direction influences the design.
 
@@ -216,6 +292,10 @@ Lennox’s product-launch release confirms that Samsung Lennox HVAC North Americ
 Sources: [LG: history of its residential air-conditioning business](https://www.lg.com/ph/about-lg/press-and-media/lg-electronics-launches-the-brand-new-line-up-for-single-commercial-air-conditioners/); [LG USA: residential HVAC systems and LGRED](https://www.lg.com/us/residential-hvac/hvac-systems); [Samsung HVAC: WindFree Max Heat](https://www.samsunghvac.com/residential/windfree-max-heat); [Lennox: Lennox Powered by Samsung product launch](https://www.investor.lennox.com/news-releases/news-release-details/lennox-debuts-lennox-powered-samsung-mini-split-and-vrf-product)
 
 ## TCL: its HVAC history is longer than many US shoppers realize
+
+![TCL Advantage product-family image. Match the proposed equipment to its own submittal and AHRI record.](../../my-app/public/images/blog/brand-guide/tcl-advantage.webp)
+
+TCL Advantage product-family image. Match the proposed equipment to its own submittal and AHRI record. [Image credit / source: TCL North America](https://us.tcl.com/pages/hvac-product-collection)
 
 TCL’s North American HVAC history dates its air-conditioner division to 1999. Its current HVAC collection separates Advantage, Multi Match and other product families.
 

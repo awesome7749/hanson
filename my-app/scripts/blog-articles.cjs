@@ -15,6 +15,7 @@ function renderBlogArticle(indexHtml, article) {
     if (index < 0) throw new Error(`Unknown source ${id} in ${article.slug}`);
     return `<a href="#source-${esc(id)}"${numbered ? ` aria-label="${esc(article.sources[index].label)}"` : ''}>${numbered ? `[${index + 1}]` : esc(article.sources[index].label)}</a>`;
   }).join(', ');
+  const renderFigures = (figures) => figures ? `<div class="blog-section-figures">${figures.map((figure) => `<figure class="blog-source-figure blog-source-figure-${esc(figure.kind)}"><a href="${esc(figure.sourceUrl)}" target="_blank" rel="noreferrer"><picture>${figure.mobileSrc ? `<source media="(max-width: 600px)" srcset="${esc(figure.mobileSrc)}" width="460" height="650"/>` : ''}<img src="${esc(figure.src)}" alt="${esc(figure.alt)}" width="${figure.width}" height="${figure.height}" loading="lazy" decoding="async"/></picture></a><figcaption><p>${esc(figure.caption)}</p><a href="${esc(figure.sourceUrl)}" target="_blank" rel="noreferrer">${esc(article.ui?.imageCredit || 'Image credit / source')}: ${esc(figure.credit)} ↗</a></figcaption></figure>`).join('')}</div>` : '';
   const renderTable = (table) => `<div role="region" aria-label="${esc(table.caption)}" tabindex="0"><table><caption>${esc(table.caption)}</caption><thead><tr>${table.columns.map((column) => `<th scope="col">${esc(column)}</th>`).join('')}</tr></thead><tbody>${table.rows.map((row) => `<tr>${row.cells.map((cell, index) => index === 0 ? `<th scope="row">${esc(cell)}${row.sourceIds ? ` ${citations(row.sourceIds, true)}` : ''}</th>` : `<td>${esc(cell)}</td>`).join('')}</tr>`).join('')}</tbody></table></div>`;
   const body = [
     `<main><article lang="${esc(article.locale || 'en')}"><header><p><a href="/blog">${esc(ui.back)}</a></p>`,
@@ -27,6 +28,7 @@ function renderBlogArticle(indexHtml, article) {
     article.showContents ? `<nav aria-label="${esc(ui.contents)}"><h2>${esc(ui.contents)}</h2><ol>${article.sections.map((section, index) => `<li><a href="#${esc(sectionId(section, index))}">${esc(section.heading)}</a></li>`).join('')}</ol></nav>` : '',
     ...article.sections.map((section, index) => [
       `<section id="${esc(sectionId(section, index))}"><h2>${esc(section.heading)}</h2>`,
+      renderFigures(section.figures),
       ...section.paragraphs.map((paragraph) => `<p>${esc(paragraph)}</p>`),
       section.bullets ? `<ul>${section.bullets.map((item) => `<li>${esc(item)}</li>`).join('')}</ul>` : '',
       section.table ? renderTable(section.table) : '',

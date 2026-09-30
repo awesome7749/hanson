@@ -21,6 +21,14 @@ A Hanson Home pode instalar bombas de calor de todas as marcas. A TCL é nossa m
 
 ## Comece com um sistema documentado e um plano de assistência
 
+![O Manual J utiliza o clima, a envoltória da casa e os dados dos cômodos para calcular as cargas de aquecimento e resfriamento. Peça os resultados por cômodo e as temperaturas de projeto utilizadas. Ilustração da Hanson Home baseada nas orientações da ACCA.](../../my-app/public/images/blog/brand-guide/manual-j-inputs-pt-BR.svg)
+
+O Manual J utiliza o clima, a envoltória da casa e os dados dos cômodos para calcular as cargas de aquecimento e resfriamento. Peça os resultados por cômodo e as temperaturas de projeto utilizadas. Ilustração da Hanson Home baseada nas orientações da ACCA. [Crédito da imagem / fonte: Hanson Home · ACCA](https://www.acca.org/standards/technical-manuals/manual-j)
+
+![O Manual J da ACCA é o método de cálculo de cargas residenciais apresentado aqui. A capa publicada ajuda a identificar a referência para conversar com o instalador.](../../my-app/public/images/blog/brand-guide/manual-j.webp)
+
+O Manual J da ACCA é o método de cálculo de cargas residenciais apresentado aqui. A capa publicada ajuda a identificar a referência para conversar com o instalador. [Crédito da imagem / fonte: ACCA](https://www.acca.org/standards/technical-manuals/manual-j)
+
 Na Hanson Home, recomendamos escolher o sistema adequado à casa, ao plano de aquecimento e às prioridades do proprietário. Primeiro, identifique os cômodos que deseja melhorar, os equipamentos existentes e se precisa refrigerar no verão, complementar o aquecimento ou substituir o sistema atual.
 
 Podemos instalar bombas de calor de todas as marcas, inclusive as deste guia. A TCL é nossa marca principal e recebe mais espaço, mas também explicamos quando outra solução merece atenção. Histórias empresariais e dados vêm das fontes citadas; nossas recomendações mostram como usar essas informações na compra. As fontes não estabelecem um ranking independente e comparável de taxas de falhas entre marcas.
@@ -36,6 +44,10 @@ Em Massachusetts, comece com três decisões: apenas refrigeração ou aquecimen
 Fontes: [ENERGY STAR: air-source heat-pump buying guidance](https://www.energystar.gov/products/air_source_heat_pumps); [AHRI: how and why equipment is certified](https://www.ahrinet.org/certification/cee-directory/how-and-why-certified)
 
 ## Como funcionam bombas de calor e aparelhos de ar-condicionado
+
+![Instalação de bomba de calor na casa de um cliente da Hanson Home. Fotografia de um projeto real fornecida pela Hanson Home.](../../my-app/public/images/installations/outdoor-condenser-home.webp)
+
+Instalação de bomba de calor na casa de um cliente da Hanson Home. Fotografia de um projeto real fornecida pela Hanson Home. [Crédito da imagem / fonte: Hanson Home](https://hansonhome.us/how-it-works)
 
 O ar-condicionado transfere calor do interior para o exterior. Uma bomba de calor de fonte de ar pode inverter o processo, aquecendo e refrigerando. A eletricidade aciona compressor e ventiladores enquanto o calor é transferido entre os ambientes; isso difere de produzir todo o calor com resistência elétrica.
 
@@ -61,6 +73,46 @@ Fontes: [ENERGY STAR: air-source heat-pump buying guidance](https://www.energyst
 
 ## Uma breve história dos fabricantes
 
+![Identificação da marca: TCL](../../my-app/public/images/blog/brand-guide/tcl-logo.webp)
+
+Identificação da marca: TCL [Crédito da imagem / fonte: TCL North America](https://us.tcl.com/pages/hvac-product-collection)
+
+![Identificação da marca: Midea](../../my-app/public/images/blog/brand-guide/midea-logo.svg)
+
+Identificação da marca: Midea [Crédito da imagem / fonte: Midea Comfort](https://www.mideacomfort.us/g3.html)
+
+![Identificação da marca: Bosch](../../my-app/public/images/blog/brand-guide/bosch-logo.svg)
+
+Identificação da marca: Bosch [Crédito da imagem / fonte: Bosch Home Comfort](https://www.bosch-homecomfort.com/us/en/ocs/residential/ids-ultra-inverter-ducted-split-cold-climate-heat-pump-20831889-p/)
+
+![Identificação da marca: Daikin](../../my-app/public/images/blog/brand-guide/daikin-logo.webp)
+
+Identificação da marca: Daikin [Crédito da imagem / fonte: Daikin Comfort Technologies](https://daikincomfort.com/)
+
+![Identificação da marca: Panasonic (Sanyo)](../../my-app/public/images/blog/brand-guide/panasonic-logo.svg)
+
+Identificação da marca: Panasonic (Sanyo) [Crédito da imagem / fonte: Panasonic Holdings](https://news.panasonic.com/global/)
+
+![Identificação da marca: Mitsubishi Electric](../../my-app/public/images/blog/brand-guide/mitsubishi-logo.svg)
+
+Identificação da marca: Mitsubishi Electric [Crédito da imagem / fonte: Mitsubishi Electric Trane HVAC US](https://www.mitsubishicomfort.com/metus)
+
+![Identificação da marca: GENERAL](../../my-app/public/images/blog/brand-guide/general-logo.svg)
+
+Identificação da marca: GENERAL [Crédito da imagem / fonte: GENERAL Inc.](https://www.generalww.com/global/history/index.html)
+
+![Identificação da marca: GREE](../../my-app/public/images/blog/brand-guide/gree-logo.svg)
+
+Identificação da marca: GREE [Crédito da imagem / fonte: GREE Comfort](https://www.greecomfort.com/our-products/sapphire/)
+
+![Identificação da marca: Carrier](../../my-app/public/images/blog/brand-guide/carrier-logo.webp)
+
+Identificação da marca: Carrier [Crédito da imagem / fonte: Carrier](https://www.carrier.com/commercial/en/us/about/history/)
+
+![Identificação da marca: Samsung HVAC](../../my-app/public/images/blog/brand-guide/samsung-logo.svg)
+
+Identificação da marca: Samsung HVAC [Crédito da imagem / fonte: Samsung HVAC](https://www.samsunghvac.com/residential/windfree-max-heat)
+
 O ano de fundação de uma empresa e o início da fabricação de ar-condicionado são fatos distintos. Experiência em aquecimento, fabricação de aparelhos para cômodos e parcerias de distribuição nos EUA podem ajudar, mas significam coisas diferentes. Esta cronologia destaca marcos úteis à compra atual, sem premiar apenas a antiguidade.
 
 **Marcos selecionados com fontes primárias**
@@ -79,6 +131,10 @@ O ano de fundação de uma empresa e o início da fabricação de ar-condicionad
 
 ## Quem fabrica o equipamento e quais relações distinguir
 
+![Trecho da ficha TCL: referência AHRI e modelos interno e externo. Peça ao instalador que confira a combinação exata e o certificado vigente no diretório AHRI.](../../my-app/public/images/blog/brand-guide/tcl-ahri-reference.webp)
+
+Trecho da ficha TCL: referência AHRI e modelos interno e externo. Peça ao instalador que confira a combinação exata e o certificado vigente no diretório AHRI. [Crédito da imagem / fonte: TCL North America](https://cdn.shopify.com/s/files/1/0687/7151/2385/files/Submittal_Sheet_-_AHU_-_36K_230V.pdf?v=1764127657)
+
 Propriedade da marca identifica quem controla o nome. O OEM fabrica equipamentos; o vendedor de marca própria comercializa sob seu rótulo. Uma joint venture combina negócios ou capacidades definidos. Um fornecedor pode produzir o compressor ou ventilador sem projetar, montar ou garantir todo o sistema. Essas relações não tornam automaticamente duas marcas iguais.
 
 A certificação AHRI aceita OEMs e vendedores de marca própria. Os registros de conjuntos compatíveis ajudam a confirmar a combinação, mas são registros de desempenho, não um mapa completo da fábrica, firmware, assistência ou peças intercambiáveis.
@@ -90,6 +146,10 @@ Nossa interpretação: compartilhar fabricação pode gerar valor, mas a compra 
 Fontes: [AHRI: how and why equipment is certified](https://www.ahrinet.org/certification/cee-directory/how-and-why-certified)
 
 ## Midea como fabricante consolidado e fornecedor
+
+![Imagem do sistema com dutos Midea EVOX G3. Confira os modelos internos e externos exatos no orçamento.](../../my-app/public/images/blog/brand-guide/midea-g3.webp)
+
+Imagem do sistema com dutos Midea EVOX G3. Confira os modelos internos e externos exatos no orçamento. [Crédito da imagem / fonte: Midea Comfort](https://www.mideacomfort.us/g3.html)
 
 A Midea situa suas origens em 1968 e sua entrada em ar-condicionado em 1985. Sua divisão Building Technologies registra VRF com tecnologia Toshiba-Carrier em 1999, parceria VRF com Bosch em 2015 e aquisição da Clivet em 2016. São relações específicas, não evidências de que todas as marcas associadas vendam o mesmo equipamento residencial.
 
@@ -110,6 +170,10 @@ Isso confirma colaboração na fabricação de climatização com marca Bosch. O
 Fontes: [Bosch: Midea VRF joint-venture announcement, March 31, 2015](https://www.bosch-presse.de/pressportal/de/bosch-und-midea-vereinbaren-joint-venture-fuer-die-fertigung-von-vrf-systemen-42920.html); [Midea Building Technologies: history and partnerships](https://hvac.midea.com/about_mbt/)
 
 ## Bosch atualmente e as gerações IDS
+
+![Unidade externa e unidade de tratamento de ar Bosch IDS Ultra. Confira as especificações da combinação selecionada.](../../my-app/public/images/blog/brand-guide/bosch-ultra.webp)
+
+Unidade externa e unidade de tratamento de ar Bosch IDS Ultra. Confira as especificações da combinação selecionada. [Crédito da imagem / fonte: Bosch Home Comfort](https://www.bosch-homecomfort.com/us/en/ocs/residential/ids-ultra-inverter-ducted-split-cold-climate-heat-pump-20831889-p/)
 
 O negócio da Bosch mudou ao concluir as aquisições das operações residenciais e comerciais leves da Johnson Controls e da Johnson Controls–Hitachi Air Conditioning em 31 de julho de 2025. O comunicado inclui licenças de longo prazo das marcas YORK e Hitachi. Isso não torna um YORK intercambiável com um Bosch IDS existente.
 
@@ -183,6 +247,10 @@ Fontes: [GENERAL: company and air-conditioning history](https://www.generalww.co
 
 ## Gree e diferenças entre gerações
 
+![Sistema sem dutos GREE Sapphire da página citada. Confirme a geração do modelo e o refrigerante oferecido.](../../my-app/public/images/blog/brand-guide/gree-sapphire.webp)
+
+Sistema sem dutos GREE Sapphire da página citada. Confirme a geração do modelo e o refrigerante oferecido. [Crédito da imagem / fonte: GREE Comfort](https://www.greecomfort.com/our-products/sapphire/)
+
 A Gree registra fundação em 1991 e início na montagem e produção residencial. Sua página americana Sapphire combina SEER2/HSPF2 com publicidade antiga SEER/HSPF e documentos de modelos específicos. Usar apenas o maior número pode misturar métodos de classificação ou gerações.
 
 Sapphire anuncia operação de aquecimento até −22°F. O limite indica se pode operar, mas não revela potência térmica, consumo nem parcela da carga da casa atendida ali.
@@ -195,6 +263,10 @@ Fontes: [Gree: corporate profile](https://global.gree.com/usa/channels/735.html)
 
 ## Carrier e sua parceria documentada de sistemas sem dutos
 
+![O arquivo da Carrier associa esta imagem à instalação de ar-condicionado de Sackett & Wilhelms de 1902. Ela mostra as origens industriais da marca atual.](../../my-app/public/images/blog/brand-guide/carrier-history.webp)
+
+O arquivo da Carrier associa esta imagem à instalação de ar-condicionado de Sackett & Wilhelms de 1902. Ela mostra as origens industriais da marca atual. [Crédito da imagem / fonte: Carrier](https://www.carrier.com/commercial/en/us/about/history/)
+
 A Carrier vincula sua história ao ar-condicionado moderno de Willis Carrier em 1902 e à fundação de 1915. O anúncio de joint venture explica outro negócio: sua rede de distribuição combina-se com o desenvolvimento sem dutos da Midea sobre uma parceria antiga de fornecimento.
 
 A trajetória pode ajudar a avaliar o canal de assistência, mas a família define a comparação técnica. Se a oferta inclui Carrier central e sem dutos, peça documentação e garantias de ambos. Nem marca compartilhada nem vínculo com Midea comprovam peças universalmente intercambiáveis.
@@ -202,6 +274,10 @@ A trajetória pode ajudar a avaliar o canal de assistência, mas a família defi
 Fontes: [Carrier: history of modern air conditioning](https://www.carrier.com/commercial/en/us/about/history/); [Carrier: North American residential ductless partnership with Midea](https://www.carrier.com/carrier/en/worldwide/news/news-article/carrier--midea-launch-residential-ductless-hvac-joint-venture-in-north-america.html)
 
 ## LG, Samsung e Lennox e as opções de conforto
+
+![Unidade interna Samsung WindFree publicada na página Max Heat. Confira a unidade externa correspondente e o projeto do ambiente.](../../my-app/public/images/blog/brand-guide/samsung-windfree.webp)
+
+Unidade interna Samsung WindFree publicada na página Max Heat. Confira a unidade externa correspondente e o projeto do ambiente. [Crédito da imagem / fonte: Samsung HVAC](https://www.samsunghvac.com/residential/windfree-max-heat)
 
 A LG situa suas origens residenciais em 1968. A página americana informa que certos LGRED entregam 100% de aquecimento a 5°F, operam até −13°F e oferecem vários formatos internos. Isso importa quando aparência, espaço no teto ou direção do ar influenciam o projeto.
 
@@ -214,6 +290,10 @@ A Lennox confirma a criação de Samsung Lennox HVAC North America em 2024 e ofe
 Fontes: [LG: history of its residential air-conditioning business](https://www.lg.com/ph/about-lg/press-and-media/lg-electronics-launches-the-brand-new-line-up-for-single-commercial-air-conditioners/); [LG USA: residential HVAC systems and LGRED](https://www.lg.com/us/residential-hvac/hvac-systems); [Samsung HVAC: WindFree Max Heat](https://www.samsunghvac.com/residential/windfree-max-heat); [Lennox: Lennox Powered by Samsung product launch](https://www.investor.lennox.com/news-releases/news-release-details/lennox-debuts-lennox-powered-samsung-mini-split-and-vrf-product)
 
 ## A experiência da TCL em climatização é anterior à expansão recente no varejo
+
+![Imagem da linha TCL Advantage. Compare o equipamento proposto com sua ficha técnica e registro AHRI.](../../my-app/public/images/blog/brand-guide/tcl-advantage.webp)
+
+Imagem da linha TCL Advantage. Compare o equipamento proposto com sua ficha técnica e registro AHRI. [Crédito da imagem / fonte: TCL North America](https://us.tcl.com/pages/hvac-product-collection)
 
 A história da TCL na América do Norte situa a criação de sua divisão de ar-condicionado em 1999. Seu catálogo atual inclui as famílias Advantage, Multi Match e outras.
 

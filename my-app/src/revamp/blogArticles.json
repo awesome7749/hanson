@@ -24,14 +24,38 @@
         ],
         "sourceIds": [
           "energy-star",
-          "ahri"
+          "ahri",
+          "acca-manual-j"
         ],
         "bullets": [
           "Ask for exact indoor and outdoor model numbers before comparing prices.",
           "Ask for heating capacity and efficiency at your home’s winter design temperature.",
           "Ask who supplies parts, handles warranty claims and provides service after installation."
         ],
-        "takeaway": "Hanson Home’s starting recommendation: decide what the system must accomplish before choosing the logo. A good proposal should explain both the equipment choice and the installation needed to make it work in your home."
+        "takeaway": "Hanson Home’s starting recommendation: decide what the system must accomplish before choosing the logo. A good proposal should explain both the equipment choice and the installation needed to make it work in your home.",
+        "figures": [
+          {
+            "src": "/images/blog/brand-guide/manual-j-inputs-en.svg",
+            "width": 900,
+            "height": 460,
+            "credit": "Hanson Home · ACCA",
+            "sourceUrl": "https://www.acca.org/standards/technical-manuals/manual-j",
+            "kind": "diagram",
+            "alt": "Manual J uses the home’s climate, envelope and room details to calculate heating and cooling loads. Ask for the room-by-room results and the design temperatures used. Illustration by Hanson Home, based on ACCA guidance.",
+            "caption": "Manual J uses the home’s climate, envelope and room details to calculate heating and cooling loads. Ask for the room-by-room results and the design temperatures used. Illustration by Hanson Home, based on ACCA guidance.",
+            "mobileSrc": "/images/blog/brand-guide/manual-j-inputs-en-mobile.svg"
+          },
+          {
+            "src": "/images/blog/brand-guide/manual-j.webp",
+            "width": 400,
+            "height": 522,
+            "credit": "ACCA",
+            "sourceUrl": "https://www.acca.org/standards/technical-manuals/manual-j",
+            "kind": "document",
+            "alt": "ACCA’s Manual J is the residential load-calculation method discussed here. Its published cover helps identify the reference to ask your contractor about.",
+            "caption": "ACCA’s Manual J is the residential load-calculation method discussed here. Its published cover helps identify the reference to ask your contractor about."
+          }
+        ]
       },
       {
         "id": "heat-pump-basics",
@@ -43,6 +67,18 @@
         ],
         "sourceIds": [
           "energy-star"
+        ],
+        "figures": [
+          {
+            "src": "/images/installations/outdoor-condenser-home.webp",
+            "width": 1800,
+            "height": 1350,
+            "credit": "Hanson Home",
+            "sourceUrl": "https://hansonhome.us/how-it-works",
+            "kind": "photo",
+            "alt": "A heat-pump installation at a Hanson Home client site. Actual project photo supplied by Hanson Home.",
+            "caption": "A heat-pump installation at a Hanson Home client site. Actual project photo supplied by Hanson Home."
+          }
         ]
       },
       {
@@ -169,7 +205,109 @@
               ]
             }
           ]
-        }
+        },
+        "figures": [
+          {
+            "src": "/images/blog/brand-guide/tcl-logo.webp",
+            "width": 286,
+            "height": 89,
+            "credit": "TCL North America",
+            "sourceUrl": "https://us.tcl.com/pages/hvac-product-collection",
+            "kind": "logo",
+            "alt": "Brand identification: TCL",
+            "caption": "Brand identification: TCL"
+          },
+          {
+            "src": "/images/blog/brand-guide/midea-logo.svg",
+            "width": 726,
+            "height": 256,
+            "credit": "Midea Comfort",
+            "sourceUrl": "https://www.mideacomfort.us/g3.html",
+            "kind": "logo",
+            "alt": "Brand identification: Midea",
+            "caption": "Brand identification: Midea"
+          },
+          {
+            "src": "/images/blog/brand-guide/bosch-logo.svg",
+            "width": 433,
+            "height": 97,
+            "credit": "Bosch Home Comfort",
+            "sourceUrl": "https://www.bosch-homecomfort.com/us/en/ocs/residential/ids-ultra-inverter-ducted-split-cold-climate-heat-pump-20831889-p/",
+            "kind": "logo",
+            "alt": "Brand identification: Bosch",
+            "caption": "Brand identification: Bosch"
+          },
+          {
+            "src": "/images/blog/brand-guide/daikin-logo.webp",
+            "width": 1168,
+            "height": 244,
+            "credit": "Daikin Comfort Technologies",
+            "sourceUrl": "https://daikincomfort.com/",
+            "kind": "logo",
+            "alt": "Brand identification: Daikin",
+            "caption": "Brand identification: Daikin"
+          },
+          {
+            "src": "/images/blog/brand-guide/panasonic-logo.svg",
+            "width": 285,
+            "height": 80,
+            "credit": "Panasonic Holdings",
+            "sourceUrl": "https://news.panasonic.com/global/",
+            "kind": "logo",
+            "alt": "Brand identification: Panasonic (Sanyo)",
+            "caption": "Brand identification: Panasonic (Sanyo)"
+          },
+          {
+            "src": "/images/blog/brand-guide/mitsubishi-logo.svg",
+            "width": 288,
+            "height": 116,
+            "credit": "Mitsubishi Electric Trane HVAC US",
+            "sourceUrl": "https://www.mitsubishicomfort.com/metus",
+            "kind": "logo",
+            "alt": "Brand identification: Mitsubishi Electric",
+            "caption": "Brand identification: Mitsubishi Electric"
+          },
+          {
+            "src": "/images/blog/brand-guide/general-logo.svg",
+            "width": 35,
+            "height": 35,
+            "credit": "GENERAL Inc.",
+            "sourceUrl": "https://www.generalww.com/global/history/index.html",
+            "kind": "logo",
+            "alt": "Brand identification: GENERAL",
+            "caption": "Brand identification: GENERAL"
+          },
+          {
+            "src": "/images/blog/brand-guide/gree-logo.svg",
+            "width": 426,
+            "height": 82,
+            "credit": "GREE Comfort",
+            "sourceUrl": "https://www.greecomfort.com/our-products/sapphire/",
+            "kind": "logo",
+            "alt": "Brand identification: GREE",
+            "caption": "Brand identification: GREE"
+          },
+          {
+            "src": "/images/blog/brand-guide/carrier-logo.webp",
+            "width": 375,
+            "height": 150,
+            "credit": "Carrier",
+            "sourceUrl": "https://www.carrier.com/commercial/en/us/about/history/",
+            "kind": "logo",
+            "alt": "Brand identification: Carrier",
+            "caption": "Brand identification: Carrier"
+          },
+          {
+            "src": "/images/blog/brand-guide/samsung-logo.svg",
+            "width": 288,
+            "height": 45,
+            "credit": "Samsung HVAC",
+            "sourceUrl": "https://www.samsunghvac.com/residential/windfree-max-heat",
+            "kind": "logo",
+            "alt": "Brand identification: Samsung HVAC",
+            "caption": "Brand identification: Samsung HVAC"
+          }
+        ]
       },
       {
         "id": "manufacturing",
@@ -182,7 +320,19 @@
         "sourceIds": [
           "ahri"
         ],
-        "takeaway": "Compare what you will receive and who will support it. A manufacturing relationship is context, not a substitute for a model number."
+        "takeaway": "Compare what you will receive and who will support it. A manufacturing relationship is context, not a substitute for a model number.",
+        "figures": [
+          {
+            "src": "/images/blog/brand-guide/tcl-ahri-reference.webp",
+            "width": 530,
+            "height": 375,
+            "credit": "TCL North America",
+            "sourceUrl": "https://cdn.shopify.com/s/files/1/0687/7151/2385/files/Submittal_Sheet_-_AHU_-_36K_230V.pdf?v=1764127657",
+            "kind": "document",
+            "alt": "Excerpt from TCL’s published submittal: the AHRI reference and indoor/outdoor model fields. Ask your installer to verify the exact combination and its current certificate in the AHRI Directory.",
+            "caption": "Excerpt from TCL’s published submittal: the AHRI reference and indoor/outdoor model fields. Ask your installer to verify the exact combination and its current certificate in the AHRI Directory."
+          }
+        ]
       },
       {
         "id": "midea",
@@ -197,7 +347,19 @@
           "midea-mbt",
           "carrier-midea"
         ],
-        "takeaway": "Hanson Home recommendation: include a documented Midea system in a value comparison when its winter output, controls and service arrangement meet the project’s needs. Compare the complete installed scope with the alternatives; manufacturing scale alone does not settle the choice."
+        "takeaway": "Hanson Home recommendation: include a documented Midea system in a value comparison when its winter output, controls and service arrangement meet the project’s needs. Compare the complete installed scope with the alternatives; manufacturing scale alone does not settle the choice.",
+        "figures": [
+          {
+            "src": "/images/blog/brand-guide/midea-g3.webp",
+            "width": 1002,
+            "height": 1200,
+            "credit": "Midea Comfort",
+            "sourceUrl": "https://www.mideacomfort.us/g3.html",
+            "kind": "product",
+            "alt": "Midea EVOX G3 ducted-system image. Verify the exact indoor and outdoor models in the proposal.",
+            "caption": "Midea EVOX G3 ducted-system image. Verify the exact indoor and outdoor models in the proposal."
+          }
+        ]
       },
       {
         "id": "bosch-midea",
@@ -223,7 +385,19 @@
           "bosch-acquisition",
           "bosch-ultra"
         ],
-        "takeaway": "Hanson Home recommendation: for a ducted winter-heating project, compare the exact IDS generation with the existing ducts, indoor unit and backup plan. Consider IDS Ultra where its verified winter performance adds value; do not pay for or assume Ultra performance on a different IDS tier."
+        "takeaway": "Hanson Home recommendation: for a ducted winter-heating project, compare the exact IDS generation with the existing ducts, indoor unit and backup plan. Consider IDS Ultra where its verified winter performance adds value; do not pay for or assume Ultra performance on a different IDS tier.",
+        "figures": [
+          {
+            "src": "/images/blog/brand-guide/bosch-ultra.webp",
+            "width": 770,
+            "height": 1155,
+            "credit": "Bosch Home Comfort",
+            "sourceUrl": "https://www.bosch-homecomfort.com/us/en/ocs/residential/ids-ultra-inverter-ducted-split-cold-climate-heat-pump-20831889-p/",
+            "kind": "product",
+            "alt": "Bosch IDS Ultra outdoor unit and air handler. The illustrated family’s specifications should be checked for the selected combination.",
+            "caption": "Bosch IDS Ultra outdoor unit and air handler. The illustrated family’s specifications should be checked for the selected combination."
+          }
+        ]
       },
       {
         "id": "sanyo",
@@ -310,7 +484,19 @@
           "gree-history",
           "gree-sapphire"
         ],
-        "takeaway": "Hanson Home recommendation: a Gree proposal belongs in the comparison when the exact US model has the required output and a clear local service path. Use current model documents to compare equivalent rating methods and refrigerant generations."
+        "takeaway": "Hanson Home recommendation: a Gree proposal belongs in the comparison when the exact US model has the required output and a clear local service path. Use current model documents to compare equivalent rating methods and refrigerant generations.",
+        "figures": [
+          {
+            "src": "/images/blog/brand-guide/gree-sapphire.webp",
+            "width": 1200,
+            "height": 261,
+            "credit": "GREE Comfort",
+            "sourceUrl": "https://www.greecomfort.com/our-products/sapphire/",
+            "kind": "product",
+            "alt": "GREE Sapphire ductless-system image from the cited product page. Confirm the model generation and refrigerant offered.",
+            "caption": "GREE Sapphire ductless-system image from the cited product page. Confirm the model generation and refrigerant offered."
+          }
+        ]
       },
       {
         "id": "carrier",
@@ -322,6 +508,18 @@
         "sourceIds": [
           "carrier-history",
           "carrier-midea"
+        ],
+        "figures": [
+          {
+            "src": "/images/blog/brand-guide/carrier-history.webp",
+            "width": 1000,
+            "height": 840,
+            "credit": "Carrier",
+            "sourceUrl": "https://www.carrier.com/commercial/en/us/about/history/",
+            "kind": "photo",
+            "alt": "Carrier’s archive identifies this image with the 1902 Sackett & Wilhelms air-conditioning installation. It shows the industrial roots behind the modern brand.",
+            "caption": "Carrier’s archive identifies this image with the 1902 Sackett & Wilhelms air-conditioning installation. It shows the industrial roots behind the modern brand."
+          }
         ]
       },
       {
@@ -338,7 +536,19 @@
           "samsung",
           "samsung-lennox"
         ],
-        "takeaway": "Hanson Home recommendation: if indoor appearance or airflow comfort is a deciding factor, look at the specific LG or Samsung indoor-unit options in the proposed room layout. Keep heating output, control behavior and service support in the decision alongside those comfort features."
+        "takeaway": "Hanson Home recommendation: if indoor appearance or airflow comfort is a deciding factor, look at the specific LG or Samsung indoor-unit options in the proposed room layout. Keep heating output, control behavior and service support in the decision alongside those comfort features.",
+        "figures": [
+          {
+            "src": "/images/blog/brand-guide/samsung-windfree.webp",
+            "width": 1000,
+            "height": 667,
+            "credit": "Samsung HVAC",
+            "sourceUrl": "https://www.samsunghvac.com/residential/windfree-max-heat",
+            "kind": "product",
+            "alt": "Samsung WindFree indoor-unit image from its Max Heat product page. Check the accompanying outdoor unit and room design.",
+            "caption": "Samsung WindFree indoor-unit image from its Max Heat product page. Check the accompanying outdoor unit and room design."
+          }
+        ]
       },
       {
         "id": "tcl",
@@ -352,7 +562,19 @@
           "tcl-history",
           "tcl-collection"
         ],
-        "takeaway": "Hanson Home recommendation: put TCL on the shortlist when the proposed combination fits your home and budget. If its winter output or configuration does not meet the project’s requirements, compare a different combination or another brand. The specifications should explain the recommendation."
+        "takeaway": "Hanson Home recommendation: put TCL on the shortlist when the proposed combination fits your home and budget. If its winter output or configuration does not meet the project’s requirements, compare a different combination or another brand. The specifications should explain the recommendation.",
+        "figures": [
+          {
+            "src": "/images/blog/brand-guide/tcl-advantage.webp",
+            "width": 720,
+            "height": 480,
+            "credit": "TCL North America",
+            "sourceUrl": "https://us.tcl.com/pages/hvac-product-collection",
+            "kind": "product",
+            "alt": "TCL Advantage product-family image. Match the proposed equipment to its own submittal and AHRI record.",
+            "caption": "TCL Advantage product-family image. Match the proposed equipment to its own submittal and AHRI record."
+          }
+        ]
       },
       {
         "id": "tcl-home-depot",
@@ -957,6 +1179,11 @@
         "label": "Daikin: R-32 split-system heat-pump comparison, May 2026",
         "url": "https://daikincomfort.com/docs/default-source/general/general/pf-hpsplits_r32.pdf",
         "note": "DH9VS and DH7VS family efficiency, compressor, control and DOE Challenge distinctions; values are maxima, not all-size guarantees."
+      },
+      {
+        "id": "acca-manual-j",
+        "label": "ACCA: Manual J Residential Load Calculation",
+        "url": "https://www.acca.org/standards/technical-manuals/manual-j"
       }
     ],
     "ctaLabel": "Discuss my heat pump options",
@@ -982,6 +1209,9 @@
         "ahri",
         "neep-sizing"
       ]
+    },
+    "ui": {
+      "imageCredit": "Image credit / source"
     }
   },
   {

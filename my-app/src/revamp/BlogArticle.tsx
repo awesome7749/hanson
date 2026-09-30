@@ -58,6 +58,10 @@ export default function BlogArticle() {
         {article.sections.map((section, sectionIndex) => (
           <section id={articleSectionId(section, sectionIndex)} key={section.heading}>
             <h2>{section.heading}</h2>
+            {section.figures && <div className="blog-section-figures">{section.figures.map((figure) => <figure className={`blog-source-figure blog-source-figure-${figure.kind}`} key={figure.src}>
+              <a href={figure.sourceUrl} target="_blank" rel="noreferrer"><picture>{figure.mobileSrc && <source media="(max-width: 600px)" srcSet={figure.mobileSrc} width="460" height="650" />}<img src={figure.src} alt={figure.alt} width={figure.width} height={figure.height} loading="lazy" decoding="async" /></picture></a>
+              <figcaption><p>{figure.caption}</p><a href={figure.sourceUrl} target="_blank" rel="noreferrer">{ui.imageCredit}: {figure.credit} ↗</a></figcaption>
+            </figure>)}</div>}
             {section.paragraphs.map((paragraph) => <p key={paragraph}>{paragraph}</p>)}
             {section.bullets && <ul className="blog-article-checklist">{section.bullets.map((item) => <li key={item}>{item}</li>)}</ul>}
             {section.table && <div className="blog-table-scroll" role="region" aria-label={section.table.caption} tabIndex={0}>

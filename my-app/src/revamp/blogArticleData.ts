@@ -10,6 +10,7 @@ export const articleUi = (article: BlogArticleData) => ({
   back: "All homeowner guides", reviewed: "Reviewed", minutes: "minute read",
   contents: "In this guide", plan: "PLAN YOUR NEXT STEP", sources: "Sources",
   language: "Article language",
+  imageCredit: "Image credit / source",
   sourceIntro: "Research reviewed {date}. Use current documentation for the exact equipment offered. Manufacturer specifications and corporate histories are identified separately from our buying interpretations.",
   ...article.ui,
 });
