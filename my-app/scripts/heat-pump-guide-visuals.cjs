@@ -4,17 +4,40 @@ const path = require('node:path');
 const root = path.join(__dirname, '../public/images/blog/heat-pump-guide');
 fs.mkdirSync(root, { recursive: true });
 const c = { ink: '#302d29', muted: '#65594b', paper: '#faf8f5', line: '#d1c8b9', blue: '#326c86', paleBlue: '#e8eff0', orange: '#a34f2e', paleOrange: '#f4e8db', green: '#3e6c59' };
+const translations = require('./heat-pump-guide-visual-locales.json');
+const articles = require('../src/revamp/blogTranslations.json');
+let locale = 'en';
+let canvasWidth = 760;
+const translate = value => {
+ if (locale === 'en' || typeof value !== 'string' || /^[\d\s°F+<>=−↓.-]+$/.test(value)) return value;
+ if (!translations[locale][value]) throw new Error(`Missing ${locale} diagram label: ${value}`);
+ return translations[locale][value];
+};
 const esc = s => String(s).replace(/[&<>"']/g, ch => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[ch]));
-const text = (x,y,value,size=23,color=c.ink,anchor='start',weight=400) => `<text x="${x}" y="${y}" fill="${color}" font-size="${size}" text-anchor="${anchor}" font-weight="${weight}">${esc(value)}</text>`;
+const text = (x,y,value,size=23,color=c.ink,anchor='start',weight=400) => {
+ const label = String(translate(value));
+ // Keep translated labels within the original label's footprint and the canvas.
+ const estimate = str => [...String(str)].reduce((n,ch)=>n+(/[\u3000-\u9fff]/.test(ch)?1:0.55),0);
+ const boundary = anchor === 'middle' ? Math.min(x,canvasWidth-x)*2-32 : anchor === 'end' ? x-24 : canvasWidth-x-24;
+ const budget = Math.min(boundary, Math.max(estimate(value)*size*1.12, 80));
+ const fontSize = locale === 'en' ? size : Math.min(size, boundary/Math.max(estimate(label),1), Math.max(18,budget/Math.max(estimate(label),1)));
+ return `<text x="${x}" y="${y}" fill="${color}" font-size="${fontSize.toFixed(2)}" text-anchor="${anchor}" font-weight="${weight}">${esc(label)}</text>`;
+};
 const lines = (x,y,values,size=23,color=c.muted,anchor='start') => values.map((v,i)=>text(x,y+i*(size+9),v,size,color,anchor)).join('');
 const rect = (x,y,w,h,fill=c.paper) => `<rect x="${x}" y="${y}" width="${w}" height="${h}" rx="16" fill="${fill}" stroke="${c.line}"/>`;
 const line = (x1,y1,x2,y2,color=c.line,width=2,dash='')=>`<line x1="${x1}" y1="${y1}" x2="${x2}" y2="${y2}" stroke="${color}" stroke-width="${width}"${dash?` stroke-dasharray="${dash}"`:''}/>`;
 const arrow=(x1,y1,x2,y2,color=c.orange)=>line(x1,y1,x2,y2,color,4)+`<path d="M -10 -6 L 0 0 L -10 6" transform="translate(${x2} ${y2}) rotate(${Math.atan2(y2-y1,x2-x1)*180/Math.PI})" fill="none" stroke="${color}" stroke-width="4"/>`;
 function save(name,title,description,draw) {
+ for (locale of ['en','es','zh','pt']) {
+ const article = articles.find(a=>a.slug === `heat-pumps-massachusetts-winter-guide-${locale}`);
+ const figure = article?.sections.flatMap(s=>s.figures || []).find(f=>f.src.endsWith(`/${name}-${locale}.svg`));
+ if (locale !== 'en' && !figure) throw new Error(`Missing translated figure ${name}/${locale}`);
  for (const mobile of [false,true]) {
   const w=mobile?460:760,h=mobile?650:560;
-  let content=`<svg xmlns="http://www.w3.org/2000/svg" width="${w}" height="${h}" viewBox="0 0 ${w} ${h}" role="img" aria-labelledby="title desc"><title id="title">${esc(title)}</title><desc id="desc">${esc(description)}</desc><rect width="${w}" height="${h}" rx="22" fill="${c.paper}"/><g font-family="Arial, sans-serif">${text(28,37,'HANSON HOME  /  HEAT PUMPS, EXPLAINED',mobile?16:18,c.muted)}${draw(w,h,mobile)}${text(28,h-22,'Original educational illustration · Hanson Home',mobile?15:17,c.muted)}</g></svg>`;
-  fs.writeFileSync(path.join(root,`${name}${mobile?'-mobile':''}.svg`),content);
+  canvasWidth = w;
+  let content=`<svg xmlns="http://www.w3.org/2000/svg" width="${w}" height="${h}" viewBox="0 0 ${w} ${h}" lang="${article?.locale || 'en'}" role="img" aria-labelledby="title desc"><title id="title">${esc(figure?.alt || title)}</title><desc id="desc">${esc(figure?.caption || description)}</desc><rect width="${w}" height="${h}" rx="22" fill="${c.paper}"/><g font-family="Arial, sans-serif">${text(28,37,'HANSON HOME  /  HEAT PUMPS, EXPLAINED',mobile?16:18,c.muted)}${draw(w,h,mobile)}${text(28,h-22,'Original educational illustration · Hanson Home',mobile?15:17,c.muted)}</g></svg>`;
+  fs.writeFileSync(path.join(root,`${name}${locale==='en'?'':'-'+locale}${mobile?'-mobile':''}.svg`),content);
+ }
  }
 }
 save('heat-cycle','Air stays separate. Heat moves.','Outside air and room air circulate on their own sides. A sealed refrigerant circuit absorbs heat outdoors, raises its temperature through compression, releases heat indoors and lowers pressure through expansion.',(w,h,m)=>{
@@ -76,4 +99,4 @@ save('winter-installation','Plan the outdoor location for winter.','Conceptual u
  out+=line(ux+15,uy+uh,ux+15,uy+uh+45,c.ink,5)+line(ux+uw-15,uy+uh,ux+uw-15,uy+uh+45,c.ink,5)+line(28,uy+uh+57,w-28,uy+uh+57,c.line,5)+arrow(ux+uw+15,uy+55,ux+uw+57,uy+55,c.blue)+arrow(ux-18,uy+90,ux-62,uy+90,c.blue);
  out+=text(28,m?187:156,'Keep roof runoff away',m?21:24,c.muted)+lines(28,m?471:419,m?['• Keep manufacturer airflow clearances.','• Mount for site snow accumulation.','• Give meltwater a safe drainage path.','• Leave access for service.']:['Keep airflow open. Mount for site snow accumulation.','Plan drainage and leave access for service.'],m?20:24,c.muted);return out;
 });
-console.log('Created 16 original responsive SVG illustrations.');
+console.log('Created 64 responsive SVG illustrations across four languages.');

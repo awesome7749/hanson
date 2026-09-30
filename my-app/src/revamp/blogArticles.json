@@ -890,7 +890,9 @@
     "ui": {
       "sourceIntro": "Research reviewed {date}. Engineering guidance, manufacturer claims, program rules and Hanson Home’s planning explanations are identified separately. Use current documentation for the exact proposed equipment and project."
     },
-    "readingMinutes": 22
+    "readingMinutes": 22,
+    "translationGroup": "heat-pumps-massachusetts-winter-guide",
+    "languageLabel": "English"
   },
   {
     "slug": "heat-pump-ac-brand-guide",

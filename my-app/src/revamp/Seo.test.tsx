@@ -105,8 +105,8 @@ test.each(articles)("$slug has matching public content, citations and route meta
   view.unmount();
 });
 
-test("language editions retain the complete structure, citations and technical table figures", () => {
-  const original = articles.find((article) => article.slug === "heat-pump-ac-brand-guide")!;
+test.each(["heat-pump-ac-brand-guide", "heat-pumps-massachusetts-winter-guide"])("%s language editions retain the complete structure, citations and technical table figures", (slug) => {
+  const original = articles.find((article) => article.slug === slug)!;
   const editions = articleLanguages(original);
   expect(editions.map((article) => article.locale)).toEqual(["en", "es", "zh-Hans", "pt-BR"]);
   for (const edition of editions) {
@@ -117,6 +117,8 @@ test("language editions retain the complete structure, citations and technical t
       expect(section.paragraphs).toHaveLength(source.paragraphs.length);
       expect(section.bullets?.length).toBe(source.bullets?.length);
       expect(section.sourceIds).toEqual(source.sourceIds);
+      expect(section.faqs?.length).toBe(source.faqs?.length);
+      expect(section.figures?.length).toBe(source.figures?.length);
       if (section.table && source.table) {
         expect(section.table.rows).toHaveLength(source.table.rows.length);
         section.table.rows.forEach((row, rowIndex) => {

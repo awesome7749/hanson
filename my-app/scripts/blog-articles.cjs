@@ -7,7 +7,7 @@ const sectionId = (section, index) => section.id || `section-${index + 1}`;
 
 function renderBlogArticle(indexHtml, article) {
   const route = `/blog/${article.slug}`;
-  const ui = { back: 'All homeowner guides', reviewed: 'Reviewed', minutes: 'minute read', contents: 'In this guide', sources: 'Sources', language: 'Article language', ...article.ui };
+  const ui = { back: 'All homeowner guides', reviewed: 'Reviewed', minutes: 'minute read', contents: 'In this guide', sources: 'Sources', language: 'Article language', by: 'By Hanson Home', relatedReading: 'Related reading', ...article.ui };
   const languages = article.translationGroup ? articles.filter((item) => item.translationGroup === article.translationGroup) : [];
   const meta = { title: article.seoTitle || `${article.title} | Hanson Home`, description: article.description };
   const citations = (ids, numbered = false) => ids.map((id) => {
@@ -21,7 +21,7 @@ function renderBlogArticle(indexHtml, article) {
     `<main><article lang="${esc(article.locale || 'en')}"><header><p><a href="/blog">${esc(ui.back)}</a></p>`,
     languages.length > 1 ? `<nav aria-label="${esc(ui.language)}">${languages.map((item) => `<a href="/blog/${esc(item.slug)}" lang="${esc(item.locale)}" hreflang="${esc(item.locale)}"${item.slug === article.slug ? ' aria-current="page"' : ''}>${esc(item.languageLabel)}</a>`).join(' · ')}</nav>` : '',
     `<h1>${esc(article.title)}</h1>`,
-    `<p>${esc(article.intro)}</p><p>${article.publishedIso ? 'By Hanson Home · ' : ''}${esc(ui.reviewed)} <time${article.reviewedIso ? ` datetime="${esc(article.reviewedIso)}"` : ''}>${esc(article.reviewed)}</time>${article.readingMinutes ? ` · ${article.readingMinutes} ${esc(ui.minutes)}` : ''}</p></header>`,
+    `<p>${esc(article.intro)}</p><p>${article.publishedIso ? `${esc(ui.by)} · ` : ''}${esc(ui.reviewed)} <time${article.reviewedIso ? ` datetime="${esc(article.reviewedIso)}"` : ''}>${esc(article.reviewed)}</time>${article.readingMinutes ? ` · ${article.readingMinutes} ${esc(ui.minutes)}` : ''}</p></header>`,
     article.openingSummary ? `<section id="${esc(article.openingSummary.id)}" aria-labelledby="blog-summary-heading"><h2 id="blog-summary-heading">${esc(article.openingSummary.heading)}</h2>${article.openingSummary.paragraphs.map((paragraph) => `<p>${esc(paragraph)}</p>`).join('')}<ul>${article.openingSummary.bullets.map((bullet) => `<li>${esc(bullet)}</li>`).join('')}</ul><p>${esc(ui.sources)}: ${citations(article.openingSummary.sourceIds)}</p></section>` : '',
     article.disclosure ? `<p>${esc(article.disclosure)}</p>` : '',
     article.image ? `<figure><img src="${esc(article.image.src)}" alt="${esc(article.image.alt)}" width="1800" height="1350"/><figcaption>${esc(article.image.caption)}</figcaption></figure>` : '',
@@ -32,7 +32,7 @@ function renderBlogArticle(indexHtml, article) {
       ...section.paragraphs.map((paragraph) => `<p>${esc(paragraph)}</p>`),
       section.bullets ? `<ul>${section.bullets.map((item) => `<li>${esc(item)}</li>`).join('')}</ul>` : '',
       section.faqs ? `<div>${section.faqs.map((faq) => `<h3>${esc(faq.question)}</h3><p>${esc(faq.answer)}</p>`).join('')}</div>` : '',
-      section.links ? `<nav aria-label="${esc(`Related reading: ${section.heading}`)}">${section.links.map((link) => `<a href="${esc(link.path)}">${esc(link.label)}</a>`).join(' · ')}</nav>` : '',
+      section.links ? `<nav aria-label="${esc(`${ui.relatedReading}: ${section.heading}`)}">${section.links.map((link) => `<a href="${esc(link.path)}">${esc(link.label)}</a>`).join(' · ')}</nav>` : '',
       section.table ? renderTable(section.table) : '',
       section.takeaway ? `<aside><p>${esc(section.takeaway)}</p></aside>` : '',
       section.sourceIds.length ? `<p>${esc(ui.sources)}: ${citations(section.sourceIds)}</p>` : '',
