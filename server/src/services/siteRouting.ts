@@ -1,6 +1,8 @@
 const aliases: Record<string, string> = {
   '/get-quote': '/start',
-  '/products': '/heat-pumps',
+  '/products': '/blog/heat-pumps-massachusetts-winter-guide',
+  '/heat-pumps': '/blog/heat-pumps-massachusetts-winter-guide',
+  '/heatpump': '/blog/heat-pumps-massachusetts-winter-guide',
 };
 
 const appOnlyRoutes = new Set(['/start', '/start/thank-you', '/project']);

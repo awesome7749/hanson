@@ -5,11 +5,6 @@ import articles from "./blogArticles.json";
 
 const guides = [
   {
-    path: "/heat-pumps",
-    title: "Heat pumps for heating and cooling",
-    description: "Learn how an electric heat pump works and what matters when choosing a system for your home.",
-  },
-  {
     path: "/how-it-works",
     title: "From estimate to startup",
     description: "See the steps in a Hanson Home installation, from reviewing your home to learning your new system.",
@@ -44,6 +39,7 @@ export default function Blog() {
         <div className="blog-grid">
           {articles.map((article) => (
             <Link className="panel blog-card" to={`/blog/${article.slug}`} key={article.slug}>
+              {article.image && <img className="blog-card-image" src={article.image.src} alt={article.image.alt} width="600" height="400" loading="lazy" decoding="async" />}
               <span className="eyebrow">{article.category}</span>
               <h3>{article.title}</h3>
               <p>{article.summary}</p>

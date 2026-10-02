@@ -5,7 +5,9 @@ const { siteRoute, isOpsHost, apiAllowedOnHost, opsPage } = require('../dist/ser
 test('canonicalizes alternate page URLs', () => {
   assert.deepEqual(siteRoute('/acton/'), { redirect: '/acton', redirectStatus: 308, appOnly: false });
   assert.deepEqual(siteRoute('/contact/'), { redirect: '/contact', redirectStatus: 308, appOnly: false });
-  assert.deepEqual(siteRoute('/products'), { redirect: '/heat-pumps', redirectStatus: 301, appOnly: false });
+  for (const alias of ['/products', '/heat-pumps', '/heatpump']) {
+    assert.deepEqual(siteRoute(alias), { redirect: '/blog/heat-pumps-massachusetts-winter-guide', redirectStatus: 301, appOnly: false });
+  }
   assert.deepEqual(siteRoute('/get-quote'), { redirect: '/start', redirectStatus: 301, appOnly: false });
   assert.deepEqual(siteRoute('/staff'), { appOnly: false });
 });
