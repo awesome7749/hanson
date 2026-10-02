@@ -30,6 +30,7 @@ export type ArticleSection = {
 };
 export type BlogArticleData = {
   slug: string;
+  status?: "draft";
   title: string;
   seoTitle?: string;
   description: string;

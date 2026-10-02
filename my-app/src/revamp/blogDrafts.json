@@ -1,0 +1,2134 @@
+[
+  {
+    "slug": "mass-save-assessment-before-heat-pump",
+    "title": "Before Your Heat-Pump Quote: Make the Most of a Mass Save Assessment",
+    "description": "A short preparation checklist that helps turn an energy assessment into a useful plan for your home.",
+    "summary": "A short preparation checklist that helps turn an energy assessment into a useful plan for your home.",
+    "category": "QUICK HOMEOWNER GUIDE",
+    "reviewed": "October 2, 2026",
+    "reviewedIso": "2026-10-02",
+    "readingMinutes": 3,
+    "showContents": false,
+    "status": "draft",
+    "locale": "en",
+    "languageLabel": "English",
+    "translationGroup": "mass-save-assessment-before-heat-pump",
+    "intro": "Thinking about a heat pump? Start with a clear picture of the house. A Mass Save Home Energy Assessment can help you identify improvements; a heat-pump proposal explains the equipment and installation. Bringing the two conversations together makes the next step easier.",
+    "openingSummary": {
+      "id": "guide-summary",
+      "heading": "Quick summary",
+      "paragraphs": [],
+      "bullets": [
+        "Confirm your household’s program eligibility.",
+        "Bring comfort concerns and questions about the house.",
+        "Share the assessment report with your installer."
+      ],
+      "sourceIds": [
+        "assess"
+      ]
+    },
+    "sections": [
+      {
+        "id": "visit",
+        "heading": "Know what the visit is for",
+        "paragraphs": [
+          "Mass Save describes its assessment as a review of energy-saving opportunities, followed by an energy report with recommendations and available incentives. Confirm eligibility and appointment details through the program for your address.",
+          "Use the visit to understand the house as a whole. A room that feels uncomfortable, an attic you rarely visit and equipment you hope to replace are all useful conversation starters."
+        ],
+        "sourceIds": [
+          "assess"
+        ]
+      },
+      {
+        "id": "prepare",
+        "heading": "Prepare a five-minute home brief",
+        "paragraphs": [
+          "Write down where you feel drafts, which rooms you avoid in winter and what you would like to improve in summer. Add the age of your current heating equipment if you know it. You do not need a perfect building history.",
+          "Have any previous assessment report, recent utility bills and planned renovations handy. Our recommendation: choose your three most important questions before the visit so they do not get lost in the discussion."
+        ],
+        "sourceIds": []
+      },
+      {
+        "id": "report",
+        "heading": "Turn the report into a sequence",
+        "paragraphs": [
+          "Afterward, ask which recommendations should come first and which need a separate contractor’s review. Put the report somewhere you can find it again rather than treating it as a finished project.",
+          "If you expect to add insulation or air sealing, tell the HVAC installer what is planned. Ask whether those changes affect the heating design and when the equipment selection should be finalized."
+        ],
+        "sourceIds": []
+      },
+      {
+        "id": "next",
+        "heading": "Bring the house plan to the equipment conversation",
+        "paragraphs": [
+          "At Hanson Home, we recommend sharing the report when requesting a heat-pump proposal. Ask the installer to explain the rooms served, equipment location and any unresolved work.",
+          "Make a small next-step list: who you will contact, what information they need and which decision comes next. The goal is a coordinated plan you understand before you book installation."
+        ],
+        "sourceIds": []
+      }
+    ],
+    "sources": [
+      {
+        "id": "assess",
+        "label": "Mass Save: Homeowners Get Started",
+        "url": "https://www.masssave.com/get-started/homeowners"
+      }
+    ],
+    "ctaTitle": "Talk with Hanson Home",
+    "ctaText": "Bring your assessment report to Hanson Home. We can help connect your comfort goals with heat-pump options and the questions to resolve before installation.",
+    "ctaLabel": "Discuss my project",
+    "ctaPath": "/start?intent=assessment",
+    "ui": {
+      "back": "Draft library",
+      "reviewed": "Reviewed",
+      "minutes": "minute read",
+      "contents": "In this guide",
+      "plan": "PLAN YOUR NEXT STEP",
+      "sources": "Sources",
+      "language": "Article language",
+      "imageCredit": "Image credit / source",
+      "sourceIntro": "Research reviewed {date}. Confirm current program requirements and equipment instructions before proceeding.",
+      "draftNotice": "DRAFT — unpublished; local review only."
+    }
+  },
+  {
+    "slug": "mass-save-assessment-before-heat-pump-es",
+    "title": "Antes de pedir un presupuesto de bomba de calor: aproveche la evaluación de Mass Save",
+    "description": "Una lista breve para convertir la evaluación energética en un plan útil para su vivienda.",
+    "summary": "Una lista breve para convertir la evaluación energética en un plan útil para su vivienda.",
+    "category": "GUÍA BREVE PARA EL HOGAR",
+    "reviewed": "2 de octubre de 2026",
+    "reviewedIso": "2026-10-02",
+    "readingMinutes": 3,
+    "showContents": false,
+    "status": "draft",
+    "locale": "es",
+    "languageLabel": "Español",
+    "translationGroup": "mass-save-assessment-before-heat-pump",
+    "intro": "¿Está pensando en una bomba de calor? Empiece por conocer su vivienda. Una evaluación energética de Mass Save ayuda a identificar mejoras; el presupuesto de instalación explica los equipos y el trabajo. Relacionar ambas conversaciones facilita el siguiente paso.",
+    "openingSummary": {
+      "id": "guide-summary",
+      "heading": "Resumen rápido",
+      "paragraphs": [],
+      "bullets": [
+        "Confirme que su hogar cumple los requisitos del programa.",
+        "Prepare sus dudas y problemas de confort.",
+        "Comparta el informe con el instalador."
+      ],
+      "sourceIds": [
+        "assess"
+      ]
+    },
+    "sections": [
+      {
+        "id": "visit",
+        "heading": "Entienda el objetivo de la visita",
+        "paragraphs": [
+          "Mass Save describe la evaluación como una revisión de oportunidades de ahorro, seguida de un informe con recomendaciones e incentivos disponibles. Confirme los requisitos y los detalles de la cita para su dirección.",
+          "Aproveche la visita para hablar de la vivienda en conjunto. Una habitación incómoda, un ático que casi no visita o un equipo que desea cambiar son buenos puntos de partida."
+        ],
+        "sourceIds": [
+          "assess"
+        ]
+      },
+      {
+        "id": "prepare",
+        "heading": "Prepare un resumen de cinco minutos",
+        "paragraphs": [
+          "Anote dónde siente corrientes de aire, qué habitaciones evita en invierno y qué quiere mejorar en verano. Si sabe la edad del sistema de calefacción, inclúyala. No necesita conocer toda la historia del edificio.",
+          "Tenga a mano informes anteriores, facturas recientes y reformas previstas. Recomendamos elegir sus tres preguntas principales antes de la visita para que no queden pendientes."
+        ],
+        "sourceIds": []
+      },
+      {
+        "id": "report",
+        "heading": "Convierta el informe en un orden de trabajo",
+        "paragraphs": [
+          "Después, pregunte qué recomendaciones conviene realizar primero y cuáles necesitan la revisión de otro profesional. Guarde el informe donde pueda encontrarlo fácilmente. Recibirlo es el comienzo de un plan.",
+          "Si prevé mejorar el aislamiento o sellar fugas de aire, avise al instalador de climatización. Pregunte si esas mejoras cambian el diseño de calefacción y cuándo conviene elegir los equipos definitivos."
+        ],
+        "sourceIds": []
+      },
+      {
+        "id": "next",
+        "heading": "Lleve el plan al presupuesto",
+        "paragraphs": [
+          "En Hanson Home recomendamos compartir el informe al solicitar un presupuesto de bomba de calor. Pida que se expliquen las habitaciones atendidas, la ubicación de los equipos y los trabajos aún pendientes.",
+          "Haga una lista sencilla: a quién contactará, qué información necesita esa persona y qué decisión viene después. Así podrá entender el proyecto antes de reservar la instalación."
+        ],
+        "sourceIds": []
+      }
+    ],
+    "sources": [
+      {
+        "id": "assess",
+        "label": "Mass Save: Homeowners Get Started",
+        "url": "https://www.masssave.com/get-started/homeowners"
+      }
+    ],
+    "ctaTitle": "Hable con Hanson Home",
+    "ctaText": "Traiga su informe a Hanson Home. Podemos ayudarle a relacionar sus objetivos de confort con las opciones de bombas de calor y las preguntas que conviene resolver antes de instalar.",
+    "ctaLabel": "Consultar mi proyecto",
+    "ctaPath": "/start?intent=assessment",
+    "ui": {
+      "back": "Biblioteca de borradores",
+      "reviewed": "Revisado",
+      "minutes": "minutos de lectura",
+      "contents": "En esta guía",
+      "plan": "SU SIGUIENTE PASO",
+      "sources": "Fuentes",
+      "language": "Idioma del artículo",
+      "imageCredit": "Crédito de imagen / fuente",
+      "sourceIntro": "Investigación revisada el {date}. Confirme los requisitos actuales y las instrucciones del equipo antes de avanzar.",
+      "draftNotice": "BORRADOR — sin publicar; solo revisión local."
+    }
+  },
+  {
+    "slug": "mass-save-assessment-before-heat-pump-zh",
+    "title": "询价前先做功课：如何用好 Mass Save 家庭能源评估",
+    "description": "一份轻松的准备清单，帮您把能源评估报告变成实用的住宅改造计划。",
+    "summary": "一份轻松的准备清单，帮您把能源评估报告变成实用的住宅改造计划。",
+    "category": "住宅实用短读",
+    "reviewed": "2026年10月2日",
+    "reviewedIso": "2026-10-02",
+    "readingMinutes": 3,
+    "showContents": false,
+    "status": "draft",
+    "locale": "zh-Hans",
+    "languageLabel": "中文",
+    "translationGroup": "mass-save-assessment-before-heat-pump",
+    "intro": "考虑安装热泵时，先了解房子的实际情况。Mass Save 家庭能源评估有助于发现节能改造机会；热泵安装报价则说明设备和施工安排。把两部分信息放在一起，下一步会更清楚。",
+    "openingSummary": {
+      "id": "guide-summary",
+      "heading": "快速摘要",
+      "paragraphs": [],
+      "bullets": [
+        "先确认您家是否符合项目参与条件。",
+        "提前整理舒适度问题和想问的事情。",
+        "把评估报告提供给安装商。"
+      ],
+      "sourceIds": [
+        "assess"
+      ]
+    },
+    "sections": [
+      {
+        "id": "visit",
+        "heading": "先了解这次评估的用途",
+        "paragraphs": [
+          "Mass Save 将家庭能源评估介绍为节能机会检查，并提供包含建议和可用优惠的能源报告。请通过项目官方渠道确认您家地址的资格及预约安排。",
+          "借这次机会聊聊整栋房子：住着不舒服的房间、平时很少查看的阁楼，以及计划更换的设备，都值得提出。"
+        ],
+        "sourceIds": [
+          "assess"
+        ]
+      },
+      {
+        "id": "prepare",
+        "heading": "花五分钟整理房屋情况",
+        "paragraphs": [
+          "记下哪里有漏风、冬天不爱待在哪个房间，以及夏天最想改善什么。如果知道现有供暖设备的年龄，也一起记录。不必把房子的历史查得一清二楚。",
+          "准备好以前的评估报告、近期能源账单和装修计划。我们的建议是先选出三个最重要的问题，避免聊着聊着忘了。"
+        ],
+        "sourceIds": []
+      },
+      {
+        "id": "report",
+        "heading": "把报告变成有顺序的计划",
+        "paragraphs": [
+          "评估后，问清哪些建议适合先做，哪些需要其他专业人员进一步检查。把报告保存好，后续询价时还会用到。拿到报告只是计划的开始。",
+          "如果准备增加保温或做空气密封，请告诉暖通安装商。询问这些改造是否会影响供暖设计，以及什么时候适合确定最终设备。"
+        ],
+        "sourceIds": []
+      },
+      {
+        "id": "next",
+        "heading": "让房屋信息进入设备讨论",
+        "paragraphs": [
+          "Hanson Home 建议您在询价时分享评估报告，并请安装商说明服务哪些房间、设备放在哪里，以及还有哪些施工问题待解决。",
+          "列一个小清单：下一步联系谁、对方需要什么资料、接下来要做什么决定。目标是在预约施工前，先把整个计划看明白。"
+        ],
+        "sourceIds": []
+      }
+    ],
+    "sources": [
+      {
+        "id": "assess",
+        "label": "Mass Save: Homeowners Get Started",
+        "url": "https://www.masssave.com/get-started/homeowners"
+      }
+    ],
+    "ctaTitle": "与 Hanson Home 聊聊您的计划",
+    "ctaText": "欢迎把评估报告带给 Hanson Home。我们可以结合您的舒适度目标，讨论热泵方案和安装前需要确认的问题。",
+    "ctaLabel": "讨论我的项目",
+    "ctaPath": "/start?intent=assessment",
+    "ui": {
+      "back": "草稿库",
+      "reviewed": "资料核对",
+      "minutes": "分钟阅读",
+      "contents": "本文内容",
+      "plan": "下一步",
+      "sources": "参考来源",
+      "language": "文章语言",
+      "imageCredit": "图片来源 / 署名",
+      "sourceIntro": "资料于 {date} 核对。推进项目前，请确认现行项目要求和具体设备说明。",
+      "draftNotice": "草稿 — 尚未发布，仅供本地审阅。"
+    }
+  },
+  {
+    "slug": "mass-save-assessment-before-heat-pump-pt",
+    "title": "Antes do orçamento da bomba de calor: aproveite a avaliação da Mass Save",
+    "description": "Uma lista rápida para transformar a avaliação energética em um plano útil para sua casa.",
+    "summary": "Uma lista rápida para transformar a avaliação energética em um plano útil para sua casa.",
+    "category": "GUIA RÁPIDO PARA SUA CASA",
+    "reviewed": "2 de outubro de 2026",
+    "reviewedIso": "2026-10-02",
+    "readingMinutes": 3,
+    "showContents": false,
+    "status": "draft",
+    "locale": "pt-BR",
+    "languageLabel": "Português",
+    "translationGroup": "mass-save-assessment-before-heat-pump",
+    "intro": "Está pensando em instalar uma bomba de calor? Comece entendendo a casa. A avaliação energética da Mass Save ajuda a identificar melhorias; o orçamento explica os equipamentos e a instalação. Juntar essas informações facilita o próximo passo.",
+    "openingSummary": {
+      "id": "guide-summary",
+      "heading": "Resumo rápido",
+      "paragraphs": [],
+      "bullets": [
+        "Confirme a elegibilidade da sua residência.",
+        "Prepare suas dúvidas e problemas de conforto.",
+        "Compartilhe o relatório com o instalador."
+      ],
+      "sourceIds": [
+        "assess"
+      ]
+    },
+    "sections": [
+      {
+        "id": "visit",
+        "heading": "Entenda o objetivo da visita",
+        "paragraphs": [
+          "A Mass Save descreve a avaliação como uma análise de oportunidades de economia, seguida de um relatório com recomendações e incentivos disponíveis. Confirme os requisitos e os detalhes da visita para seu endereço.",
+          "Use a conversa para olhar a casa como um todo. Um cômodo desconfortável, um sótão pouco visitado e um equipamento que você pretende substituir são bons pontos de partida."
+        ],
+        "sourceIds": [
+          "assess"
+        ]
+      },
+      {
+        "id": "prepare",
+        "heading": "Prepare um resumo em cinco minutos",
+        "paragraphs": [
+          "Anote onde sente correntes de ar, quais cômodos evita no inverno e o que gostaria de melhorar no verão. Inclua a idade do aquecimento atual, se souber. Não é preciso conhecer toda a história do imóvel.",
+          "Separe relatórios anteriores, contas recentes e planos de reforma. Nossa recomendação: escolha as três perguntas mais importantes antes da visita para não deixá-las passar."
+        ],
+        "sourceIds": []
+      },
+      {
+        "id": "report",
+        "heading": "Transforme o relatório em uma sequência",
+        "paragraphs": [
+          "Depois, pergunte quais recomendações devem vir primeiro e quais precisam da avaliação de outro profissional. Guarde o relatório em um lugar fácil de encontrar para as próximas conversas.",
+          "Se pretende melhorar o isolamento ou vedar infiltrações de ar, avise o instalador. Pergunte se isso muda o projeto de aquecimento e quando será melhor definir os equipamentos."
+        ],
+        "sourceIds": []
+      },
+      {
+        "id": "next",
+        "heading": "Leve o plano da casa ao orçamento",
+        "paragraphs": [
+          "Na Hanson Home, recomendamos compartilhar o relatório ao pedir um orçamento de bomba de calor. Peça uma explicação dos cômodos atendidos, da localização dos equipamentos e dos trabalhos ainda pendentes.",
+          "Faça uma lista simples: quem contatar, quais informações fornecer e qual decisão tomar em seguida. O objetivo é entender o projeto antes de marcar a instalação."
+        ],
+        "sourceIds": []
+      }
+    ],
+    "sources": [
+      {
+        "id": "assess",
+        "label": "Mass Save: Homeowners Get Started",
+        "url": "https://www.masssave.com/get-started/homeowners"
+      }
+    ],
+    "ctaTitle": "Converse com a Hanson Home",
+    "ctaText": "Traga seu relatório à Hanson Home. Podemos relacionar suas prioridades de conforto às opções de bombas de calor e às perguntas que precisam ser resolvidas antes da instalação.",
+    "ctaLabel": "Conversar sobre meu projeto",
+    "ctaPath": "/start?intent=assessment",
+    "ui": {
+      "back": "Biblioteca de rascunhos",
+      "reviewed": "Revisado",
+      "minutes": "minutos de leitura",
+      "contents": "Neste guia",
+      "plan": "SEU PRÓXIMO PASSO",
+      "sources": "Fontes",
+      "language": "Idioma do artigo",
+      "imageCredit": "Crédito da imagem / fonte",
+      "sourceIntro": "Pesquisa revisada em {date}. Confirme as regras atuais e as instruções do equipamento antes de avançar.",
+      "draftNotice": "RASCUNHO — não publicado; apenas revisão local."
+    }
+  },
+  {
+    "slug": "heat-loan-before-heat-pump-installation",
+    "title": "Thinking About a HEAT Loan? Start Before Installation",
+    "description": "Keep the financing conversation ahead of the installation calendar with this simple planning guide.",
+    "summary": "Keep the financing conversation ahead of the installation calendar with this simple planning guide.",
+    "category": "QUICK HOMEOWNER GUIDE",
+    "reviewed": "October 2, 2026",
+    "reviewedIso": "2026-10-02",
+    "readingMinutes": 3,
+    "showContents": false,
+    "status": "draft",
+    "locale": "en",
+    "languageLabel": "English",
+    "translationGroup": "heat-loan-before-heat-pump-installation",
+    "intro": "It is tempting to pick an installation date first and sort out financing afterward. If you want to use the Mass Save HEAT Loan, put the paperwork on the calendar early. A little coordination can prevent an avoidable timing problem.",
+    "openingSummary": {
+      "id": "guide-summary",
+      "heading": "Quick summary",
+      "paragraphs": [],
+      "bullets": [
+        "Start the program review before work is installed.",
+        "Program authorization and lender approval are separate steps.",
+        "Agree on payment dates before scheduling."
+      ],
+      "sourceIds": [
+        "loanfaq"
+      ]
+    },
+    "sections": [
+      {
+        "id": "order",
+        "heading": "Get the order right",
+        "paragraphs": [
+          "The official HEAT Loan portal directs customers to submit eligible project information and obtain an Authorization Form for a participating lender. Mass Save’s FAQ says already-installed work cannot be financed through a new HEAT Loan application.",
+          "Before accepting a start date, ask which documents are needed and who submits them. Keep the latest signed proposal and equipment details together so a revision does not leave the financing team working from an old scope."
+        ],
+        "sourceIds": [
+          "loan",
+          "loanfaq"
+        ],
+        "figures": [
+          {
+            "src": "/images/blog/short-guides-20261002/loan-en.svg",
+            "mobileSrc": "/images/blog/short-guides-20261002/loan-en-mobile.svg",
+            "width": 900,
+            "height": 360,
+            "kind": "diagram",
+            "credit": "Hanson Home",
+            "sourceUrl": "https://www.myheatloan.com/",
+            "alt": "Original Hanson Home illustration. The HEAT Loan program review and lender decision are separate steps; confirm both before scheduling work.",
+            "caption": "Original Hanson Home illustration. The HEAT Loan program review and lender decision are separate steps; confirm both before scheduling work."
+          }
+        ]
+      },
+      {
+        "id": "approvals",
+        "heading": "Understand the two approvals",
+        "paragraphs": [
+          "The program reviews the work for eligibility. The participating bank or credit union makes the lending decision under its own requirements. Receiving an authorization does not mean your loan is approved.",
+          "Choose a lender from the official list and ask what happens next. Confirm its deadlines, payment method and any membership requirements directly with that lender."
+        ],
+        "sourceIds": [
+          "loanfaq",
+          "lenders"
+        ]
+      },
+      {
+        "id": "budget",
+        "heading": "Make the cash-flow plan visible",
+        "paragraphs": [
+          "Ask for a written project price, estimated incentives shown separately and a payment schedule. Then ask the program and lender what amount can be financed under the current rules.",
+          "At Hanson Home, we recommend putting the deposit date, funding date and expected installation date on one page. If an assumption changes, revisit the schedule before work begins."
+        ],
+        "sourceIds": []
+      },
+      {
+        "id": "questions",
+        "heading": "Ask four questions before booking",
+        "paragraphs": [
+          "Which approval is still pending? What happens if funding takes longer? When is each payment due? Who handles the completion documentation?",
+          "Keep copies of the proposal, authorization and lender instructions. Program rules can change, so recheck the official guidance when you are ready to proceed. This article does not promise eligibility or a particular loan amount."
+        ],
+        "sourceIds": []
+      }
+    ],
+    "sources": [
+      {
+        "id": "loan",
+        "label": "Mass Save: HEAT Loan Portal",
+        "url": "https://www.myheatloan.com/"
+      },
+      {
+        "id": "loanfaq",
+        "label": "Mass Save: HEAT Loan FAQs",
+        "url": "https://www.masssave.com/frequently-asked-questions"
+      },
+      {
+        "id": "lenders",
+        "label": "Mass Save: Participating HEAT Loan Lenders",
+        "url": "https://www.masssave.com/residential/rebates-offers-services/financing/heat-loan-lender-list"
+      }
+    ],
+    "ctaTitle": "Talk with Hanson Home",
+    "ctaText": "Tell Hanson Home early if you plan to pursue a HEAT Loan. We can help organize the equipment proposal and installation discussion while you confirm financing with the program and lender.",
+    "ctaLabel": "Discuss my project",
+    "ctaPath": "/start?intent=heat-pump",
+    "ui": {
+      "back": "Draft library",
+      "reviewed": "Reviewed",
+      "minutes": "minute read",
+      "contents": "In this guide",
+      "plan": "PLAN YOUR NEXT STEP",
+      "sources": "Sources",
+      "language": "Article language",
+      "imageCredit": "Image credit / source",
+      "sourceIntro": "Research reviewed {date}. Confirm current program requirements and equipment instructions before proceeding.",
+      "draftNotice": "DRAFT — unpublished; local review only."
+    }
+  },
+  {
+    "slug": "heat-loan-before-heat-pump-installation-es",
+    "title": "¿Está pensando en un HEAT Loan? Empiece antes de instalar",
+    "description": "Una guía sencilla para coordinar la financiación antes de fijar la instalación.",
+    "summary": "Una guía sencilla para coordinar la financiación antes de fijar la instalación.",
+    "category": "GUÍA BREVE PARA EL HOGAR",
+    "reviewed": "2 de octubre de 2026",
+    "reviewedIso": "2026-10-02",
+    "readingMinutes": 3,
+    "showContents": false,
+    "status": "draft",
+    "locale": "es",
+    "languageLabel": "Español",
+    "translationGroup": "heat-loan-before-heat-pump-installation",
+    "intro": "Es tentador elegir primero la fecha de instalación y resolver la financiación después. Si quiere utilizar el HEAT Loan de Mass Save, reserve tiempo para los trámites desde el principio. Una pequeña coordinación puede evitar problemas de calendario.",
+    "openingSummary": {
+      "id": "guide-summary",
+      "heading": "Resumen rápido",
+      "paragraphs": [],
+      "bullets": [
+        "Inicie la revisión del programa antes de instalar.",
+        "La autorización del programa y la aprobación bancaria son pasos distintos.",
+        "Acuerde las fechas de pago antes de programar el trabajo."
+      ],
+      "sourceIds": [
+        "loanfaq"
+      ]
+    },
+    "sections": [
+      {
+        "id": "order",
+        "heading": "Siga el orden adecuado",
+        "paragraphs": [
+          "El portal oficial del HEAT Loan indica que se presenta la información del proyecto para recibir un formulario de autorización destinado a un prestamista participante. Las preguntas frecuentes de Mass Save señalan que no se puede solicitar un nuevo HEAT Loan para trabajos ya instalados.",
+          "Antes de aceptar una fecha, pregunte qué documentos hacen falta y quién los presenta. Guarde juntos el presupuesto firmado más reciente y los datos de los equipos para evitar que se revise una versión antigua."
+        ],
+        "sourceIds": [
+          "loan",
+          "loanfaq"
+        ],
+        "figures": [
+          {
+            "src": "/images/blog/short-guides-20261002/loan-es.svg",
+            "mobileSrc": "/images/blog/short-guides-20261002/loan-es-mobile.svg",
+            "width": 900,
+            "height": 360,
+            "kind": "diagram",
+            "credit": "Hanson Home",
+            "sourceUrl": "https://www.myheatloan.com/",
+            "alt": "Ilustración original de Hanson Home. La revisión del HEAT Loan y la decisión del prestamista son pasos distintos; confirme ambos antes de programar.",
+            "caption": "Ilustración original de Hanson Home. La revisión del HEAT Loan y la decisión del prestamista son pasos distintos; confirme ambos antes de programar."
+          }
+        ]
+      },
+      {
+        "id": "approvals",
+        "heading": "Entienda las dos aprobaciones",
+        "paragraphs": [
+          "El programa revisa si el trabajo cumple sus requisitos. El banco o la cooperativa de crédito participante decide sobre el préstamo según sus propios criterios. Recibir una autorización no significa que el préstamo esté aprobado.",
+          "Elija una entidad de la lista oficial y pregunte por los siguientes pasos. Confirme directamente los plazos, la forma de pago y cualquier requisito de afiliación."
+        ],
+        "sourceIds": [
+          "loanfaq",
+          "lenders"
+        ]
+      },
+      {
+        "id": "budget",
+        "heading": "Aclare cuándo tendrá que pagar",
+        "paragraphs": [
+          "Pida el precio del proyecto por escrito, los incentivos estimados por separado y un calendario de pagos. Después confirme con el programa y la entidad qué importe puede financiarse según las reglas vigentes.",
+          "En Hanson Home recomendamos poner en una misma hoja la fecha del depósito, la disponibilidad del préstamo y la instalación prevista. Si cambia alguna condición, revise el calendario antes de iniciar el trabajo."
+        ],
+        "sourceIds": []
+      },
+      {
+        "id": "questions",
+        "heading": "Haga cuatro preguntas antes de reservar",
+        "paragraphs": [
+          "¿Qué aprobación falta? ¿Qué ocurre si la financiación tarda más? ¿Cuándo vence cada pago? ¿Quién entrega la documentación final?",
+          "Conserve el presupuesto, la autorización y las instrucciones de la entidad. Revise las reglas oficiales cuando esté listo para avanzar. Este artículo no garantiza la elegibilidad ni un importe de préstamo concreto."
+        ],
+        "sourceIds": []
+      }
+    ],
+    "sources": [
+      {
+        "id": "loan",
+        "label": "Mass Save: HEAT Loan Portal",
+        "url": "https://www.myheatloan.com/"
+      },
+      {
+        "id": "loanfaq",
+        "label": "Mass Save: HEAT Loan FAQs",
+        "url": "https://www.masssave.com/frequently-asked-questions"
+      },
+      {
+        "id": "lenders",
+        "label": "Mass Save: Participating HEAT Loan Lenders",
+        "url": "https://www.masssave.com/residential/rebates-offers-services/financing/heat-loan-lender-list"
+      }
+    ],
+    "ctaTitle": "Hable con Hanson Home",
+    "ctaText": "Avise a Hanson Home desde el principio si desea solicitar un HEAT Loan. Podemos ayudar a organizar el presupuesto de equipos y la instalación mientras confirma la financiación con el programa y el prestamista.",
+    "ctaLabel": "Consultar mi proyecto",
+    "ctaPath": "/start?intent=heat-pump",
+    "ui": {
+      "back": "Biblioteca de borradores",
+      "reviewed": "Revisado",
+      "minutes": "minutos de lectura",
+      "contents": "En esta guía",
+      "plan": "SU SIGUIENTE PASO",
+      "sources": "Fuentes",
+      "language": "Idioma del artículo",
+      "imageCredit": "Crédito de imagen / fuente",
+      "sourceIntro": "Investigación revisada el {date}. Confirme los requisitos actuales y las instrucciones del equipo antes de avanzar.",
+      "draftNotice": "BORRADOR — sin publicar; solo revisión local."
+    }
+  },
+  {
+    "slug": "heat-loan-before-heat-pump-installation-zh",
+    "title": "考虑申请 HEAT Loan？请在安装前开始办理",
+    "description": "用一个简单的时间安排，把融资手续放在安装日程之前。",
+    "summary": "用一个简单的时间安排，把融资手续放在安装日程之前。",
+    "category": "住宅实用短读",
+    "reviewed": "2026年10月2日",
+    "reviewedIso": "2026-10-02",
+    "readingMinutes": 3,
+    "showContents": false,
+    "status": "draft",
+    "locale": "zh-Hans",
+    "languageLabel": "中文",
+    "translationGroup": "heat-loan-before-heat-pump-installation",
+    "intro": "先订安装日期、再慢慢办理贷款，看起来很方便。但如果您计划使用 Mass Save HEAT Loan，就应该尽早安排申请材料。提前沟通，可以避免不必要的时间冲突。",
+    "openingSummary": {
+      "id": "guide-summary",
+      "heading": "快速摘要",
+      "paragraphs": [],
+      "bullets": [
+        "在施工安装前启动项目审核。",
+        "项目授权和银行贷款审批是不同步骤。",
+        "安排施工前，先确认付款时间。"
+      ],
+      "sourceIds": [
+        "loanfaq"
+      ]
+    },
+    "sections": [
+      {
+        "id": "order",
+        "heading": "先弄清办理顺序",
+        "paragraphs": [
+          "HEAT Loan 官方申请平台要求提交项目资料，符合条件后取得授权表，再向参与项目的贷款机构申请。Mass Save 常见问题说明，已经安装完成的工程不能通过新的 HEAT Loan 申请融资。",
+          "接受开工日期前，问清需要哪些文件、由谁提交。把最新签字报价和设备资料放在一起，避免项目改了，融资审核却还在使用旧版本。"
+        ],
+        "sourceIds": [
+          "loan",
+          "loanfaq"
+        ],
+        "figures": [
+          {
+            "src": "/images/blog/short-guides-20261002/loan-zh-Hans.svg",
+            "mobileSrc": "/images/blog/short-guides-20261002/loan-zh-Hans-mobile.svg",
+            "width": 900,
+            "height": 360,
+            "kind": "diagram",
+            "credit": "Hanson Home",
+            "sourceUrl": "https://www.myheatloan.com/",
+            "alt": "Hanson Home 原创示意图。HEAT Loan 项目审核与贷款机构审批是不同步骤；安排施工前，请确认两者。",
+            "caption": "Hanson Home 原创示意图。HEAT Loan 项目审核与贷款机构审批是不同步骤；安排施工前，请确认两者。"
+          }
+        ]
+      },
+      {
+        "id": "approvals",
+        "heading": "理解两个不同的审批",
+        "paragraphs": [
+          "项目方审核工程是否符合条件；参与项目的银行或信用合作社根据自己的要求决定是否批准贷款。拿到授权表，并不等于贷款已经获批。",
+          "从官方名单选择贷款机构，直接询问后续步骤、期限、付款方式，以及是否需要成为该机构的会员。"
+        ],
+        "sourceIds": [
+          "loanfaq",
+          "lenders"
+        ]
+      },
+      {
+        "id": "budget",
+        "heading": "把资金安排写清楚",
+        "paragraphs": [
+          "请安装商提供书面项目价格、单独列出的预计优惠，以及付款时间表。随后向项目方和贷款机构确认，按现行规则可以融资多少。",
+          "Hanson Home 建议把订金日期、资金到位日期和预计安装日期写在一张纸上。如果其中某个前提发生变化，开工前就重新确认日程。"
+        ],
+        "sourceIds": []
+      },
+      {
+        "id": "questions",
+        "heading": "预约前问四个问题",
+        "paragraphs": [
+          "还有哪个审批没完成？资金晚到怎么办？每笔款项什么时候付？完工资料由谁提交？",
+          "保存好报价、授权表和贷款机构的说明。准备推进时，再核对官方规则。本文不保证申请资格，也不承诺具体贷款金额。"
+        ],
+        "sourceIds": []
+      }
+    ],
+    "sources": [
+      {
+        "id": "loan",
+        "label": "Mass Save: HEAT Loan Portal",
+        "url": "https://www.myheatloan.com/"
+      },
+      {
+        "id": "loanfaq",
+        "label": "Mass Save: HEAT Loan FAQs",
+        "url": "https://www.masssave.com/frequently-asked-questions"
+      },
+      {
+        "id": "lenders",
+        "label": "Mass Save: Participating HEAT Loan Lenders",
+        "url": "https://www.masssave.com/residential/rebates-offers-services/financing/heat-loan-lender-list"
+      }
+    ],
+    "ctaTitle": "与 Hanson Home 聊聊您的计划",
+    "ctaText": "如果打算申请 HEAT Loan，请尽早告诉 Hanson Home。我们可以协助整理设备报价和安装安排，融资资格与贷款审批则请向项目方及贷款机构确认。",
+    "ctaLabel": "讨论我的项目",
+    "ctaPath": "/start?intent=heat-pump",
+    "ui": {
+      "back": "草稿库",
+      "reviewed": "资料核对",
+      "minutes": "分钟阅读",
+      "contents": "本文内容",
+      "plan": "下一步",
+      "sources": "参考来源",
+      "language": "文章语言",
+      "imageCredit": "图片来源 / 署名",
+      "sourceIntro": "资料于 {date} 核对。推进项目前，请确认现行项目要求和具体设备说明。",
+      "draftNotice": "草稿 — 尚未发布，仅供本地审阅。"
+    }
+  },
+  {
+    "slug": "heat-loan-before-heat-pump-installation-pt",
+    "title": "Pensando em um HEAT Loan? Comece antes da instalação",
+    "description": "Um guia simples para coordenar o financiamento antes de marcar o serviço.",
+    "summary": "Um guia simples para coordenar o financiamento antes de marcar o serviço.",
+    "category": "GUIA RÁPIDO PARA SUA CASA",
+    "reviewed": "2 de outubro de 2026",
+    "reviewedIso": "2026-10-02",
+    "readingMinutes": 3,
+    "showContents": false,
+    "status": "draft",
+    "locale": "pt-BR",
+    "languageLabel": "Português",
+    "translationGroup": "heat-loan-before-heat-pump-installation",
+    "intro": "É tentador escolher a data da instalação e deixar o financiamento para depois. Se pretende usar o HEAT Loan da Mass Save, reserve tempo para os documentos desde o início. Um pouco de coordenação pode evitar problemas de prazo.",
+    "openingSummary": {
+      "id": "guide-summary",
+      "heading": "Resumo rápido",
+      "paragraphs": [],
+      "bullets": [
+        "Inicie a análise do programa antes da instalação.",
+        "A autorização do programa e a aprovação do banco são etapas diferentes.",
+        "Combine as datas de pagamento antes de agendar."
+      ],
+      "sourceIds": [
+        "loanfaq"
+      ]
+    },
+    "sections": [
+      {
+        "id": "order",
+        "heading": "Siga a ordem correta",
+        "paragraphs": [
+          "O portal oficial do HEAT Loan orienta o envio dos dados do projeto para obter um formulário de autorização destinado a uma instituição participante. As perguntas frequentes da Mass Save informam que serviços já instalados não podem ser financiados por uma nova solicitação.",
+          "Antes de aceitar uma data, pergunte quais documentos são necessários e quem os envia. Mantenha juntos o orçamento assinado mais recente e os dados dos equipamentos para que a análise use o escopo atualizado."
+        ],
+        "sourceIds": [
+          "loan",
+          "loanfaq"
+        ],
+        "figures": [
+          {
+            "src": "/images/blog/short-guides-20261002/loan-pt-BR.svg",
+            "mobileSrc": "/images/blog/short-guides-20261002/loan-pt-BR-mobile.svg",
+            "width": 900,
+            "height": 360,
+            "kind": "diagram",
+            "credit": "Hanson Home",
+            "sourceUrl": "https://www.myheatloan.com/",
+            "alt": "Ilustração original da Hanson Home. A análise do HEAT Loan e a decisão da instituição são etapas distintas; confirme ambas antes de agendar.",
+            "caption": "Ilustração original da Hanson Home. A análise do HEAT Loan e a decisão da instituição são etapas distintas; confirme ambas antes de agendar."
+          }
+        ]
+      },
+      {
+        "id": "approvals",
+        "heading": "Entenda as duas aprovações",
+        "paragraphs": [
+          "O programa analisa a elegibilidade do serviço. O banco ou a cooperativa de crédito participante decide sobre o empréstimo conforme suas próprias exigências. Receber a autorização não significa que o empréstimo foi aprovado.",
+          "Escolha uma instituição da lista oficial e pergunte pelos próximos passos. Confirme diretamente os prazos, a forma de pagamento e eventuais requisitos de associação."
+        ],
+        "sourceIds": [
+          "loanfaq",
+          "lenders"
+        ]
+      },
+      {
+        "id": "budget",
+        "heading": "Deixe o fluxo de pagamentos claro",
+        "paragraphs": [
+          "Peça o preço do projeto por escrito, os incentivos estimados separados e um cronograma de pagamentos. Depois confirme com o programa e a instituição qual valor pode ser financiado pelas regras atuais.",
+          "Na Hanson Home, recomendamos reunir a data do sinal, a liberação dos recursos e a instalação prevista em uma página. Se alguma condição mudar, revise o calendário antes do início do serviço."
+        ],
+        "sourceIds": []
+      },
+      {
+        "id": "questions",
+        "heading": "Faça quatro perguntas antes de agendar",
+        "paragraphs": [
+          "Qual aprovação ainda falta? O que acontece se o financiamento demorar? Quando vence cada pagamento? Quem entrega a documentação de conclusão?",
+          "Guarde o orçamento, a autorização e as instruções da instituição. Confira novamente as regras oficiais quando estiver pronto para avançar. Este artigo não garante elegibilidade nem um valor específico de empréstimo."
+        ],
+        "sourceIds": []
+      }
+    ],
+    "sources": [
+      {
+        "id": "loan",
+        "label": "Mass Save: HEAT Loan Portal",
+        "url": "https://www.myheatloan.com/"
+      },
+      {
+        "id": "loanfaq",
+        "label": "Mass Save: HEAT Loan FAQs",
+        "url": "https://www.masssave.com/frequently-asked-questions"
+      },
+      {
+        "id": "lenders",
+        "label": "Mass Save: Participating HEAT Loan Lenders",
+        "url": "https://www.masssave.com/residential/rebates-offers-services/financing/heat-loan-lender-list"
+      }
+    ],
+    "ctaTitle": "Converse com a Hanson Home",
+    "ctaText": "Avise a Hanson Home desde o início se pretende solicitar um HEAT Loan. Podemos organizar a proposta de equipamentos e a conversa sobre instalação enquanto você confirma o financiamento com o programa e a instituição.",
+    "ctaLabel": "Conversar sobre meu projeto",
+    "ctaPath": "/start?intent=heat-pump",
+    "ui": {
+      "back": "Biblioteca de rascunhos",
+      "reviewed": "Revisado",
+      "minutes": "minutos de leitura",
+      "contents": "Neste guia",
+      "plan": "SEU PRÓXIMO PASSO",
+      "sources": "Fontes",
+      "language": "Idioma do artigo",
+      "imageCredit": "Crédito da imagem / fonte",
+      "sourceIntro": "Pesquisa revisada em {date}. Confirme as regras atuais e as instruções do equipamento antes de avançar.",
+      "draftNotice": "RASCUNHO — não publicado; apenas revisão local."
+    }
+  },
+  {
+    "slug": "mini-split-fresh-air-ventilation",
+    "title": "Does a Mini-Split Bring Fresh Air Into Your Home?",
+    "description": "Heating, cooling, filtration and ventilation do different jobs. Here is the simple distinction.",
+    "summary": "Heating, cooling, filtration and ventilation do different jobs. Here is the simple distinction.",
+    "category": "QUICK HOMEOWNER GUIDE",
+    "reviewed": "October 2, 2026",
+    "reviewedIso": "2026-10-02",
+    "readingMinutes": 3,
+    "showContents": false,
+    "status": "draft",
+    "locale": "en",
+    "languageLabel": "English",
+    "translationGroup": "mini-split-fresh-air-ventilation",
+    "intro": "A room can feel warmer or cooler without receiving more outdoor air. That is an easy detail to miss when shopping for a mini-split. Understanding the air path helps you ask better questions about both comfort and ventilation.",
+    "openingSummary": {
+      "id": "guide-summary",
+      "heading": "Quick summary",
+      "paragraphs": [],
+      "bullets": [
+        "A typical wall-mounted mini-split recirculates room air.",
+        "Cleaning a filter and bringing in outdoor air are different tasks.",
+        "Ask how ventilation is handled in your home."
+      ],
+      "sourceIds": [
+        "epa-vent",
+        "epa-filter"
+      ]
+    },
+    "sections": [
+      {
+        "id": "air",
+        "heading": "Follow the air path",
+        "paragraphs": [
+          "In a typical wall-mounted mini-split, room air passes through the indoor unit and returns to the room. The outdoor unit exchanges heat through the refrigerant system; its presence does not mean there is an outdoor-air duct to your bedroom. Some products have separate fresh-air features, so check the exact model.",
+          "Ask the installer a straightforward question: “Where does outdoor air enter this design?” If the answer involves another system, ask that it be included in the explanation of the project."
+        ],
+        "sourceIds": [
+          "epa-vent"
+        ],
+        "figures": [
+          {
+            "src": "/images/blog/short-guides-20261002/air-path-en.svg",
+            "mobileSrc": "/images/blog/short-guides-20261002/air-path-en-mobile.svg",
+            "width": 900,
+            "height": 360,
+            "kind": "diagram",
+            "credit": "Hanson Home",
+            "sourceUrl": "https://www.epa.gov/indoor-air-quality-iaq/improving-indoor-air-quality",
+            "alt": "Original Hanson Home illustration of a typical mini-split air path. Ask about any separate outdoor-air or ventilation system.",
+            "caption": "Original Hanson Home illustration of a typical mini-split air path. Ask about any separate outdoor-air or ventilation system."
+          }
+        ]
+      },
+      {
+        "id": "filter",
+        "heading": "Give filters the right job",
+        "paragraphs": [
+          "EPA explains that filtration can supplement pollution-source control and ventilation, but filters do not remove every pollutant. A clean indoor-unit filter is useful maintenance; it is not a complete fresh-air plan.",
+          "Follow your equipment manual for cleaning. If you want additional air cleaning, ask what the proposed device actually filters rather than assuming every “air quality” feature does the same thing."
+        ],
+        "sourceIds": [
+          "epa-filter"
+        ]
+      },
+      {
+        "id": "routine",
+        "heading": "Start with the everyday routine",
+        "paragraphs": [
+          "EPA identifies outdoor-vented kitchen and bathroom fans as useful ways to remove pollutants at their source. Opening windows can also provide ventilation when outdoor conditions are appropriate.",
+          "Think about your own routine: cooking, showers, visitors and rooms with closed doors. Tell the installer where odors linger or the air feels stale. Those observations help frame the ventilation conversation without guessing at a diagnosis."
+        ],
+        "sourceIds": [
+          "epa-vent"
+        ]
+      },
+      {
+        "id": "design",
+        "heading": "Make ventilation part of the proposal",
+        "paragraphs": [
+          "For a renovation or a tighter home, ask whether the existing ventilation is suitable and whether a specialist should review it. If mechanical ventilation is proposed, ask how it is operated and maintained.",
+          "Hanson Home recommends discussing temperature comfort and fresh air together. You should understand what each system does and who to contact if it needs service."
+        ],
+        "sourceIds": []
+      }
+    ],
+    "sources": [
+      {
+        "id": "epa-vent",
+        "label": "US EPA: Improving Indoor Air Quality",
+        "url": "https://www.epa.gov/indoor-air-quality-iaq/improving-indoor-air-quality"
+      },
+      {
+        "id": "epa-filter",
+        "label": "US EPA: Air Cleaners and Air Filters in the Home",
+        "url": "https://www.epa.gov/indoor-air-quality-iaq/air-cleaners-and-air-filters-home"
+      }
+    ],
+    "ctaTitle": "Talk with Hanson Home",
+    "ctaText": "Planning mini-splits? Ask Hanson Home about the room layout and air path, and bring any ventilation questions into the installation discussion.",
+    "ctaLabel": "Discuss my project",
+    "ctaPath": "/start?intent=heat-pump",
+    "ui": {
+      "back": "Draft library",
+      "reviewed": "Reviewed",
+      "minutes": "minute read",
+      "contents": "In this guide",
+      "plan": "PLAN YOUR NEXT STEP",
+      "sources": "Sources",
+      "language": "Article language",
+      "imageCredit": "Image credit / source",
+      "sourceIntro": "Research reviewed {date}. Confirm current program requirements and equipment instructions before proceeding.",
+      "draftNotice": "DRAFT — unpublished; local review only."
+    },
+    "image": {
+      "src": "/images/installations/indoor-mini-split-gray-room.webp",
+      "alt": "Wall-mounted mini-split in a client room",
+      "caption": "Real Hanson Home client-site installation. Photo: Hanson Home."
+    }
+  },
+  {
+    "slug": "mini-split-fresh-air-ventilation-es",
+    "title": "¿Un mini-split introduce aire fresco en su vivienda?",
+    "description": "Calefacción, refrigeración, filtración y ventilación cumplen funciones diferentes. Esta es la explicación sencilla.",
+    "summary": "Calefacción, refrigeración, filtración y ventilación cumplen funciones diferentes. Esta es la explicación sencilla.",
+    "category": "GUÍA BREVE PARA EL HOGAR",
+    "reviewed": "2 de octubre de 2026",
+    "reviewedIso": "2026-10-02",
+    "readingMinutes": 3,
+    "showContents": false,
+    "status": "draft",
+    "locale": "es",
+    "languageLabel": "Español",
+    "translationGroup": "mini-split-fresh-air-ventilation",
+    "intro": "Una habitación puede sentirse más cálida o fresca sin recibir más aire exterior. Es un detalle fácil de pasar por alto al elegir un mini-split. Entender por dónde circula el aire ayuda a preguntar mejor sobre confort y ventilación.",
+    "openingSummary": {
+      "id": "guide-summary",
+      "heading": "Resumen rápido",
+      "paragraphs": [],
+      "bullets": [
+        "Un mini-split de pared típico recircula aire de la habitación.",
+        "Limpiar un filtro e introducir aire exterior son tareas distintas.",
+        "Pregunte cómo se ventila su vivienda."
+      ],
+      "sourceIds": [
+        "epa-vent",
+        "epa-filter"
+      ]
+    },
+    "sections": [
+      {
+        "id": "air",
+        "heading": "Siga el recorrido del aire",
+        "paragraphs": [
+          "En un mini-split de pared típico, el aire de la habitación atraviesa la unidad interior y vuelve al mismo espacio. La unidad exterior intercambia calor mediante el refrigerante; su presencia no implica que exista un conducto de aire exterior hacia el dormitorio. Algunos productos tienen funciones específicas de aire fresco: revise el modelo concreto.",
+          "Pregunte directamente: «¿Por dónde entra el aire exterior en este diseño?». Si depende de otro sistema, pida que también se explique en el proyecto."
+        ],
+        "sourceIds": [
+          "epa-vent"
+        ],
+        "figures": [
+          {
+            "src": "/images/blog/short-guides-20261002/air-path-es.svg",
+            "mobileSrc": "/images/blog/short-guides-20261002/air-path-es-mobile.svg",
+            "width": 900,
+            "height": 360,
+            "kind": "diagram",
+            "credit": "Hanson Home",
+            "sourceUrl": "https://www.epa.gov/indoor-air-quality-iaq/improving-indoor-air-quality",
+            "alt": "Ilustración original de Hanson Home del recorrido típico del aire en un mini-split. Pregunte por el sistema de aire exterior o ventilación.",
+            "caption": "Ilustración original de Hanson Home del recorrido típico del aire en un mini-split. Pregunte por el sistema de aire exterior o ventilación."
+          }
+        ]
+      },
+      {
+        "id": "filter",
+        "heading": "Entienda la función del filtro",
+        "paragraphs": [
+          "La EPA explica que la filtración complementa el control de fuentes contaminantes y la ventilación, pero no elimina todos los contaminantes. Un filtro limpio es un buen mantenimiento; no constituye un plan completo de renovación de aire.",
+          "Siga el manual para limpiarlo. Si quiere más purificación, pregunte qué filtra realmente el dispositivo propuesto, sin suponer que todas las funciones de «calidad del aire» son iguales."
+        ],
+        "sourceIds": [
+          "epa-filter"
+        ]
+      },
+      {
+        "id": "routine",
+        "heading": "Empiece por la rutina diaria",
+        "paragraphs": [
+          "La EPA señala que los extractores de cocina y baño con salida al exterior ayudan a retirar contaminantes en su origen. Abrir ventanas también puede ventilar cuando las condiciones exteriores son adecuadas.",
+          "Piense en la cocina, las duchas, las visitas y las puertas cerradas. Comente dónde permanecen los olores o el aire parece cargado. Son observaciones útiles para iniciar la conversación sin intentar diagnosticar el problema."
+        ],
+        "sourceIds": [
+          "epa-vent"
+        ]
+      },
+      {
+        "id": "design",
+        "heading": "Incluya la ventilación en el presupuesto",
+        "paragraphs": [
+          "En una reforma o una vivienda más hermética, pregunte si la ventilación actual es adecuada y si requiere la revisión de un especialista. Si se propone ventilación mecánica, consulte cómo se usa y mantiene.",
+          "Hanson Home recomienda hablar del confort térmico y del aire fresco en la misma conversación. Conviene saber qué hace cada sistema y a quién llamar si necesita servicio."
+        ],
+        "sourceIds": []
+      }
+    ],
+    "sources": [
+      {
+        "id": "epa-vent",
+        "label": "US EPA: Improving Indoor Air Quality",
+        "url": "https://www.epa.gov/indoor-air-quality-iaq/improving-indoor-air-quality"
+      },
+      {
+        "id": "epa-filter",
+        "label": "US EPA: Air Cleaners and Air Filters in the Home",
+        "url": "https://www.epa.gov/indoor-air-quality-iaq/air-cleaners-and-air-filters-home"
+      }
+    ],
+    "ctaTitle": "Hable con Hanson Home",
+    "ctaText": "¿Planea instalar mini-splits? Consulte con Hanson Home la distribución de habitaciones y el recorrido del aire, e incluya sus preguntas de ventilación en el proyecto.",
+    "ctaLabel": "Consultar mi proyecto",
+    "ctaPath": "/start?intent=heat-pump",
+    "ui": {
+      "back": "Biblioteca de borradores",
+      "reviewed": "Revisado",
+      "minutes": "minutos de lectura",
+      "contents": "En esta guía",
+      "plan": "SU SIGUIENTE PASO",
+      "sources": "Fuentes",
+      "language": "Idioma del artículo",
+      "imageCredit": "Crédito de imagen / fuente",
+      "sourceIntro": "Investigación revisada el {date}. Confirme los requisitos actuales y las instrucciones del equipo antes de avanzar.",
+      "draftNotice": "BORRADOR — sin publicar; solo revisión local."
+    },
+    "image": {
+      "src": "/images/installations/indoor-mini-split-gray-room.webp",
+      "alt": "Mini-split de pared en una habitación de cliente",
+      "caption": "Instalación real en una vivienda de cliente de Hanson Home. Foto: Hanson Home."
+    }
+  },
+  {
+    "slug": "mini-split-fresh-air-ventilation-zh",
+    "title": "壁挂式热泵会给家里送新风吗？",
+    "description": "供暖、制冷、过滤和通风各有作用，先把这几个概念分清楚。",
+    "summary": "供暖、制冷、过滤和通风各有作用，先把这几个概念分清楚。",
+    "category": "住宅实用短读",
+    "reviewed": "2026年10月2日",
+    "reviewedIso": "2026-10-02",
+    "readingMinutes": 3,
+    "showContents": false,
+    "status": "draft",
+    "locale": "zh-Hans",
+    "languageLabel": "中文",
+    "translationGroup": "mini-split-fresh-air-ventilation",
+    "intro": "房间变暖或变凉，并不代表室外新风增加了。选购壁挂式热泵时，这一点很容易被忽略。了解空气从哪里来、到哪里去，就更容易讨论舒适度和通风。",
+    "openingSummary": {
+      "id": "guide-summary",
+      "heading": "快速摘要",
+      "paragraphs": [],
+      "bullets": [
+        "常见壁挂式室内机循环的是房间里的空气。",
+        "清洗滤网和引入室外新风是两件事。",
+        "请安装商解释您家的通风安排。"
+      ],
+      "sourceIds": [
+        "epa-vent",
+        "epa-filter"
+      ]
+    },
+    "sections": [
+      {
+        "id": "air",
+        "heading": "先看空气的路线",
+        "paragraphs": [
+          "常见壁挂式室内机吸入房间空气，经过处理后再送回房间。室外机通过制冷剂系统交换热量；有室外机，不等于有一根向卧室输送室外空气的风管。部分产品有独立的新风功能，需要核对具体型号。",
+          "可以直接问安装商：“这个方案里，室外空气从哪里进入？”如果依靠另一个系统，请把那个系统也纳入项目说明。"
+        ],
+        "sourceIds": [
+          "epa-vent"
+        ],
+        "figures": [
+          {
+            "src": "/images/blog/short-guides-20261002/air-path-zh-Hans.svg",
+            "mobileSrc": "/images/blog/short-guides-20261002/air-path-zh-Hans-mobile.svg",
+            "width": 900,
+            "height": 360,
+            "kind": "diagram",
+            "credit": "Hanson Home",
+            "sourceUrl": "https://www.epa.gov/indoor-air-quality-iaq/improving-indoor-air-quality",
+            "alt": "Hanson Home 原创示意图，说明常见壁挂式热泵的空气路线。请单独确认室外新风和通风系统。",
+            "caption": "Hanson Home 原创示意图，说明常见壁挂式热泵的空气路线。请单独确认室外新风和通风系统。"
+          }
+        ]
+      },
+      {
+        "id": "filter",
+        "heading": "理解滤网能做什么",
+        "paragraphs": [
+          "美国环保署 EPA 说明，过滤可以辅助污染源控制和通风，但不能去除所有污染物。保持室内机滤网清洁是良好的维护习惯，还需要单独考虑新风和通风。",
+          "按设备说明书清洁滤网。如果希望增加空气净化功能，问清拟选设备实际过滤什么，不要把所有“空气质量”功能都当成同一种能力。"
+        ],
+        "sourceIds": [
+          "epa-filter"
+        ]
+      },
+      {
+        "id": "routine",
+        "heading": "从日常生活聊起",
+        "paragraphs": [
+          "EPA 指出，排气到室外的厨房和浴室风机有助于在源头排走污染物。室外条件适合时，开窗也能帮助通风。",
+          "想想做饭、洗澡、来客和关门休息的日常场景。告诉安装商哪里容易留有气味、哪里感觉空气闷。这些观察有助于展开讨论，不需要您自己判断故障原因。"
+        ],
+        "sourceIds": [
+          "epa-vent"
+        ]
+      },
+      {
+        "id": "design",
+        "heading": "把通风写进方案讨论",
+        "paragraphs": [
+          "装修或提高房屋气密性时，请询问现有通风是否适合，是否需要专业人员进一步检查。如果建议机械通风，问清怎样使用和维护。",
+          "Hanson Home 建议同时讨论温度舒适度和新风需求。您应该知道各个系统的作用，以及需要维修时联系谁。"
+        ],
+        "sourceIds": []
+      }
+    ],
+    "sources": [
+      {
+        "id": "epa-vent",
+        "label": "US EPA: Improving Indoor Air Quality",
+        "url": "https://www.epa.gov/indoor-air-quality-iaq/improving-indoor-air-quality"
+      },
+      {
+        "id": "epa-filter",
+        "label": "US EPA: Air Cleaners and Air Filters in the Home",
+        "url": "https://www.epa.gov/indoor-air-quality-iaq/air-cleaners-and-air-filters-home"
+      }
+    ],
+    "ctaTitle": "与 Hanson Home 聊聊您的计划",
+    "ctaText": "准备安装壁挂式热泵？欢迎与 Hanson Home 讨论房间布局和空气路线，并把通风问题一起带进安装方案。",
+    "ctaLabel": "讨论我的项目",
+    "ctaPath": "/start?intent=heat-pump",
+    "ui": {
+      "back": "草稿库",
+      "reviewed": "资料核对",
+      "minutes": "分钟阅读",
+      "contents": "本文内容",
+      "plan": "下一步",
+      "sources": "参考来源",
+      "language": "文章语言",
+      "imageCredit": "图片来源 / 署名",
+      "sourceIntro": "资料于 {date} 核对。推进项目前，请确认现行项目要求和具体设备说明。",
+      "draftNotice": "草稿 — 尚未发布，仅供本地审阅。"
+    },
+    "image": {
+      "src": "/images/installations/indoor-mini-split-gray-room.webp",
+      "alt": "客户房间内的壁挂式热泵",
+      "caption": "Hanson Home 客户住宅的实际安装照片。摄影：Hanson Home。"
+    }
+  },
+  {
+    "slug": "mini-split-fresh-air-ventilation-pt",
+    "title": "Um mini-split traz ar fresco para dentro de casa?",
+    "description": "Aquecer, resfriar, filtrar e ventilar são funções diferentes. Entenda a distinção.",
+    "summary": "Aquecer, resfriar, filtrar e ventilar são funções diferentes. Entenda a distinção.",
+    "category": "GUIA RÁPIDO PARA SUA CASA",
+    "reviewed": "2 de outubro de 2026",
+    "reviewedIso": "2026-10-02",
+    "readingMinutes": 3,
+    "showContents": false,
+    "status": "draft",
+    "locale": "pt-BR",
+    "languageLabel": "Português",
+    "translationGroup": "mini-split-fresh-air-ventilation",
+    "intro": "Um cômodo pode ficar mais quente ou mais fresco sem receber mais ar externo. Esse detalhe passa despercebido ao escolher um mini-split. Entender o caminho do ar ajuda a conversar sobre conforto e ventilação.",
+    "openingSummary": {
+      "id": "guide-summary",
+      "heading": "Resumo rápido",
+      "paragraphs": [],
+      "bullets": [
+        "Um mini-split de parede típico recircula o ar do cômodo.",
+        "Limpar um filtro e trazer ar externo são tarefas diferentes.",
+        "Pergunte como a ventilação da casa é feita."
+      ],
+      "sourceIds": [
+        "epa-vent",
+        "epa-filter"
+      ]
+    },
+    "sections": [
+      {
+        "id": "air",
+        "heading": "Siga o caminho do ar",
+        "paragraphs": [
+          "Em um mini-split de parede típico, o ar do cômodo passa pela unidade interna e volta ao mesmo ambiente. A unidade externa troca calor pelo sistema de refrigerante; isso não significa que exista um duto trazendo ar externo ao quarto. Alguns produtos têm recursos específicos de renovação de ar: confira o modelo exato.",
+          "Pergunte diretamente: “Por onde entra o ar externo neste projeto?”. Se a resposta envolver outro sistema, peça que ele também seja explicado na proposta."
+        ],
+        "sourceIds": [
+          "epa-vent"
+        ],
+        "figures": [
+          {
+            "src": "/images/blog/short-guides-20261002/air-path-pt-BR.svg",
+            "mobileSrc": "/images/blog/short-guides-20261002/air-path-pt-BR-mobile.svg",
+            "width": 900,
+            "height": 360,
+            "kind": "diagram",
+            "credit": "Hanson Home",
+            "sourceUrl": "https://www.epa.gov/indoor-air-quality-iaq/improving-indoor-air-quality",
+            "alt": "Ilustração original da Hanson Home do caminho típico do ar em um mini-split. Pergunte pelo sistema de ar externo ou ventilação.",
+            "caption": "Ilustração original da Hanson Home do caminho típico do ar em um mini-split. Pergunte pelo sistema de ar externo ou ventilação."
+          }
+        ]
+      },
+      {
+        "id": "filter",
+        "heading": "Entenda a função do filtro",
+        "paragraphs": [
+          "A EPA explica que a filtragem complementa o controle das fontes de poluição e a ventilação, mas não remove todos os poluentes. Limpar o filtro da unidade interna é uma boa manutenção; a renovação do ar precisa ser considerada separadamente.",
+          "Siga o manual para a limpeza. Se deseja purificação adicional, pergunte o que o equipamento proposto realmente filtra. Os recursos anunciados como “qualidade do ar” podem ter funções diferentes."
+        ],
+        "sourceIds": [
+          "epa-filter"
+        ]
+      },
+      {
+        "id": "routine",
+        "heading": "Comece pela rotina da casa",
+        "paragraphs": [
+          "A EPA destaca que exaustores de cozinha e banheiro com saída para fora ajudam a remover poluentes na origem. Abrir janelas também pode ventilar quando as condições externas são adequadas.",
+          "Pense em cozinhar, tomar banho, receber visitas e manter portas fechadas. Conte onde os odores persistem ou o ar parece abafado. São observações úteis para iniciar a conversa sem tentar diagnosticar a causa."
+        ],
+        "sourceIds": [
+          "epa-vent"
+        ]
+      },
+      {
+        "id": "design",
+        "heading": "Inclua a ventilação na proposta",
+        "paragraphs": [
+          "Em uma reforma ou casa mais vedada, pergunte se a ventilação existente é adequada e se precisa da avaliação de um especialista. Se houver proposta de ventilação mecânica, pergunte como operá-la e mantê-la.",
+          "A Hanson Home recomenda discutir conforto térmico e ar fresco juntos. Você deve entender a função de cada sistema e quem contatar se precisar de assistência."
+        ],
+        "sourceIds": []
+      }
+    ],
+    "sources": [
+      {
+        "id": "epa-vent",
+        "label": "US EPA: Improving Indoor Air Quality",
+        "url": "https://www.epa.gov/indoor-air-quality-iaq/improving-indoor-air-quality"
+      },
+      {
+        "id": "epa-filter",
+        "label": "US EPA: Air Cleaners and Air Filters in the Home",
+        "url": "https://www.epa.gov/indoor-air-quality-iaq/air-cleaners-and-air-filters-home"
+      }
+    ],
+    "ctaTitle": "Converse com a Hanson Home",
+    "ctaText": "Vai instalar mini-splits? Converse com a Hanson Home sobre a distribuição dos cômodos e o caminho do ar, incluindo suas dúvidas sobre ventilação no projeto.",
+    "ctaLabel": "Conversar sobre meu projeto",
+    "ctaPath": "/start?intent=heat-pump",
+    "ui": {
+      "back": "Biblioteca de rascunhos",
+      "reviewed": "Revisado",
+      "minutes": "minutos de leitura",
+      "contents": "Neste guia",
+      "plan": "SEU PRÓXIMO PASSO",
+      "sources": "Fontes",
+      "language": "Idioma do artigo",
+      "imageCredit": "Crédito da imagem / fonte",
+      "sourceIntro": "Pesquisa revisada em {date}. Confirme as regras atuais e as instruções do equipamento antes de avançar.",
+      "draftNotice": "RASCUNHO — não publicado; apenas revisão local."
+    },
+    "image": {
+      "src": "/images/installations/indoor-mini-split-gray-room.webp",
+      "alt": "Mini-split de parede em um cômodo de cliente",
+      "caption": "Instalação real em uma residência de cliente da Hanson Home. Foto: Hanson Home."
+    }
+  },
+  {
+    "slug": "heat-pump-power-outage-plan",
+    "title": "Heat Pumps and Power Outages: Make a Simple Plan Before the Storm",
+    "description": "Choose the essentials, discuss backup power and know where to find Massachusetts safety guidance.",
+    "summary": "Choose the essentials, discuss backup power and know where to find Massachusetts safety guidance.",
+    "category": "QUICK HOMEOWNER GUIDE",
+    "reviewed": "October 2, 2026",
+    "reviewedIso": "2026-10-02",
+    "readingMinutes": 3,
+    "showContents": false,
+    "status": "draft",
+    "locale": "en",
+    "languageLabel": "English",
+    "translationGroup": "heat-pump-power-outage-plan",
+    "intro": "A heat pump needs electricity. If a winter storm interrupts power, the useful question is what your household will do next. Make a small plan on a calm afternoon rather than trying to design one during an outage.",
+    "openingSummary": {
+      "id": "guide-summary",
+      "heading": "Quick summary",
+      "paragraphs": [],
+      "bullets": [
+        "List the household essentials before choosing backup power.",
+        "Have backup equipment reviewed for your exact heating system.",
+        "Follow official generator and carbon-monoxide guidance."
+      ],
+      "sourceIds": [
+        "outage"
+      ]
+    },
+    "sections": [
+      {
+        "id": "power",
+        "heading": "Know what depends on power",
+        "paragraphs": [
+          "Your heat pump’s compressor, fans and controls need electricity. Do not assume a retained furnace or boiler will operate either: many fuel-burning systems also need powered controls, blowers or pumps. Ask your service technician about the actual equipment.",
+          "Write down the heating arrangement and contact information in a place everyone can find. Include the utility’s outage-reporting channel."
+        ],
+        "sourceIds": []
+      },
+      {
+        "id": "priorities",
+        "heading": "Choose your priorities",
+        "paragraphs": [
+          "Massachusetts emergency guidance recommends an emergency kit, working alarms and a family plan. Add your household’s specific needs, including medical equipment, communication and a place to stay if the home cannot be kept safe.",
+          "Our practical recommendation is to list essential loads before shopping for backup power. Heating one area, keeping food cold and powering an entire home are different project goals."
+        ],
+        "sourceIds": [
+          "outage"
+        ]
+      },
+      {
+        "id": "backup",
+        "heading": "Review backup power professionally",
+        "paragraphs": [
+          "Ask a licensed electrician and your HVAC technician whether the proposed generator or battery can support the selected equipment and other essential loads. Ask for the expected operating limits and, for batteries, the assumptions behind the runtime estimate.",
+          "Massachusetts fire-safety guidance calls for a professionally installed transfer switch when connecting a generator to the home’s electrical system. Operate generators outdoors and follow current placement instructions. Never use an oven or an indoor grill for emergency heat."
+        ],
+        "sourceIds": [
+          "generator",
+          "co"
+        ]
+      },
+      {
+        "id": "return",
+        "heading": "Plan the return to normal",
+        "paragraphs": [
+          "Keep the equipment manual accessible and ask the installer how your system restarts after an outage. Check settings when power returns and contact service if the system reports an error or fails to resume normal operation.",
+          "Hanson Home recommends including outage questions in the installation handoff. A short written plan is easier for the whole household to use than a collection of guesses."
+        ],
+        "sourceIds": []
+      }
+    ],
+    "sources": [
+      {
+        "id": "outage",
+        "label": "Massachusetts: Power Outage Safety Tips",
+        "url": "https://www.mass.gov/info-details/power-outage-safety-tips"
+      },
+      {
+        "id": "generator",
+        "label": "Massachusetts: Generator Safety",
+        "url": "https://www.mass.gov/info-details/generator-safety"
+      },
+      {
+        "id": "co",
+        "label": "Massachusetts: Carbon Monoxide Safety",
+        "url": "https://www.mass.gov/info-details/carbon-monoxide-co-safety"
+      }
+    ],
+    "ctaTitle": "Talk with Hanson Home",
+    "ctaText": "Ask Hanson Home how your proposed heating system fits into your outage plan. Coordinate any backup-power design with a licensed electrician before relying on it.",
+    "ctaLabel": "Discuss my project",
+    "ctaPath": "/start?intent=heat-pump",
+    "ui": {
+      "back": "Draft library",
+      "reviewed": "Reviewed",
+      "minutes": "minute read",
+      "contents": "In this guide",
+      "plan": "PLAN YOUR NEXT STEP",
+      "sources": "Sources",
+      "language": "Article language",
+      "imageCredit": "Image credit / source",
+      "sourceIntro": "Research reviewed {date}. Confirm current program requirements and equipment instructions before proceeding.",
+      "draftNotice": "DRAFT — unpublished; local review only."
+    }
+  },
+  {
+    "slug": "heat-pump-power-outage-plan-es",
+    "title": "Bombas de calor y cortes de electricidad: prepare un plan antes de la tormenta",
+    "description": "Defina lo esencial, consulte la energía de respaldo y tenga a mano la orientación de seguridad de Massachusetts.",
+    "summary": "Defina lo esencial, consulte la energía de respaldo y tenga a mano la orientación de seguridad de Massachusetts.",
+    "category": "GUÍA BREVE PARA EL HOGAR",
+    "reviewed": "2 de octubre de 2026",
+    "reviewedIso": "2026-10-02",
+    "readingMinutes": 3,
+    "showContents": false,
+    "status": "draft",
+    "locale": "es",
+    "languageLabel": "Español",
+    "translationGroup": "heat-pump-power-outage-plan",
+    "intro": "Una bomba de calor necesita electricidad. Si una tormenta invernal corta el suministro, lo útil es saber qué hará su hogar después. Prepare un plan sencillo con calma, antes de que llegue la emergencia.",
+    "openingSummary": {
+      "id": "guide-summary",
+      "heading": "Resumen rápido",
+      "paragraphs": [],
+      "bullets": [
+        "Liste las necesidades esenciales antes de elegir energía de respaldo.",
+        "Revise el respaldo para su sistema de calefacción concreto.",
+        "Siga la orientación oficial sobre generadores y monóxido de carbono."
+      ],
+      "sourceIds": [
+        "outage"
+      ]
+    },
+    "sections": [
+      {
+        "id": "power",
+        "heading": "Sepa qué depende de la electricidad",
+        "paragraphs": [
+          "El compresor, los ventiladores y los controles de la bomba de calor necesitan electricidad. Tampoco dé por hecho que una caldera o un horno de calefacción funcionarán: muchos necesitan controles, ventiladores o bombas eléctricas. Consulte sobre sus equipos concretos.",
+          "Anote el sistema de calefacción y los contactos donde todos puedan encontrarlos. Incluya el canal de su compañía para informar de un corte."
+        ],
+        "sourceIds": []
+      },
+      {
+        "id": "priorities",
+        "heading": "Defina sus prioridades",
+        "paragraphs": [
+          "La orientación de Massachusetts recomienda un kit de emergencia, alarmas operativas y un plan familiar. Añada necesidades particulares: equipos médicos, comunicación y un lugar donde quedarse si la vivienda deja de ser segura.",
+          "Recomendamos listar las cargas esenciales antes de comprar respaldo eléctrico. Calentar una zona, conservar alimentos y alimentar toda la casa son objetivos diferentes."
+        ],
+        "sourceIds": [
+          "outage"
+        ]
+      },
+      {
+        "id": "backup",
+        "heading": "Solicite una revisión profesional",
+        "paragraphs": [
+          "Consulte con un electricista autorizado y el técnico de climatización si el generador o la batería propuestos pueden alimentar los equipos seleccionados y las otras cargas esenciales. Pregunte por los límites y, en baterías, por las condiciones usadas para estimar la autonomía.",
+          "La orientación contra incendios de Massachusetts indica instalar profesionalmente un interruptor de transferencia para conectar un generador al sistema de la vivienda. Úselo al aire libre y siga las instrucciones vigentes de ubicación. Nunca use el horno de cocina ni una parrilla interior para calentarse."
+        ],
+        "sourceIds": [
+          "generator",
+          "co"
+        ]
+      },
+      {
+        "id": "return",
+        "heading": "Prepare la vuelta a la normalidad",
+        "paragraphs": [
+          "Guarde el manual y pregunte cómo se reinicia el sistema después de un corte. Revise los ajustes cuando vuelva la electricidad y solicite servicio si aparece un error o no recupera el funcionamiento normal.",
+          "Hanson Home recomienda incluir estas preguntas al recibir la instalación. Un plan breve por escrito es más fácil de seguir para toda la familia."
+        ],
+        "sourceIds": []
+      }
+    ],
+    "sources": [
+      {
+        "id": "outage",
+        "label": "Massachusetts: Power Outage Safety Tips",
+        "url": "https://www.mass.gov/info-details/power-outage-safety-tips"
+      },
+      {
+        "id": "generator",
+        "label": "Massachusetts: Generator Safety",
+        "url": "https://www.mass.gov/info-details/generator-safety"
+      },
+      {
+        "id": "co",
+        "label": "Massachusetts: Carbon Monoxide Safety",
+        "url": "https://www.mass.gov/info-details/carbon-monoxide-co-safety"
+      }
+    ],
+    "ctaTitle": "Hable con Hanson Home",
+    "ctaText": "Pregunte a Hanson Home cómo encaja la calefacción propuesta en su plan para cortes. Coordine cualquier diseño de respaldo eléctrico con un electricista autorizado antes de depender de él.",
+    "ctaLabel": "Consultar mi proyecto",
+    "ctaPath": "/start?intent=heat-pump",
+    "ui": {
+      "back": "Biblioteca de borradores",
+      "reviewed": "Revisado",
+      "minutes": "minutos de lectura",
+      "contents": "En esta guía",
+      "plan": "SU SIGUIENTE PASO",
+      "sources": "Fuentes",
+      "language": "Idioma del artículo",
+      "imageCredit": "Crédito de imagen / fuente",
+      "sourceIntro": "Investigación revisada el {date}. Confirme los requisitos actuales y las instrucciones del equipo antes de avanzar.",
+      "draftNotice": "BORRADOR — sin publicar; solo revisión local."
+    }
+  },
+  {
+    "slug": "heat-pump-power-outage-plan-zh",
+    "title": "热泵遇到停电怎么办？暴风雪前做好一个小计划",
+    "description": "先确定家庭的基本需要，再讨论备用电源，并保存马萨诸塞州官方安全指南。",
+    "summary": "先确定家庭的基本需要，再讨论备用电源，并保存马萨诸塞州官方安全指南。",
+    "category": "住宅实用短读",
+    "reviewed": "2026年10月2日",
+    "reviewedIso": "2026-10-02",
+    "readingMinutes": 3,
+    "showContents": false,
+    "status": "draft",
+    "locale": "zh-Hans",
+    "languageLabel": "中文",
+    "translationGroup": "heat-pump-power-outage-plan",
+    "intro": "热泵需要用电。冬季风暴造成停电时，更有用的问题是：家里接下来怎么安排？找一个天气平静的下午提前准备，比停电后临时想办法更从容。",
+    "openingSummary": {
+      "id": "guide-summary",
+      "heading": "快速摘要",
+      "paragraphs": [],
+      "bullets": [
+        "选择备用电源前，先列出家里的基本需要。",
+        "请专业人员核对备用电源和具体供暖设备。",
+        "遵循官方发电机和一氧化碳安全指引。"
+      ],
+      "sourceIds": [
+        "outage"
+      ]
+    },
+    "sections": [
+      {
+        "id": "power",
+        "heading": "弄清哪些设备依赖电力",
+        "paragraphs": [
+          "热泵的压缩机、风机和控制系统需要电力。保留了锅炉或燃烧式暖风炉，也不能直接认为停电时还能运行：很多设备同样依靠电动控制、风机或循环泵。请维修人员确认您家的具体情况。",
+          "把供暖安排和联系方式放在家人容易找到的地方，并记录电力公司的停电报修渠道。"
+        ],
+        "sourceIds": []
+      },
+      {
+        "id": "priorities",
+        "heading": "先确定最重要的事情",
+        "paragraphs": [
+          "马萨诸塞州应急指南建议准备应急用品、保持报警器正常工作，并制定家庭应急计划。再加上您家的特殊需要，例如医疗设备、通信，以及住宅无法保持安全时可以去哪里。",
+          "我们的实用建议是先列出必要用电设备，再选备用电源。给一个区域供暖、保持冰箱运行和给整栋房子供电，是不同的目标。"
+        ],
+        "sourceIds": [
+          "outage"
+        ]
+      },
+      {
+        "id": "backup",
+        "heading": "请专业人员检查备用方案",
+        "paragraphs": [
+          "请持证电工和暖通技术人员确认，拟选发电机或电池能否支持所选供暖设备及其他必要负载。问清运行限制；如果是电池，还要了解预计续航时间采用了哪些假设。",
+          "马萨诸塞州消防指南要求，发电机接入住宅电气系统时，应由专业人员安装电源转换开关。发电机应在室外使用，并遵循现行位置要求。不要用烤箱或室内烧烤设备应急取暖。"
+        ],
+        "sourceIds": [
+          "generator",
+          "co"
+        ]
+      },
+      {
+        "id": "return",
+        "heading": "提前了解恢复供电后的操作",
+        "paragraphs": [
+          "保存设备说明书，询问安装商停电后系统怎样恢复运行。电力恢复后检查设置；如果出现错误代码或无法正常工作，请联系维修人员。",
+          "Hanson Home 建议把停电问题加入安装交付讲解。一份简短的书面计划，更方便全家人使用。"
+        ],
+        "sourceIds": []
+      }
+    ],
+    "sources": [
+      {
+        "id": "outage",
+        "label": "Massachusetts: Power Outage Safety Tips",
+        "url": "https://www.mass.gov/info-details/power-outage-safety-tips"
+      },
+      {
+        "id": "generator",
+        "label": "Massachusetts: Generator Safety",
+        "url": "https://www.mass.gov/info-details/generator-safety"
+      },
+      {
+        "id": "co",
+        "label": "Massachusetts: Carbon Monoxide Safety",
+        "url": "https://www.mass.gov/info-details/carbon-monoxide-co-safety"
+      }
+    ],
+    "ctaTitle": "与 Hanson Home 聊聊您的计划",
+    "ctaText": "欢迎向 Hanson Home 询问拟选供暖系统怎样融入家庭停电计划。备用电源设计请与持证电工协商确认后，再作为可靠的应急安排。",
+    "ctaLabel": "讨论我的项目",
+    "ctaPath": "/start?intent=heat-pump",
+    "ui": {
+      "back": "草稿库",
+      "reviewed": "资料核对",
+      "minutes": "分钟阅读",
+      "contents": "本文内容",
+      "plan": "下一步",
+      "sources": "参考来源",
+      "language": "文章语言",
+      "imageCredit": "图片来源 / 署名",
+      "sourceIntro": "资料于 {date} 核对。推进项目前，请确认现行项目要求和具体设备说明。",
+      "draftNotice": "草稿 — 尚未发布，仅供本地审阅。"
+    }
+  },
+  {
+    "slug": "heat-pump-power-outage-plan-pt",
+    "title": "Bombas de calor e falta de energia: faça um plano antes da tempestade",
+    "description": "Defina as prioridades, avalie a energia de reserva e consulte as orientações de segurança de Massachusetts.",
+    "summary": "Defina as prioridades, avalie a energia de reserva e consulte as orientações de segurança de Massachusetts.",
+    "category": "GUIA RÁPIDO PARA SUA CASA",
+    "reviewed": "2 de outubro de 2026",
+    "reviewedIso": "2026-10-02",
+    "readingMinutes": 3,
+    "showContents": false,
+    "status": "draft",
+    "locale": "pt-BR",
+    "languageLabel": "Português",
+    "translationGroup": "heat-pump-power-outage-plan",
+    "intro": "Uma bomba de calor precisa de eletricidade. Se uma tempestade de inverno interromper o fornecimento, o importante é saber o que sua família fará em seguida. Prepare um plano simples com calma, antes da emergência.",
+    "openingSummary": {
+      "id": "guide-summary",
+      "heading": "Resumo rápido",
+      "paragraphs": [],
+      "bullets": [
+        "Liste o essencial antes de escolher a energia de reserva.",
+        "Avalie o equipamento de reserva para seu sistema específico.",
+        "Siga as orientações oficiais sobre geradores e monóxido de carbono."
+      ],
+      "sourceIds": [
+        "outage"
+      ]
+    },
+    "sections": [
+      {
+        "id": "power",
+        "heading": "Saiba o que depende de energia",
+        "paragraphs": [
+          "O compressor, os ventiladores e os controles da bomba de calor precisam de eletricidade. Não presuma que uma caldeira ou um aquecedor a combustível funcionarão: muitos também dependem de controles, ventiladores ou bombas elétricas. Consulte o técnico sobre seus equipamentos.",
+          "Anote a configuração do aquecimento e os contatos em um lugar acessível a todos. Inclua o canal da concessionária para comunicar interrupções."
+        ],
+        "sourceIds": []
+      },
+      {
+        "id": "priorities",
+        "heading": "Defina suas prioridades",
+        "paragraphs": [
+          "As orientações de Massachusetts recomendam um kit de emergência, alarmes funcionando e um plano familiar. Acrescente necessidades específicas, como equipamentos médicos, comunicação e um lugar para ficar se a casa não puder ser mantida segura.",
+          "Nossa recomendação é listar as cargas essenciais antes de comprar energia de reserva. Aquecer uma área, conservar alimentos e alimentar a casa inteira são objetivos diferentes."
+        ],
+        "sourceIds": [
+          "outage"
+        ]
+      },
+      {
+        "id": "backup",
+        "heading": "Peça uma avaliação profissional",
+        "paragraphs": [
+          "Pergunte a um eletricista licenciado e ao técnico de climatização se o gerador ou a bateria propostos suportam o sistema escolhido e as outras cargas essenciais. Confirme os limites e, para baterias, as hipóteses usadas na estimativa de autonomia.",
+          "A orientação contra incêndios de Massachusetts prevê uma chave de transferência instalada por profissional para conectar um gerador ao sistema da casa. Use geradores ao ar livre e siga as instruções atuais de posicionamento. Nunca use forno de cozinha ou churrasqueira interna para se aquecer."
+        ],
+        "sourceIds": [
+          "generator",
+          "co"
+        ]
+      },
+      {
+        "id": "return",
+        "heading": "Planeje a volta ao funcionamento normal",
+        "paragraphs": [
+          "Guarde o manual e pergunte ao instalador como o sistema reinicia após uma interrupção. Confira os ajustes quando a energia voltar e solicite assistência se houver erro ou se o funcionamento normal não retornar.",
+          "A Hanson Home recomenda incluir essas perguntas na entrega da instalação. Um plano curto por escrito é mais fácil para toda a família seguir."
+        ],
+        "sourceIds": []
+      }
+    ],
+    "sources": [
+      {
+        "id": "outage",
+        "label": "Massachusetts: Power Outage Safety Tips",
+        "url": "https://www.mass.gov/info-details/power-outage-safety-tips"
+      },
+      {
+        "id": "generator",
+        "label": "Massachusetts: Generator Safety",
+        "url": "https://www.mass.gov/info-details/generator-safety"
+      },
+      {
+        "id": "co",
+        "label": "Massachusetts: Carbon Monoxide Safety",
+        "url": "https://www.mass.gov/info-details/carbon-monoxide-co-safety"
+      }
+    ],
+    "ctaTitle": "Converse com a Hanson Home",
+    "ctaText": "Pergunte à Hanson Home como o aquecimento proposto se encaixa no seu plano para falta de energia. Coordene qualquer projeto de energia de reserva com um eletricista licenciado antes de contar com ele.",
+    "ctaLabel": "Conversar sobre meu projeto",
+    "ctaPath": "/start?intent=heat-pump",
+    "ui": {
+      "back": "Biblioteca de rascunhos",
+      "reviewed": "Revisado",
+      "minutes": "minutos de leitura",
+      "contents": "Neste guia",
+      "plan": "SEU PRÓXIMO PASSO",
+      "sources": "Fontes",
+      "language": "Idioma do artigo",
+      "imageCredit": "Crédito da imagem / fonte",
+      "sourceIntro": "Pesquisa revisada em {date}. Confirme as regras atuais e as instruções do equipamento antes de avançar.",
+      "draftNotice": "RASCUNHO — não publicado; apenas revisão local."
+    }
+  },
+  {
+    "slug": "quieter-heat-pump-outdoor-unit-placement",
+    "title": "A Quieter Heat-Pump Installation Starts With the Outdoor Location",
+    "description": "Four questions to ask about windows, mounting and the spaces around the outdoor unit.",
+    "summary": "Four questions to ask about windows, mounting and the spaces around the outdoor unit.",
+    "category": "QUICK HOMEOWNER GUIDE",
+    "reviewed": "October 2, 2026",
+    "reviewedIso": "2026-10-02",
+    "readingMinutes": 3,
+    "showContents": false,
+    "status": "draft",
+    "locale": "en",
+    "languageLabel": "English",
+    "translationGroup": "quieter-heat-pump-outdoor-unit-placement",
+    "intro": "You will live with the outdoor unit’s location long after installation day. Before settling on a spot, walk the area with your installer. A short conversation about sound and daily use can help you choose a location you are comfortable with.",
+    "openingSummary": {
+      "id": "guide-summary",
+      "heading": "Quick summary",
+      "paragraphs": [],
+      "bullets": [
+        "Discuss bedrooms, patios and neighboring spaces.",
+        "Ask about sound data for the actual model.",
+        "Review mounting and access as part of the same plan."
+      ],
+      "sourceIds": [
+        "pnnl"
+      ]
+    },
+    "sections": [
+      {
+        "id": "location",
+        "heading": "Look beyond the easiest wall",
+        "paragraphs": [
+          "Point out your bedroom windows, favorite outdoor seating and nearby neighbors’ windows. Ask the installer to explain the proposed position in relation to those spaces.",
+          "At Hanson Home, we recommend reviewing the site from both inside and outside. A convenient pipe route is one consideration; how you use the house should also be part of the discussion."
+        ],
+        "sourceIds": []
+      },
+      {
+        "id": "sound",
+        "heading": "Ask what the sound figure means",
+        "paragraphs": [
+          "If a proposal mentions decibels, ask whether the number is sound power or sound pressure and under what operating conditions it was measured. Compare like-for-like information for the exact models.",
+          "Ask whether operation changes between mild weather and a demanding winter day. Avoid treating one advertised “quiet” number as a promise of what you will hear at every window."
+        ],
+        "sourceIds": []
+      },
+      {
+        "id": "mounting",
+        "heading": "Review the mounting choice",
+        "paragraphs": [
+          "PNNL’s installation guidance identifies noise criteria as a design consideration and notes potential vibration issues when outdoor equipment is attached to a wall. Ask how the mounting method suits the proposed position.",
+          "Also ask how required clearances, snow conditions, drainage and service access will be maintained. Do not add a decorative enclosure without the installer checking it against the equipment instructions."
+        ],
+        "sourceIds": [
+          "pnnl"
+        ]
+      },
+      {
+        "id": "walkthrough",
+        "heading": "Finish with a walk-through",
+        "paragraphs": [
+          "Before approving the layout, stand at the proposed spot and ask: can it be serviced, where does water go, and which nearby spaces may hear it? Confirm any local siting or noise requirements with the installer.",
+          "Request that the agreed location and mounting approach appear in the written scope. If an unusual rattle or vibration appears after installation, report it for a service check rather than assuming it is normal."
+        ],
+        "sourceIds": []
+      }
+    ],
+    "sources": [
+      {
+        "id": "pnnl",
+        "label": "PNNL: Ductless Mini-Split Heat Pumps",
+        "url": "https://basc.pnnl.gov/resource-guides/ductless-mini-split-heat-pumps"
+      }
+    ],
+    "ctaTitle": "Talk with Hanson Home",
+    "ctaText": "Ask Hanson Home to review outdoor-unit locations with you. Bring your priorities for bedrooms, outdoor space and neighbors into the equipment and installation discussion.",
+    "ctaLabel": "Discuss my project",
+    "ctaPath": "/start?intent=heat-pump",
+    "ui": {
+      "back": "Draft library",
+      "reviewed": "Reviewed",
+      "minutes": "minute read",
+      "contents": "In this guide",
+      "plan": "PLAN YOUR NEXT STEP",
+      "sources": "Sources",
+      "language": "Article language",
+      "imageCredit": "Image credit / source",
+      "sourceIntro": "Research reviewed {date}. Confirm current program requirements and equipment instructions before proceeding.",
+      "draftNotice": "DRAFT — unpublished; local review only."
+    },
+    "image": {
+      "src": "/images/installations/outdoor-mini-split-home.webp",
+      "alt": "Outdoor mini-split beside a client home",
+      "caption": "Real Hanson Home client-site installation. Photo: Hanson Home."
+    }
+  },
+  {
+    "slug": "quieter-heat-pump-outdoor-unit-placement-es",
+    "title": "Una instalación más silenciosa empieza por la ubicación de la unidad exterior",
+    "description": "Cuatro preguntas sobre ventanas, soportes y los espacios alrededor de la unidad.",
+    "summary": "Cuatro preguntas sobre ventanas, soportes y los espacios alrededor de la unidad.",
+    "category": "GUÍA BREVE PARA EL HOGAR",
+    "reviewed": "2 de octubre de 2026",
+    "reviewedIso": "2026-10-02",
+    "readingMinutes": 3,
+    "showContents": false,
+    "status": "draft",
+    "locale": "es",
+    "languageLabel": "Español",
+    "translationGroup": "quieter-heat-pump-outdoor-unit-placement",
+    "intro": "Convivirá con la ubicación de la unidad exterior mucho después de instalarla. Antes de elegirla, recorra la zona con el instalador. Hablar del sonido y del uso diario de la casa ayuda a encontrar un lugar adecuado.",
+    "openingSummary": {
+      "id": "guide-summary",
+      "heading": "Resumen rápido",
+      "paragraphs": [],
+      "bullets": [
+        "Comente la ubicación de dormitorios, patios y vecinos.",
+        "Pida datos acústicos del modelo concreto.",
+        "Revise los soportes y el acceso dentro del mismo plan."
+      ],
+      "sourceIds": [
+        "pnnl"
+      ]
+    },
+    "sections": [
+      {
+        "id": "location",
+        "heading": "Mire más allá de la pared más cómoda",
+        "paragraphs": [
+          "Señale las ventanas de dormitorios, las zonas donde se sienta al aire libre y las ventanas cercanas de vecinos. Pida que se explique cómo se relaciona la ubicación propuesta con esos espacios.",
+          "En Hanson Home recomendamos revisar desde dentro y desde fuera. El recorrido de tuberías importa; también importa cómo utiliza su vivienda."
+        ],
+        "sourceIds": []
+      },
+      {
+        "id": "sound",
+        "heading": "Pregunte qué significa la cifra de sonido",
+        "paragraphs": [
+          "Si se indican decibelios, pregunte si son potencia o presión sonora y en qué condiciones se midieron. Compare información equivalente de los modelos concretos.",
+          "Pregunte si cambia el funcionamiento entre un día templado y un día invernal exigente. Una cifra anunciada como «silenciosa» no garantiza lo que se oirá en cada ventana."
+        ],
+        "sourceIds": []
+      },
+      {
+        "id": "mounting",
+        "heading": "Revise el tipo de soporte",
+        "paragraphs": [
+          "La guía de instalación de PNNL incluye el ruido entre los factores de diseño y señala posibles vibraciones cuando la unidad se fija a una pared. Pregunte si el soporte es adecuado para el lugar elegido.",
+          "Revise también las distancias necesarias, la nieve, el drenaje y el acceso de servicio. No añada un cerramiento decorativo sin que el instalador lo compruebe con las instrucciones del equipo."
+        ],
+        "sourceIds": [
+          "pnnl"
+        ]
+      },
+      {
+        "id": "walkthrough",
+        "heading": "Termine con un recorrido",
+        "paragraphs": [
+          "Antes de aprobar, sitúese en el lugar propuesto: ¿se podrá dar servicio?, ¿adónde irá el agua?, ¿qué espacios cercanos podrían oírlo? Confirme con el instalador los requisitos locales de ubicación y ruido.",
+          "Pida que la ubicación y el soporte acordados figuren en el alcance escrito. Si aparecen vibraciones o traqueteos inusuales, solicite una revisión en lugar de darlos por normales."
+        ],
+        "sourceIds": []
+      }
+    ],
+    "sources": [
+      {
+        "id": "pnnl",
+        "label": "PNNL: Ductless Mini-Split Heat Pumps",
+        "url": "https://basc.pnnl.gov/resource-guides/ductless-mini-split-heat-pumps"
+      }
+    ],
+    "ctaTitle": "Hable con Hanson Home",
+    "ctaText": "Pida a Hanson Home que revise con usted las posibles ubicaciones. Incluya sus prioridades para dormitorios, espacios exteriores y vecinos en la conversación sobre equipos e instalación.",
+    "ctaLabel": "Consultar mi proyecto",
+    "ctaPath": "/start?intent=heat-pump",
+    "ui": {
+      "back": "Biblioteca de borradores",
+      "reviewed": "Revisado",
+      "minutes": "minutos de lectura",
+      "contents": "En esta guía",
+      "plan": "SU SIGUIENTE PASO",
+      "sources": "Fuentes",
+      "language": "Idioma del artículo",
+      "imageCredit": "Crédito de imagen / fuente",
+      "sourceIntro": "Investigación revisada el {date}. Confirme los requisitos actuales y las instrucciones del equipo antes de avanzar.",
+      "draftNotice": "BORRADOR — sin publicar; solo revisión local."
+    },
+    "image": {
+      "src": "/images/installations/outdoor-mini-split-home.webp",
+      "alt": "Mini-split exterior junto a una vivienda de cliente",
+      "caption": "Instalación real en una vivienda de cliente de Hanson Home. Foto: Hanson Home."
+    }
+  },
+  {
+    "slug": "quieter-heat-pump-outdoor-unit-placement-zh",
+    "title": "想让热泵更安静？先把室外机的位置选好",
+    "description": "关于窗户、安装支架和周围空间，询价时可以问的四组问题。",
+    "summary": "关于窗户、安装支架和周围空间，询价时可以问的四组问题。",
+    "category": "住宅实用短读",
+    "reviewed": "2026年10月2日",
+    "reviewedIso": "2026-10-02",
+    "readingMinutes": 3,
+    "showContents": false,
+    "status": "draft",
+    "locale": "zh-Hans",
+    "languageLabel": "中文",
+    "translationGroup": "quieter-heat-pump-outdoor-unit-placement",
+    "intro": "室外机装在哪里，会长期影响日常生活。确定位置前，和安装商一起走一圈，聊聊声音以及家里平时怎样使用这些空间，有助于选择更合适的位置。",
+    "openingSummary": {
+      "id": "guide-summary",
+      "heading": "快速摘要",
+      "paragraphs": [],
+      "bullets": [
+        "说明卧室、露台和邻居空间的位置。",
+        "询问具体型号的噪声资料。",
+        "同时检查安装方式和维修通道。"
+      ],
+      "sourceIds": [
+        "pnnl"
+      ]
+    },
+    "sections": [
+      {
+        "id": "location",
+        "heading": "别只看最方便走管的墙",
+        "paragraphs": [
+          "指出卧室窗户、常用的户外座位，以及邻居较近的窗户。请安装商解释拟选位置与这些空间的关系。",
+          "Hanson Home 建议从屋内和屋外都看一遍。管路是否方便是一项因素，您平时怎样使用房子也应该进入讨论。"
+        ],
+        "sourceIds": []
+      },
+      {
+        "id": "sound",
+        "heading": "问清噪声数字代表什么",
+        "paragraphs": [
+          "报价提到分贝时，询问是声功率还是声压，以及测量时的运行条件。比较不同设备时，使用具体型号、可比条件下的信息。",
+          "还可以问：温和天气与严寒天气下，运行状态会不会不同？不要把一个宣传中的“安静”数字，当成每扇窗户旁都能达到的保证。"
+        ],
+        "sourceIds": []
+      },
+      {
+        "id": "mounting",
+        "heading": "检查支架和安装方式",
+        "paragraphs": [
+          "PNNL 安装指南把噪声列为设计因素，并提醒墙面固定可能带来振动问题。请安装商说明，这种安装方式为什么适合拟选位置。",
+          "同时确认设备所需间距、积雪条件、排水和维修通道。增加装饰围挡前，应请安装商对照设备说明书检查。"
+        ],
+        "sourceIds": [
+          "pnnl"
+        ]
+      },
+      {
+        "id": "walkthrough",
+        "heading": "最后到现场走一遍",
+        "paragraphs": [
+          "批准方案前，站到拟安装位置，问清：能否方便维修？水会排到哪里？周围哪些空间可能听到声音？当地位置和噪声要求，也请安装商核实。",
+          "把确定的位置和固定方式写进施工范围。安装后若出现异常异响或振动，请安排检查，不要直接认为属于正常现象。"
+        ],
+        "sourceIds": []
+      }
+    ],
+    "sources": [
+      {
+        "id": "pnnl",
+        "label": "PNNL: Ductless Mini-Split Heat Pumps",
+        "url": "https://basc.pnnl.gov/resource-guides/ductless-mini-split-heat-pumps"
+      }
+    ],
+    "ctaTitle": "与 Hanson Home 聊聊您的计划",
+    "ctaText": "欢迎请 Hanson Home 与您一起比较室外机位置。把卧室、户外活动和邻居方面的考虑，带进设备及施工讨论。",
+    "ctaLabel": "讨论我的项目",
+    "ctaPath": "/start?intent=heat-pump",
+    "ui": {
+      "back": "草稿库",
+      "reviewed": "资料核对",
+      "minutes": "分钟阅读",
+      "contents": "本文内容",
+      "plan": "下一步",
+      "sources": "参考来源",
+      "language": "文章语言",
+      "imageCredit": "图片来源 / 署名",
+      "sourceIntro": "资料于 {date} 核对。推进项目前，请确认现行项目要求和具体设备说明。",
+      "draftNotice": "草稿 — 尚未发布，仅供本地审阅。"
+    },
+    "image": {
+      "src": "/images/installations/outdoor-mini-split-home.webp",
+      "alt": "客户住宅旁的室外热泵",
+      "caption": "Hanson Home 客户住宅的实际安装照片。摄影：Hanson Home。"
+    }
+  },
+  {
+    "slug": "quieter-heat-pump-outdoor-unit-placement-pt",
+    "title": "Uma instalação mais silenciosa começa pela posição da unidade externa",
+    "description": "Quatro perguntas sobre janelas, suportes e os espaços ao redor do equipamento.",
+    "summary": "Quatro perguntas sobre janelas, suportes e os espaços ao redor do equipamento.",
+    "category": "GUIA RÁPIDO PARA SUA CASA",
+    "reviewed": "2 de outubro de 2026",
+    "reviewedIso": "2026-10-02",
+    "readingMinutes": 3,
+    "showContents": false,
+    "status": "draft",
+    "locale": "pt-BR",
+    "languageLabel": "Português",
+    "translationGroup": "quieter-heat-pump-outdoor-unit-placement",
+    "intro": "Você conviverá com a posição da unidade externa por muito tempo. Antes de escolher o local, caminhe pela área com o instalador. Conversar sobre som e uso diário da casa ajuda a encontrar uma posição adequada.",
+    "openingSummary": {
+      "id": "guide-summary",
+      "heading": "Resumo rápido",
+      "paragraphs": [],
+      "bullets": [
+        "Converse sobre quartos, áreas externas e vizinhos.",
+        "Peça dados de ruído do modelo exato.",
+        "Revise a fixação e o acesso no mesmo plano."
+      ],
+      "sourceIds": [
+        "pnnl"
+      ]
+    },
+    "sections": [
+      {
+        "id": "location",
+        "heading": "Olhe além da parede mais fácil",
+        "paragraphs": [
+          "Mostre as janelas dos quartos, os lugares onde costuma sentar ao ar livre e as janelas próximas dos vizinhos. Peça uma explicação da posição proposta em relação a esses espaços.",
+          "Na Hanson Home, recomendamos olhar o local por dentro e por fora. O caminho da tubulação importa; a maneira como você usa a casa também deve entrar na conversa."
+        ],
+        "sourceIds": []
+      },
+      {
+        "id": "sound",
+        "heading": "Pergunte o que o número de ruído significa",
+        "paragraphs": [
+          "Se a proposta informar decibéis, pergunte se o valor é de potência ou pressão sonora e em quais condições foi medido. Compare informações equivalentes dos modelos exatos.",
+          "Pergunte se a operação muda entre um dia ameno e um dia exigente de inverno. Um número anunciado como “silencioso” não garante o som percebido em todas as janelas."
+        ],
+        "sourceIds": []
+      },
+      {
+        "id": "mounting",
+        "heading": "Revise a forma de fixação",
+        "paragraphs": [
+          "A orientação de instalação do PNNL inclui o ruído entre os critérios de projeto e aponta possíveis problemas de vibração em unidades fixadas na parede. Pergunte se o suporte é adequado ao local escolhido.",
+          "Confira também afastamentos, neve, drenagem e acesso para manutenção. Não acrescente uma cobertura decorativa sem o instalador verificar as instruções do equipamento."
+        ],
+        "sourceIds": [
+          "pnnl"
+        ]
+      },
+      {
+        "id": "walkthrough",
+        "heading": "Termine com uma visita ao local",
+        "paragraphs": [
+          "Antes de aprovar, fique no ponto proposto e pergunte: será possível fazer manutenção, para onde vai a água e quais espaços próximos podem ouvir o equipamento? Confirme os requisitos locais de posicionamento e ruído com o instalador.",
+          "Peça que o local e a fixação acordados constem no escopo escrito. Se surgir uma vibração ou um ruído incomum após a instalação, solicite uma avaliação em vez de presumir que seja normal."
+        ],
+        "sourceIds": []
+      }
+    ],
+    "sources": [
+      {
+        "id": "pnnl",
+        "label": "PNNL: Ductless Mini-Split Heat Pumps",
+        "url": "https://basc.pnnl.gov/resource-guides/ductless-mini-split-heat-pumps"
+      }
+    ],
+    "ctaTitle": "Converse com a Hanson Home",
+    "ctaText": "Peça à Hanson Home para avaliar os locais possíveis com você. Traga suas prioridades para quartos, áreas externas e vizinhos à conversa sobre equipamentos e instalação.",
+    "ctaLabel": "Conversar sobre meu projeto",
+    "ctaPath": "/start?intent=heat-pump",
+    "ui": {
+      "back": "Biblioteca de rascunhos",
+      "reviewed": "Revisado",
+      "minutes": "minutos de leitura",
+      "contents": "Neste guia",
+      "plan": "SEU PRÓXIMO PASSO",
+      "sources": "Fontes",
+      "language": "Idioma do artigo",
+      "imageCredit": "Crédito da imagem / fonte",
+      "sourceIntro": "Pesquisa revisada em {date}. Confirme as regras atuais e as instruções do equipamento antes de avançar.",
+      "draftNotice": "RASCUNHO — não publicado; apenas revisão local."
+    },
+    "image": {
+      "src": "/images/installations/outdoor-mini-split-home.webp",
+      "alt": "Mini-split externo ao lado de uma residência de cliente",
+      "caption": "Instalação real em uma residência de cliente da Hanson Home. Foto: Hanson Home."
+    }
+  }
+]
