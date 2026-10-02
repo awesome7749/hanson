@@ -68,3 +68,25 @@ Optional env vars activate follow-up plumbing when set (see DEPLOYMENT.md):
 SMTP_* / LEAD_NOTIFY_* for partial-lead and chat emails, META_CAPI_TOKEN for
 the Conversions API, GOOGLE_PLACES_API_KEY + GOOGLE_PLACE_ID for the reviews
 section.
+
+## Programs and tracking consent deployment (October 1, 2026)
+
+Production serves `hanson-app-programs-consent-20261001-c2515a9` at 100% traffic.
+Source: `c2515a9` on `codex/programs-tracking-20261001`, including main through `066a50d`.
+Image: `gcr.io/hanson-hvac/hanson-app@sha256:e7059504723f7deb6a469d8392230a6cceee42a61ae562b161505f67a466db8b`.
+Cloud Build: `2dc402ea-fce2-41bd-8171-f070565aa9b0`.
+
+Includes explicit opt-in for browser Meta tracking and server-side conversions,
+a home-page section linking all 56 towns, and home/footer links to `/trade-in`
+and `/veterans-discount`. Trade-in credits are $100 single-zone, $300 multi-zone,
+and $500 ducted or ceiling cassette. Veterans qualify for 15% off; education
+discounts are not included. Program selections carry into the estimate notes.
+No database migration or runtime environment change was needed.
+
+Validation: 70 frontend tests and 15 backend tests passed. The staged revision
+and public domain passed page, asset, health, sitemap, staff-isolation and intake
+validation checks. No live customer/partner test submissions were created.
+
+Immediate rollback (retains database and runtime configuration):
+
+    gcloud run services update-traffic hanson-app --to-revisions=hanson-app-winter-guide-066a50d=100 --region=us-east1 --project=hanson-hvac --account=gaohan1990@gmail.com
