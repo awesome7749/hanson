@@ -5,7 +5,7 @@
     "heading": "Heat pump installation. Made simple.",
     "intro": "Hanson Home helps Massachusetts homeowners choose and install heat pumps with clear pricing, professional installation and support at every step.",
     "highlights": ["Get an itemized estimate for your home and project scope.", "Eligible whole-home and partial-home projects may qualify for Mass Save rebates of up to $8,500."],
-    "links": [{ "path": "/heat-pumps", "label": "Explore heat pumps" }, { "path": "/pricing", "label": "Understand pricing and rebates" }, { "path": "/heat-pump-cost-calculator", "label": "Calculate my switching cost" }, { "path": "/start?intent=heat-pump", "label": "Get my estimate" }]
+    "links": [{ "path": "/heat-pumps", "label": "Explore heat pumps" }, { "path": "/pricing", "label": "Understand pricing and rebates" }, { "path": "/heat-pump-cost-calculator", "label": "Calculate my switching cost" }, { "path": "/start?intent=heat-pump", "label": "Get my estimate" }, { "path": "/trade-in", "label": "Explore trade-in" }, { "path": "/veterans-discount", "label": "Veterans discount" }]
   },
   "/heat-pumps": {
     "title": "Heat Pumps for Massachusetts Homes | Hanson Home",
@@ -94,5 +94,45 @@
     "intro": "Hanson Home uses the information you provide to review your request, contact you in your preferred way and plan the next step.",
     "highlights": ["Submitted requests are stored in the Hanson Home lead system for staff review.", "With your permission, relevant details may be shared with licensed local service partners."],
     "links": [{ "path": "/contact", "label": "Contact Hanson Home" }]
+  },
+  "/trade-in": {
+    "title": "Trade-in program for your next heat pump | Hanson Home",
+    "description": "Planning to replace an old heating or cooling system? Ask Hanson Home to review your equipment and any available trade-in credit as part of a Massachusetts heat-pump installation.",
+    "heading": "Trade-in program for your next heat pump.",
+    "intro": "Planning to replace an old heating or cooling system? Ask Hanson Home to review your equipment and any available trade-in credit as part of a Massachusetts heat-pump installation.",
+    "highlights": [
+      "Trade-in credits: single-zone mini-split $100, multi-zone mini-split $300, ducted or ceiling cassette mini-split $500.",
+      "Any approved credit, removal work and costs are confirmed in your written proposal."
+    ],
+    "links": [
+      {
+        "path": "/trade-in#program-review",
+        "label": "Start my program review"
+      },
+      {
+        "path": "/start?intent=heat-pump",
+        "label": "Get my estimate"
+      }
+    ]
+  },
+  "/veterans-discount": {
+    "title": "Veterans discount | Hanson Home",
+    "description": "Veterans qualify for 15% off a Massachusetts heat-pump installation through Hanson Home. Request your discount with your estimate.",
+    "heading": "Veterans discount.",
+    "intro": "Veterans qualify for 15% off a Massachusetts heat-pump installation through Hanson Home. Request your discount with your estimate.",
+    "highlights": [
+      "Veterans qualify for 15% off a heat-pump installation.",
+      "The team confirms any approved discount and explains any verification needed before you commit."
+    ],
+    "links": [
+      {
+        "path": "/veterans-discount#program-review",
+        "label": "Start my program review"
+      },
+      {
+        "path": "/start?intent=heat-pump",
+        "label": "Get my estimate"
+      }
+    ]
   }
 }

@@ -40,7 +40,7 @@ function renderPublicPage(indexHtml, route, towns = []) {
     '<h2>What to know</h2><ul>',
     ...page.highlights.map((text) => `<li>${esc(text)}</li>`),
     '</ul>',
-    ...(route === '/service-area'
+    ...((route === '/service-area' || route === '/')
       ? ['<h2>Towns we serve</h2><ul>',
         ...towns.map((town) => `<li><a href="/${esc(town.slug)}">${esc(town.name)}, MA</a></li>`),
         '</ul>']

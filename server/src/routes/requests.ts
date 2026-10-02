@@ -38,7 +38,7 @@ export function createRequestsRouter(database: Pick<DatabaseService, 'createWebs
         hooks.notifier?.partialLead({ leadId: receipt.id, draft, utm })
           .catch(() => console.error('Partial lead saved; notification email failed.'));
         const ctx = capiRequestContext(req);
-        hooks.capi?.send({
+        if (req.body?.trackingConsent === true) hooks.capi?.send({
           eventName: 'Lead', eventId: receipt.id, sourceUrl: ctx.sourceUrl, contentName: draft.intent,
           user: { phone: draft.phone, email: draft.email, firstName: draft.firstName, zip: draft.zip, clientIp: ctx.clientIp, userAgent: ctx.userAgent, fbc: ctx.fbc, fbp: ctx.fbp },
         }).catch(() => console.error('Partial lead saved; Meta CAPI Lead event failed.'));
@@ -73,7 +73,7 @@ export function createRequestsRouter(database: Pick<DatabaseService, 'createWebs
         address: [draft.street, draft.unit && `Unit ${draft.unit}`, `${draft.city}, MA ${draft.zip}`].filter(Boolean).join(', '),
         contactMethod: draft.contactMethod, timeline: draft.timeline, utm,
       }).catch(() => console.error('Request saved; completion notification email failed.'));
-      hooks.capi?.send({
+      if (req.body?.trackingConsent === true) hooks.capi?.send({
         eventName: 'CompleteRegistration', eventId: `${receipt.id}-complete`, sourceUrl: ctx.sourceUrl, contentName: draft.intent,
         user: { phone: draft.phone, email: draft.email, firstName: draft.firstName, zip: draft.zip, clientIp: ctx.clientIp, userAgent: ctx.userAgent, fbc: ctx.fbc, fbp: ctx.fbp },
       }).catch(() => console.error('Request saved; Meta CAPI CompleteRegistration event failed.'));

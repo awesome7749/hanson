@@ -140,6 +140,8 @@ export function Shell({ children }: { children: React.ReactNode }) {
               <Link to="/about">About us</Link>
               <Link to="/blog">Blog</Link>
               <Link to="/service-area">Massachusetts service area</Link>
+              <Link to="/trade-in">Trade-in program</Link>
+              <Link to="/veterans-discount">Veterans discount</Link>
               <Link to="/contact">Get in touch</Link>
             </div>
             <div>

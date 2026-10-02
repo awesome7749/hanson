@@ -115,7 +115,7 @@ test('partial leads save on step one, notify once and upgrade to full requests',
   try {
     const partial = { id: '44444444-4444-4444-8444-444444444444', intent: 'heat-pump', zip: '01801', firstName: 'Ada', lastName: 'Example', phone: '202-555-0155', email: '' };
     const utm = { utm_source: 'facebook', utm_medium: 'paid', utm_campaign: 'heatpump-leads', junk: 'dropped' };
-    const first = await post('/requests/partial', { draft: partial, utm, fbp: 'fb.1.1.2', sourceUrl: 'https://hansonhome.us/start?intent=heat-pump' });
+    const first = await post('/requests/partial', { draft: partial, trackingConsent: true, utm, fbp: 'fb.1.1.2', sourceUrl: 'https://hansonhome.us/start?intent=heat-pump' });
     assert.equal(first.status, 201);
     const receipt = (await first.json()).receipt;
     assert.equal(receipt.status, 'partial');
@@ -136,7 +136,7 @@ test('partial leads save on step one, notify once and upgrade to full requests',
     }
     // The full request upgrades the same record and keeps ad attribution.
     const full = { ...draft(), id: partial.id, firstName: 'Ada', lastName: 'Example', phone: '202-555-0156' };
-    const completed = await post('/requests', { draft: full, utm: { utm_source: 'facebook', utm_medium: 'paid' } });
+    const completed = await post('/requests', { draft: full, trackingConsent: true, utm: { utm_source: 'facebook', utm_medium: 'paid' } });
     assert.equal(completed.status, 201);
     const completedReceipt = (await completed.json()).receipt;
     assert.equal(completedReceipt.id, receipt.id);

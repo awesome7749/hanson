@@ -241,6 +241,7 @@ export default function Intake() {
     }
     const intent = new URLSearchParams(location.search).get("intent");
     const town = new URLSearchParams(location.search).get("town");
+    const programRequest = (location.state as { programRequest?: string } | null)?.programRequest;
     const address = (location.state as { address?: string } | null)?.address;
     if (leads.some((l) => l.draft.id === d.id)) setStep(0);
     setDraft((old) => {
@@ -256,6 +257,7 @@ export default function Intake() {
               : base.intent,
         ),
         ...(address ? { street: address } : {}),
+        ...(programRequest && !base.concerns.includes(programRequest) ? { concerns: [programRequest, base.concerns].filter(Boolean).join("\n").slice(0, 4000) } : {}),
         ...(town && !base.city ? { city: town } : {}),
       };
     });

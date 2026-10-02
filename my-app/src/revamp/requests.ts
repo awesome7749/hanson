@@ -1,13 +1,14 @@
 import { Draft, LeadStatus } from "./model";
-import { getMetaBrowserIds, getStoredUtm } from "./pixel";
+import { getMetaBrowserIds, getStoredUtm, trackingAllowed } from "./pixel";
 
 export interface RequestReceipt { id: string; createdAt: string; status: LeadStatus }
 
 function attribution() {
   return {
+    trackingConsent: trackingAllowed(),
     utm: getStoredUtm(),
     ...getMetaBrowserIds(),
-    sourceUrl: window.location.href,
+    sourceUrl: trackingAllowed() ? window.location.href : undefined,
   };
 }
 

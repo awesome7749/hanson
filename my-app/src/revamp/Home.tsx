@@ -2,6 +2,8 @@ import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { Icon, FAQ } from "./Shared";
 import { HeatPumpExplainer, resources } from "./Education";
+import { towns } from "./towns";
+import { HomePrograms } from "./Programs";
 import GoogleReviews from "./Reviews";
 import { LifestylePhoto } from "./LifestylePhoto";
 import { HeroSlideshow } from "./HeroSlideshow";
@@ -144,6 +146,17 @@ export default function Home() {
         </div>
       </section>
 
+      <section className="section wrap home-service-area" aria-labelledby="areas-served-title">
+        <span className="eyebrow">LOCAL HEAT-PUMP INSTALLATION</span>
+        <h2 id="areas-served-title">Areas served</h2>
+        <p>We serve homeowners across these Massachusetts towns. Explore services in your community.</p>
+        <ul className="home-town-list">
+          {[...towns].sort((a, b) => a.name.localeCompare(b.name)).map(town => (
+            <li key={town.slug}><Link to={"/" + town.slug}>{town.name}</Link></li>
+          ))}
+        </ul>
+      </section>
+
       <GoogleReviews />
 
       <section className="section wrap faq-section home-purchase-faq">
@@ -162,6 +175,8 @@ export default function Home() {
           ["Does requesting an estimate commit me to anything?", "No. It starts a conversation about your home. You review the scope, price and schedule before deciding whether to proceed."],
         ]} />
       </section>
+      <HomePrograms />
+
       <section className="last-cta wrap specialist-last-cta">
         <span className="eyebrow">HANSON HOME · MASSACHUSETTS</span>
         <h2>Get a heat-pump estimate<br />for your home.</h2>

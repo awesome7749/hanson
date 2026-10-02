@@ -2,8 +2,9 @@ import React, { lazy, Suspense, useEffect, useRef } from "react";
 import { LIVE, OPS } from "./revamp/deployment";
 import Receipt from "./revamp/Receipt";
 import ThankYou from "./revamp/ThankYou";
+import TrackingConsent from "./revamp/TrackingConsent";
 import ChatWidget from "./revamp/ChatWidget";
-import { captureUtm } from "./revamp/pixel";
+import { captureUtm, initializePixel, fbqTrack } from "./revamp/pixel";
 import {
   BrowserRouter,
   Navigate,
@@ -13,6 +14,7 @@ import {
 } from "react-router-dom";
 import { Shell } from "./revamp/Shared";
 import { PreviewProvider } from "./revamp/Store";
+import Programs from "./revamp/Programs";
 import Home from "./revamp/Home";
 import Intake from "./revamp/Intake";
 import Project from "./revamp/Project";
@@ -28,20 +30,19 @@ import SeoHead from "./revamp/SeoHead";
 import { towns } from "./revamp/towns";
 import "./revamp/theme.css";
 const Admin = lazy(() => import("./pages/Admin"));
-// The Meta Pixel base code fires PageView on the initial load only; a SPA
-// route change must re-fire it manually. Also captures ad UTM parameters
-// from the landing URL so /start can attach them to the lead.
 function PageTracking() {
   const location = useLocation();
   const first = useRef(true);
   useEffect(() => {
     if (first.current) {
       first.current = false;
+      initializePixel();
       captureUtm(window.location.search);
+      fbqTrack("track", "PageView");
       return;
     }
     try {
-      window.fbq?.("track", "PageView");
+      fbqTrack("track", "PageView");
     } catch {}
   }, [location.pathname]);
   return null;
@@ -55,9 +56,12 @@ export default function App() {
           <main id="main"><Suspense fallback={<p className="wrap section">Loading staff sign-in…</p>}><Admin /></Suspense></main>
         ) : <>
           <PageTracking />
+          <TrackingConsent />
           <Shell>
           <Routes>
             <Route path="/" element={<Home />} />
+            <Route path="/trade-in" element={<Programs key="trade-in" program="trade-in" />} />
+            <Route path="/veterans-discount" element={<Programs key="community" program="community" />} />
             <Route path="/pricing" element={<Pricing />} />
             <Route path="/blog" element={<Blog />} />
             <Route path="/blog/:slug" element={<BlogArticle />} />
