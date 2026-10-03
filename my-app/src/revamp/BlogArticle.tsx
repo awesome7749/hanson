@@ -23,9 +23,10 @@ export default function BlogArticle() {
 
   return (
     <article className="wrap blog-article" lang={article.locale || "en"}>
+      {article.status === "draft" && <aside className="blog-opening-summary" role="note"><strong>{ui.draftNotice}</strong></aside>}
       <header className="blog-article-header">
         <div className="blog-article-topline">
-          <Link className="text-link" to="/blog">← {ui.back}</Link>
+          <Link className="text-link" to={article.status === "draft" ? "/blog/drafts" : "/blog"}>← {ui.back}</Link>
           {languages.length > 1 && <div className="blog-language-picker" onKeyDown={(event) => { if (event.key === "Escape") setLanguageOpen(false); }}>
             <button type="button" aria-label={ui.language} aria-expanded={languageOpen} aria-controls="blog-languages" onClick={() => setLanguageOpen(!languageOpen)}>
               <span aria-hidden="true">🌐</span> <span lang={article.locale || "en"}>{article.languageLabel || "English"}</span> <span aria-hidden="true">⌄</span>

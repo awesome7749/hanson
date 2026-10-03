@@ -49,3 +49,6 @@ server/jetson/
 
 **/.env*
 **/.openai/
+
+# Local unpublished blog review build
+my-app/build-draft-preview/
