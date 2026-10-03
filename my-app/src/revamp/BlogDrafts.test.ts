@@ -29,14 +29,14 @@ function loadedDrafts(preview: string | undefined, mode: string | undefined) {
 test("drafts stay out of default and live builds, including an accidentally enabled preview flag", () => {
   expect(loadedDrafts(undefined, undefined)).toHaveLength(0);
   expect(loadedDrafts("true", "live")).toHaveLength(0);
-  expect(loadedDrafts("true", "preview")).toHaveLength(20);
+  expect(loadedDrafts("true", "preview")).toHaveLength(16);
   const publishedSlugs = new Set([...publicData, ...translations, ...prerendered].map(a => a.slug));
   for (const draft of drafts) expect(publishedSlugs.has(draft.slug)).toBe(false);
 });
 test("each separate topic has all four complete editions with matching structure and sources", () => {
   const groups = new Set(drafts.map(a => a.translationGroup));
-  expect(groups.size).toBe(5);
-  expect(new Set(drafts.map(a => a.slug)).size).toBe(20);
+  expect(groups.size).toBe(4);
+  expect(new Set(drafts.map(a => a.slug)).size).toBe(16);
   for (const group of Array.from(groups)) {
     const editions = drafts.filter(a => a.translationGroup === group);
     expect(editions.map(a => a.locale).sort()).toEqual(["en", "es", "pt-BR", "zh-Hans"]);

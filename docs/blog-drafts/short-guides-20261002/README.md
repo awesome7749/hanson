@@ -1,6 +1,8 @@
 # Five short Hanson Home blog drafts
 
-Created October 2, 2026. **Unpublished; no production deployment.**
+Created October 2, 2026. **Four topics remain unpublished.**
+
+The Mass Save assessment topic was approved for publication October 3, 2026: [live article](https://hansonhome.us/blog/mass-save-assessment-before-heat-pump), with all four language editions. It has been removed from the hidden draft queue. The remaining four topics await individual approval.
 
 Five topics, each in English, Spanish, Simplified Chinese and Brazilian Portuguese. About 300–350 English body words each (roughly a three-minute read). These do not repeat the brand guide, winter guide, maintenance post, pending cold-room draft, or skipped electrical-panel draft.
 
