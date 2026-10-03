@@ -74,7 +74,7 @@ test.each(articles)("$slug has matching public content, citations and route meta
   if (article.openingSummary) {
     const summary = document.querySelector("#guide-summary")!;
     expect(summary.textContent).toContain(article.openingSummary.heading);
-    expect(summary.querySelectorAll("li")).toHaveLength(article.openingSummary.bullets.length);
+    expect(summary.querySelectorAll("li")).toHaveLength((article.openingSummary.bullets || []).length);
     if (article.showContents) expect(summary.compareDocumentPosition(document.querySelector(`nav[aria-label="${articleUi(article).contents}"]`)!)).toBe(Node.DOCUMENT_POSITION_FOLLOWING);
   }
   expect(html).toContain(article.sources[0].url);
