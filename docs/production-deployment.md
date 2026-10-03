@@ -90,3 +90,19 @@ validation checks. No live customer/partner test submissions were created.
 Immediate rollback (retains database and runtime configuration):
 
     gcloud run services update-traffic hanson-app --to-revisions=hanson-app-winter-guide-066a50d=100 --region=us-east1 --project=hanson-hvac --account=gaohan1990@gmail.com
+
+## Compact tracking notice deployment (October 3, 2026)
+
+Production now serves `hanson-app-compact-consent-20261003-920836d` at 100% traffic.
+Source: `920836d` on `codex/programs-tracking-20261001`.
+Image: `gcr.io/hanson-hvac/hanson-app@sha256:38739a9a1cd8b6ab77bd40920d963e3add19f7d4fc0bc2993afdeae1411c7a5d`.
+Cloud Build: `946cdcaa-03a6-4df7-b263-2e3a353512cc`.
+
+The tracking notice uses shorter text, a smaller card, neutral buttons and a
+subtle Privacy choices control. Tracking still requires explicit opt-in.
+Validation: 70 frontend and 15 backend tests passed, the public build succeeded,
+staged page/asset/health checks passed, and the live mobile appearance was verified.
+
+Immediate rollback:
+
+    gcloud run services update-traffic hanson-app --to-revisions=hanson-app-programs-consent-20261001-c2515a9=100 --region=us-east1 --project=hanson-hvac --account=gaohan1990@gmail.com
