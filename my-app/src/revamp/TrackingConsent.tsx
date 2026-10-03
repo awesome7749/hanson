@@ -1,9 +1,16 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-import { setTrackingChoice, trackingChoice } from "./pixel";
+import { loadTrackingPolicy, setTrackingChoice, trackingChoice } from "./pixel";
 
 export default function TrackingConsent() {
-  const [open, setOpen] = useState(() => !trackingChoice());
+  const [open, setOpen] = useState(false);
+  useEffect(() => {
+    let active = true;
+    void loadTrackingPolicy().then((required) => {
+      if (active && required && !trackingChoice()) setOpen(true);
+    });
+    return () => { active = false; };
+  }, []);
   const choose = (allowed: boolean) => { setTrackingChoice(allowed); setOpen(false); };
   return <>
     <button className="tracking-preferences" onClick={() => setOpen(true)} aria-label="Tracking preferences">Privacy choices</button>

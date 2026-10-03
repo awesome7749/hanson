@@ -156,6 +156,7 @@ export function Shell({ children }: { children: React.ReactNode }) {
             <span>© {new Date().getFullYear()} Hanson Home</span>
             <div>
               <Link to="/privacy">Privacy</Link>
+              <a href="https://db-ip.com">IP Geolocation by DB-IP</a>
               {!LIVE && <Link to="/project">My project</Link>}
               {!LIVE && <Link to="/staff">Staff preview</Link>}
             </div>

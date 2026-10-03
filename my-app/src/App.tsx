@@ -1,10 +1,10 @@
-import React, { lazy, Suspense, useEffect, useRef } from "react";
+import React, { lazy, Suspense, useEffect } from "react";
 import { LIVE, OPS } from "./revamp/deployment";
 import Receipt from "./revamp/Receipt";
 import ThankYou from "./revamp/ThankYou";
 import TrackingConsent from "./revamp/TrackingConsent";
 import ChatWidget from "./revamp/ChatWidget";
-import { captureUtm, initializePixel, fbqTrack } from "./revamp/pixel";
+import { captureUtm, initializePixel, fbqTrack, loadTrackingPolicy } from "./revamp/pixel";
 import {
   BrowserRouter,
   Navigate,
@@ -36,18 +36,15 @@ function HeatPumpGuideRedirect() {
 }
 function PageTracking() {
   const location = useLocation();
-  const first = useRef(true);
   useEffect(() => {
-    if (first.current) {
-      first.current = false;
+    let active = true;
+    void loadTrackingPolicy().then(() => {
+      if (!active) return;
       initializePixel();
       captureUtm(window.location.search);
       fbqTrack("track", "PageView");
-      return;
-    }
-    try {
-      fbqTrack("track", "PageView");
-    } catch {}
+    });
+    return () => { active = false; };
   }, [location.pathname]);
   return null;
 }

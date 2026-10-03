@@ -12,6 +12,7 @@ Staff dashboard: https://ops.hansonhome.us/
 
 ## Validation
 
+Install the local IP database with `node server/scripts/download-tracking-database.cjs` (also runs during Docker build).
 Run `npm run build --prefix server`, then `node --test server/tests/*.test.cjs`.
 Run `CI=true npm test --prefix my-app -- --watchAll=false --runInBand` with no deployment mode override.
 Build the public frontend with REACT_APP_DEPLOYMENT_MODE=live and GENERATE_SOURCEMAP=false, then run my-app/scripts/prepare-live.cjs with the same deployment mode.
@@ -106,3 +107,28 @@ staged page/asset/health checks passed, and the live mobile appearance was verif
 Immediate rollback:
 
     gcloud run services update-traffic hanson-app --to-revisions=hanson-app-programs-consent-20261001-c2515a9=100 --region=us-east1 --project=hanson-hvac --account=gaohan1990@gmail.com
+
+## Regional Meta consent and startup fallback
+
+`GET /api/tracking-policy` uses the final trusted Cloud Run proxy IP and returns
+only a consent-required flag with `private, no-store`. California, unknown
+locations, missing US states, unavailable databases and databases older than
+90 days require explicit consent. Browser tracking waits for this lookup;
+lookup failures/timeouts also require consent. Known locations outside California
+allow tracking automatically unless the visitor previously declined. Privacy
+choices remains available everywhere. Server-side Meta events independently
+check location for automatically enabled tracking; prior explicit opt-ins remain
+valid. This is IP-based classification and may not reflect a VPN user's location.
+
+The current DB-IP City Lite release and SHA-256 are pinned in
+`server/scripts/tracking-database.json`; the Docker build downloads/verifies the
+file, and lookup happens locally without sending visitor IPs to a provider.
+The database is distributed under CC BY 4.0; the public footer links to DB-IP
+for attribution. Refresh the pinned release and hash at least every quarter,
+verify known California/non-California/unknown fixtures, and deploy. If it becomes
+stale, the site conservatively asks everyone for consent until updated.
+
+Public SEO HTML remains accessible with JavaScript disabled. An inline startup
+guard hides that simplified fallback during React startup, and React reveals the
+finished site before paint. If a script fails or startup takes longer than eight
+seconds, the fallback is shown to keep the page usable.

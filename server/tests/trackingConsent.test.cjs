@@ -22,3 +22,32 @@ test('both lead endpoints require explicit tracking consent for Meta events', as
     }
   } finally { await new Promise(resolve => server.close(resolve)); }
 });
+
+const { requiresTrackingConsent, canTrackRequest, requiresConsentForLocation } = require('../dist/services/trackingPolicy');
+const { createApiRouter } = require('../dist/routes/api');
+test('California and unknown IP locations require consent, including IPv6', () => {
+  for (const ip of ['128.32.0.1', '127.0.0.1', undefined, 'bad-ip', '8.8.8.8', '2607:f8b0:4007:80b::200e']) assert.equal(requiresTrackingConsent(ip), true, ip);
+  assert.equal(requiresTrackingConsent('18.0.0.1'), false);
+  assert.equal(requiresConsentForLocation({ country: { iso_code: 'US' } }), true);
+  assert.equal(requiresConsentForLocation({ country: { iso_code: 'US' }, subdivisions: [{ names: { en: 'Unknown' } }] }), true);
+  assert.equal(requiresConsentForLocation({ country: { iso_code: 'GB' } }), false);
+  assert.equal(canTrackRequest({ ip: '128.32.0.1', body: { trackingConsent: true, trackingConsentSource: 'regional' } }), false);
+  assert.equal(canTrackRequest({ ip: '18.0.0.1', body: { trackingConsent: true, trackingConsentSource: 'regional' } }), true);
+  assert.equal(canTrackRequest({ ip: '128.32.0.1', body: { trackingConsent: true, trackingConsentSource: 'explicit' } }), true);
+  assert.equal(canTrackRequest({ ip: '18.0.0.1', body: { trackingConsent: false, trackingConsentSource: 'regional' } }), false);
+});
+
+test('policy uses the trusted proxy IP, ignores spoofed earlier entries and cannot be cached', async () => {
+  const app = express();
+  app.set('trust proxy', 1);
+  app.use('/api', createApiRouter({}, {}, {}, {}, 'test-password'));
+  const server = app.listen(0, '127.0.0.1');
+  await new Promise(resolve => server.once('listening', resolve));
+  try {
+    for (const [forwarded, required] of [['18.0.0.1, 128.32.0.1', true], ['128.32.0.1, 18.0.0.1', false], ['127.0.0.1', true]]) {
+      const response = await fetch(`http://127.0.0.1:${server.address().port}/api/tracking-policy`, { headers: { 'X-Forwarded-For': forwarded } });
+      assert.match(response.headers.get('cache-control'), /no-store/);
+      assert.deepEqual(await response.json(), { requiresConsent: required });
+    }
+  } finally { await new Promise(resolve => server.close(resolve)); }
+});

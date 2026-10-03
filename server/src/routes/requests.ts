@@ -1,3 +1,4 @@
+import { canTrackRequest } from '../services/trackingPolicy';
 import type { VentrixService } from '../services/ventrixService';
 import type { LeadNotifier } from '../services/leadNotifier';
 import type { MetaCapi } from '../services/metaCapi';
@@ -15,8 +16,7 @@ export interface LeadHooks {
 }
 
 function capiRequestContext(req: Request) {
-  const forwarded = req.headers['x-forwarded-for'];
-  const clientIp = (Array.isArray(forwarded) ? forwarded[0] : forwarded)?.split(',')[0]?.trim() || req.socket?.remoteAddress || undefined;
+  const clientIp = req.ip || req.socket?.remoteAddress || undefined;
   const sourceUrl = typeof req.body?.sourceUrl === 'string' && req.body.sourceUrl.length <= 2000 ? req.body.sourceUrl : undefined;
   const fbp = typeof req.body?.fbp === 'string' && req.body.fbp.length <= 500 ? req.body.fbp : undefined;
   const fbc = typeof req.body?.fbc === 'string' && req.body.fbc.length <= 500 ? req.body.fbc : undefined;
@@ -38,7 +38,7 @@ export function createRequestsRouter(database: Pick<DatabaseService, 'createWebs
         hooks.notifier?.partialLead({ leadId: receipt.id, draft, utm })
           .catch(() => console.error('Partial lead saved; notification email failed.'));
         const ctx = capiRequestContext(req);
-        if (req.body?.trackingConsent === true) hooks.capi?.send({
+        if (canTrackRequest(req)) hooks.capi?.send({
           eventName: 'Lead', eventId: receipt.id, sourceUrl: ctx.sourceUrl, contentName: draft.intent,
           user: { phone: draft.phone, email: draft.email, firstName: draft.firstName, zip: draft.zip, clientIp: ctx.clientIp, userAgent: ctx.userAgent, fbc: ctx.fbc, fbp: ctx.fbp },
         }).catch(() => console.error('Partial lead saved; Meta CAPI Lead event failed.'));
@@ -73,7 +73,7 @@ export function createRequestsRouter(database: Pick<DatabaseService, 'createWebs
         address: [draft.street, draft.unit && `Unit ${draft.unit}`, `${draft.city}, MA ${draft.zip}`].filter(Boolean).join(', '),
         contactMethod: draft.contactMethod, timeline: draft.timeline, utm,
       }).catch(() => console.error('Request saved; completion notification email failed.'));
-      if (req.body?.trackingConsent === true) hooks.capi?.send({
+      if (canTrackRequest(req)) hooks.capi?.send({
         eventName: 'CompleteRegistration', eventId: `${receipt.id}-complete`, sourceUrl: ctx.sourceUrl, contentName: draft.intent,
         user: { phone: draft.phone, email: draft.email, firstName: draft.firstName, zip: draft.zip, clientIp: ctx.clientIp, userAgent: ctx.userAgent, fbc: ctx.fbc, fbp: ctx.fbp },
       }).catch(() => console.error('Request saved; Meta CAPI CompleteRegistration event failed.'));

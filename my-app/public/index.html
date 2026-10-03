@@ -2,6 +2,20 @@
 <html lang="en">
   <head>
     <meta charset="utf-8" />
+    <style id="app-startup-style">html.app-starting #root[data-prerendered] { visibility: hidden; }</style>
+    <script id="app-startup">
+      // Keep the search-engine/no-JavaScript fallback out of the first paint.
+      document.documentElement.classList.add("app-starting");
+      // If the app cannot load, leave the useful fallback available.
+      window.setTimeout(function () {
+        document.documentElement.classList.remove("app-starting");
+      }, 8000);
+      window.addEventListener("error", function (event) {
+        if (event.target && event.target.tagName === "SCRIPT") {
+          document.documentElement.classList.remove("app-starting");
+        }
+      }, true);
+    </script>
     <link rel="icon" href="%PUBLIC_URL%/favicon.ico" sizes="any" />
     <link rel="icon" type="image/png" sizes="192x192" href="%PUBLIC_URL%/logo192.png" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />

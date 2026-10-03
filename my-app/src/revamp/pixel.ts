@@ -1,4 +1,4 @@
-// Optional Meta advertising tracking requires explicit browser consent.
+// Meta tracking requires opt-in in California and when location is unknown.
 declare global {
   interface Window {
     fbq?: (...args: unknown[]) => void;
@@ -8,7 +8,31 @@ declare global {
 export const CONSENT_KEY = "hanson-meta-consent-v1";
 let choice: string | null = null;
 try { choice = localStorage.getItem(CONSENT_KEY); } catch {}
-export function trackingAllowed() { return choice === "granted"; }
+let requiresConsent: boolean | null = null;
+let policyPromise: Promise<boolean> | undefined;
+export function trackingAllowed() {
+  return choice === "granted" || (requiresConsent === false && choice !== "denied");
+}
+
+// No ad requests or identifiers are collected while the region is unresolved.
+// Do not persist the result: visitors can move or change networks between visits.
+export function loadTrackingPolicy(): Promise<boolean> {
+  if (!policyPromise) policyPromise = (async () => {
+    const controller = new AbortController();
+    const timeout = setTimeout(() => controller.abort(), 4000);
+    try {
+      const response = await fetch("/api/tracking-policy", { cache: "no-store", signal: controller.signal });
+      const policy = response.ok ? await response.json() : null;
+      requiresConsent = policy?.requiresConsent !== false;
+    } catch {
+      requiresConsent = true;
+    } finally {
+      clearTimeout(timeout);
+    }
+    return requiresConsent;
+  })();
+  return policyPromise;
+}
 export function trackingChoice() { return choice; }
 
 export function initializePixel() {
