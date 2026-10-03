@@ -178,3 +178,30 @@ showed no automatic banner for the non-California verification visit.
 Immediate rollback:
 
     gcloud run services update-traffic hanson-app --to-revisions=hanson-app-regional-consent-20261003-e52b498=100 --region=us-east1 --project=hanson-hvac --account=gaohan1990@gmail.com
+
+## Combined blog and consent release (October 3, 2026)
+
+Production now serves `hanson-app-combined-blog-20261003-0c7898d` at 100% traffic.
+Source: `0c7898d` on `codex/programs-tracking-20261001`, including main through
+`1f1ede9`; the combined release is recorded in PR #18.
+Image: `gcr.io/hanson-hvac/hanson-app@sha256:f79ee6844100ead98831cbe872babc45eb243a02567062580b9de5be9f80e1bb`.
+Cloud Build: `91aefb13-29a1-427a-a6bb-6f02f631fd3e`.
+
+Includes the approved brand guide and Mass Save assessment guide with their
+Spanish, Chinese and Portuguese editions. Removes featured photos from both
+winter articles and their translated editions, retaining explanatory figures.
+Preserves the compact California-only automatic notice, regional Meta consent,
+startup fallback fix, all 56 service towns and both homeowner programs.
+
+Validation: 85 frontend tests and 18 backend tests passed. Production builds and
+prerendering succeeded. Staged and public checks passed all 13 published article
+routes, sitemap entries, program pages, hashed assets, health, staff isolation,
+invalid intake requests and forwarded-header spoofing. Browser checks confirmed
+four cards without featured photos, no automatic notice for the non-California
+visit, 56 town links and retained article figures. The ops homepage returns 200.
+No customer/partner test submissions, database migrations or runtime environment
+changes were made.
+
+Immediate rollback:
+
+    gcloud run services update-traffic hanson-app --to-revisions=hanson-app-ca-banner-20261003-cc5ab00=100 --region=us-east1 --project=hanson-hvac --account=gaohan1990@gmail.com
