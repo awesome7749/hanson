@@ -6,14 +6,14 @@ export default function TrackingConsent() {
   const [open, setOpen] = useState(() => !trackingChoice());
   const choose = (allowed: boolean) => { setTrackingChoice(allowed); setOpen(false); };
   return <>
-    <button className="tracking-preferences" onClick={() => setOpen(true)}>Tracking preferences</button>
+    <button className="tracking-preferences" onClick={() => setOpen(true)} aria-label="Tracking preferences">Privacy choices</button>
     {open && <section className="tracking-consent" aria-labelledby="tracking-title" aria-describedby="tracking-description">
-      <h2 id="tracking-title">Your choice about Meta tracking</h2>
-      <p id="tracking-description">Optional advertising tracking is off until you allow it. With your permission, we share visits, interactions, ad identifiers and request contact information with Meta to measure advertising. California visitors and all other visitors can decline and still use our site.</p>
-      <Link to="/privacy">Read our privacy notice</Link>
+      <h2 id="tracking-title">Optional Meta tracking</h2>
+      <p id="tracking-description">Allow Meta to receive visits, ad identifiers and request contact details to measure ads? Declining won’t affect your use of this site.</p>
+      <Link to="/privacy">Privacy details</Link>
       <div className="tracking-actions">
-        <button className="button light" onClick={() => choose(false)}>Decline tracking</button>
-        <button className="button" onClick={() => choose(true)}>Allow Meta tracking</button>
+        <button className="tracking-choice" onClick={() => choose(false)} aria-label="Decline tracking">Decline</button>
+        <button className="tracking-choice" onClick={() => choose(true)} aria-label="Allow Meta tracking">Allow</button>
       </div>
     </section>}
   </>;
