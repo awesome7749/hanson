@@ -105,7 +105,7 @@ test("public article contains static explanatory visuals, visible FAQs and match
   for (const id of ["blog-structured-data", "blog-breadcrumb-data", "blog-faq-data"]) {
     expect(JSON.parse(window.document.querySelector(`#${id}`)!.textContent!)).toEqual(JSON.parse(doc.querySelector(`#${id}`)!.textContent!));
   }
-  expect(document.querySelector('meta[property="og:image"]')).toHaveAttribute("content", `https://hansonhome.us${article.image!.src}`);
+  expect(document.querySelector('meta[property="og:image"]')).toHaveAttribute("content", doc.querySelector('meta[property="og:image"]')!.getAttribute("content"));
   fireEvent.click(screen.getByRole("link", { name: /Explore your heating and installation costs/ }));
   expect(document.querySelector("#blog-faq-data")).toBeNull();
   expect(document.querySelector("#blog-breadcrumb-data")).toBeNull();

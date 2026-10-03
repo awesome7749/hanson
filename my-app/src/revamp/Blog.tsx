@@ -1,7 +1,10 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { Icon } from "./Shared";
-import articles from "./blogArticles.json";
+import articleData from "./blogArticles.json";
+import { BlogArticleData } from "./blogArticleTypes";
+
+const articles: BlogArticleData[] = articleData;
 
 const guides = [
   {

@@ -123,11 +123,6 @@
       ]
     },
     "disclosure": "Written by Hanson Home. TCL is our main brand, and we can install heat pumps across brands. Manufacturer examples are identified; hypothetical diagrams and calculations are labeled. Customer installation photos show equipment and placement, not measured winter performance. This guide does not promise a specific temperature, bill or rebate for every home.",
-    "image": {
-      "src": "/images/installations/outdoor-condenser-home.webp",
-      "alt": "Outdoor heat-pump condenser installed beside a home from Hanson Home’s customer gallery.",
-      "caption": "A real Hanson Home customer installation. Winter performance depends on the selected equipment and design; the photo is not a winter test."
-    },
     "sections": [
       {
         "id": "winter-answer",
@@ -2207,11 +2202,6 @@
     "summary": "The simple settings and checks that help your heat pump keep your home comfortable in cold weather.",
     "category": "WINTER HEATING GUIDE",
     "reviewed": "September 26, 2026",
-    "image": {
-      "src": "/images/installations/outdoor-condenser-home.webp",
-      "alt": "Outdoor heat-pump unit installed beside a customer home on a raised base",
-      "caption": "A Hanson Home outdoor heat-pump installation at a customer home."
-    },
     "ctaTitle": "Want a winter heating plan for your home?",
     "ctaText": "Tell us about your current system and the rooms that need better comfort. We can help you understand your heat-pump options.",
     "intro": "A heat pump can heat a Massachusetts home through winter, but its best routine looks different from an old furnace's. A few habits help the system deliver steady comfort while making it easier to spot a real problem.",
