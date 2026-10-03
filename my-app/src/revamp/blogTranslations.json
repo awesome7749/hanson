@@ -1,5 +1,278 @@
 [
   {
+    "slug": "mass-save-assessment-before-heat-pump-pt",
+    "title": "Antes do orçamento da bomba de calor: aproveite a avaliação da Mass Save",
+    "description": "Uma lista rápida para transformar a avaliação energética em um plano útil para sua casa.",
+    "summary": "Uma lista rápida para transformar a avaliação energética em um plano útil para sua casa.",
+    "category": "GUIA RÁPIDO PARA SUA CASA",
+    "reviewed": "3 de outubro de 2026",
+    "reviewedIso": "2026-10-03",
+    "readingMinutes": 3,
+    "showContents": false,
+    "locale": "pt-BR",
+    "languageLabel": "Português",
+    "translationGroup": "mass-save-assessment-before-heat-pump",
+    "intro": "Está pensando em instalar uma bomba de calor? Comece entendendo a casa. A avaliação energética da Mass Save ajuda a identificar melhorias; o orçamento explica os equipamentos e a instalação. Juntar essas informações facilita o próximo passo.",
+    "openingSummary": {
+      "id": "guide-summary",
+      "heading": "Resumo rápido",
+      "paragraphs": [],
+      "bullets": [
+        "Confirme a elegibilidade da sua residência.",
+        "Prepare suas dúvidas e problemas de conforto.",
+        "Compartilhe o relatório com o instalador."
+      ],
+      "sourceIds": [
+        "assess"
+      ]
+    },
+    "sections": [
+      {
+        "id": "visit",
+        "heading": "Entenda o objetivo da visita",
+        "paragraphs": [
+          "A Mass Save descreve a avaliação como uma análise de oportunidades de economia, seguida de um relatório com recomendações e incentivos disponíveis. Confirme os requisitos e os detalhes da visita para seu endereço.",
+          "Use a conversa para olhar a casa como um todo. Um cômodo desconfortável, um sótão pouco visitado e um equipamento que você pretende substituir são bons pontos de partida."
+        ],
+        "sourceIds": [
+          "assess"
+        ]
+      },
+      {
+        "id": "prepare",
+        "heading": "Prepare um resumo em cinco minutos",
+        "paragraphs": [
+          "Anote onde sente correntes de ar, quais cômodos evita no inverno e o que gostaria de melhorar no verão. Inclua a idade do aquecimento atual, se souber. Não é preciso conhecer toda a história do imóvel.",
+          "Separe relatórios anteriores, contas recentes e planos de reforma. Nossa recomendação: escolha as três perguntas mais importantes antes da visita para não deixá-las passar."
+        ],
+        "sourceIds": []
+      },
+      {
+        "id": "report",
+        "heading": "Transforme o relatório em uma sequência",
+        "paragraphs": [
+          "Depois, pergunte quais recomendações devem vir primeiro e quais precisam da avaliação de outro profissional. Guarde o relatório em um lugar fácil de encontrar para as próximas conversas.",
+          "Se pretende melhorar o isolamento ou vedar infiltrações de ar, avise o instalador. Pergunte se isso muda o projeto de aquecimento e quando será melhor definir os equipamentos."
+        ],
+        "sourceIds": []
+      },
+      {
+        "id": "next",
+        "heading": "Leve o plano da casa ao orçamento",
+        "paragraphs": [
+          "Na Hanson Home, recomendamos compartilhar o relatório ao pedir um orçamento de bomba de calor. Peça uma explicação dos cômodos atendidos, da localização dos equipamentos e dos trabalhos ainda pendentes.",
+          "Faça uma lista simples: quem contatar, quais informações fornecer e qual decisão tomar em seguida. O objetivo é entender o projeto antes de marcar a instalação."
+        ],
+        "sourceIds": []
+      }
+    ],
+    "sources": [
+      {
+        "id": "assess",
+        "label": "Mass Save: Homeowners Get Started",
+        "url": "https://www.masssave.com/get-started/homeowners"
+      }
+    ],
+    "ctaTitle": "Converse com a Hanson Home",
+    "ctaText": "Traga seu relatório à Hanson Home. Podemos relacionar suas prioridades de conforto às opções de bombas de calor e às perguntas que precisam ser resolvidas antes da instalação.",
+    "ctaLabel": "Conversar sobre meu projeto",
+    "ctaPath": "/start?intent=assessment",
+    "ui": {
+      "back": "Todos os guias para sua casa",
+      "reviewed": "Revisado",
+      "minutes": "minutos de leitura",
+      "contents": "Neste guia",
+      "plan": "SEU PRÓXIMO PASSO",
+      "sources": "Fontes",
+      "language": "Idioma do artigo",
+      "imageCredit": "Crédito da imagem / fonte",
+      "sourceIntro": "Pesquisa revisada em {date}. Confirme as regras atuais e as instruções do equipamento antes de avançar."
+    },
+    "publishedIso": "2026-10-03"
+  },
+  {
+    "slug": "mass-save-assessment-before-heat-pump-zh",
+    "title": "询价前先做功课：如何用好 Mass Save 家庭能源评估",
+    "description": "一份轻松的准备清单，帮您把能源评估报告变成实用的住宅改造计划。",
+    "summary": "一份轻松的准备清单，帮您把能源评估报告变成实用的住宅改造计划。",
+    "category": "住宅实用短读",
+    "reviewed": "2026年10月3日",
+    "reviewedIso": "2026-10-03",
+    "readingMinutes": 3,
+    "showContents": false,
+    "locale": "zh-Hans",
+    "languageLabel": "中文",
+    "translationGroup": "mass-save-assessment-before-heat-pump",
+    "intro": "考虑安装热泵时，先了解房子的实际情况。Mass Save 家庭能源评估有助于发现节能改造机会；热泵安装报价则说明设备和施工安排。把两部分信息放在一起，下一步会更清楚。",
+    "openingSummary": {
+      "id": "guide-summary",
+      "heading": "快速摘要",
+      "paragraphs": [],
+      "bullets": [
+        "先确认您家是否符合项目参与条件。",
+        "提前整理舒适度问题和想问的事情。",
+        "把评估报告提供给安装商。"
+      ],
+      "sourceIds": [
+        "assess"
+      ]
+    },
+    "sections": [
+      {
+        "id": "visit",
+        "heading": "先了解这次评估的用途",
+        "paragraphs": [
+          "Mass Save 将家庭能源评估介绍为节能机会检查，并提供包含建议和可用优惠的能源报告。请通过项目官方渠道确认您家地址的资格及预约安排。",
+          "借这次机会聊聊整栋房子：住着不舒服的房间、平时很少查看的阁楼，以及计划更换的设备，都值得提出。"
+        ],
+        "sourceIds": [
+          "assess"
+        ]
+      },
+      {
+        "id": "prepare",
+        "heading": "花五分钟整理房屋情况",
+        "paragraphs": [
+          "记下哪里有漏风、冬天不爱待在哪个房间，以及夏天最想改善什么。如果知道现有供暖设备的年龄，也一起记录。不必把房子的历史查得一清二楚。",
+          "准备好以前的评估报告、近期能源账单和装修计划。我们的建议是先选出三个最重要的问题，避免聊着聊着忘了。"
+        ],
+        "sourceIds": []
+      },
+      {
+        "id": "report",
+        "heading": "把报告变成有顺序的计划",
+        "paragraphs": [
+          "评估后，问清哪些建议适合先做，哪些需要其他专业人员进一步检查。把报告保存好，后续询价时还会用到。拿到报告只是计划的开始。",
+          "如果准备增加保温或做空气密封，请告诉暖通安装商。询问这些改造是否会影响供暖设计，以及什么时候适合确定最终设备。"
+        ],
+        "sourceIds": []
+      },
+      {
+        "id": "next",
+        "heading": "让房屋信息进入设备讨论",
+        "paragraphs": [
+          "Hanson Home 建议您在询价时分享评估报告，并请安装商说明服务哪些房间、设备放在哪里，以及还有哪些施工问题待解决。",
+          "列一个小清单：下一步联系谁、对方需要什么资料、接下来要做什么决定。目标是在预约施工前，先把整个计划看明白。"
+        ],
+        "sourceIds": []
+      }
+    ],
+    "sources": [
+      {
+        "id": "assess",
+        "label": "Mass Save: Homeowners Get Started",
+        "url": "https://www.masssave.com/get-started/homeowners"
+      }
+    ],
+    "ctaTitle": "与 Hanson Home 聊聊您的计划",
+    "ctaText": "欢迎把评估报告带给 Hanson Home。我们可以结合您的舒适度目标，讨论热泵方案和安装前需要确认的问题。",
+    "ctaLabel": "讨论我的项目",
+    "ctaPath": "/start?intent=assessment",
+    "ui": {
+      "back": "所有住宅指南",
+      "reviewed": "资料核对",
+      "minutes": "分钟阅读",
+      "contents": "本文内容",
+      "plan": "下一步",
+      "sources": "参考来源",
+      "language": "文章语言",
+      "imageCredit": "图片来源 / 署名",
+      "sourceIntro": "资料于 {date} 核对。推进项目前，请确认现行项目要求和具体设备说明。"
+    },
+    "publishedIso": "2026-10-03"
+  },
+  {
+    "slug": "mass-save-assessment-before-heat-pump-es",
+    "title": "Antes de pedir un presupuesto de bomba de calor: aproveche la evaluación de Mass Save",
+    "description": "Una lista breve para convertir la evaluación energética en un plan útil para su vivienda.",
+    "summary": "Una lista breve para convertir la evaluación energética en un plan útil para su vivienda.",
+    "category": "GUÍA BREVE PARA EL HOGAR",
+    "reviewed": "3 de octubre de 2026",
+    "reviewedIso": "2026-10-03",
+    "readingMinutes": 3,
+    "showContents": false,
+    "locale": "es",
+    "languageLabel": "Español",
+    "translationGroup": "mass-save-assessment-before-heat-pump",
+    "intro": "¿Está pensando en una bomba de calor? Empiece por conocer su vivienda. Una evaluación energética de Mass Save ayuda a identificar mejoras; el presupuesto de instalación explica los equipos y el trabajo. Relacionar ambas conversaciones facilita el siguiente paso.",
+    "openingSummary": {
+      "id": "guide-summary",
+      "heading": "Resumen rápido",
+      "paragraphs": [],
+      "bullets": [
+        "Confirme que su hogar cumple los requisitos del programa.",
+        "Prepare sus dudas y problemas de confort.",
+        "Comparta el informe con el instalador."
+      ],
+      "sourceIds": [
+        "assess"
+      ]
+    },
+    "sections": [
+      {
+        "id": "visit",
+        "heading": "Entienda el objetivo de la visita",
+        "paragraphs": [
+          "Mass Save describe la evaluación como una revisión de oportunidades de ahorro, seguida de un informe con recomendaciones e incentivos disponibles. Confirme los requisitos y los detalles de la cita para su dirección.",
+          "Aproveche la visita para hablar de la vivienda en conjunto. Una habitación incómoda, un ático que casi no visita o un equipo que desea cambiar son buenos puntos de partida."
+        ],
+        "sourceIds": [
+          "assess"
+        ]
+      },
+      {
+        "id": "prepare",
+        "heading": "Prepare un resumen de cinco minutos",
+        "paragraphs": [
+          "Anote dónde siente corrientes de aire, qué habitaciones evita en invierno y qué quiere mejorar en verano. Si sabe la edad del sistema de calefacción, inclúyala. No necesita conocer toda la historia del edificio.",
+          "Tenga a mano informes anteriores, facturas recientes y reformas previstas. Recomendamos elegir sus tres preguntas principales antes de la visita para que no queden pendientes."
+        ],
+        "sourceIds": []
+      },
+      {
+        "id": "report",
+        "heading": "Convierta el informe en un orden de trabajo",
+        "paragraphs": [
+          "Después, pregunte qué recomendaciones conviene realizar primero y cuáles necesitan la revisión de otro profesional. Guarde el informe donde pueda encontrarlo fácilmente. Recibirlo es el comienzo de un plan.",
+          "Si prevé mejorar el aislamiento o sellar fugas de aire, avise al instalador de climatización. Pregunte si esas mejoras cambian el diseño de calefacción y cuándo conviene elegir los equipos definitivos."
+        ],
+        "sourceIds": []
+      },
+      {
+        "id": "next",
+        "heading": "Lleve el plan al presupuesto",
+        "paragraphs": [
+          "En Hanson Home recomendamos compartir el informe al solicitar un presupuesto de bomba de calor. Pida que se expliquen las habitaciones atendidas, la ubicación de los equipos y los trabajos aún pendientes.",
+          "Haga una lista sencilla: a quién contactará, qué información necesita esa persona y qué decisión viene después. Así podrá entender el proyecto antes de reservar la instalación."
+        ],
+        "sourceIds": []
+      }
+    ],
+    "sources": [
+      {
+        "id": "assess",
+        "label": "Mass Save: Homeowners Get Started",
+        "url": "https://www.masssave.com/get-started/homeowners"
+      }
+    ],
+    "ctaTitle": "Hable con Hanson Home",
+    "ctaText": "Traiga su informe a Hanson Home. Podemos ayudarle a relacionar sus objetivos de confort con las opciones de bombas de calor y las preguntas que conviene resolver antes de instalar.",
+    "ctaLabel": "Consultar mi proyecto",
+    "ctaPath": "/start?intent=assessment",
+    "ui": {
+      "back": "Todas las guías para el hogar",
+      "reviewed": "Revisado",
+      "minutes": "minutos de lectura",
+      "contents": "En esta guía",
+      "plan": "SU SIGUIENTE PASO",
+      "sources": "Fuentes",
+      "language": "Idioma del artículo",
+      "imageCredit": "Crédito de imagen / fuente",
+      "sourceIntro": "Investigación revisada el {date}. Confirme los requisitos actuales y las instrucciones del equipo antes de avanzar."
+    },
+    "publishedIso": "2026-10-03"
+  },
+  {
     "slug": "heat-pump-ac-brand-guide-es",
     "title": "Guía completa de marcas de bombas de calor y aire acondicionado: historia, tecnología y cómo elegir",
     "description": "Hanson Home compara TCL, Bosch, Midea, Daikin, Mitsubishi y otras marcas, con recomendaciones sobre calefacción invernal, diseño y servicio.",
