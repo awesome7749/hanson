@@ -90,3 +90,28 @@ validation checks. No live customer/partner test submissions were created.
 Immediate rollback (retains database and runtime configuration):
 
     gcloud run services update-traffic hanson-app --to-revisions=hanson-app-winter-guide-066a50d=100 --region=us-east1 --project=hanson-hvac --account=gaohan1990@gmail.com
+
+## Mass Save assessment article publication (October 3, 2026)
+
+Approved article: https://hansonhome.us/blog/mass-save-assessment-before-heat-pump
+English, Spanish, Simplified Chinese and Portuguese editions are published.
+Publication PR: #16; build-time optional-summary typing fix: #17.
+The other four topics in draft PR #15 remain unpublished.
+
+Production revision: `hanson-app-assessment-20261003`.
+Deployment source: `399edf5` on `codex/deploy-assessment-20261003`, combining
+main's approved article with the previously live `920836d` consent/program changes.
+Image: `gcr.io/hanson-hvac/hanson-app@sha256:b2f34d8c565c4f47a62eac0dcc9e263d68d0afa3ad25522aada02cbfb04d3ae5`.
+Cloud Build: `320d4ce2-3353-4261-b75a-255687c3a57a`.
+
+Validation: 74 frontend and 15 server tests passed; public production build passed.
+The zero-traffic revision passed checks for all four articles, citations,
+publication dates, alternate language links, blog listing, sitemap, JS assets,
+other draft exclusion, health, program pages, public staff isolation and invalid
+intake rejection. No live customer or partner test submission was created.
+Environment, service account, resources and database attachments were preserved.
+No schema migration was needed.
+
+Immediate rollback:
+
+    gcloud run services update-traffic hanson-app --to-revisions=hanson-app-compact-consent-20261003-920836d=100 --region=us-east1 --project=hanson-hvac --account=gaohan1990@gmail.com
