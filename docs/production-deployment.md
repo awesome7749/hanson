@@ -155,3 +155,26 @@ No database schema or runtime environment changes were needed.
 Immediate rollback:
 
     gcloud run services update-traffic hanson-app --to-revisions=hanson-app-compact-consent-20261003-920836d=100 --region=us-east1 --project=hanson-hvac --account=gaohan1990@gmail.com
+
+## California-only automatic banner deployment (October 3, 2026)
+
+Production now serves `hanson-app-ca-banner-20261003-cc5ab00` at 100% traffic.
+Source: `cc5ab00` on `codex/programs-tracking-20261001`.
+Image: `gcr.io/hanson-hvac/hanson-app@sha256:a74b33bc6cba6e4273baaf81e9ebb4f23246507841a7c8bbc6594bfa55ecfd53`.
+Cloud Build: `13dbedb6-03a5-481f-872a-2dbbed8d92d0`.
+
+The automatic banner appears only for positively identified California IPs.
+Non-California and unknown locations do not open it automatically. Unknown
+locations still block tracking without explicit consent through Privacy choices.
+Existing consent and decline behavior is retained.
+
+Validation: all 78 existing frontend tests and 18 backend tests passed; the
+three new banner-component cases also passed, for 81 frontend tests total.
+The production frontend built successfully. Browser checks covered California,
+non-California and unknown locations; staged and public page/assets/health,
+staff isolation and forwarded-header spoofing checks passed. The live browser
+showed no automatic banner for the non-California verification visit.
+
+Immediate rollback:
+
+    gcloud run services update-traffic hanson-app --to-revisions=hanson-app-regional-consent-20261003-e52b498=100 --region=us-east1 --project=hanson-hvac --account=gaohan1990@gmail.com
