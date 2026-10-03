@@ -111,7 +111,8 @@ Immediate rollback:
 ## Regional Meta consent and startup fallback
 
 `GET /api/tracking-policy` uses the final trusted Cloud Run proxy IP and returns
-only a consent-required flag with `private, no-store`. California, unknown
+consent-required and show-notice flags with `private, no-store`.
+Only a positively identified California IP triggers the automatic banner. California, unknown
 locations, missing US states, unavailable databases and databases older than
 90 days require explicit consent. Browser tracking waits for this lookup;
 lookup failures/timeouts also require consent. Known locations outside California
@@ -126,7 +127,8 @@ file, and lookup happens locally without sending visitor IPs to a provider.
 The database is distributed under CC BY 4.0; the public footer links to DB-IP
 for attribution. Refresh the pinned release and hash at least every quarter,
 verify known California/non-California/unknown fixtures, and deploy. If it becomes
-stale, the site conservatively asks everyone for consent until updated.
+stale, automatic tracking stays off and the automatic banner stays hidden
+until updated. Visitors can still opt in through Privacy choices.
 
 Public SEO HTML remains accessible with JavaScript disabled. An inline startup
 guard hides that simplified fallback during React startup, and React reveals the

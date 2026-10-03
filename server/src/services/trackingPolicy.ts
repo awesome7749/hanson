@@ -23,13 +23,22 @@ export function requiresConsentForLocation(location: CityResponse | null | undef
 
 // Cloud Run's trusted final proxy sets req.ip. Never use the caller-controlled
 // first entry of X-Forwarded-For to decide whether consent is required.
-export function requiresTrackingConsent(ip: string | undefined): boolean {
+export function getTrackingPolicy(ip: string | undefined): { requiresConsent: boolean; showNotice: boolean } {
+  const unknown = { requiresConsent: true, showNotice: false };
   try {
-    if (!database || !ip || Date.now() - database.metadata.buildEpoch.getTime() > maxDatabaseAgeMs) return true;
-    return requiresConsentForLocation(database.get(ip));
+    if (!database || !ip || Date.now() - database.metadata.buildEpoch.getTime() > maxDatabaseAgeMs) return unknown;
+    const location = database.get(ip);
+    return {
+      requiresConsent: requiresConsentForLocation(location),
+      showNotice: location?.country?.iso_code === 'US' && location?.subdivisions?.[0]?.names?.en === 'California',
+    };
   } catch {
-    return true;
+    return unknown;
   }
+}
+
+export function requiresTrackingConsent(ip: string | undefined): boolean {
+  return getTrackingPolicy(ip).requiresConsent;
 }
 
 export function canTrackRequest(req: Request): boolean {

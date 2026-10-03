@@ -23,7 +23,7 @@ test('both lead endpoints require explicit tracking consent for Meta events', as
   } finally { await new Promise(resolve => server.close(resolve)); }
 });
 
-const { requiresTrackingConsent, canTrackRequest, requiresConsentForLocation } = require('../dist/services/trackingPolicy');
+const { requiresTrackingConsent, canTrackRequest, requiresConsentForLocation, getTrackingPolicy } = require('../dist/services/trackingPolicy');
 const { createApiRouter } = require('../dist/routes/api');
 test('California and unknown IP locations require consent, including IPv6', () => {
   for (const ip of ['128.32.0.1', '127.0.0.1', undefined, 'bad-ip', '8.8.8.8', '2607:f8b0:4007:80b::200e']) assert.equal(requiresTrackingConsent(ip), true, ip);
@@ -44,10 +44,19 @@ test('policy uses the trusted proxy IP, ignores spoofed earlier entries and cann
   const server = app.listen(0, '127.0.0.1');
   await new Promise(resolve => server.once('listening', resolve));
   try {
-    for (const [forwarded, required] of [['18.0.0.1, 128.32.0.1', true], ['128.32.0.1, 18.0.0.1', false], ['127.0.0.1', true]]) {
+    for (const [forwarded, required, showNotice] of [['18.0.0.1, 128.32.0.1', true, true], ['128.32.0.1, 18.0.0.1', false, false], ['127.0.0.1', true, false]]) {
       const response = await fetch(`http://127.0.0.1:${server.address().port}/api/tracking-policy`, { headers: { 'X-Forwarded-For': forwarded } });
       assert.match(response.headers.get('cache-control'), /no-store/);
-      assert.deepEqual(await response.json(), { requiresConsent: required });
+      assert.deepEqual(await response.json(), { requiresConsent: required, showNotice });
     }
   } finally { await new Promise(resolve => server.close(resolve)); }
+});
+
+
+test('only identified California IPs trigger an automatic notice', () => {
+  assert.deepEqual(getTrackingPolicy('128.32.0.1'), { requiresConsent: true, showNotice: true });
+  assert.deepEqual(getTrackingPolicy('18.0.0.1'), { requiresConsent: false, showNotice: false });
+  for (const ip of ['127.0.0.1', 'bad-ip', undefined]) {
+    assert.deepEqual(getTrackingPolicy(ip), { requiresConsent: true, showNotice: false });
+  }
 });

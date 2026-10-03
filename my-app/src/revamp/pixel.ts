@@ -9,6 +9,8 @@ export const CONSENT_KEY = "hanson-meta-consent-v1";
 let choice: string | null = null;
 try { choice = localStorage.getItem(CONSENT_KEY); } catch {}
 let requiresConsent: boolean | null = null;
+let showNotice = false;
+export function shouldShowTrackingNotice() { return showNotice; }
 let policyPromise: Promise<boolean> | undefined;
 export function trackingAllowed() {
   return choice === "granted" || (requiresConsent === false && choice !== "denied");
@@ -24,8 +26,10 @@ export function loadTrackingPolicy(): Promise<boolean> {
       const response = await fetch("/api/tracking-policy", { cache: "no-store", signal: controller.signal });
       const policy = response.ok ? await response.json() : null;
       requiresConsent = policy?.requiresConsent !== false;
+      showNotice = policy?.requiresConsent === true && policy?.showNotice === true;
     } catch {
       requiresConsent = true;
+      showNotice = false;
     } finally {
       clearTimeout(timeout);
     }

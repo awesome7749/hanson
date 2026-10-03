@@ -9,9 +9,10 @@ beforeEach(() => {
 afterEach(() => { delete window.fbq; jest.useRealTimers(); });
 
 test.each([true, undefined, "false"])("California or malformed policy (%s) blocks tracking until opt-in", async (requiresConsent) => {
-  global.fetch = jest.fn().mockResolvedValue({ ok: true, json: async () => ({ requiresConsent }) });
+  global.fetch = jest.fn().mockResolvedValue({ ok: true, json: async () => ({ requiresConsent, showNotice: requiresConsent === true }) });
   expect(pixel.trackingAllowed()).toBe(false);
   await pixel.loadTrackingPolicy();
+  expect(pixel.shouldShowTrackingNotice()).toBe(requiresConsent === true);
   pixel.captureUtm("?fbclid=click");
   pixel.fbqTrack("track", "PageView");
   expect(pixel.getStoredUtm()).toEqual({});
@@ -28,6 +29,7 @@ test("recognized non-California location permits tracking after lookup, and resp
   resolve({ ok: true, json: async () => ({ requiresConsent: false }) });
   await pending;
   expect(pixel.trackingAllowed()).toBe(true);
+  expect(pixel.shouldShowTrackingNotice()).toBe(false);
   pixel.captureUtm("?utm_source=meta");
   expect(pixel.getStoredUtm()).toEqual({ utm_source: "meta" });
   pixel.setTrackingChoice(false);
@@ -47,6 +49,7 @@ test("an existing decline takes precedence over a non-California result", async 
 test("lookup failures require consent", async () => {
   global.fetch = jest.fn().mockRejectedValue(new Error("offline"));
   expect(await pixel.loadTrackingPolicy()).toBe(true);
+  expect(pixel.shouldShowTrackingNotice()).toBe(false);
   expect(pixel.trackingAllowed()).toBe(false);
 });
 
@@ -59,4 +62,14 @@ test("a stalled lookup is aborted and fails closed", async () => {
   jest.advanceTimersByTime(4000);
   expect(await pending).toBe(true);
   expect(pixel.trackingAllowed()).toBe(false);
+});
+
+
+test("unknown locations keep tracking off without automatically showing a banner", async () => {
+  global.fetch = jest.fn().mockResolvedValue({ ok: true, json: async () => ({ requiresConsent: true, showNotice: false }) });
+  await pixel.loadTrackingPolicy();
+  expect(pixel.shouldShowTrackingNotice()).toBe(false);
+  expect(pixel.trackingAllowed()).toBe(false);
+  pixel.setTrackingChoice(true);
+  expect(pixel.trackingAllowed()).toBe(true);
 });
