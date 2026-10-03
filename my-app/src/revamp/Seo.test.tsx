@@ -74,8 +74,8 @@ test.each(articles)("$slug has matching public content, citations and route meta
   if (article.openingSummary) {
     const summary = document.querySelector("#guide-summary")!;
     expect(summary.textContent).toContain(article.openingSummary.heading);
-    expect(summary.querySelectorAll("li")).toHaveLength(6);
-    expect(summary.compareDocumentPosition(document.querySelector(`nav[aria-label="${articleUi(article).contents}"]`)!)).toBe(Node.DOCUMENT_POSITION_FOLLOWING);
+    expect(summary.querySelectorAll("li")).toHaveLength(article.openingSummary.bullets.length);
+    if (article.showContents) expect(summary.compareDocumentPosition(document.querySelector(`nav[aria-label="${articleUi(article).contents}"]`)!)).toBe(Node.DOCUMENT_POSITION_FOLLOWING);
   }
   expect(html).toContain(article.sources[0].url);
   if (article.image) {
@@ -142,7 +142,7 @@ test("the language button switches the complete article and document language", 
   const view = render(<App />);
   fireEvent.click(screen.getByRole("button", { name: "Article language" }));
   fireEvent.click(screen.getByRole("link", { name: "简体中文" }));
-  const chinese = articles.find((article) => article.locale === "zh-Hans")!;
+  const chinese = articles.find((article) => article.slug === "heat-pump-ac-brand-guide-zh")!;
   expect(screen.getByRole("heading", { level: 1, name: chinese.title })).toBeInTheDocument();
   expect(document.documentElement.lang).toBe("zh-Hans");
   expect(window.location.pathname).toBe(`/blog/${chinese.slug}`);
