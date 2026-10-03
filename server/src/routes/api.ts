@@ -1,3 +1,4 @@
+import { getTrackingPolicy } from '../services/trackingPolicy';
 import { Router, Request, Response, NextFunction } from 'express';
 import { clearAdminSession, issueAdminToken, readAdminSession, setAdminSession, verifyAdminToken, validPassword } from '../services/adminAuth';
 import type { VentrixService } from '../services/ventrixService';
@@ -35,6 +36,11 @@ export function createApiRouter(
   leadHooks?: LeadHooks
 ): Router {
   const router = Router();
+  router.get('/tracking-policy', (req, res) => {
+    // A shared cache must never reuse one visitor's region for another visitor.
+    res.set('Cache-Control', 'private, no-store');
+    res.json(getTrackingPolicy(req.ip));
+  });
   const failedLogins = new Map<string, { count: number; expires: number }>();
   const loginWindowMs = 15 * 60 * 1000;
   const maxFailedLogins = 5;
