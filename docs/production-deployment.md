@@ -132,3 +132,24 @@ Public SEO HTML remains accessible with JavaScript disabled. An inline startup
 guard hides that simplified fallback during React startup, and React reveals the
 finished site before paint. If a script fails or startup takes longer than eight
 seconds, the fallback is shown to keep the page usable.
+
+## Regional consent and loading fix deployment (October 3, 2026)
+
+Production now serves `hanson-app-regional-consent-20261003-e52b498` at 100% traffic.
+Source: `e52b498` on `codex/programs-tracking-20261001`.
+Image: `gcr.io/hanson-hvac/hanson-app@sha256:b24ab8e9da84dba0bc3b8390d89da80ab9fdc0bd833a6003d1c9ce01c2bf1ad6`.
+Cloud Build: `b5457bbe-aaa1-4edb-ad5b-cddf5dfcf02f`.
+
+Validation: 77 frontend and 17 backend tests passed, the public build succeeded,
+and browser checks verified the California/non-California prompts, remembered
+declines, a hidden first-paint fallback with delayed bundles, and a visible
+fallback without JavaScript or with failed bundles. Public and staged smoke
+checks passed page/assets, health, sitemap, staff isolation, invalid intake
+submissions and forwarded-header spoofing checks. The staged policy matched the
+client location recorded by Cloud Run. The live mobile homepage was verified.
+No customer/partner test submissions were created. The ops homepage returns 200.
+No database schema or runtime environment changes were needed.
+
+Immediate rollback:
+
+    gcloud run services update-traffic hanson-app --to-revisions=hanson-app-compact-consent-20261003-920836d=100 --region=us-east1 --project=hanson-hvac --account=gaohan1990@gmail.com
