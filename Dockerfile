@@ -16,7 +16,7 @@ COPY server/package*.json ./
 RUN npm ci
 COPY server/ ./
 RUN npx prisma generate
-RUN npm run build
+RUN npm run build && node scripts/download-tracking-database.cjs
 
 # ── Stage 3: Production runtime (Debian for Prisma) ──
 FROM node:20-slim
@@ -26,7 +26,9 @@ COPY --from=backend /app/server/dist ./dist
 COPY --from=backend /app/server/node_modules ./node_modules
 COPY --from=backend /app/server/package.json ./
 COPY --from=backend /app/server/prisma ./prisma
+COPY --from=backend /app/server/data ./data
 COPY --from=frontend /app/my-app/build ./public
+RUN mv ./public/ops-shell.html ./ops-shell.html
 EXPOSE 8080
 ENV PORT=8080 NODE_ENV=production
 CMD ["node", "dist/index.js"]

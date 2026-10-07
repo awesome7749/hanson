@@ -16,3 +16,6 @@ app.yaml
 server/uploads
 server/results
 server/jetson
+
+# Location database is fetched and verified during the container build.
+server/data/*.mmdb

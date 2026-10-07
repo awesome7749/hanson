@@ -33,6 +33,7 @@ export default function Pricing() {
         <p>Get a quote for the work your home actually needs. We explain the equipment,
           installation and supporting work together, then agree on the price before starting.</p>
         <Link className="button" to="/start?intent=heat-pump">Get my estimate <Icon name="arrow" /></Link>
+        <p><Link className="text-link" to="/heat-pump-cost-calculator">Compare upfront and heating costs <Icon name="arrow" size={17} /></Link></p>
         <p className="pricing-note">Your request starts an estimate. A final quote follows a review of your home and project scope.</p>
       </div>
       <QuoteBreakdown />

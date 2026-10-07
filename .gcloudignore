@@ -49,3 +49,6 @@ server/jetson/
 
 **/.env*
 **/.openai/
+
+# Location database is fetched and verified during the container build.
+server/data/*.mmdb

@@ -4,6 +4,7 @@ import { FAQ, Icon } from "./Shared";
 import { usePreview } from "./Store";
 import { lifestyleImages } from "./LifestylePhoto";
 import { LIVE } from "./deployment";
+import { TownDirectory } from "./Town";
 const pages: Record<
   string,
   {
@@ -92,6 +93,8 @@ export default function Info() {
       <p>We use this information to review your request, contact you in your preferred way, discuss service coverage and plan the next step. Your contact permission and optional marketing choice are recorded with your request.</p>
       <h3>Where your information goes</h3>
       <p>Submitted requests are stored in Hanson Home’s lead system using cloud hosting and database services. Staff access requires sign-in. For heat-pump and energy assessment requests, with your permission we share your contact details, address, service preferences and relevant home information with our licensed local service partners so the team can coordinate your request.</p>
+      <h3>Optional Meta advertising tracking</h3>
+      <p>We use an IP location lookup on our server to decide whether to ask for consent. For California visitors, and when we cannot determine the location, Meta advertising tracking stays off until you choose “Allow.” Elsewhere, tracking may run automatically unless you decline. When tracking is allowed, we share page visits, interactions and ad identifiers with Meta. When you submit a request, we may also share hashed contact details, your ZIP code, IP address and browser information to measure advertising. You can decline and still use the site. Use “Privacy choices” to change your choice; withdrawing stops future tracking but does not delete information already shared.</p>
       <h3>Your browser draft</h3>
       <p>This tab keeps a draft and your confirmation in browser session storage so you can continue during your visit. You can clear that browser copy below. Clearing it does not delete information already sent to Hanson Home.</p>
       <button className="button ghost" onClick={() => { clearPreview(); setCleared(true); }}>Clear my browser details</button>
@@ -210,6 +213,7 @@ export default function Info() {
           </article>
         ))}
       </section>
+      {pathname === "/service-area" && <TownDirectory />}
       <section className="section wrap faq-section">
         <div>
           <span className="eyebrow">LET’S TALK IT THROUGH</span>

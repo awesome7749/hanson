@@ -88,11 +88,10 @@ export function Shell({ children }: { children: React.ReactNode }) {
                 className={menu ? "nav-links open" : "nav-links"}
                 aria-label="Main navigation"
               >
-                <NavLink to="/heat-pumps">Heat pumps</NavLink>
                 <NavLink to="/pricing">Pricing</NavLink>
-                <NavLink to="/how-it-works">Installation</NavLink>
-                <NavLink to="/assessment">Energy assessment</NavLink>
+                <NavLink to="/heat-pump-cost-calculator">Cost calculator</NavLink>
                 <NavLink to="/warranty">Warranty</NavLink>
+                <NavLink to="/blog">Blog</NavLink>
                 <NavLink to="/about">About us</NavLink>
               </nav>
               <button
@@ -129,8 +128,9 @@ export function Shell({ children }: { children: React.ReactNode }) {
             </div>
             <div>
               <b>YOUR HOME</b>
-              <Link to="/heat-pumps">Heat pumps</Link>
+              <Link to="/blog/heat-pumps-massachusetts-winter-guide">Heat pumps</Link>
               <Link to="/pricing">Pricing</Link>
+              <Link to="/heat-pump-cost-calculator">Cost calculator</Link>
               <Link to="/assessment">Energy assessments</Link>
               <Link to="/how-it-works">How it works</Link>
               <Link to="/warranty">Warranty & care</Link>
@@ -138,7 +138,10 @@ export function Shell({ children }: { children: React.ReactNode }) {
             <div>
               <b>HANSON HOME</b>
               <Link to="/about">About us</Link>
+              <Link to="/blog">Blog</Link>
               <Link to="/service-area">Massachusetts service area</Link>
+              <Link to="/trade-in">Trade-in program</Link>
+              <Link to="/veterans-discount">Veterans discount</Link>
               <Link to="/contact">Get in touch</Link>
             </div>
             <div>
@@ -153,6 +156,7 @@ export function Shell({ children }: { children: React.ReactNode }) {
             <span>© {new Date().getFullYear()} Hanson Home</span>
             <div>
               <Link to="/privacy">Privacy</Link>
+              <a href="https://db-ip.com">IP Geolocation by DB-IP</a>
               {!LIVE && <Link to="/project">My project</Link>}
               {!LIVE && <Link to="/staff">Staff preview</Link>}
             </div>

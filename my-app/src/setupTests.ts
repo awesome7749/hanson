@@ -7,3 +7,8 @@ import { TextEncoder, TextDecoder } from "util";
 
 Object.assign(global, { TextEncoder, TextDecoder });
 window.scrollTo = jest.fn();
+
+// Keep general page tests offline; policy-specific tests supply their own lookup.
+beforeEach(() => {
+  global.fetch = jest.fn().mockResolvedValue({ ok: true, json: async () => ({ requiresConsent: false }) });
+});

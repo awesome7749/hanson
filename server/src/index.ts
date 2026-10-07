@@ -14,11 +14,14 @@ import { createMetaCapi } from './services/metaCapi';
 import { createGoogleReviews } from './services/googleReviews';
 import { createChatProvider } from './services/chatService';
 import { createFbLeadSms } from './services/fbLeadSms';
+import { apiAllowedOnHost, isOpsHost, opsPage, siteRoute } from './services/siteRouting';
 
 // Load environment variables
 dotenv.config();
 
 const app = express();
+// Cloud Run terminates TLS at its proxy; use the forwarded scheme and client IP.
+if (process.env.NODE_ENV === 'production') app.set('trust proxy', 1);
 const PORT = process.env.PORT || 3001;
 
 // Middleware
@@ -26,6 +29,12 @@ app.disable('x-powered-by');
 app.use(cors());
 app.use('/api', (_req, res, next) => { res.set('Cache-Control', 'no-store'); next(); });
 app.use(express.json());
+app.use('/api', (req, res, next) => {
+  if (process.env.NODE_ENV === 'production' && !apiAllowedOnHost(req.path, req.get('host'))) {
+    return res.status(404).json({ error: 'Endpoint not found' });
+  }
+  next();
+});
 
 // Initialize services
 const rentcastApiKey = process.env.RENTCAST_API_KEY;
@@ -88,11 +97,55 @@ app.use('/api', (_req, res) => { res.status(404).json({ error: 'Endpoint not fou
 // In production, serve the React build as static files
 if (process.env.NODE_ENV === 'production') {
   const publicDir = path.join(__dirname, '../public');
-  app.use(express.static(publicDir));
-  // SPA fallback: any non-API route serves index.html (React Router handles it)
-  app.get('*', (_req, res) => {
+  app.get('*', (req, res, next) => {
+    if (isOpsHost(req.get('host'))) {
+      res.set('X-Robots-Tag', 'noindex, nofollow');
+      res.set('Referrer-Policy', 'no-referrer');
+      res.set('X-Content-Type-Options', 'nosniff');
+      res.set('Content-Security-Policy', "default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data:; connect-src 'self'; object-src 'none'; base-uri 'none'; frame-ancestors 'none'");
+      const page = opsPage(req.path);
+      if (page === 'dashboard') {
+        res.set('Cache-Control', 'no-store');
+        return res.sendFile(path.join(__dirname, '../ops-shell.html'));
+      }
+      if (page === 'robots') return res.type('text/plain').send('User-agent: *\nDisallow: /\n');
+      if (page === 'missing') return res.status(404).send('Not found');
+      return next();
+    }
+    if (/^\/(admin|staff)(\/|$)/.test(req.path)) {
+      res.set('X-Robots-Tag', 'noindex, nofollow');
+      return res.status(404).send('Not found');
+    }
+    const route = siteRoute(req.path);
+    if (route.redirect) {
+      const query = req.originalUrl.slice(req.path.length);
+      return res.redirect(route.redirectStatus || 301, route.redirect + query);
+    }
+    if (route.appOnly) res.set('X-Robots-Tag', 'noindex, nofollow');
+    next();
+  });
+  // The /blog article directory shadows blog.html in express.static.
+  app.get('/blog', (_req, res) => {
     res.set('Cache-Control', 'no-cache');
-    res.sendFile(path.join(publicDir, 'index.html'));
+    res.sendFile(path.join(publicDir, 'blog.html'));
+  });
+  // extensions: pre-rendered town pages (build/woburn.html) answer /woburn.
+  // HTML references hashed bundles, so it must not be cached.
+  app.use(express.static(publicDir, {
+    extensions: ['html'],
+    setHeaders: (res, filePath) => {
+      if (filePath.endsWith('.html')) res.setHeader('Cache-Control', 'no-cache');
+    },
+  }));
+  // The SPA handles only form and staff flows. Unknown URLs are real 404s.
+  app.get('*', (req, res) => {
+    if (isOpsHost(req.get('host'))) return res.status(404).send('Not found');
+    res.set('Cache-Control', 'no-cache');
+    if (!siteRoute(req.path).appOnly) {
+      res.status(404);
+      res.set('X-Robots-Tag', 'noindex, nofollow');
+    }
+    res.sendFile(path.join(publicDir, 'app-shell.html'));
   });
 }
 

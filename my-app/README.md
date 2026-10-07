@@ -11,7 +11,7 @@ React Router 7 uses package exports that the existing CRA/Jest 27 resolver does 
 ## Explore the private preview
 
 - `/`: New Massachusetts-focused homepage using the supplied Hanson mascot.
-- `/heat-pumps`: Heating and cooling explainer, cold-climate design, cost factors and FAQs.
+- `/blog/heat-pumps-massachusetts-winter-guide`: Detailed heat-pump blog covering Massachusetts winter heating, technology, design, costs and interactive heat-flow diagrams. `/heat-pumps`, `/heatpump` and `/products` redirect here.
 - `/assessment`: Mass Save Home Energy Assessment overview, eligibility context and visit preparation.
 - `/how-it-works`: Six installation stages, homeowner preparation and handover expectations.
 - `/warranty`: Equipment versus labor coverage, registration questions and system care.
@@ -33,7 +33,7 @@ Warm Stone palette: chalk (#FAF8F5), putty (#E6DFD5), stone (#D1C8B9), dark taup
 
 The homeowner guides link to Mass Save, ENERGY STAR and Department of Energy-hosted installation guidance checked on September 13, 2026. Ventrix Supply is confirmed by the owner as Hanson’s sister business. The website now links its TCL equipment brochures and explains conditional extended equipment coverage up to 10 years. Hanson installation labor terms, maintenance plans and public contact details still need confirmation. See docs/ventrix-content-sources.md for product-specific evidence and conflicting supplier warranty language.
 
-`src/revamp/model.ts` defines the draft, lead and display statuses. The live build uses `REACT_APP_DEPLOYMENT_MODE=live` to submit to the existing backend at `/api/requests`, show a saved-request receipt, and provide password-protected staff access at `/admin`. New consented heat-pump and assessment requests are sent to Ventrix from the server. Incoming status webhooks, real appointment booking, customer accounts, photo uploads and direct notifications remain deferred. See `docs/integration-notes.md` for storage and partner mapping, and `../docs/production-deployment.md` for deployment and rollback instructions. The root Dockerfile builds the frontend and backend together for hansonhome.us.
+`src/revamp/model.ts` defines the draft, lead and display statuses. The live build uses `REACT_APP_DEPLOYMENT_MODE=live` to submit to the existing backend at `/api/requests`, show a saved-request receipt, and provide password-protected staff access at `ops.hansonhome.us`. New consented heat-pump and assessment requests are sent to Ventrix from the server. Incoming status webhooks, real appointment booking, customer accounts, photo uploads and direct notifications remain deferred. See `docs/integration-notes.md` for storage and partner mapping, and `../docs/production-deployment.md` for deployment and rollback instructions. The root Dockerfile builds the frontend and backend together for both hostnames.
 
 ## Private preview hosting
 

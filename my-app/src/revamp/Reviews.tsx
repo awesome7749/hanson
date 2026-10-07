@@ -98,24 +98,10 @@ export default function GoogleReviews() {
         ))}
       </div>
       <div className="inline-actions">
-        <a
-          className="button"
-          href={sample ? undefined : data.writeReviewUrl}
-          onClick={sample ? (e) => e.preventDefault() : undefined}
-          target={sample ? undefined : "_blank"}
-          rel="noreferrer"
-        >
-          Review us on Google
-        </a>
-        <a
-          className="text-link"
-          href={sample ? undefined : data.mapsUrl}
-          onClick={sample ? (e) => e.preventDefault() : undefined}
-          target={sample ? undefined : "_blank"}
-          rel="noreferrer"
-        >
-          See all reviews <span aria-hidden="true">↗</span>
-        </a>
+        {sample ? <button className="button" type="button" disabled>Review us on Google</button> :
+          <a className="button" href={data.writeReviewUrl} target="_blank" rel="noreferrer">Review us on Google</a>}
+        {sample ? <button className="text-link" type="button" disabled>See all reviews <span aria-hidden="true">↗</span></button> :
+          <a className="text-link" href={data.mapsUrl} target="_blank" rel="noreferrer">See all reviews <span aria-hidden="true">↗</span></a>}
       </div>
       {sample && (
         <p className="reviews-sample-note">

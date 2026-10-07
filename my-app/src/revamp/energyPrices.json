@@ -1,0 +1,79 @@
+{
+  "asOf": "2026-09-25",
+  "oil": {
+    "pricePerGallon": 6.15,
+    "asOf": "2026-09-21",
+    "source": "Mass. DOER weekly heating oil survey (statewide average)",
+    "sourceUrl": "https://www.mass.gov/info-details/massachusetts-home-heating-fuels-prices"
+  },
+  "propane": {
+    "pricePerGallon": 3.62,
+    "asOf": "2026-09-21",
+    "source": "Mass. DOER weekly propane survey (statewide average)",
+    "sourceUrl": "https://www.mass.gov/info-details/massachusetts-home-heating-fuels-prices"
+  },
+  "gas": {
+    "National Grid (Boston Gas)": {
+      "perTherm": 2.47,
+      "period": "winter 2025–26",
+      "source": "National Grid R-3 rate summary & DPU gas charges",
+      "sourceUrl": "https://www.nationalgridus.com/media/pdfs/billing-payments/gas-rates/mag/2025/ma-gas-rate-summary-11-25-service-rates.pdf"
+    },
+    "Eversource (NSTAR Gas)": {
+      "perTherm": 2.56,
+      "period": "winter 2025–26",
+      "source": "Mass. DPU gas supply & delivery charges (NSTAR Gas R-3)",
+      "sourceUrl": "https://www.mass.gov/info-details/information-on-gas-supply-and-delivery-charges"
+    },
+    "Eversource (EGMA)": {
+      "perTherm": 2.6,
+      "period": "winter 2025–26",
+      "source": "Mass. DPU gas supply & delivery charges (EGMA R-3)",
+      "sourceUrl": "https://www.mass.gov/info-details/information-on-gas-supply-and-delivery-charges"
+    }
+  },
+  "electric": {
+    "Eversource": {
+      "centsPerKwh": 35.96,
+      "heatPumpCentsPerKwh": 28.13,
+      "period": "Supply Aug 2026–Jan 2027; heat-pump rate R-1HP winter delivery",
+      "source": "Eversource Greater Boston rate summary (Sept 1, 2026)",
+      "sourceUrl": "https://www.eversource.com/docs/default-source/rates-tariffs/ema-greater-boston-rates.pdf"
+    },
+    "National Grid": {
+      "centsPerKwh": 39.51,
+      "heatPumpCentsPerKwh": 35.28,
+      "period": "Fixed supply Aug 2026–Jan 2027; heat-pump winter delivery (Aug 1, 2026)",
+      "source": "National Grid R-1 delivery & supply rates",
+      "sourceUrl": "https://www.nationalgridus.com/media/pdfs/billing-payments/tariffs/mae/meco_delivery.pdf"
+    },
+    "Belmont Municipal Light Department": {
+      "centsPerKwh": 26.16,
+      "heatPumpCentsPerKwh": null,
+      "period": "Rate A (Mar 1, 2026) + power cost adjustment (Sept 1, 2026)",
+      "source": "Belmont Light residential rates",
+      "sourceUrl": "https://www.belmontlight.com/customer-services/residential-rates/"
+    },
+    "Braintree Electric Light Department": {
+      "centsPerKwh": 16.07,
+      "heatPumpCentsPerKwh": null,
+      "period": "Rate A-1 (Mar 1, 2025, latest posted)",
+      "source": "BELD electric rates",
+      "sourceUrl": "https://www.beld.com/electric-rates/"
+    },
+    "Reading Municipal Light Department": {
+      "centsPerKwh": 17.82,
+      "heatPumpCentsPerKwh": null,
+      "period": "September 2026 monthly adjustments",
+      "source": "RMLD monthly rate adjustments",
+      "sourceUrl": "https://www.rmld.com/161/Monthly-Rate-Adjustments"
+    },
+    "Wakefield Municipal Light Department": {
+      "centsPerKwh": 16.33,
+      "heatPumpCentsPerKwh": null,
+      "period": "August 2026 residential cost of electricity",
+      "source": "Wakefield MGLD residential rates",
+      "sourceUrl": "https://wmgld.com/residential/rates/"
+    }
+  }
+}
