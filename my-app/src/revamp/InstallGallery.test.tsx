@@ -46,7 +46,7 @@ beforeEach(() => {
 afterEach(() => { jest.useRealTimers(); });
 
 const visible = (value: boolean) => act(() => reportVisibility([{ isIntersecting: value, intersectionRatio: value ? 1 : 0 }]));
-const advance = () => act(() => { jest.advanceTimersByTime(6000); });
+const advance = () => act(() => { jest.advanceTimersByTime(4000); });
 const setupScrolling = () => {
   const track = screen.getByRole("group", { name: "Installation photos" });
   Object.defineProperties(track, { clientWidth: { value: 600 }, scrollWidth: { value: 2000 }, scrollLeft: { value: 0, writable: true } });
@@ -56,23 +56,23 @@ const setupScrolling = () => {
   return { track, scroll };
 };
 
-test("autoplay advances every six seconds only in view and returns to the start", () => {
+test("autoplay advances every four seconds only in view and returns to the start", () => {
   render(<InstallGallery />);
   const { track, scroll } = setupScrolling();
   advance(); expect(scroll).not.toHaveBeenCalled();
   visible(true); advance(); expect(track.scrollLeft).toBe(200);
-  act(() => { jest.advanceTimersByTime(36000); }); expect(track.scrollLeft).toBe(1400);
+  act(() => { jest.advanceTimersByTime(24000); }); expect(track.scrollLeft).toBe(1400);
   advance(); expect(track.scrollLeft).toBe(0);
   visible(false); scroll.mockClear(); advance(); expect(scroll).not.toHaveBeenCalled();
 });
 
-test("hover, hidden tabs and the pause control stop automatic movement", () => {
+test("hover allows autoplay; hidden tabs and the pause control stop movement", () => {
   render(<InstallGallery />);
   const { track, scroll } = setupScrolling();
   visible(true);
   const section = screen.getByRole("region", { name: "Real installs, real homes" });
-  fireEvent.mouseEnter(section); advance(); expect(scroll).not.toHaveBeenCalled();
-  fireEvent.mouseLeave(section); advance(); expect(track.scrollLeft).toBe(200);
+  fireEvent.mouseEnter(section); advance(); expect(track.scrollLeft).toBe(200);
+  fireEvent.mouseLeave(section);
   Object.defineProperty(document, "hidden", { configurable: true, value: true });
   fireEvent(document, new Event("visibilitychange")); advance(); expect(track.scrollLeft).toBe(200);
   Object.defineProperty(document, "hidden", { configurable: true, value: false });
@@ -83,11 +83,10 @@ test("hover, hidden tabs and the pause control stop automatic movement", () => {
   advance(); expect(track.scrollLeft).toBe(400);
 });
 
-test("touch interaction stops autoplay until the visitor chooses play", () => {
+test("touch interaction pauses briefly and autoplay resumes without pressing play", () => {
   render(<InstallGallery />);
   const { track, scroll } = setupScrolling(); visible(true);
   fireEvent.pointerDown(track); advance(); expect(scroll).not.toHaveBeenCalled();
-  fireEvent.click(screen.getByRole("button", { name: "Play installation carousel" }));
   advance(); expect(track.scrollLeft).toBe(200);
   fireEvent.click(screen.getByRole("button", { name: "Enlarge photo 1: Outdoor installation" }));
   advance(); expect(track.scrollLeft).toBe(200);
@@ -99,4 +98,16 @@ test("reduced-motion preferences keep autoplay off by default", () => {
   const { scroll } = setupScrolling(); visible(true); advance();
   expect(scroll).not.toHaveBeenCalled();
   expect(screen.getByRole("button", { name: "Play installation carousel" })).toBeInTheDocument();
+});
+
+
+test("manual arrow navigation resumes automatically without a play click", () => {
+  render(<InstallGallery />);
+  const { track } = setupScrolling(); visible(true);
+  fireEvent.scroll(track);
+  fireEvent.click(screen.getByRole("button", { name: "Next installation photos" }));
+  expect(track.scrollLeft).toBe(200);
+  advance(); expect(track.scrollLeft).toBe(200);
+  advance(); expect(track.scrollLeft).toBe(400);
+  expect(screen.getByRole("button", { name: "Pause installation carousel" })).toBeInTheDocument();
 });

@@ -4036,15 +4036,16 @@ footer {
   .blog-article-faqs h3 { font-size: 20px; }
 }
 
-/* Real installation photos: compact manual carousel and full-image viewer. */
-.install-gallery-track { display: flex; position: relative; gap: 22px; overflow-x: auto; scroll-snap-type: x mandatory; scrollbar-width: none; margin-top: 30px; padding: 4px 2px 12px; }
+/* Real installation photos: compact carousel and full-image viewer. */
+.install-gallery-carousel { position: relative; margin-top: 30px; }
+.install-gallery-track { display: flex; position: relative; gap: 22px; overflow-x: auto; scroll-snap-type: x mandatory; scrollbar-width: none; margin-top: 0; padding: 4px 2px 6px; }
 .install-gallery-track::-webkit-scrollbar { display: none; }
 .install-gallery-card { flex: 0 0 calc((100% - 44px) / 3); margin: 0; min-width: 0; scroll-snap-align: start; }
 .install-gallery-photo { display: block; position: relative; width: 100%; padding: 0; border: 0; border-radius: 14px; overflow: hidden; background: var(--stone); cursor: zoom-in; }
 .install-gallery-photo img { display: block; width: 100%; height: auto; aspect-ratio: 4 / 3; object-fit: cover; }
 .install-gallery-enlarge { position: absolute; bottom: 12px; right: 12px; display: flex; align-items: center; gap: 7px; padding: 8px 10px; border-radius: 7px; color: #fff; background: rgb(35 33 29 / 78%); font-size: 11px; }
 .install-gallery-card figcaption { margin-top: 14px; font-size: 14px; color: var(--taupe); }
-.install-gallery-footer { display: flex; justify-content: space-between; align-items: center; gap: 16px; margin-top: 18px; padding-top: 18px; border-top: 1px solid var(--stone); font-size: 13px; color: var(--taupe); }
+.install-gallery-footer { display: flex; justify-content: space-between; align-items: center; gap: 16px; margin-top: 2px; font-size: 12px; color: var(--taupe); }
 .install-gallery-hint { margin-left: 20px; color: var(--muted); }
 .install-gallery-controls { display: flex; flex-shrink: 0; gap: 10px; }
 .install-gallery-controls button, .install-lightbox-top button { display: grid; place-items: center; width: 44px; height: 44px; padding: 0; border: 1px solid var(--stone); border-radius: 50%; background: transparent; color: inherit; cursor: pointer; }
@@ -4062,7 +4063,8 @@ footer {
 .install-lightbox-bottom p { margin: 0; font-size: 15px; }
 @media (max-width: 900px) { .install-gallery-card { flex-basis: calc((100% - 22px) / 2); } }
 @media (max-width: 600px) {
-  .install-gallery-track { gap: 16px; margin-top: 24px; }
+  .install-gallery-carousel { margin-top: 24px; }
+  .install-gallery-track { gap: 16px; }
   .install-gallery-card { flex-basis: 86%; }
   .install-gallery-hint { display: block; margin: 5px 0 0; font-size: 11px; }
   .install-lightbox { width: calc(100% - 24px); max-height: calc(100dvh - 24px); }
@@ -4070,3 +4072,11 @@ footer {
   .install-lightbox-content > img { height: 58dvh; }
   .install-lightbox-bottom p { font-size: 13px; }
 }
+
+.install-gallery-side { position: absolute; z-index: 1; top: calc((100% - 42px) / 2); transform: translateY(-50%); display: grid; place-items: center; width: 44px; height: 44px; padding: 0; border: 1px solid rgb(101 89 75 / 20%); border-radius: 50%; background: rgb(250 248 245 / 96%); color: var(--ink); box-shadow: 0 2px 10px rgb(0 0 0 / 12%); cursor: pointer; }
+.install-gallery-prev { left: 12px; }
+.install-gallery-next { right: 12px; }
+.install-gallery-side:disabled { visibility: hidden; }
+.install-gallery-side:hover { background: #fff; }
+.install-gallery-play { display: inline-flex; align-items: center; justify-content: center; gap: 6px; min-height: 32px; padding: 4px 8px; border: 0; border-radius: 5px; background: transparent; color: var(--taupe); font: inherit; cursor: pointer; }
+.install-gallery-play:hover { background: var(--soft); }
