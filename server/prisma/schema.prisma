@@ -65,6 +65,20 @@ model PartnerDelivery {
   updatedAt DateTime @updatedAt
 }
 
+// Ledger of auto-SMS sent to Facebook Instant Form leads (id = Meta lead id,
+// e.g. "l:123..."). A row means the lead was handled: texted, failed, or
+// skipped because it pre-dated the feature.
+model FbLeadSms {
+  id            String    @id
+  phone         String
+  name          String?
+  leadCreatedAt DateTime
+  status        String // sent, failed, skipped_backlog
+  sentAt        DateTime?
+  error         String?
+  createdAt     DateTime  @default(now())
+}
+
 model Prediction {
   id        String   @id @default(uuid())
   createdAt DateTime @default(now())

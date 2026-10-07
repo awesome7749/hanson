@@ -13,6 +13,7 @@ import { createLeadNotifier } from './services/leadNotifier';
 import { createMetaCapi } from './services/metaCapi';
 import { createGoogleReviews } from './services/googleReviews';
 import { createChatProvider } from './services/chatService';
+import { createFbLeadSms } from './services/fbLeadSms';
 
 // Load environment variables
 dotenv.config();
@@ -71,6 +72,13 @@ const chatProvider = createChatProvider(leadNotifier);
 if (!leadNotifier) console.log('Partial-lead email notifications disabled (SMTP_HOST/SMTP_USER/SMTP_PASS not set).');
 if (!metaCapi) console.log('Meta Conversions API disabled (META_CAPI_TOKEN not set).');
 if (!googleReviews) console.log('Google reviews disabled (GOOGLE_PLACES_API_KEY/GOOGLE_PLACE_ID not set).');
+
+// Auto-SMS to new Facebook Instant Form leads from the Hanson RingCentral
+// line. No-op unless RC_CLIENT_ID/RC_CLIENT_SECRET/RC_JWT/FB_LEADS_SHEET_ID
+// are configured.
+const fbLeadSms = createFbLeadSms(prisma as any);
+if (fbLeadSms && require.main === module) fbLeadSms.start();
+if (!fbLeadSms) console.log('FB lead auto-SMS disabled (RC_CLIENT_ID/RC_CLIENT_SECRET/RC_JWT/FB_LEADS_SHEET_ID not set).');
 
 // Mount API routes
 app.use('/api', createApiRouter(rentcastService, hvacPredictorService, databaseService, storageService, adminPassword, ventrix, { notifier: leadNotifier, capi: metaCapi, reviews: googleReviews, chat: chatProvider }));
