@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from "react";
+import React, { useCallback, useEffect, useRef, useState } from "react";
 import { createPortal } from "react-dom";
 import { Icon } from "./Shared";
 
@@ -41,7 +41,26 @@ export default function InstallGallery() {
   const dialog = useRef<HTMLDialogElement>(null);
   const [position, setPosition] = useState({ first: 0, atStart: true, atEnd: false });
   const [selected, setSelected] = useState<number | null>(null);
+  const [paused, setPaused] = useState(() => window.matchMedia?.("(prefers-reduced-motion: reduce)").matches ?? false);
+  const [hovered, setHovered] = useState(false);
+  const [visible, setVisible] = useState(false);
+  const [pageHidden, setPageHidden] = useState(document.hidden);
   const isOpen = selected !== null;
+
+  useEffect(() => {
+    const preference = window.matchMedia?.("(prefers-reduced-motion: reduce)");
+    const onMotionChange = () => { if (preference?.matches) setPaused(true); };
+    const onVisibilityChange = () => setPageHidden(document.hidden);
+    const observer = typeof IntersectionObserver === "undefined" ? undefined : new IntersectionObserver(([entry]) => setVisible(entry.isIntersecting && entry.intersectionRatio >= 0.25), { threshold: 0.25 });
+    if (track.current) observer?.observe(track.current);
+    preference?.addEventListener("change", onMotionChange);
+    document.addEventListener("visibilitychange", onVisibilityChange);
+    return () => {
+      observer?.disconnect();
+      preference?.removeEventListener("change", onMotionChange);
+      document.removeEventListener("visibilitychange", onVisibilityChange);
+    };
+  }, []);
 
   useEffect(() => {
     const node = track.current;
@@ -70,23 +89,33 @@ export default function InstallGallery() {
     };
   }, [isOpen]);
 
-  const move = (direction: number) => {
+  const move = useCallback((direction: number, loop = false) => {
     const node = track.current;
-    if (!node) return;
+    if (!node || node.scrollWidth <= node.clientWidth) return;
     const step = (node.children[1] as HTMLElement).offsetLeft - (node.children[0] as HTMLElement).offsetLeft;
+    const atEnd = node.scrollLeft + node.clientWidth >= node.scrollWidth - 2;
     const index = direction > 0 ? Math.floor((node.scrollLeft + 2) / step) + 1 : Math.ceil((node.scrollLeft - 2) / step) - 1;
-    node.scrollTo({ left: index * step, behavior: window.matchMedia("(prefers-reduced-motion: reduce)").matches ? "auto" : "smooth" });
-  };
+    const restart = loop && atEnd;
+    node.scrollTo({ left: restart ? 0 : index * step, behavior: restart || window.matchMedia?.("(prefers-reduced-motion: reduce)").matches ? "auto" : "smooth" });
+  }, []);
+
+  useEffect(() => {
+    if (paused || hovered || !visible || pageHidden || isOpen) return;
+    const timer = window.setInterval(() => move(1, true), 6000);
+    return () => window.clearInterval(timer);
+  }, [paused, hovered, visible, pageHidden, isOpen, move]);
   const changePhoto = (direction: number) => setSelected(current => current === null ? null : (current + direction + photos.length) % photos.length);
 
   return (
-    <section className="section wrap install-gallery" aria-labelledby="install-gallery-title">
+    <section className="section wrap install-gallery" aria-labelledby="install-gallery-title"
+      onMouseEnter={() => setHovered(true)} onMouseLeave={() => setHovered(false)}
+      onFocus={event => { if (!(event.target as HTMLElement).closest(".install-gallery-play")) setPaused(true); }}>
       <div className="section-heading">
         <span className="eyebrow">OUR WORK</span>
         <h2 id="install-gallery-title">Real installs, real homes</h2>
         <p>A look at our crew’s work in Massachusetts homes. Select a photo for a closer look.</p>
       </div>
-      <div className="install-gallery-track" id="installation-photos" ref={track} role="group" aria-label="Installation photos" tabIndex={0}>
+      <div className="install-gallery-track" id="installation-photos" ref={track} role="group" aria-label="Installation photos" tabIndex={0} onPointerDown={() => setPaused(true)} onWheel={event => { if (event.deltaX !== 0) setPaused(true); }}>
         {photos.map((photo, index) => (
           <figure className="install-gallery-card" key={photo.src}>
             <button className="install-gallery-photo" onClick={() => setSelected(index)} aria-label={`Enlarge photo ${index + 1}: ${photo.caption}`}>
@@ -100,8 +129,11 @@ export default function InstallGallery() {
       <div className="install-gallery-footer">
         <span>{Math.min(position.first + 1, photos.length)} / {photos.length} <span className="install-gallery-hint">Swipe or use the arrows to explore</span></span>
         <div className="install-gallery-controls">
-          <button aria-label="Previous installation photos" aria-controls="installation-photos" disabled={position.atStart} onClick={() => move(-1)}><span className="install-gallery-back"><Icon name="arrow" /></span></button>
-          <button aria-label="Next installation photos" aria-controls="installation-photos" disabled={position.atEnd} onClick={() => move(1)}><Icon name="arrow" /></button>
+          <button className="install-gallery-play" aria-label={paused ? "Play installation carousel" : "Pause installation carousel"} aria-controls="installation-photos" onClick={() => setPaused(value => !value)}>
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor" aria-hidden="true"><path d={paused ? "M4 2.5 13 8 4 13.5Z" : "M4 3h3v10H4zM9 3h3v10H9z"} /></svg>
+          </button>
+          <button aria-label="Previous installation photos" aria-controls="installation-photos" disabled={position.atStart} onClick={() => { setPaused(true); move(-1); }}><span className="install-gallery-back"><Icon name="arrow" /></span></button>
+          <button aria-label="Next installation photos" aria-controls="installation-photos" disabled={position.atEnd} onClick={() => { setPaused(true); move(1); }}><Icon name="arrow" /></button>
         </div>
       </div>
       {selected !== null && createPortal(
