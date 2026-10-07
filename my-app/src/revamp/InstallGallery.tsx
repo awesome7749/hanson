@@ -42,10 +42,19 @@ export default function InstallGallery() {
   const [position, setPosition] = useState({ first: 0, atStart: true, atEnd: false });
   const [selected, setSelected] = useState<number | null>(null);
   const [paused, setPaused] = useState(() => window.matchMedia?.("(prefers-reduced-motion: reduce)").matches ?? false);
-  const [hovered, setHovered] = useState(false);
+  const [interacting, setInteracting] = useState(false);
+  const interactionTimer = useRef<number | undefined>(undefined);
   const [visible, setVisible] = useState(false);
   const [pageHidden, setPageHidden] = useState(document.hidden);
   const isOpen = selected !== null;
+
+  const pauseForInteraction = useCallback(() => {
+    setInteracting(true);
+    window.clearTimeout(interactionTimer.current);
+    interactionTimer.current = window.setTimeout(() => setInteracting(false), 3000);
+  }, []);
+
+  useEffect(() => () => window.clearTimeout(interactionTimer.current), []);
 
   useEffect(() => {
     const preference = window.matchMedia?.("(prefers-reduced-motion: reduce)");
@@ -67,7 +76,7 @@ export default function InstallGallery() {
     if (!node) return;
     const sync = () => {
       const step = node.children[1] instanceof HTMLElement ? node.children[1].offsetLeft - (node.children[0] as HTMLElement).offsetLeft : 1;
-      setPosition({ first: Math.round(node.scrollLeft / step), atStart: node.scrollLeft < 2, atEnd: node.scrollLeft + node.clientWidth >= node.scrollWidth - 2 });
+      setPosition({ first: Math.round(node.scrollLeft / step), atStart: node.scrollLeft <= 2, atEnd: node.scrollLeft + node.clientWidth >= node.scrollWidth - 2 });
     };
     sync();
     node.addEventListener("scroll", sync, { passive: true });
@@ -100,22 +109,25 @@ export default function InstallGallery() {
   }, []);
 
   useEffect(() => {
-    if (paused || hovered || !visible || pageHidden || isOpen) return;
-    const timer = window.setInterval(() => move(1, true), 6000);
+    if (paused || interacting || !visible || pageHidden || isOpen) return;
+    const timer = window.setInterval(() => move(1, true), 4000);
     return () => window.clearInterval(timer);
-  }, [paused, hovered, visible, pageHidden, isOpen, move]);
+  }, [paused, interacting, visible, pageHidden, isOpen, move]);
   const changePhoto = (direction: number) => setSelected(current => current === null ? null : (current + direction + photos.length) % photos.length);
 
   return (
     <section className="section wrap install-gallery" aria-labelledby="install-gallery-title"
-      onMouseEnter={() => setHovered(true)} onMouseLeave={() => setHovered(false)}
-      onFocus={event => { if (!(event.target as HTMLElement).closest(".install-gallery-play")) setPaused(true); }}>
+      onFocus={event => { const target = event.target as HTMLElement; if (event.currentTarget.contains(target) && target.matches(":focus-visible") && !target.closest(".install-gallery-play")) setPaused(true); }}>
       <div className="section-heading">
         <span className="eyebrow">OUR WORK</span>
         <h2 id="install-gallery-title">Real installs, real homes</h2>
         <p>A look at our crew’s work in Massachusetts homes. Select a photo for a closer look.</p>
       </div>
-      <div className="install-gallery-track" id="installation-photos" ref={track} role="group" aria-label="Installation photos" tabIndex={0} onPointerDown={() => setPaused(true)} onWheel={event => { if (event.deltaX !== 0) setPaused(true); }}>
+      <div className="install-gallery-carousel">
+      <div className="install-gallery-track" id="installation-photos" ref={track} role="group" aria-label="Installation photos" tabIndex={0}
+        onPointerDown={pauseForInteraction} onPointerUp={pauseForInteraction} onPointerCancel={pauseForInteraction}
+        onPointerMove={event => { if (event.buttons !== 0) pauseForInteraction(); }}
+        onWheel={event => { if (event.deltaX !== 0) pauseForInteraction(); }}>
         {photos.map((photo, index) => (
           <figure className="install-gallery-card" key={photo.src}>
             <button className="install-gallery-photo" onClick={() => setSelected(index)} aria-label={`Enlarge photo ${index + 1}: ${photo.caption}`}>
@@ -126,15 +138,15 @@ export default function InstallGallery() {
           </figure>
         ))}
       </div>
+      <button className="install-gallery-side install-gallery-prev" aria-label="Previous installation photos" aria-controls="installation-photos" disabled={position.atStart} onClick={() => { pauseForInteraction(); move(-1); }}><span className="install-gallery-back"><Icon name="arrow" /></span></button>
+      <button className="install-gallery-side install-gallery-next" aria-label="Next installation photos" aria-controls="installation-photos" disabled={position.atEnd} onClick={() => { pauseForInteraction(); move(1); }}><Icon name="arrow" /></button>
+      </div>
       <div className="install-gallery-footer">
-        <span>{Math.min(position.first + 1, photos.length)} / {photos.length} <span className="install-gallery-hint">Swipe or use the arrows to explore</span></span>
-        <div className="install-gallery-controls">
+        <span>{Math.min(position.first + 1, photos.length)} / {photos.length} <span className="install-gallery-hint">Swipe to explore</span></span>
           <button className="install-gallery-play" aria-label={paused ? "Play installation carousel" : "Pause installation carousel"} aria-controls="installation-photos" onClick={() => setPaused(value => !value)}>
             <svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor" aria-hidden="true"><path d={paused ? "M4 2.5 13 8 4 13.5Z" : "M4 3h3v10H4zM9 3h3v10H9z"} /></svg>
+            {paused ? "Play" : "Pause"}
           </button>
-          <button aria-label="Previous installation photos" aria-controls="installation-photos" disabled={position.atStart} onClick={() => { setPaused(true); move(-1); }}><span className="install-gallery-back"><Icon name="arrow" /></span></button>
-          <button aria-label="Next installation photos" aria-controls="installation-photos" disabled={position.atEnd} onClick={() => { setPaused(true); move(1); }}><Icon name="arrow" /></button>
-        </div>
       </div>
       {selected !== null && createPortal(
         <dialog className="install-lightbox" ref={dialog} aria-labelledby="installation-photo-caption" onCancel={() => setSelected(null)} onClick={event => { if (event.target === event.currentTarget) setSelected(null); }} onKeyDown={event => {

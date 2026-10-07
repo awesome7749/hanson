@@ -256,3 +256,33 @@ database schema or customer records were changed for this frontend update.
 Immediate rollback:
 
     gcloud run services update-traffic hanson-app --to-revisions=hanson-app-carousel-20261007-3323135=100 --region=us-east1 --project=hanson-hvac --account=gaohan1990@gmail.com
+
+
+## Carousel resume and side controls deployment (October 7, 2026)
+
+Production serves `hanson-app-side-carousel-20261007-2892b55` at 100% traffic.
+Source: `2892b55`, including main through `253a110`; PR #21.
+Image: `gcr.io/hanson-hvac/hanson-app@sha256:bb3b91db2a6b20181a2df52efdf012d0212363e14a5a8ff9d64bb13de6e02ae2`.
+Cloud Build: `c2998303-9449-4633-9821-b2297233d887`.
+
+Photos advance every four seconds while visible. Hover no longer blocks autoplay;
+manual navigation and swiping pause temporarily, then resume automatically.
+Explicit pause, keyboard focus, reduced-motion preferences, hidden tabs and the
+full-photo viewer retain their pause behavior. Previous/next arrows overlay the
+sides of the photos, with a compact counter and labeled play/pause control below.
+The already-open user tab was found to have the older manual-only bundle loaded;
+refreshing that tab is required to load this release.
+
+Validation: all 92 frontend tests passed and the production build succeeded.
+Local browser checks covered desktop and 390px layouts, side controls, no horizontal
+overflow and automatic resumption after manual navigation. Staged and public HTTP
+checks passed homepage/bundles, all ten photos, blog/program routes, health,
+non-California tracking policy and public staff isolation. The ops homepage returns
+200. Browser automation timed out during staged/live verification, so neither a
+fresh public browser check nor a refresh of the user's tab was confirmed.
+No backend code, runtime settings, integrations, database schema or customer
+records were changed for this frontend update.
+
+Immediate rollback:
+
+    gcloud run services update-traffic hanson-app --to-revisions=hanson-app-autoplay-20261007-f45b419=100 --region=us-east1 --project=hanson-hvac --account=gaohan1990@gmail.com
