@@ -9,6 +9,7 @@ import { LifestylePhoto } from "./LifestylePhoto";
 import { HeroSlideshow } from "./HeroSlideshow";
 import { QuoteBreakdown, RebateHighlight } from "./Pricing";
 import { InstallationPhoto } from "./InstallationPhoto";
+import InstallGallery from "./InstallGallery";
 
 export default function Home() {
   const [address, setAddress] = useState("");
@@ -100,6 +101,8 @@ export default function Home() {
         </ol>
         <Link className="button" to="/start?intent=heat-pump">Start my estimate <Icon name="arrow" /></Link>
       </section>
+
+      <InstallGallery />
 
       <section className="support-feature wrap">
         <div>

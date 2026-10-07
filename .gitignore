@@ -43,3 +43,6 @@ server/2026-4 Ventrix TCL Pricing.pdf
 
 # Location database is fetched and verified during the container build.
 server/data/*.mmdb
+.venv/
+contact-1.jpg
+contact-2.jpg
