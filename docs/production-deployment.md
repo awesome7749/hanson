@@ -205,3 +205,28 @@ changes were made.
 Immediate rollback:
 
     gcloud run services update-traffic hanson-app --to-revisions=hanson-app-ca-banner-20261003-cc5ab00=100 --region=us-east1 --project=hanson-hvac --account=gaohan1990@gmail.com
+
+## Installation carousel deployment (October 7, 2026)
+
+Production serves `hanson-app-carousel-20261007-3323135` at 100% traffic.
+Source: `3323135`, including main through `b9fa052`; PR #19.
+Image: `gcr.io/hanson-hvac/hanson-app@sha256:56127103eb3301c72ad27318db8f687722f48382212e2dec0ebccd18632e9ae5`.
+Cloud Build: `c70f9471-1091-4f56-afa2-11e4410fa913`.
+
+The homepage installation photos use a manual carousel with three frames on
+desktop, two on tablets and one plus a preview on phones. Selecting a photo
+opens the complete image in a native modal viewer, with previous/next controls,
+arrow keys, Escape-to-close, scroll locking and focus restoration.
+
+Validation: 87 frontend tests passed, including new viewer interaction tests;
+the production build succeeded. Local, staged and live browser checks verified
+desktop and 390px layouts, navigation, all ten photos, the last-photo boundary,
+uncropped viewing and no horizontal page overflow. Staged and public smoke checks
+passed homepage/assets, photo assets, blog/program routes, health, non-California
+tracking policy and public staff isolation. The ops homepage returns 200.
+Existing runtime settings, lead integrations and database are retained. No
+customer submissions or migrations were performed for this frontend change.
+
+Immediate rollback:
+
+    gcloud run services update-traffic hanson-app --to-revisions=hanson-app-gallery-20261007=100 --region=us-east1 --project=hanson-hvac --account=gaohan1990@gmail.com

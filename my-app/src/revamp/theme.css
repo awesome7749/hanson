@@ -4036,12 +4036,37 @@ footer {
   .blog-article-faqs h3 { font-size: 20px; }
 }
 
-/* Real installation photo gallery (Home) */
-.install-gallery-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 14px; margin-top: 26px; }
-.install-gallery-grid figure { margin: 0; min-width: 0; }
-.install-gallery-grid figure.wide { grid-column: span 2; }
-.install-gallery-grid img { width: 100%; height: auto; aspect-ratio: 3 / 4; object-fit: cover; object-position: center; border-radius: 14px; display: block; }
-.install-gallery-grid figure.wide img { aspect-ratio: 3 / 2; }
-.install-gallery-grid figcaption { font-size: 12px; margin-top: 8px; color: var(--muted); }
-@media (max-width: 900px) { .install-gallery-grid { grid-template-columns: repeat(2, 1fr); } }
-@media (max-width: 480px) { .install-gallery-grid { grid-template-columns: 1fr; } .install-gallery-grid figure.wide { grid-column: span 1; } .install-gallery-grid figure.wide img { aspect-ratio: 3 / 2; } }
+/* Real installation photos: compact manual carousel and full-image viewer. */
+.install-gallery-track { display: flex; position: relative; gap: 22px; overflow-x: auto; scroll-snap-type: x mandatory; scrollbar-width: none; margin-top: 30px; padding: 4px 2px 12px; }
+.install-gallery-track::-webkit-scrollbar { display: none; }
+.install-gallery-card { flex: 0 0 calc((100% - 44px) / 3); margin: 0; min-width: 0; scroll-snap-align: start; }
+.install-gallery-photo { display: block; position: relative; width: 100%; padding: 0; border: 0; border-radius: 14px; overflow: hidden; background: var(--stone); cursor: zoom-in; }
+.install-gallery-photo img { display: block; width: 100%; height: auto; aspect-ratio: 4 / 3; object-fit: cover; }
+.install-gallery-enlarge { position: absolute; bottom: 12px; right: 12px; display: flex; align-items: center; gap: 7px; padding: 8px 10px; border-radius: 7px; color: #fff; background: rgb(35 33 29 / 78%); font-size: 11px; }
+.install-gallery-card figcaption { margin-top: 14px; font-size: 14px; color: var(--taupe); }
+.install-gallery-footer { display: flex; justify-content: space-between; align-items: center; gap: 16px; margin-top: 18px; padding-top: 18px; border-top: 1px solid var(--stone); font-size: 13px; color: var(--taupe); }
+.install-gallery-hint { margin-left: 20px; color: var(--muted); }
+.install-gallery-controls { display: flex; flex-shrink: 0; gap: 10px; }
+.install-gallery-controls button, .install-lightbox-top button { display: grid; place-items: center; width: 44px; height: 44px; padding: 0; border: 1px solid var(--stone); border-radius: 50%; background: transparent; color: inherit; cursor: pointer; }
+.install-gallery-controls button:hover:not(:disabled) { background: var(--soft); }
+.install-gallery-controls button:disabled { opacity: .3; cursor: default; }
+.install-gallery-back { display: flex; transform: rotate(180deg); }
+.install-gallery button:focus-visible, .install-gallery-track:focus-visible, .install-lightbox button:focus-visible { outline: 2px solid var(--taupe); outline-offset: 3px; }
+.install-lightbox { width: min(1100px, calc(100% - 48px)); max-width: none; max-height: calc(100dvh - 48px); padding: 0; border: 0; border-radius: 16px; color: var(--ink); background: var(--cream, #faf9f6); }
+.install-lightbox::backdrop { background: rgb(20 18 16 / 82%); }
+.install-lightbox-content { padding: 20px; }
+.install-lightbox-top, .install-lightbox-bottom { display: flex; align-items: center; justify-content: space-between; gap: 16px; }
+.install-lightbox-top { margin-bottom: 16px; font-size: 12px; letter-spacing: .1em; }
+.install-lightbox-content > img { display: block; width: 100%; height: min(65dvh, 700px); object-fit: contain; background: #efede8; border-radius: 8px; }
+.install-lightbox-bottom { margin-top: 16px; }
+.install-lightbox-bottom p { margin: 0; font-size: 15px; }
+@media (max-width: 900px) { .install-gallery-card { flex-basis: calc((100% - 22px) / 2); } }
+@media (max-width: 600px) {
+  .install-gallery-track { gap: 16px; margin-top: 24px; }
+  .install-gallery-card { flex-basis: 86%; }
+  .install-gallery-hint { display: block; margin: 5px 0 0; font-size: 11px; }
+  .install-lightbox { width: calc(100% - 24px); max-height: calc(100dvh - 24px); }
+  .install-lightbox-content { padding: 14px; }
+  .install-lightbox-content > img { height: 58dvh; }
+  .install-lightbox-bottom p { font-size: 13px; }
+}
