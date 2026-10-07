@@ -15,6 +15,8 @@ export interface FbLead {
   phone: string; // E.164, e.g. +15089718822
   zip: string;
   adName: string;
+  looking: string;
+  timeline: string;
 }
 
 export interface FbLeadSmsConfig {
@@ -69,6 +71,8 @@ export function extractLeads(csv: string): FbLead[] {
   const zipIdx = col('zip_code');
   const adIdx = col('ad_name');
   if (idIdx < 0 || timeIdx < 0 || phoneIdx < 0) return [];
+  const lookingIdx = col('what_are_you_looking_for?');
+  const timelineIdx = col('when_are_you_looking_to_install?');
   const leads: FbLead[] = [];
   for (const row of rows.slice(1)) {
     const joined = row.join(' ').toLowerCase();
@@ -85,6 +89,8 @@ export function extractLeads(csv: string): FbLead[] {
       phone,
       zip: (row[zipIdx] || '').replace(/^z:/, '').trim(),
       adName: (row[adIdx] || '').trim(),
+      looking: lookingIdx >= 0 ? (row[lookingIdx] || '').trim().replace(/_/g, ' ') : '',
+      timeline: timelineIdx >= 0 ? (row[timelineIdx] || '').trim().replace(/_/g, ' ') : '',
     });
   }
   return leads;
@@ -111,6 +117,23 @@ export const DEFAULT_TEMPLATE =
   'Hi {firstName}, this is Hanson Home \u2014 thanks for your heat pump quote request! ' +
   'When is a good time for a quick 5-minute call about options and pricing for your home? ' +
   'Reply with a time that works, or call/text us here anytime. Reply STOP to opt out.';
+
+export const DEFAULT_FOLLOWUP_TEMPLATE =
+  'Hi {firstName}, Hanson Home here \u2014 just checking in on your heat pump quote request. ' +
+  'Pick a time that works for a quick call here: {bookingUrl} \u2014 or simply reply with a time. Reply STOP to opt out.';
+
+// Internal alert texted to the team the moment a fresh lead is first seen.
+// Plain ASCII keeps it to one or two SMS segments.
+export function buildAlertText(lead: FbLead): string {
+  const outOfState = /^0[12]\d{3}$/.test(lead.zip) ? '' : ' (OUT OF STATE)';
+  const parts = [
+    `Hanson new lead: ${lead.name || 'Unknown'} ${lead.phone}`,
+    `zip ${lead.zip}${outOfState}`,
+    lead.looking || null,
+    lead.timeline || null,
+  ].filter(Boolean);
+  return `${parts.join(' | ')}. Auto-text sent; call within the hour.`;
+}
 
 // How far back a lead can be and still get a text. Anything older when first
 // seen (e.g. rows that pre-date this feature) is recorded as skipped so the
@@ -149,14 +172,43 @@ export class RingCentralSms {
     });
     if (!res.ok) throw new Error(`RingCentral SMS failed: ${res.status} ${await res.text()}`);
   }
+
+  // True when the customer has texted us back since the given time, so the
+  // follow-up can be skipped for people who already replied.
+  async hasInboundFrom(phone: string, since: Date): Promise<boolean> {
+    const token = await this.getToken();
+    const params = new URLSearchParams({
+      direction: 'Inbound', messageType: 'SMS',
+      phoneNumber: phone, dateFrom: since.toISOString(),
+    });
+    const res = await fetch(`${this.cfg.serverUrl}/restapi/v1.0/account/~/extension/~/message-store?${params}`, {
+      headers: { Authorization: `Bearer ${token}` },
+    });
+    if (!res.ok) throw new Error(`RingCentral message-store failed: ${res.status}`);
+    const data = await res.json() as { records?: unknown[] };
+    return (data.records || []).length > 0;
+  }
+}
+
+interface LedgerRow {
+  id: string;
+  phone: string;
+  name: string | null;
+  leadCreatedAt: Date;
+  status: string;
+  sentAt: Date | null;
+  followupSentAt: Date | null;
 }
 
 export interface FbLeadSmsDeps {
   fetchText: (url: string) => Promise<string>;
   sendSms: (to: string, text: string) => Promise<void>;
+  // Checks the 808 inbox for a reply from this number since the given time.
+  hasInbound?: (phone: string, since: Date) => Promise<boolean>;
   prisma: Pick<PrismaClient, '$queryRawUnsafe' | '$executeRawUnsafe'> & {
     fbLeadSms: {
-      findUnique(args: { where: { id: string } }): Promise<unknown | null>;
+      findUnique(args: { where: { id: string } }): Promise<LedgerRow | null>;
+      findMany(args: { where: Record<string, unknown> }): Promise<LedgerRow[]>;
       create(args: { data: Record<string, unknown> }): Promise<unknown>;
       update(args: { where: { id: string }; data: Record<string, unknown> }): Promise<unknown>;
     };
@@ -164,10 +216,23 @@ export interface FbLeadSmsDeps {
   now?: () => Date;
 }
 
+export interface FbLeadSmsPollerConfig {
+  sheetId: string;
+  knownGids: string[];
+  template: string;
+  // Team numbers that get an immediate internal alert for every fresh lead.
+  alertTo: string[];
+  // Booking link; when set, customers who have not replied within
+  // followupAfterMs get one follow-up text carrying it.
+  bookingUrl: string;
+  followupTemplate: string;
+  followupAfterMs: number;
+}
+
 export class FbLeadSmsPoller {
   private timer: NodeJS.Timeout | null = null;
   constructor(
-    private cfg: Pick<FbLeadSmsConfig, 'sheetId' | 'knownGids' | 'template'>,
+    private cfg: FbLeadSmsPollerConfig,
     private deps: FbLeadSmsDeps,
   ) {}
 
@@ -191,9 +256,13 @@ export class FbLeadSmsPoller {
       "leadCreatedAt" TIMESTAMP(3) NOT NULL,
       "status" TEXT NOT NULL,
       "sentAt" TIMESTAMP(3),
+      "followupSentAt" TIMESTAMP(3),
       "error" TEXT,
       "createdAt" TIMESTAMP(3) NOT NULL DEFAULT CURRENT_TIMESTAMP
     )`);
+    await this.deps.prisma.$executeRawUnsafe(
+      `ALTER TABLE "FbLeadSms" ADD COLUMN IF NOT EXISTS "followupSentAt" TIMESTAMP(3)`,
+    );
   }
 
   stop(): void {
@@ -225,27 +294,75 @@ export class FbLeadSmsPoller {
       } catch { /* a single unreadable tab shouldn't stop the others */ }
     }
     for (const lead of leads) {
-      const existing = await this.deps.prisma.fbLeadSms.findUnique({ where: { id: lead.id } });
-      if (existing) continue;
-      if (now.getTime() - lead.createdTime.getTime() > MAX_LEAD_AGE_MS) {
+      let row = await this.deps.prisma.fbLeadSms.findUnique({ where: { id: lead.id } });
+      if (!row) {
+        if (now.getTime() - lead.createdTime.getTime() > MAX_LEAD_AGE_MS) {
+          await this.deps.prisma.fbLeadSms.create({ data: {
+            id: lead.id, phone: lead.phone, name: lead.name, leadCreatedAt: lead.createdTime, status: 'skipped_backlog',
+          } });
+          continue;
+        }
+        // Team alert goes out immediately, day or night; the customer text
+        // still waits for the send window.
+        const alertText = buildAlertText(lead);
+        for (const to of this.cfg.alertTo) {
+          try {
+            await this.deps.sendSms(to, alertText);
+          } catch (err: any) {
+            console.error(`FB lead alert SMS to ${to} failed:`, err?.message || err);
+          }
+        }
         await this.deps.prisma.fbLeadSms.create({ data: {
-          id: lead.id, phone: lead.phone, name: lead.name, leadCreatedAt: lead.createdTime, status: 'skipped_backlog',
+          id: lead.id, phone: lead.phone, name: lead.name, leadCreatedAt: lead.createdTime, status: 'alerted',
         } });
-        continue;
+        row = { id: lead.id, phone: lead.phone, name: lead.name, leadCreatedAt: lead.createdTime, status: 'alerted', sentAt: null, followupSentAt: null };
       }
-      if (!withinSendWindow(now)) continue; // stays unrecorded; retried when the window opens
+      if (row.status !== 'alerted' || !withinSendWindow(now)) continue;
       const text = renderTemplate(this.cfg.template, lead);
       try {
         await this.deps.sendSms(lead.phone, text);
-        await this.deps.prisma.fbLeadSms.create({ data: {
-          id: lead.id, phone: lead.phone, name: lead.name, leadCreatedAt: lead.createdTime, status: 'sent', sentAt: now,
-        } });
+        await this.deps.prisma.fbLeadSms.update({ where: { id: lead.id }, data: { status: 'sent', sentAt: now } });
         console.log(`FB lead SMS sent to ${lead.name} (${lead.phone})`);
       } catch (err: any) {
-        await this.deps.prisma.fbLeadSms.create({ data: {
-          id: lead.id, phone: lead.phone, name: lead.name, leadCreatedAt: lead.createdTime, status: 'failed', error: String(err?.message || err).slice(0, 500),
+        await this.deps.prisma.fbLeadSms.update({ where: { id: lead.id }, data: {
+          status: 'failed', error: String(err?.message || err).slice(0, 500),
         } }).catch(() => undefined);
         console.error(`FB lead SMS to ${lead.phone} failed:`, err?.message || err);
+      }
+    }
+    await this.sendFollowups(now).catch(err => console.error('FB lead follow-up pass failed:', err?.message || err));
+  }
+
+  // One booking-link follow-up per lead, a day after the first text, only for
+  // customers who never replied. Needs a booking URL and inbox access.
+  private async sendFollowups(now: Date): Promise<void> {
+    if (!this.cfg.bookingUrl || !this.deps.hasInbound || !withinSendWindow(now)) return;
+    const candidates = await this.deps.prisma.fbLeadSms.findMany({
+      where: { status: 'sent', followupSentAt: null },
+    });
+    for (const row of candidates) {
+      if (!row.sentAt || now.getTime() - new Date(row.sentAt).getTime() < this.cfg.followupAfterMs) continue;
+      let replied: boolean;
+      try {
+        replied = await this.deps.hasInbound(row.phone, new Date(row.sentAt));
+      } catch (err: any) {
+        console.error(`FB lead reply check for ${row.phone} failed:`, err?.message || err);
+        continue; // retried next poll
+      }
+      if (replied) {
+        await this.deps.prisma.fbLeadSms.update({ where: { id: row.id }, data: { status: 'replied' } });
+        continue;
+      }
+      const firstName = ((row.name || '').split(/\s+/)[0] || 'there').trim() || 'there';
+      const text = this.cfg.followupTemplate
+        .replace(/\{firstName\}/g, firstName)
+        .replace(/\{bookingUrl\}/g, this.cfg.bookingUrl);
+      try {
+        await this.deps.sendSms(row.phone, text);
+        await this.deps.prisma.fbLeadSms.update({ where: { id: row.id }, data: { followupSentAt: now } });
+        console.log(`FB lead follow-up SMS sent to ${row.phone}`);
+      } catch (err: any) {
+        console.error(`FB lead follow-up SMS to ${row.phone} failed:`, err?.message || err);
       }
     }
   }
@@ -269,6 +386,12 @@ export function createFbLeadSms(prisma: FbLeadSmsDeps['prisma']): FbLeadSmsPolle
       sheetId,
       knownGids: (process.env.FB_LEADS_SHEET_GIDS || '516229175,7226798,1364994244').split(',').map(s => s.trim()).filter(Boolean),
       template: process.env.FB_LEAD_SMS_TEMPLATE || DEFAULT_TEMPLATE,
+      alertTo: (process.env.LEAD_ALERT_SMS_TO || '').split(',').map(s => s.trim()).filter(Boolean),
+      // The SMS carries the short branded link; /book redirects to the real
+      // scheduling page (LEAD_BOOKING_URL).
+      bookingUrl: process.env.LEAD_BOOKING_URL ? (process.env.LEAD_BOOKING_SHORT_URL || 'https://hansonhome.us/book') : '',
+      followupTemplate: process.env.FB_LEAD_FOLLOWUP_TEMPLATE || DEFAULT_FOLLOWUP_TEMPLATE,
+      followupAfterMs: Number(process.env.FB_LEAD_FOLLOWUP_HOURS || 24) * 60 * 60 * 1000,
     },
     {
       fetchText: async url => {
@@ -277,6 +400,7 @@ export function createFbLeadSms(prisma: FbLeadSmsDeps['prisma']): FbLeadSmsPolle
         return res.text();
       },
       sendSms: (to, text) => sms.send(to, text),
+      hasInbound: (phone, since) => sms.hasInboundFrom(phone, since),
       prisma,
     },
   );

@@ -7,6 +7,8 @@ CREATE TABLE IF NOT EXISTS "FbLeadSms" (
   "leadCreatedAt" TIMESTAMP(3) NOT NULL,
   "status" TEXT NOT NULL,
   "sentAt" TIMESTAMP(3),
+  "followupSentAt" TIMESTAMP(3),
   "error" TEXT,
   "createdAt" TIMESTAMP(3) NOT NULL DEFAULT CURRENT_TIMESTAMP
 );
+ALTER TABLE "FbLeadSms" ADD COLUMN IF NOT EXISTS "followupSentAt" TIMESTAMP(3);

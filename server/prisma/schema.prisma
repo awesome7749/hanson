@@ -69,14 +69,15 @@ model PartnerDelivery {
 // e.g. "l:123..."). A row means the lead was handled: texted, failed, or
 // skipped because it pre-dated the feature.
 model FbLeadSms {
-  id            String    @id
-  phone         String
-  name          String?
-  leadCreatedAt DateTime
-  status        String // sent, failed, skipped_backlog
-  sentAt        DateTime?
-  error         String?
-  createdAt     DateTime  @default(now())
+  id             String    @id
+  phone          String
+  name           String?
+  leadCreatedAt  DateTime
+  status         String // alerted, sent, replied, failed, skipped_backlog
+  sentAt         DateTime?
+  followupSentAt DateTime?
+  error          String?
+  createdAt      DateTime  @default(now())
 }
 
 model Prediction {

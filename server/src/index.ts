@@ -94,6 +94,13 @@ app.use('/api', createApiRouter(rentcastService, hvacPredictorService, databaseS
 
 app.use('/api', (_req, res) => { res.status(404).json({ error: 'Endpoint not found' }); });
 
+// Short booking link used in lead SMS: hansonhome.us/book -> the scheduling
+// page (Google Calendar appointment page or similar). 404s until configured.
+const bookingUrl = process.env.LEAD_BOOKING_URL;
+if (bookingUrl) {
+  app.get('/book', (_req, res) => { res.redirect(302, bookingUrl); });
+}
+
 // In production, serve the React build as static files
 if (process.env.NODE_ENV === 'production') {
   const publicDir = path.join(__dirname, '../public');
