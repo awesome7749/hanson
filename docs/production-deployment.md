@@ -230,3 +230,29 @@ customer submissions or migrations were performed for this frontend change.
 Immediate rollback:
 
     gcloud run services update-traffic hanson-app --to-revisions=hanson-app-gallery-20261007=100 --region=us-east1 --project=hanson-hvac --account=gaohan1990@gmail.com
+
+## Installation carousel autoplay deployment (October 7, 2026)
+
+Production serves `hanson-app-autoplay-20261007-f45b419` at 100% traffic.
+Source: `f45b419`, including main through `3ba7a00`; PR #20.
+Image: `gcr.io/hanson-hvac/hanson-app@sha256:141d9ba6e62e1874daf97915936051081e345dd4d8394c1a6ae1d2f84db046db`.
+Cloud Build: `5ca6ecd5-b237-42cf-8a64-13fa4b880d0e`.
+
+Installation photos advance every six seconds while visible and return to the
+start after the final frame. Autoplay pauses on hover, in hidden tabs, during
+enlarged viewing and after touch, keyboard or manual navigation. A play/pause
+button permits explicit control; reduced-motion preferences disable autoplay
+by default. Existing responsive framing and full-photo viewing are retained.
+
+Validation: all 91 frontend tests passed; the production build succeeded.
+Tests cover timing, looping, offscreen/hidden states, hover, pause/resume, touch
+and reduced motion. Local, staged and live browser checks confirmed automatic
+advancement and pause/resume; the public pause held its scroll position.
+Staged/public smoke checks passed homepage/bundles, all ten photo assets,
+blog/program routes, health, non-California tracking policy and public staff
+isolation. The ops homepage returns 200. No runtime settings, integrations,
+database schema or customer records were changed for this frontend update.
+
+Immediate rollback:
+
+    gcloud run services update-traffic hanson-app --to-revisions=hanson-app-carousel-20261007-3323135=100 --region=us-east1 --project=hanson-hvac --account=gaohan1990@gmail.com
